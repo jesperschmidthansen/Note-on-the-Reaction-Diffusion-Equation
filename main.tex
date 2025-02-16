@@ -1,0 +1,114 @@
+\documentclass[10pt, b5paper]{book}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage[titletoc]{appendix}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\st}{\text{fix}}
+\renewcommand{\vec}{\mathbf}
+\newcommand{\matrx}{\mathbf}
+\newcommand{\vecs}{\boldsymbol}
+\newcommand{\fourier}{\widetilde}
+
+\renewcommand{\d}{\mathrm{d}}
+
+
+\newenvironment{exerciseregion}{
+  \par\medskip
+  \noindent \centerline{\rule{5cm}{1.pt}}
+}{\medskip }
+
+\newenvironment{theorem}[1][]{
+  \par\medskip  \noindent \textit{Theorem} \rmfamily
+} {$\circ$\par\medskip}
+
+\newenvironment{proof}[1][]{
+  \par\medskip  \noindent \textit{Proof} \rmfamily
+} {$\bullet$\medskip}
+
+
+\newcounter{example}%[section]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+  \noindent \textbf{Example~\theexample #1} \rmfamily}{$\diamond$\medskip}
+
+%\newcounter{question}%[section]
+%\newenvironment{question}[1][]{\refstepcounter{question}\par\medskip
+%   \noindent \textbf{Question~\thequestion #1} \rmfamily}{\medskip}
+
+\newenvironment{question}{
+  \par\medskip
+  \noindent \textbf{Question} \rmfamily
+}{\medskip}
+
+\newcounter{exploration}%[section]
+\newenvironment{exploration}[1][]{\refstepcounter{exploration}\par\medskip
+   \noindent \textbf{Exploration~\theexploration #1} \rmfamily}{\medskip}
+
+ \newcounter{exercise}%[section]
+\newenvironment{exercise}[1][]{\refstepcounter{exercise}\par\medskip
+   \noindent \textbf{Exercise~\theexercise #1} \rmfamily}{\medskip}
+
+
+\title{A note on the Reaction-Diffusion Equation}
+\author{Jesper S. Hansen}
+\date{Fall 2024}
+
+\begin{document}
+\maketitle
+
+\input{preface}
+
+\clearpage
+
+\tableofcontents
+
+
+\chapter{Introduction}
+\input{intro.tex}
+
+%\clearpage
+
+\chapter{The steady-state: Boundary value problems\label{sect:BV}}
+\input{stst.tex}
+
+%\clearpage
+
+\chapter{The diffusion equation}
+\input{diff.tex}
+
+%\clearpage
+
+\chapter{Reaction-diffusion phenomena\label{ch:rd}}
+\input{rd.tex}
+
+%\clearpage
+
+
+%\begin{appendices}
+%\appendixpage
+%\noappendicestocpagenum
+%\addappheadtotoc
+\chapter{Appendices}
+
+\input{fourier.tex}
+
+\input{ftcs.tex}
+
+\input{existence.tex}
+%\end{appendices}
+
+\end{document}

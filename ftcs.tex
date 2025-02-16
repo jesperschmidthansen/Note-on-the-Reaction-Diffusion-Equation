@@ -1,0 +1,176 @@
+
+\section{The FTCS algorithm} \label{sect:ftcs}
+%\section{Appendix B}
+Before advicing a numerical scheme for the diffusion equation it is
+illustrative to first see an example a scalar differential equation, and how this 
+can be solved numerically. In particular, it will introduce some of the symbolism we will use 
+later.
+
+We consider the general first order problem 
+\begin{equation}
+  \label{eq:I:difscalar}
+  \frac{\d c}{\d t} = c'(t) = f(c, t) \ , \ \ \ c(t_0)=c_0
+\end{equation}
+such that $c: I \rightarrow \R$, $I \subseteq \R$ and $f$ is known, of course. 
+This defines an \emph{inital value problem}; for these problems we usually use $t$ 
+as the free variable rather than $x$. 
+
+We assume that the function $c$ can be represented by a  
+Taylor series, i.e., by definition $c$ is analytical in all interior points in $I$. (We actually do not need this strict condition, but it will 
+save us some headaches.) We then Taylor expand $c$ around an interior point $a \in I$
+\begin{eqnarray}
+	c(t) = c(a) + c'(a)(t-a) + \sum_{k=2}^\infty   \frac{c^{(k)}(a)}{k!}(t-a)^k \, . 
+\end{eqnarray}
+We will write this is in a slightly different way by introducing $\Delta t = t -a$
+\begin{eqnarray}
+  c(a + \Delta t) &=& c(a)+c'(a)\Delta t + \sum_{k=2}^\infty
+  \frac{c^{(k)}(a)}{k!}\Delta t^k \nonumber \\ &=&
+  c(a)+c'(a)\Delta t + \bigo(\Delta t^2)
+\end{eqnarray}
+where $\Delta t = t-a$. $\bigo$ is the remainder function (called
+big-O) and the argument to $\bigo$ indicates the lowest order in
+$\Delta t$, here $\Delta t^2$. Loosely speaking, we say that
+$\bigo(\Delta t^{k})$ goes faster to zero than $\bigo(\Delta t^{k-1})$
+as $\Delta t$ goes to zero. Re-arranging gives
+\begin{equation}
+  \label{eq:o1}
+  c'(a) = \frac{c(a+\Delta t)-c(a)}{\Delta t} - \bigo(\Delta t)
+\end{equation}
+using $\bigo(\Delta t^2)/\Delta t = \bigo(\Delta t)$. 
+Substitution into the original differential equation, Eq. (\ref{eq:I:difscalar}), and re-arranging 
+gives  
+\begin{equation}
+  c(a+\Delta t) = c(a) + \Delta t f(c(a), a) + \bigo(\Delta t^2) \, .
+\end{equation}
+To use this in practise we can let $t_0=0$, that is, we have the
+initial condition $c(0)=c_0$. Then, we have by substitution
+\begin{eqnarray}
+  c(\Delta t) &=& c_0 + \Delta t f(c_0, 0) +
+  \bigo(\Delta t^2) \nonumber \\
+  c(2\Delta t) &=& c(\Delta t) + \Delta t
+	f(c(\Delta t), \Delta t) + \bigo(\Delta t^2) \nonumber \\
+  &\ldots& \nonumber \\
+  c((n+1)\Delta t) &  =& c(n\Delta t) +
+  \Delta t f(c(n\Delta t), n\Delta t) + \bigo(\Delta t^2)
+  \label{eq:I:iteration} \\
+  &\ldots& \nonumber
+\end{eqnarray}
+This presents an iterative scheme: from $c(0)=c_0$ we evaluate the
+function value at $t=\Delta t$, and from this the value at $t=2\Delta
+t$, etc. This is the simplest numerical scheme we can compose, and it is called the
+\emph{first order forward Euler scheme} or just the Euler scheme.
+
+Usually we replace the argument with the iteration index such that
+$c(n \Delta t) = c^n$. Eq. (\ref{eq:I:iteration}) is then
+written as (leaving out the $\bigo$-function)
+\begin{equation}
+  c^{n+1} = c^n + \Delta t f(c^n, n\Delta t)
+\end{equation}
+The Euler scheme is called an explicit scheme because the
+value at time $(n+1)\Delta t$ is given explicitly in terms of values
+at time $n\Delta t$. It is important to note that explicit schemes are
+so called non-symplectic and they cannot be used to solve problems
+where there is a system constant, for example, a constant energy.
+
+\bigskip
+
+\noindent Moving on to the diffusion equation. Recall, for a Dirichelt problem we have 
+\begin{equation}
+  \frac{\partial c}{\partial t} = \frac{\partial^2 c}{\partial
+    x^2}
+\end{equation}
+with boundary and initial values
+\begin{equation}
+	c(x,0) = f(x) \ \ \mbox{and} \ \ c(0,t) = c_0 \ \ c(L,
+  t) = c_L \, .
+\end{equation}
+Again $c$ is analytical on its domain, $t \geq 0$, and $0\leq x \leq L$. 
+
+Keeping $x$ fixed we can Taylor expand with respect to $t$ giving
+\begin{equation}
+  c(x, a+\Delta t) = c(x,a) + \left.\frac{\partial c}{\partial
+    t}\right|_{t=a}\Delta t + \bigo(\Delta t^2) \, ,
+\end{equation}
+or equivalently
+\begin{equation}
+  \left. \frac{\partial c}{\partial t}\right|_{t=a} = 
+  \frac{c(x, a+\Delta t)- c(x,a)}{\Delta t} - \bigo(\Delta t) \, .
+\end{equation}
+Now, keep $t$ fixed. We Tayler expand up to second order with respect to $x$, thus, 
+around a point $0<b<L$ we get 
+\begin{equation}
+  c(b+\Delta x, t) = c(b,t) + \left.\frac{\partial c}{\partial x}\right|_{x=b}\Delta
+  x + \left.\frac{1}{2}\frac{\partial^2 c}{\partial x^2}\right|_{x=b} \Delta x^2 +
+  \bigo(\Delta x^3)
+  \label{eq:I:2orderf}
+\end{equation}
+where $\Delta x = x-b$. There is an annoying first order derivative
+here; thankfully we can eliminate this by noting that
+\begin{equation}
+  c(b-\Delta x, t) = c(b,t) - \left.\frac{\partial c}{\partial x}\right|_{x=b} \Delta
+  x + \left.\frac{1}{2}\frac{\partial^2 c}{\partial x^2}\right|_{x=b} \Delta x^2 +
+  \bigo(\Delta x^3)
+   \label{eq:I:2orderb}
+\end{equation}
+Hence, addition of Eqs.(\ref{eq:I:2orderf}) and (\ref{eq:I:2orderb})
+gives
+\begin{equation}
+  c(b+\Delta x, t) + c(b-\Delta x, t) = 2 c(b,t) + \left.\frac{\partial^2
+    c}{\partial x^2}\right|_{x=b} \Delta x^2 + \bigo(\Delta x^4)
+\end{equation}
+or
+\begin{equation}
+  \left.\frac{\partial^2 c}{\partial x^2}\right|_{x=b} =
+  \frac{c(b+\Delta x, t) - 2 c(b,t) + c(b-\Delta x, t) }{\Delta x^2} -
+  \bigo(\Delta x^2) \label{eq:I:secondorder}
+\end{equation}
+Again, we replace the arguments with iteration index, i.e.,
+\begin{eqnarray}
+	c(x,t)&=&c_i^n \nonumber \, \\
+	c(x,t+\Delta t)&=&c_i^{n+1} \, \nonumber \\ 
+	c(b+\Delta x,t)&=&c_{i+1}^n \, \nonumber \\
+	c(b-\Delta x,t) &=& c_{i-1}^n \,
+	\end{eqnarray}
+and we write the diffusion equation as (leaving out the $\bigo$s)
+\begin{equation}
+\frac{c_i^{n+1} - c_i^n}{\Delta t} \approx \frac{c_{i-1}^n -
+  2c_i^n + c_{i+1}^n}{\Delta x^2} 
+\end{equation}
+readily giving the iterative scheme for point $i$
+\begin{equation}
+  c_i^{n+1} = c_i^n + \Delta t \left[\frac{c_{i-1}^n -2c_i^n +
+    c_{i+1}^n}{\Delta x^2}\right] \, .
+\end{equation}
+This scheme is called the forward time centered space (FTCS) algorithm
+and is also an explicit scheme. 
+
+\begin{exerciseregion}
+    \begin{exercise}    
+    Consider the differential equation
+    \begin{equation}
+        \label{eq:expl1}
+		c'(t) = 1 - c \ \text{with} \ c(0) = 0
+    \end{equation}
+	Solve this initial value problem. Then impliment the Euler scheme and solve the
+	problem numerically. (Use your favorite programming language; if this
+	is Java you are on your own!)  Test your implementation against the
+    analytical result.
+    \end{exercise}
+    
+    \noindent Note: The error we make at each time step can be evaluated
+    directly from the higher order Taylor polynomial terms if the function
+    $c$ is known. Use this fact if you wish.
+
+ \begin{exercise}
+  Let $c(x) = 1-x^2$, where $0 \leq x \leq 1$ and $c(0)=c(1)=0$. Use
+  Eq. (\ref{eq:I:secondorder}) to calculate the second order
+  derivative. Compare to the analytical result. Make a plot of the
+  error as function of $\Delta x$.   
+\end{exercise}
+
+\begin{exercise}
+  Implement the FTCS alorithm. Use this to solve a diffusion problem
+  where the analytical solution is known. Discuss possible errors.
+\end{exercise}
+
+\end{exerciseregion}

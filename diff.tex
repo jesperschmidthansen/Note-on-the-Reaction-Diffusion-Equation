@@ -1,0 +1,996 @@
+
+If the system is non-reactive, $r=0$, the RD-equation reduces to the diffusion equation. If the 
+diffusion coefficient is constant this is in one dimension (and Cartesian
+coordinates, of course)
+\begin{equation}
+	\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} \, .
+\end{equation}
+To solve this problem we need an IC, $c(x,0)$, and BCs which can be of the Dirichlet type, Neuman type
+or a mix of the two. 
+
+Before we explore the diffusion equation, we must first have some fundamental knowledge about   
+the famous Fourier series and the Euler-Fourier equations as they play a key role in 
+this exploration. 
+
+\section{\label{sect:fourier}Periodic functions and the Fourier series}
+
+\begin{wrapfigure}{R}{0.4\textwidth}
+	\centering
+	\includegraphics[width=0.35\textwidth]{figs/sawtooth.eps}
+	%\caption{\label{fig:img2} Perturbation}
+\end{wrapfigure}
+\paragraph{}
+\vspace*{-\parskip}
+
+In this text, a periodic function is a function defined on a subset $S$ in $\mathbb{R}$
+and which has repeating values such that for $p \neq 0$ 
+\begin{equation}
+	f(x)=f(x+p)  \, 
+\end{equation}
+where $x \in S$ and $x + p \in S$. $p$ is called the function period. 
+$p$ is not unique; the least value for $p$ is referred to as 
+the \emph{fundamental period}, e.g., the functions cosine and sine 
+have fundamental period 2$\pi$. Another, and less trivial example, is the \emph{sawtooth
+function}
+\begin{equation}
+ s(x) = x - \lfloor x \rfloor \, ,
+\end{equation}
+here  $\lfloor x \rfloor$ is the floor function, defined such that $\lfloor -0.5 \rfloor = -1,
+\lfloor 0.5 \rfloor = 0$, $\lfloor 1 \rfloor = 1$, and so forth. 
+The sawtooth function as a fundamental period of 1, and since the left and right function
+limits in points $x=\ldots -2,-1,0,1,2, \ldots$ exist, but are different $s$ features
+\emph{jump discontinuities} in these points. 
+
+Another way of defining the sawtooth function is to \emph{periodically expand} the 
+function $f(x) = x$, where $0 \leq x < 1$. The expansion is then given as 
+\begin{eqnarray}
+	s(x) = f(x + np) \ , 
+\end{eqnarray}
+with $p=1$ and $n \in \mathbb{Z}$.
+
+The sawtooth function is defined on the entire real line and $S=\R$. We can define another (and related) 
+periodic function with fundamental period 1 using the periodic expansion of $f(x)=x$, 
+but where $0 < x < 1$. Here $S=\R \backslash \{\mathbb{Z}\}$. 
+
+Now, a question relevant to us is how a periodic function can be "represented" by a function 
+series. What we mean by a representation will hopefully be clear as we go on. 
+The well known Taylor series (or in general any power series) will not be a good choice 
+since a necessary condition here is that the function must be  
+infinitely differentiable on its domain. $s$ above clearly does not fulfill 
+this when $x$ takes integer values, $\ldots -2,-1,0,1,2, \ldots$. 
+Even if the function is analytical and therefore has a Taylor series, 
+this is not very practical choice since the Taylor 
+series converges slowly for periodic functions. Then, we suggest to represent the function as 
+a series of known periodic functions, that is, 
+\begin{equation}
+	\label{eq:Fouriereq}
+	F(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi }{L} \, x\right) 
+	+ \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi }{L} \, x\right) \, .
+\end{equation} 
+This is the famous \emph{Fourier series}, and the 
+coefficients $a_0, a_1, a_2, \ldots$, $b_1, b_2, b_3, \ldots$ are called the 
+\emph{Fourier coefficients}, and $n$ the \emph{wave number}. 
+By the way, an important point here is that a sum of periodic functions is also periodic. 
+
+\begin{example}
+	The function $f(x) = 2\cos(2\pi x/L) + 3\sin(4\pi x/L)$ has two non-zero 
+	Fourier coefficients, namely, $a_2=2$ and $b_4=3$. 
+\end{example}
+
+\begin{example}
+	The general solution in Eq. (\ref{eq:2ndorderseries}) is a Fourier series with $a_n = 0$,
+	$\forall n \in \mathbb{N}_+$.
+\end{example}
+
+\noindent $L$ that enters in the denominator needs to be clarified. $n=1$ is the 
+\emph{fundamental term} or \emph{fundamental mode} and note that 
+$\cos(\pi x/L)$ and $\sin(\pi x/L)$ have one period in the interval $[-L; L]$, 
+that is, the period for the fundamental mode is $p=2L$. 
+For $n=2$ the period is $L$, $n=3$ the period is $2/3L$, and so forth;  
+in general the relation between the mode period and $L$ is 
+\begin{eqnarray}
+	p = \frac{2L}{n} \, .
+\end{eqnarray}
+Often the Fourier series is expressed through the \emph{wave vector} $k_n=2\pi/p = n\pi/L$, that is,
+\begin{equation}
+	F(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(k_n \, x\right) 
+	+ \sum_{n=1}^\infty b_n \sin\left(k_n\, x\right) \, .
+\end{equation} 
+The mathematician will rightfully ask: "Exactly when can a periodic function be represented 
+(whatever that means) by a Fourier series?". The more insightful answer to this question 
+requires a rather long introduction to different types of series 
+convergence which we will avoid. For our purpose, it suffice to state that a
+function can be represented by a Fourier series if the function is
+\begin{enumerate}
+	\item piecewise continuous on the interval $x_0 < x < x_0 + L$, 
+		that is,  the function domain can be partitioned into a finite set of open 
+		intervals where the function is continuous, and 
+	\item bounded on the domain, that is, there exists an 
+		$M \in \R$ such that $|f(x)| \leq M$, for all $x$ in the domain $S$.
+\end{enumerate}
+The sawtooth function is clearly bounded. Moreover, we can partition each of the intervals 
+$\ldots, -1 \leq x < 0, 0 \leq x < 1, \ldots$ into one open continuous interval 
+$\ldots, -1 < x <0$, $0 < x < 1, \ldots$ Therefore, $s$ can be represented by a
+Fourier series. That the sawtooth function can be represent by $F$ does not mean that the two
+functions are equal in every point in the domain: $s(x) \neq F(x)$ 
+in the jump discontinuities even if the two conditions above are fulfilled. We
+therefore write the representation as
+\begin{equation}
+	\label{eq:sawtoothFourier}
+	s(x)  \sim F(x) \, .
+\end{equation}
+
+Now, it remains to find the Fourier coefficients in the representation. 
+To this end we need to know about \emph{orthogonality} of functions. Let $f,g: I \rightarrow \R$, 
+where $I = [a; b]$, then the \emph{inner product} on $I$ is defined as
+\begin{eqnarray}
+	\label{eq:innerdef}
+	\langle f,g\rangle= \int_a^b f(x) g(x) \, \d x \, .
+\end{eqnarray}
+We say that $f$ and $g$ are orthogonal on $I$ if $\langle f,g \rangle = 0$. 
+
+We shall benefit from the following properties of the sine and cosine functions on
+$I=[-L;L]$ 
+\begin{enumerate}
+	\item $\cos\left(\frac{n\pi x}{L}\right)$ and  
+		$\sin\left(\frac{m\pi x}{L}\right)$ are orthogonal for all $n,m
+		\in \mathbb{N}_ +$
+	\item  $\cos\left(\frac{n\pi x}{L}\right)$ and  
+		$\cos\left(\frac{m\pi x}{L}\right)$ are orthogonal if $n \neq
+		m$, otherwise if $n=m$ the inner product is $L$.
+	\item  $\sin\left(\frac{n\pi x}{L}\right)$ and  $\sin\left(\frac{m\pi
+		x}{L}\right)$ are orthogonal if $n \neq
+		m$, otherwise if $n=m$ the inner product is $L$.
+\end{enumerate}
+These statements can be verified from direct calculations. For example, 
+\begin{eqnarray}
+	\left \langle \cos\left(\frac{n\pi }{L}x\right), \sin\left(\frac{m\pi
+	}{L}x\right) \right \rangle &=&  \int_{-L}^L \cos\left(\frac{n\pi}{L}x\right) \sin\left(\frac{m\pi
+	}{L}x\right) \, \d x
+	\nonumber \\
+	&=& \frac{1}{2} \int_{-L}^L
+	\sin\left(\frac{(n+m)\pi}{L}x\right)+\sin\left(\frac{(m-n)\pi}{L}x\right) \, \d x 
+	\nonumber \\
+\end{eqnarray}
+using the product rule $2\cos(a)\sin(b) = \sin(a+b) + \sin(a-b)$. This integral is
+always zero, hence, the functions are orthogonal. 
+
+We are now ready for the section's main theorem
+\begin{theorem}
+	If the Fourier series representation of $f:\mathbb{R} \rightarrow \mathbb{R}$ 
+	equals the function, i.e., if $f(x)=F(x)$ for all $x \in \R$, then
+	\begin{description}[style=unboxed,leftmargin=0.5cm]
+		\item[1] $\langle f(x), 1 \rangle = La_a$
+		\item[2] $\left \langle f(x), \cos\left(\frac{n \pi}{L}x\right)
+			\right\rangle = L a_n$
+		\item[3] $\left \langle f(x), \sin\left(\frac{n \pi}{L}x\right)
+			\right\rangle = L b_n$
+	\end{description}	
+	on $I=[-L; L]$, and where $n\in\mathbb{N}_+$. These are the \emph{Euler-Fourier
+	equations.}  
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Since $f(x)=F(x)$  
+			\begin{eqnarray}
+				\label{eq:f=F}
+				f(x) =  \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(k_n \, x\right) 
+										+ \sum_{n=1}^\infty b_n \sin\left(k_n\, x\right) \, .
+			\end{eqnarray}
+			Integrating both sides from $-L$ to $L$ 
+		\begin{eqnarray}
+			 \int_{-L}^{L}f(x) \d x = \frac{a_0}{2} \int_{-L}^L \d x + \int_{-L}^L \sum_{n=1}^\infty a_n 
+				\cos\left(\frac{n\pi }{L} \, x\right) \d x + \int_{-L}^L \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi 
+				}{L} \, x\right) \d x \nonumber \\
+		\end{eqnarray}
+		We can interchange integration and summation in the last two terms; this is due to the fact that 
+		the two function series converges uniformly. Then, for all $n \in \mathbb{N}_+$ we have  
+		\begin{equation}
+			\int_{-L}^L  \cos\left(\frac{n\pi }{L} \, x\right) \d x = 0 \ \text{and} \ 
+			\int_{-L}^L  \sin\left(\frac{n\pi }{L} \, x\right) \d x = 0 \ , 
+		\end{equation}
+		and therefore
+		\begin{equation}
+			\label{eq:a0}
+			 \int_{-L}^L f(x) \d x = \frac{a_0}{2}   \int_{-L}^L \d x
+			 \Rightarrow a_0 = \frac{1}{L} \int_{-L}^L f(x) \d x \, . 
+		\end{equation}
+		This is the result we are after.
+		
+	\item  Multiplying Eq. (\ref{eq:f=F}) with $\cos(m \pi x/L)$, $m=1,2,3, \ldots$ 
+		and integrate from $-L$ to $L$
+		\begin{eqnarray}
+			\int_{-L}^{L}\cos\left(\frac{m\pi }{L} \, x\right) f(x)\d x &=&
+				 \frac{a_0}{2} \int_{-L}^L \cos\left(\frac{m\pi }{L} \, x\right) \d x 
+				 \nonumber \\
+				 &+& \int_{-L}^L \sum_{n=1}^\infty a_n\cos\left(\frac{m\pi }{L} \, x\right) 
+				 \cos\left(\frac{\pi n}{L} \, x\right) \d x 
+				\nonumber \\
+				&+& \int_{-L}^L \sum_{n=1}^\infty b_n \cos\left(\frac{m\pi }{L} \, x\right)   \sin\left(\frac{n\pi }{L} 
+				\, x\right) \d x 
+				\nonumber \\
+			\label{eq:pointii}
+		\end{eqnarray}
+		The first term on the right-hand side is zero. For the second term 
+		we again interchange the integration and summation, giving raise to
+		integrals with relations
+		\begin{eqnarray}
+			\int_{-L}^L \cos\left(\frac{m\pi }{L} \, x\right) \cos\left(\frac{\pi n}{L} \, 
+			x\right) \d x = L \delta_{mn} .
+		\end{eqnarray}
+		comming the orthogonality properties above. $\delta_{mn}$ is the Kronecker delta, 
+		$\delta_{mn}=1$ if $m=n$, otherwise if $m \neq n$ then $\delta_{mn}
+		= 0$. This means that all terms are zero except for $m=n$. The third term 
+		yields integrals on the form
+		\begin{eqnarray}
+			\int_{-L}^L \cos\left(\frac{m\pi }{L} \, x\right)
+			\sin\left(\frac{n\pi }{L}	\, x\right) \, \d x = 0 
+		\end{eqnarray}
+		since cosine and sine are ortohgonal on $I$. 
+
+		Therefore, Eq. (\ref{eq:pointii}) simplifies to
+		\begin{equation}
+			\int_{-L}^{L}\cos\left(\frac{m\pi }{L} \, x\right) f(x)\d x  = a_n \int_{-L}^L  
+			\cos\left(\frac{\pi n}{L} \, x\right) \cos\left(\frac{\pi n}{L} \, x\right) \d x = L a_n \ , 
+		\end{equation}
+		that is,
+		\begin{equation}
+			\label{eq:an}
+			a_n = \frac{1}{L} \int_{-L}^L \cos\left(\frac{n\pi }{L} \, x\right)
+			f(x)\d x \, . 				\ \ (n=1,2,3, \ldots)
+		\end{equation}
+		Notice that if we allow $n=0$ we arrive at Eq. (\ref{eq:a0}). This explains the choice 
+		of symbol for the constant term in the Fourier series.
+	\end{enumerate}
+	The last equation is left as an exercise.
+\end{proof}
+
+
+\noindent We now make a very important definition: The Fourier representation of a function $f$ is the Fourier
+series with coefficients given by the Euler-Fourier equations if these exist.  
+
+\begin{example}
+	Find the Fourier coefficients of the sawtooth function. Then write-down the Fourier series representation.
+	
+	\bigskip
+	
+	\noindent $a_0$: We use $L=1$, then from Eq. (\ref{eq:a0}).
+	\begin{equation}
+		a_0 = \int_{-1}^1 s(x) \, \d x = \int_{-1}^0 x + 1\, \d x + \int_{0}^1 x \, \d x = 1 \ .  
+	\end{equation}
+	
+
+	\noindent $a_n$: Rather than simply embarking on the tedious task of integrating Eq. 
+	(\ref{eq:an}) we can re-arrange the integral, which leaves the problem straight forward. 
+	Substituting for $s$ we get 
+	\begin{eqnarray}
+		\int_{-1}^1 s(x) \cos(n\pi x) \, dx &=& \int_{-1}^0 (x+1) \cos(n\pi x) \, \d x + \int_{0}^1 
+			x\cos(n\pi x) \, \d x \nonumber \\
+			&=& \int_{-1}^1 x \cos(n\pi x) \d x + \int_{-1}^0 \cos(n \pi x) \, \d x
+	\end{eqnarray}
+	The first term is an integral over an odd function and this gives zero. For the last 
+	term we get 
+	\begin{equation}
+		 \int_{-1}^0 \cos(n \pi x) \, \d x = \left. \frac{1}{n\pi} \sin (n\pi x)\right|_{-1}^0 = 0 \, .
+	\end{equation}
+	thus, $a_n=0, n = 1,2,3,\ldots$ 
+
+	\noindent $b_n$: Following the protocol above we have  
+		\begin{eqnarray}
+		\int_{-1}^1 s(x) \sin(n\pi x) \, dx  
+			= \int_{-1}^1 x \sin(n\pi x) \d x + \int_{-1}^0 \sin(n \pi x) \, \d x
+			\label{eq:sfourierb2}
+		\end{eqnarray}
+		Using integration by parts the first integral is evaluated to 
+		\begin{eqnarray}
+			 \int_{-1}^1 x \sin(n\pi x) \d x = \left .  - \frac{1}{n\pi}
+			 x\cos(n\pi x)\right|_{-1}^1 - \int_{-1}^1 \sin(n\pi x) \, \d x
+		 \end{eqnarray}
+	
+	\begin{wrapfigure}[17]{R}{0.4\textwidth}
+	\centering
+	\includegraphics[width=0.35\textwidth]{figs/fouriersawtooth.eps}
+	\caption*{}
+	\end{wrapfigure}
+%\paragraph{}
+%\vspace*{-\parskip}
+
+
+
+	Sine is an odd function and the second integral is zero. Using the two relations
+		\begin{equation}
+			\cos(n\pi) = (-1)^n \ \text{and} \ \cos(n\pi) = \cos(-n \pi)
+		\end{equation}
+		we then get $\int_{-1}^1 x \sin (n\pi x) = -2(-1)^n/n\pi$. The second integral in Eq. 
+		(\ref{eq:sfourierb2}) evaluates to 
+		\begin{equation}
+			\int_{-1}^0 \sin(n \pi x) \, \d x = - \frac{1 - (-1)^n}{n\pi}
+		\end{equation}
+		and we get 
+		\begin{equation}
+			b_n = -\frac{1 + (-1)^n}{n \pi} \, .
+		\end{equation}	 
+		The Fourier series representation of the sawtooth function is therefore
+		\begin{equation}
+			\label{eq:fouriersaw}
+			s(x) \sim \frac{1}{2} - \sum_{n=1}^\infty  \frac{1 + (-1)^n}{n \pi} \sin(n\pi x) 
+		\end{equation}
+		Note that when $n$ is odd the nominator in the summation is zero, and we can simply 
+		let $n$ run over the even natural numbers.
+\end{example}
+
+
+\noindent From Eq. (\ref{eq:fouriersaw}) we see that for $x \in \Z$ the Fourier representation yields 
+the value 1/2, but this is not the value of the sawtooth function itself. 
+It is a general feature of the Fourier representation that at point $x_0$ it has value of the average of the right and 
+left limits of the function $f$ it represents (so these must exist). That is, we have
+\begin{eqnarray}
+	F(x_0) = \frac{ \lim_{x \rightarrow x_0^+}f(x) + \lim_{x \rightarrow
+	x_0^-}f(x) }{2} \, , \ \  x_0 \in \mathbb{R} \, . \nonumber \\
+\end{eqnarray}
+In points where the function is continuous 
+the Fourier representation value then equals the function value. 
+
+When visualizing the Fourier series we cannot plot the actual series as this means adding 
+infinitely many terms. Rather we plot the \emph{partial Fourier sums} (or just 
+the partial sums); for the sawtooth function we can write the partial sum from 1 to $m$ as 
+\begin{eqnarray}
+	s_m(x) = \frac{1}{2} - \sum_{n=1}^m  \frac{1 + (-1)^n}{n \pi} \sin(n\pi x) \, .
+\end{eqnarray}
+We can now define the remainder $R_m(x) = s(x) - s_m(x)$. The remainder $R_{50}$ is plotted in Fig. 
+\ref{fig:remainder-fourier} (a) for the sawtooth function. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.35]{figs/remainderFourier.eps}
+		\caption{\label{fig:remainder-fourier}
+			(a) The remainder function for the sawtooth function.
+			(b) The Fouier coefficient, $b_n$, as function of $n$.
+		}
+	\end{center}
+\end{figure}
+We see a large disagreement in neighbourhoods around 
+the points of discontinuities, which is manifested as large amplitude oscillations. This is known 
+as the \emph{Gibbs phenomenon}. 
+
+In Fig. \ref{fig:remainder-fourier} (b) the Fourier coefficients, $b_n$, are plotted as function of $n$ (for 
+$n$ odd $b_n$ is not shown). We see that the coefficients decrease, giving us the hope that the Fourier series 
+actually converges. Needless to say, a convincing argument requires a proof, which we do not pursue here. 
+
+\begin{exerciseregion}
+	\begin{exercise}
+		\begin{enumerate}
+			\item Proof that Eq. (\ref{eq:innerdef}) defines an inner product. (You may have 
+				to recall the exact definition of an inner product.) 
+			\item Show that $f(x) = x$ and $g(x)=x^2 - 1$ are orthogonal on $I=[-1,1]$, but not on $I=[-1;2]$. 
+		\end{enumerate}		
+	\end{exercise}
+
+	\begin{exercise}
+		Proof the Euler-Fourier equation $ \langle f(x),
+		\sin\left(\frac{n\pi}{L}x\right)\rangle = Lb_n$
+	\end{exercise}
+		
+	\begin{exercise}
+		Consider the function
+		\begin{eqnarray}
+			f(x) = 
+			\begin{cases} 
+			      0 & -L \leq x < 0 \\
+				  c_0 & 0 \leq x < L
+   			\end{cases}
+		\end{eqnarray}
+		\begin{enumerate}
+			\item Sketch a periodic expansion of $f$.  Where do you expect the
+				Gibbs phenomenon to arise?
+			\item Find the Fourier series representation of $f$.
+			\item Plot the partial sums and the remainder for $m=3,9,99$. (Why the odd index?)
+		\end{enumerate}			
+	\end{exercise}
+
+	\begin{exercise} \label{ex:fourierevenodd}
+		(Mandatory) An even function is defined as a function where $f(x) = f(-x)$ and an odd function a function
+		where $f(x) = -f(-x)$. For example, cosine is even and sine odd. It is quite easy to show 
+		that, for example,  
+		\begin{itemize}
+			\item the sum of even functions results in an even function,
+			\item a sum of odd functions results in an odd function,
+			\item if $f$ is even \[ \int_{-L}^L f(x) \d x = 2\int_0^L f(x) \d x\] 
+			\item if $f$ is odd \[ \int_{-L}^L f(x) \d x = 0 \] 
+		\end{itemize}	
+		Therefore, if $f$ is even the Fourier series is also 
+		even resulting in the \emph{cosine series}
+		\begin{eqnarray}
+			\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi}{L}x\right) \, .
+		\end{eqnarray}
+		If $f$ is odd the Fouier series is odd giving the \emph{sine series}
+		\begin{eqnarray}
+			\sum_{n=1}^\infty b_n \sin\left(\frac{n\pi}{L}x\right) \, .
+		\end{eqnarray}
+		Consider the function $f(x) = x^2$, $-2<x<2$, i.e., $L=2$.
+		Find the Fourier series representation. Is the result consistent with the exercise preamble?
+	\end{exercise}
+	
+	\begin{exercise}
+		Prove that the product of two odd functions is an even function. Is the product between to 
+		even functions then an odd function?
+		\end{exercise}
+
+	\begin{exploration}
+		In many "real life" situations you may not have a function definition for the periodic function or the 
+		Euler-Fourier integrals are untractable. Then the coefficients 
+		can be found by numerical methods. Go to Appendix \ref{appendix:fourier}.
+	\end{exploration}
+\end{exerciseregion}
+
+\section{The diffusion equation with Dirichlet BCs}
+After Sect. \ref{sect:fourier} we are ready to explore the diffusion equation
+\begin{eqnarray}
+	\frac{\partial c}{\partial t} = D\frac{\partial^2c}{\partial x^2} \, .
+\end{eqnarray}
+We will use the general IC 
+\begin{eqnarray}
+	c(x, 0) = f(x) \, ,
+\end{eqnarray}
+and Dirichlet BCs 
+\begin{eqnarray}
+	\label{eq:bcstart}
+	c(0, t) = c(L,t) = 0 \, .
+\end{eqnarray}
+The starting point is that we assume $c$ can be written as a product of two function, $X$ and $T$, which 
+depends on $x$ and $t$, respectively. That is,
+\begin{eqnarray}
+	c(x,t) = X(x)T(t) \, .
+\end{eqnarray}
+This is referred to as \emph{separation of variables}. Of course, factorizing a function in this manner
+is not generally true.
+\begin{question}
+Can you give examples of functions that are not separable and some that are separable?
+\end{question}
+
+\noindent Inserting into the diffusion equation we obtain
+\begin{eqnarray}
+	\frac{\partial}{\partial t} X(x)T(t) = D \frac{\partial^2}{\partial x^2} X(x) T(t) \ \Rightarrow 
+	X(x) \frac{\d}{\d t} T(t) = D T(t) \frac{\d^2}{\d x^2} X(x)  \, .
+\end{eqnarray}
+If $T \neq 0$ for all $t>0$ and $X \neq 0$ for interior points $0 < x < L$, we can rearrange this giving
+\begin{eqnarray}
+	\frac{1}{D T} \frac{\d T}{\d t} = \frac{1}{X}\frac{\d^2X}{\d x^2} \, .
+\end{eqnarray}
+We have dropped the explicit dependencies on $x$ and $t$. 
+
+Now, as $t$ (the time) increases the function $T$ will in general vary - how we do not know at the moment. 
+However, the function $X$ does not vary as $t$ varies, so the right-hand side is a constant 
+with respect to $t$. Likewise, as $x$ varies the left-hand side is constant since $T$ is independent of $x$. 
+The constant of motion (with respect to $t$ and $x$) must be the same, and we have
+\begin{eqnarray}
+	\frac{1}{D T} \frac{\d T}{\d t} = -\alpha  \ \text{and} \ \frac{1}{X}\frac{\d^2X}{\d x^2} = -\alpha\, .
+\end{eqnarray}
+That we chose the constant to be $-\alpha$ is a matter of convenience. If
+$\alpha = 0$ we get the trivial time independent solution $X(x) = 0$ due to the
+boundary conditions which we avoid. 
+
+Before we continue, it is worth to highlight what just happened: Assuming that $c$ can be factorized into 
+a product of $X$ and $T$ we have transformed our (linear) 
+partial differential equation into a problem of two (linear) ordinary differential 
+equation for $X$ and $T$; and we can solve these two equations. 
+
+We start out by solving for $X$. Rearranging once again, we get
+\begin{eqnarray}
+	\frac{\d^2 X}{\d x^2} + \alpha X = 0 \, .
+\end{eqnarray}
+We need the boundary conditions to continue. From Eq. (\ref{eq:bcstart}) 
+\begin{eqnarray}
+	c(0, t) = X(0)T(t) = 0 \ \Rightarrow X(0) = 0\, ,
+\end{eqnarray}
+because $T \neq 0$.  The same is true for $x=L$, and we have Dirichlet BCs $X(0)=X(L)=0$. 
+We solved this exact boundary value problem in Sect. \ref{stst:sectBVP}, where
+we could safely argue that $\alpha > 0$ since both the rate constant and the
+diffusion coefficient are positive. We cannot use this argument here, but since 
+relation 
+\begin{eqnarray}
+	\sqrt{\alpha} = \frac{n\pi}{L} \, , 
+\end{eqnarray}
+is still valid we see that $\alpha$ must be real and positive. Then
+\begin{eqnarray}
+	\alpha = \left( \frac{n \pi}{L} \right)^2 \ \text{with} \ n \in \mathbb{N}_+ \, . 
+\end{eqnarray}
+So for any $n \in \mathbb{N}_+$ we have the solution
+\begin{eqnarray}
+	X_n(x) = \chi_n \sin\left(\frac{n\pi}{L} x\right) \, ,
+\end{eqnarray}
+where $\chi_n$ is a constant (dependent on $n$).
+
+$\alpha$ depends on $n$, and therefore the solution to $T$ also depends on
+$n$. This for any $n \in \mathbb{N}_+$ we have the problem
+\begin{eqnarray}
+	\frac{\d T_n}{\d t} = -\alpha D T_n \, ,
+\end{eqnarray}
+with the general solution
+\begin{eqnarray}
+	T_n(t) = \tau_n e^{-(n\pi/L)^2Dt} \, .
+\end{eqnarray}
+We will not use the IC just yet. 
+
+From above we see that there are infinite many solutions to $c$, namely, 
+\begin{eqnarray}
+	c_n(x,t) = X_n(x)T_n(t) = b_n  e^{-(n\pi/L)^2Dt}  \sin\left(\frac{n\pi}{L} x\right) \, ,
+\end{eqnarray}
+where we have set $b_n = \chi_n\tau_n$. Invoking the superposition principle this means that the 
+general solution is
+\begin{eqnarray}
+	\label{eq:soldifdibc}
+	c(x,t) = \sum_{n=1}^\infty c_n = \sum_{n=1}^\infty b_n  e^{-(n\pi/L)^2Dt}  \sin\left(\frac{n\pi}{L} x\right)
+	\, .
+\end{eqnarray}
+We still need a particular solution. We now use the IC, $c(x,0)=f(x)$, that is, from the general 
+solution given in Eq.(\ref{eq:soldifdibc}) we have at $t=0$
+\begin{eqnarray}
+	\label{eq:soldiffDirichelt}
+	c(x, 0) = f(x) = \sum_{n=1}^\infty b_n  \sin\left(\frac{n\pi}{L} x\right) \, .
+\end{eqnarray}
+The IC is given by a Fourier sine series (and is odd). Thus, we can obtain the coefficients $b_n$ from the 
+Euler-Fourier equation
+\begin{eqnarray}
+	\label{eq:bnf}
+	b_n = \frac{1}{L}\left\langle f(x), \sin\left(\frac{n\pi}{L} x\right) \right \rangle= 
+	 \frac{2}{L} \int_{0}^L f(x) \sin\left(\frac{n\pi}{L} x\right) \, \d x \ ,
+\end{eqnarray}
+since the product of two odd functions is even, see exercise \ref{ex:fourierevenodd}. 
+
+\begin{question}
+	Can you show that Eq. (\ref{eq:soldifdibc}) is actually a solution to the diffusion equation with zero Dirichlet BCs?
+\end{question}	
+
+\begin{example}
+	The solution to the diffusion equation with Dirichlet BCs and IC
+	\[
+		c(x,0) = c_0 
+	\] 
+	is given by a sine series with Fourier coefficients
+	\begin{eqnarray}
+		b_n &=& \frac{2c_0}{L} \int_0^L \sin\left( \frac{\pi n}{L} x \right) \nonumber \\
+			&=& -\frac{2c_0}{n\pi}( (-1)^n - 1) \, .
+	\end{eqnarray}
+	Notice that $b_n = 0$ for $n$ even and $b_n = 4c_0/n\pi$ for $n$ odd.
+\end{example}	
+
+\begin{wrapfigure}{R}{0.4\textwidth}
+	\centering
+	\includegraphics[width=0.35\textwidth]{figs/diffDBC.eps}
+	%\caption{\label{fig:img2} Perturbation}
+\end{wrapfigure}
+
+
+\noindent The result in Eq. (\ref{eq:soldifdibc}) is a central result and is used in the more 
+general case where the Dirichlet BCs read
+\begin{eqnarray}
+	\label{eq:diffc0stst}
+	c(0,t) = c_1 \ \text{and} \ c(L,t)=c_2 \, .
+\end{eqnarray}
+First, we expect that for $t \rightarrow \infty$ the system reaches the steady state,
+which we denote $c_\text{st}$; this follows by definition
+\begin{eqnarray}
+	\frac{\d^2 c_{\text{st}}}{\d x^2} = 0 \, ,
+\end{eqnarray}
+with BCs in Eq. (\ref{eq:diffc0stst}). Using the method from Sect. \ref{sect:BV} we can 
+easily solve this giving 
+\begin{eqnarray}
+	c_\text{st}(x) = ax + c_1 \, 
+\end{eqnarray}
+where $a = (c_2-c_1)/L$. We now define the function
+\begin{eqnarray}
+	\overline{c} (x,t) = c(x,t) - c_\text{st}(x) \, , 
+\end{eqnarray}
+where we substract the steady-state case from $c$. Note that 
+\begin{eqnarray}
+	\frac{\partial c}{\partial t} = \frac{\partial \overline{c}}{\partial t} 
+\end{eqnarray}
+and
+\begin{eqnarray}
+	\frac{\partial^2 c}{\partial x^2} = \frac{\partial^2 \overline{c}}{\partial x^2} 
+	- \frac{\d^2  c_{\text{sf}}}{\d x^2} = \frac{\partial^2 \overline{c}}{\partial x^2}
+	\, .
+\end{eqnarray}
+This means that $\overline{c}$ also fulfilles the diffusion equation
+\begin{eqnarray}
+	\frac{\partial \overline{c}}{\partial t} = D\frac{\partial^2\overline{c}}{\partial{x}^2} \, .
+\end{eqnarray}
+Moreover, the new function $\overline{c}$ has BCs
+\begin{eqnarray}
+	\overline{c} (0,t) &=& c(0,t) - c_\text{st}(0) = 0 \, ,\\
+	\overline{c} (L,t) &=& c(L,t) - c_\text{sf}(L) = 0 \, ,
+\end{eqnarray}
+and IC
+\begin{eqnarray}
+	\overline{c}(x,0) = c(x,0) - c_\text{st}(x) = f(x) \, .
+\end{eqnarray}
+This is just the problem we solved above! Therefore, the solution to $\overline{c}$ is 
+just the Fourier sine series and, in turn, this means
+\begin{eqnarray}
+	c(x,t) = c_\text{st}(x) + \overline{c}(x,t)=ax+c_1 + \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi}{L}x\right) \, ,
+\end{eqnarray}
+where $b_n$ is found directly from Eq. (\ref{eq:bnf}) 
+\begin{eqnarray}
+	b_n = \frac{2}{L} \int_0^L \left[ c(x,0) - c_\text{st}(x) \right] \sin\left( \frac{\pi n}{L} x \right) \, \d x \, .
+\end{eqnarray}
+
+\begin{exerciseregion}
+
+	\begin{exercise}
+		Solve the diffusion equation on the domain $0 \leq x \leq 1$ with Dirichlet BCs 
+		\begin{eqnarray}
+			c(0,t)=c(1,t)=0 \, ,
+		\end{eqnarray}
+		and IC $c(x,0)=x$. In your favorite plotting program, 
+		plot the concentration profiles $c(x,t_0), c(x,t_1), \ldots$ for a few different 
+		times. 
+	\end{exercise}	
+
+	\begin{exercise}
+		Solve the diffusion equation on the domian $0 \leq x \leq 1$ with Dirichlet BCs
+		\begin{eqnarray}
+			c(0,t)=0 \ \text{and} \ c(1,t)=1
+		\end{eqnarray}
+		and IC $c(x, 0)= c_0.$ Plot a few concentration profiles.
+	\end{exercise}
+
+	\begin{exercise}
+		If you have not done so already, show that Eq. (\ref{eq:soldifdibc})
+		actually is a solution to the diffusion equation
+		with zero Dirichlet BCs. (Hint: Substitute the solution into the
+		diffusion equation and compare the two sides of the equation.)
+		Then give a necessary condition for the existence of the solution. 
+	\end{exercise}
+
+	\begin{exploration}
+		\label{exercise:numerics}
+		In the next chapter we deal with non-linear problems and sometimes we need to  
+		perform \emph{supportive numerical explorations} of such systems.  
+		Since we now have the analytical solution for the (linear) diffusion equation, the time is right 
+		to implement a numerical scheme which can also handle general reaction-diffusion problems. 
+		Once we have checked the implementation against known solutions, we can,  
+		carefully, use the numerical method for non-linear problems as well. Go to Appendix \ref{sect:ftcs}.
+	\end{exploration}
+
+	\begin{exploration} \label{expl:diffneumann}
+		(Mandatory) Consider the diffusion equation
+		\begin{eqnarray}
+			\frac{\partial c}{\partial t} = D\frac{\partial^2c}{\partial x^2} \, , 
+		\end{eqnarray}
+		with IC $c(x,0)=f(x)$ and Neumann BCs
+		\begin{eqnarray}
+			\left.\frac{\partial c}{\partial x}\right|_{x=0}=\left.\frac{\partial c}{\partial x}\right|_{x=L}=0 \, .
+		\end{eqnarray}
+		Use seperation of variable to show the solution to this is	given by
+		\begin{eqnarray}
+			c(x,t)=\frac{a_0}{2} + \sum_{n=1}^\infty a_n e^{-(n\pi/L)^2Dt}  
+			\cos\left(\frac{n\pi}{L} x\right) \, ,
+		\end{eqnarray}
+		with coefficients
+		\begin{eqnarray}
+			a_n = \frac{2}{L}\int_0^Lf(x)\	\cos\left(\frac{n\pi}{L} x\right) \, \d x \, .
+		\end{eqnarray}
+		for $n \in \mathbb{N}_+$.
+
+		\textit{Optional}: Implement the Neumann BC into the numerical code 
+		from Exploration \ref{exercise:numerics}. 
+		Test your implementation against a known solution to a problem of your choice.
+	\end{exploration}
+
+\end{exerciseregion}
+
+\section{Unbounded domains and Fourier transforms}
+Up till now we have dealt with Dirichlet, Neumann, or mixed boundary conditions. 
+These boundaries characterise bounded systems (or domains), where we can clearly define some properties at the ends of the tube. 
+In certain cases we have that the tube length is large compared to (i) the initial concentration profile and 
+(ii) the characteristic \emph{diffusion length scale}, $L_D(t) = \sqrt{4 D t}$. 
+The second condition means that we limit our selves to study diffusion on sufficiently small times. 
+We then apply \emph{unbounded domain} BCs    
+\begin{eqnarray}
+	\lim_{x \rightarrow \pm \infty} c(x,t) = 0  \, .
+\end{eqnarray}
+Notice that for unbounded domains we shift the coordinate systems such that we have $-\infty < x < \infty$ 
+rather than $0 \leq x < \infty$. As for bounded BCs we need some prerequisites 
+before we can solve the diffusion equation with unbounded BCs. 
+
+First, we re-write the Fourier series in a complex form. Recall, in terms of wave vector 
+$k_n$ the Fourier series is given by
+\begin{eqnarray}
+	F(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n\cos(k_n x) + \sum_{n=1}^\infty b_n \sin(k_n x) \, .
+\end{eqnarray}
+We have the following relations
+\begin{eqnarray}
+	\label{eq:euler2ndidentity}
+	\cos(k_n x) &=& \frac{e^{ik_n x} + e^{-ik_nx}}{2}  \nonumber \\
+	\sin(k_n x) &=& \frac{e^{ik_n x} - e^{-ik_nx}}{2i}   
+\end{eqnarray}
+which can shown directly by Euler's identity. Substitution leads to 
+\begin{eqnarray}
+	F(x) &=&  \frac{a_0}{2}+ \sum_{n=1}^\infty\frac{a_n}{2}(e^{ik_nx}+e^{-ik_nx}) + \sum_{n=1}^\infty \frac{b_n}{2i} ( e^{ik_nx}-e^{-ik_nx}) 
+	\nonumber \\
+	 &=&  \frac{a_0}{2}+ \sum_{n=1}^\infty\frac{ia_n+b_n}{2i}\, e^{ik_nx} + \sum_{n=1}^\infty \frac{ia_n - b_n}{2i} \, e^{-ik_nx} 
+	 \label{eq:FEuler} \, .
+\end{eqnarray}
+Note, we here assumed that we can interchange the terms in the series. The wave vector has the property that
+\begin{eqnarray}
+	k_{-n} = \frac{-n\pi}{L} = -k_n
+\end{eqnarray}
+and therefore we can change the index of the last term in Eq. (\ref{eq:FEuler})
+\begin{eqnarray}
+	\sum_{n=1}^\infty \frac{ia_n - b_n}{2i} \, e^{-ik_nx} =
+	\sum_{n=-\infty}^{-1} c_n \, e^{ik_nx}.  
+\end{eqnarray}
+Inserting into Eq.
+(\ref{eq:FEuler})  
+\begin{eqnarray}
+	F(x) = \sum_{-\infty}^\infty c_n e^{i k_n x}
+\end{eqnarray}
+where $c_n \in \mathbb{C}$ are the \emph{complex Fourier coefficients} which 
+are related to the real Fourier coefficients by
+\begin{eqnarray}
+	c_n = \left\{
+		\begin{array}{ll}
+			\frac{ia_{|n|} - b_{|n|}}{2i} \ & \text{if} \ n < 0 \\
+			\frac{ia_{n} + b_{n}}{2i} \ & \text{if} \ n > 0 \\
+			\frac{a_0}{2} \ & \text{if} \ n = 0
+		\end{array}	
+	\right.
+\end{eqnarray}
+The complex Fourier coefficients are found from the orthogonal property of the exponential function on the
+usual interval $[-L;L]$.
+\begin{theorem}
+	If the complex Fourier series representation of $f:\mathbb{R} \rightarrow \mathbb{R}$ equals the function, i.e., if 
+	\begin{eqnarray}
+		f(x) = \sum_{-\infty}^\infty c_n e^{i k_n x}
+	\end{eqnarray}
+	then
+	\begin{eqnarray}
+		\langle f(x), e^{-ik_n x} \rangle = 2 L c_n  
+	\end{eqnarray}
+	on $I=[-L; L]$. Moreover, $\langle f(x), e^{-ik_m x} \rangle = 0$ on $I$ if $m \neq n$. 
+\end{theorem}
+
+\begin{proof}
+	See exercise \label{missingproof}
+\end{proof}
+
+In unbounded domains we cannot general resolve the function in periods of finite $L$. The (complex) Fourier
+coefficients are then defined to be the limiting value of
+\begin{eqnarray}
+	\label{eq:cnunbound}
+	c_n = \lim_{L\rightarrow \infty} \frac{1}{2L} \int_{-L}^L f(x) e^{-ik_n x}
+	\, \d x  
+\end{eqnarray}
+if the integral exists. This definition is not as innocent as it may first appear since the wave vector is dependent on 
+both the index $n$ and $L$, and the limit is not always easy to evaluate even if the integral can be found. 
+However, Eq. (\ref{eq:cnunbound}) leads to another very powerful definition, namely, the \emph{Fourier transform}
+\begin{eqnarray}
+	\fourier{f}(k_n) = \int_{-\infty}^\infty  f(x) e^{-ik_n x} \, \d x \, .
+\end{eqnarray}
+The Fourier transform is an \emph{integral transform} or \emph{integral operator}, that transforms the function $f$ into 
+another function $\fourier{f}$ that depends on the wave vector $k_n$. This transform is defined for any (real) 
+wave vector, and often the subscript $n$ is omitted. 
+
+\begin{example}
+	Find the Fourier transform $\fourier{f}$ for 
+	\begin{eqnarray}
+		f(x) = \left\{
+			\begin{array}{ll}
+				e^{-a x} & \ \text{if} \ x \geq 0 \\
+				0 & \ \text{if} \ x < 0
+			\end{array}
+		\right.
+	\end{eqnarray}
+	where $a > 0$. From the definition
+	\begin{eqnarray}
+		\fourier{f}(k) &=& \int_{-\infty}^\infty e^{-ax}  e^{-ik x} \, \d x = \int_0^\infty e^{-(a+ik)x}\, \d x 
+		\nonumber \\
+		&=& - \frac{1}{a+ik} \left[e^{-ax}(\cos(kx) - i\sin(kx))\right]_{0}^\infty = \frac{1}{a+ik} \, .
+	\end{eqnarray}
+	Notice $\fourier{f}$ is a complex valued function. 
+\end{example}	
+
+\noindent The Fourier transform is often written in terms of the operator symbol $\mathcal{F}$, that is, 
+\begin{eqnarray}
+	\fourier{f}(k) = \mathcal{F}[f](k) \, .
+\end{eqnarray}
+The Fourier transform has some very powerful properties which we will exploit.  
+
+\begin{theorem}
+	\begin{description}[style=unboxed,leftmargin=0.4cm]
+		\item[1] {
+			If $f,g:\mathbb{R} \rightarrow \mathbb{R}$ are bounded and piece wise continuous, then 
+			\begin{equation}
+				\mathcal{F}[\alpha f + g] = \alpha \mathcal{F}[f] + \mathcal{F}[g] 
+			\end{equation}
+			for  $\alpha \in \mathbb{R}.$ This is the linearity property. 
+		}
+		\item[2] {
+		If $f: \mathbb{R} \rightarrow \mathbb{R}$ is at least twice differentiable, bounded and 
+		$\lim_{x \rightarrow \pm \infty} f = 0$, then   
+			\begin{equation}
+			\mathcal{F}\left[\frac{\d f}{\d x}\right] = ik \mathcal{F}[f] \ \ \text{and} 
+			\ \ \mathcal{F}\left[\frac{\d^2 f}{\d x^2}\right] = -k^2 \mathcal{F}[f]
+			\end{equation}
+		}
+		\item[3]{ 
+		Let $f=f(x,t)$ be defined for all positive $t$ and $x\in \R$. Assume $f$ has partial derivative with respect 
+			to $t$, that $f$ is continous with respect to $x$ and $t$, is uniform convergent, and bounded. Then  
+		\begin{equation}
+			\label{eq:ftransprop3}
+			\mathcal{F}\left[\frac{\partial f}{\partial t}\right] = \frac{\partial}{\partial t} \mathcal{F}[f].
+		\end{equation}
+			}
+	\end{description}	
+\end{theorem}
+
+\begin{proof}
+	The linearity follows directly from the linearity for integrals. The second property can be shown by integration by parts 
+	\begin{eqnarray}
+		\mathcal{F}\left[\frac{\d f}{\d x}\right] &=& \int_{-\infty}^\infty f'(x) e^{-ikx} \, \d x  \nonumber \\
+		&=& \left[f(x) e^{-ikx}\right]_{-\infty}^\infty + ik \int_{-\infty}^\infty f(x) e^{ikx}\, \d x = ik \fourier{f}(k)
+	\end{eqnarray}
+	since $\lim_{x\rightarrow \pm \infty} f = 0$. For the second order derivative integration by part is applied twice.
+
+	For the third property we define the function $w(x,t) = f(x,t)e^{-ikx}$ and show that the right-hand side in Eq. (\ref{eq:ftransprop3}) 
+	equals the left-hand side. Using the definition of $w$ and the partial derivative
+	\begin{eqnarray}
+		\frac{\partial}{\partial t} \mathcal{F}[f] &=& \frac{\partial}{\partial t} \int_{-\infty}^\infty w(x,t) \, \d x \nonumber  \\ 
+		&=& \lim_{h \rightarrow 0} \frac{1}{h}\left\{ \int_{-\infty}^\infty w(x, t+h) \, \d x - \int_{-\infty}^\infty w(x, t) \, \d x\right\} 
+		\nonumber \\
+		&=&  \lim_{h \rightarrow 0} \int_{-\infty}^\infty \frac{w(x,t+h)-w(x,t)}{h}\, \d x 
+	\end{eqnarray}
+	From the property of $f$ we can interchange the limit and intergral
+	\begin{eqnarray}
+		\int_{-\infty}^\infty \lim_{h \rightarrow 0} \frac{w(x,t+h)-w(x,t)}{h}\, \d x 
+		= \int_{-\infty}^\infty \frac{\partial w}{\partial t} \, \d x = \int_{-\infty}^\infty \frac{\partial f}{\partial t} e^{-ik x} \, \d x 
+	\end{eqnarray}
+	which is the left-hand side of Eq. (\ref{eq:ftransprop3}).	
+\end{proof}
+
+\noindent We can use the properties of the Fourier transform to the diffusion equation with unbounded BCs. 
+Letting the operator act on both sides
+\begin{eqnarray}
+	\mathcal{F}\left[\frac{\partial c}{\partial t}\right] = \mathcal{F}\left[D \frac{\partial^2c}{\partial x^2}\right]
+\end{eqnarray}
+implies that 
+\begin{eqnarray}
+	\frac{\partial}{\partial t}  \fourier{c}(k, t) = -D k^2 \fourier{c} \, ,
+\end{eqnarray}
+for all $k$. In this way, the we transform the partial differential equation for $c$ 
+into a differential equation for $\fourier{c}$, but with respect to a single variable. The general solution we know 
+\begin{eqnarray}
+	\label{eq:fouriersol}
+	\fourier{c}(k, t) = \fourier{c}_0 e^{-Dk^2t} \, .
+\end{eqnarray}
+This is referred to \emph{the solution in Fourier space} \footnote{We have not formally defined this "space", 
+but we will use the term nevertheless.}. 
+
+If we wish a particular solution we of course need to specify the initial condition. For example, if we have an initial concentration 
+which is Gaussian distributed with respect to $x$ 
+\begin{eqnarray}
+	\label{eq:initRealUnbounded}
+	c(x, 0) = c_0 e^{-(x/\sigma)^2} \ , 
+\end{eqnarray}
+where $\sigma \in \R$ is a measure of the Gaussian width and $c_0$ the concentration at $x=0$, then 
+\begin{eqnarray}
+	\fourier{c}_0 = c_0 \int_{-\infty}^\infty e^{-(x/\sigma)^2 - ikx} \, \d x \, .
+\end{eqnarray}
+The trick is now to rewrite the exponent into another form
+\begin{eqnarray}
+	-\frac{x^2}{\sigma^2} - ikx  = -\frac{1}{\sigma^2} \left(x^2 + ik\sigma^2x \right)=  -\frac{1}{\sigma^2} 
+	\left[ \left(x + \frac{ik\sigma^2}{2} \right)^2 + \frac{k^2\sigma^4}{4} \right] \, .
+\end{eqnarray}
+Substitution and the Fourier transform now reads
+\begin{eqnarray}
+	\fourier{c}_0 = c_0 e^{-\frac{k^2\sigma^2}{4}} \int_{-\infty}^\infty e^{-\frac{1}{\sigma^2}\left(x + \frac{ik\sigma^2}{2} \right)^2} \d x = 
+	c_0 \sqrt{\pi} \sigma  e^{\frac{k^2\sigma^2}{4}} 
+\end{eqnarray}
+applying the useful Gaussian integral formula
+\begin{eqnarray}
+	\int_{-\infty}^\infty e^{-a(x+b)^2} \, \d x = \sqrt{\frac{\pi}{a}} \, .
+\end{eqnarray}
+Substitution into Eq. (\ref{eq:fouriersol}) we get 
+\begin{eqnarray}
+	\label{eq:fouriersolc}
+	\fourier{c}(k,t)=c_0 \sqrt{\pi} \sigma  e^{\frac{-k^2\sigma^2}{4}}   e^{-Dk^2t}
+\end{eqnarray}
+Some times the solution in Fourier space can give us the information we seek, however, we often also want 
+the solution to $c$ and not only $\fourier{c}$. We now define the \emph{inverse Fourier transform} of $\fourier{f}$ 
+to be 
+\begin{eqnarray}
+	f(x) = \frac{1}{2\pi} \int_{-\infty}^\infty \fourier{f}(k) e^{ikx} \, \d k \, .
+\end{eqnarray}
+In operator notation we write this as $f(x) = \mathcal{F}^{-1}[\fourier{f}](x)$. 
+Let us see a useful example. 
+\begin{example}
+	Let $f(x) = e^{-a x^2}$, where $a>0$. Rewritting the exponent and using Gaussian's integration formula
+	\begin{equation}
+		\label{eq:expx2F}
+		\fourier{f}(k)= \sqrt{\frac{\pi}{a}} e^{-k^2/4 a} \, .
+	\end{equation}
+	The inverse Fourier transform of $\fourier{f}$ is
+	\begin{eqnarray}
+		\frac{1}{2\sqrt{a \pi}} \int_{-\infty}^\infty e^{-k^2/4a + ikx} \, \d k &=&
+			\frac{e^{-ax^2}}{2\sqrt{a \pi}} \int_{-\infty}^\infty e^{-\frac{1}{4a}\left(k + 2aix\right)^2} \, \d k \nonumber \\
+			&=& \frac{\sqrt{4 a \pi}}{2\sqrt{a\pi}} e^{-ax^2} = e^{-ax^2} 
+	\end{eqnarray}
+	using the identity 
+	\begin{equation}
+		-k^2/4a + ikx = -\frac{1}{4a}\left(k^2 - i4akx\right) =   -\frac{1}{4a}\left(k + i2ax\right)^2 - ax^2 \, .
+	\end{equation}
+	Notice that we recover the original function $f(x) = e^{-ax^2}$. 
+\end{example}	
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\centering
+	\includegraphics[width=0.35\textwidth]{figs/diffunbounded.eps}
+	%\caption{\label{fig:img2} Perturbation}
+\end{wrapfigure}
+\paragraph{}
+\vspace*{-\parskip}
+The example is not a coincidence, of course, and is generalized in the following statement (which we will not prove).
+If $f: \R \rightarrow \R$ is piecewise continous and bounded, then
+\begin{eqnarray}
+	\mathcal{F}^{-1}[\mathcal{F}[f]](x) = \mathcal{F}^{-1}[\fourier{f}](x) = f(x) \, .
+\end{eqnarray}
+This is the important \emph{inverse Fourier theorem}. 
+
+Equation (\ref{eq:fouriersolc}) is continous and bounded thus the inverse Fourier theorem qaranties that we recover $c$ by 
+an inverse transform. We can rewrite Eq. (\ref{eq:fouriersolc}) to 
+\begin{eqnarray}
+	\fourier{c}(k, t) = c_0 \sqrt{\pi} \sigma e^{-\alpha k^2} ,
+\end{eqnarray}
+with $\alpha = \frac{\sigma^2}{4} + Dt$. This is on the same form as Eq. (\ref{eq:expx2F}), and we can simply substitue and get
+\begin{eqnarray}
+	\label{eq:solcfinal}
+	c(x,t)=\frac{c_0 \sigma}{\sqrt{\sigma^2 + 4 D t}} \, e^{-x^2/(\sigma^2 + 4Dt)} \, .
+\end{eqnarray}
+This is the solution\footnote{finally..!} to the diffusion equation in an unbounded domain with initial conditions given by 
+Eq. (\ref{eq:initRealUnbounded}).
+
+\begin{exerciseregion}
+
+	\begin{exercise}
+		Confirm Eq. (\ref{eq:solcfinal}).
+	\end{exercise}
+	
+	\begin{exercise}
+		Prove the theorem on page \pageref{missingproof}. 
+	\end{exercise}
+
+	\begin{exercise}
+		Find the Fourier transform for 
+		\begin{eqnarray}
+			f(x) =
+			\left\{
+		    \begin{array}{ll}
+		        -x^2+1 & -1 \leq x \leq 1 \\
+					0 &  \text{otherwise}
+			\end{array}
+			\right.
+		\end{eqnarray}
+		and plot the function.
+	\end{exercise}
+
+	\begin{exploration}
+		Recall the diffusion equation in polar coordinates and with angular symmetry 
+		\begin{equation}
+			\label{eq:rdpol_2}
+				\frac{\partial c}{\partial t} = 
+			\frac{D}{r}\frac{\partial}{\partial r}
+			\left(  r\frac{\partial c}{\partial r} \right) \, .
+		\end{equation}
+		Envision an experiment where we add a drop of a chemical substance into the 
+		center of a Petri dish that is filled with a solvent. 
+		We assume that the radius of the Petri dish is large 
+		compared to initial substance concentration distribution and that the diffusion length scale $L_D$ 
+		is small. 
+
+		When can we use Eq. (\ref{eq:solcfinal}) as an approximation to the solution 
+		to this diffusion system? Solve Eq. (\ref{eq:rdpol_2}) numerically using the 
+		FCTS alogrithm and compare with your answer.
+	\end{exploration}
+\end{exerciseregion}
+

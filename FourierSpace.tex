@@ -1,0 +1,81 @@
+ It will take some extra effort, but
+it will be worth it! First, define the vector space over the real numbers,
+having the following set of functions defined on the interval $I=[-L; L]$
+\begin{eqnarray}
+	V = \left \{ 1, \cos\left(\frac{\pi}{L}x\right), 
+	\cos\left(\frac{2\pi}{L} x\right), \ldots, \sin\left(\frac{\pi}{L}x\right), 
+	\sin\left(\frac{2\pi}{L}x \right), \ldots \right \} \, ,
+\end{eqnarray}
+as well as the usual addition and multiplication operations. 
+Note, the vectors in $V$ are real valued functions defined on $I$ and not tuples of 
+scalars as taught in elementary linear algebra. Clearly, the axioms for a vector space is fulfilled. 
+For example, if $n\in \mathbb{N}$ and $m \in
+\mathbb{N}_+$ we have $\cos(n \pi x/L) \in V$ and $\sin(m \pi x/L) \in V$, so if
+$K \in  \mathbb{R}$, then
+\begin{eqnarray}
+	K\left(\cos\left(\frac{n\pi x}{L}\right) + 
+	\sin\left(\frac{n \pi x}{L}\right)\right)  = 
+	K\cos\left(\frac{n\pi x}{L}\right) + K\sin\left(\frac{n \pi x}{L}\right)\, , 
+\end{eqnarray}
+which is the axiom for distribution of scalar multiplication. 
+
+The vectors in $V$ are linearly independent meaning that if the linear
+combination is zero,
+\begin{eqnarray}
+	\label{eq:linvector}
+\frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(k_n \, x\right) 
+	+ \sum_{n=1}^\infty b_n \sin\left(k_n\, x\right) = 0 \, ,
+\end{eqnarray}
+then $a_0, a_n$, and $b_n$ are all zero. This in turn means that the elements in $V$ form a
+vector basis. Notice, that the lhs of Eq. (\ref{eq:linvector}) is the Fourier series. 
+
+We can equip the vector space with an \emph{inner product}. This provides 
+some addition structure which we can exploit. Since our vectors are real
+valued function on $I$, we explicitly define the inner product here.  
+Let $f,g \in V: I \rightarrow \R$, where $I = [a; b]$, then the inner product 
+on $I$ is defined as
+\begin{eqnarray}
+	\langle f,g\rangle= \int_a^b f(x) g(x) \, \d x \, .
+\end{eqnarray}
+We say that $f$ and $g$ are orthogonal on $I$ if $\langle f,g \rangle = 0$. From
+the inner product we can define the vector norm as 
+\begin{eqnarray}
+	|| f || = \sqrt{\langle f, f\rangle} \, .
+\end{eqnarray}
+
+\begin{theorem}
+	All vectors in $V$ have norm one.
+\end{theorem}	
+
+\begin{proof}
+	(i) $\langle 1, 1\rangle = 
+\end{proof}	
+
+
+
+\begin{theorem}
+	The vectors in $V$ span an orthonormal basis on $I=[-L;L]$. 
+\end{theorem}
+
+\begin{proof}
+	We know that the vectors form a basis. We then need to show that 
+	the inner product between each pair is zero. We can do this for 
+	a few cases and leave the others as exercise.
+
+	(i) Let $f=1$ and $g=\cos(n\pi x/L)$. We then have
+	\begin{eqnarray}
+		\left\langle 1, \cos\left(\frac{n \pi x}{L}\right) \right\rangle = \int_{-L}^L
+		\cos\left( \frac{n\pi x}{L} \right) = 0 \ \forall n \in \mathbb{N}
+	\end{eqnarray}
+	We now quickly see that 	
+	\begin{eqnarray}
+	\left\langle 1, \sin\left(\frac{n \pi x}{L}\right) \right\rangle = 0 \ \forall n \in \mathbb{N}
+	\end{eqnarray}
+	(ii) Let $f=\cos(n \pi x/L) \cos(m \pi x /L)$ where $n,m \in \mathbb{N}$
+
+\end{proof}	
+
+
+
+
+

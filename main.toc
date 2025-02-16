@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {chapter}{\numberline {2}The steady-state: Boundary value problems}{13}{}%
+\contentsline {section}{\numberline {2.1}Linear reaction functions }{13}{}%
+\contentsline {paragraph}{}{16}{}%
+\contentsline {section}{\numberline {2.2}Existence and uniqueness of solutions}{18}{}%
+\contentsline {section}{\numberline {2.3}Non-linear reaction functions}{19}{}%
+\contentsline {paragraph}{}{21}{}%
+\contentsline {section}{\numberline {2.4}Chemotaxis}{25}{}%
+\contentsline {paragraph}{}{26}{}%
+\contentsline {chapter}{\numberline {3}The diffusion equation}{29}{}%
+\contentsline {section}{\numberline {3.1}Periodic functions and the Fourier series}{29}{}%
+\contentsline {paragraph}{}{29}{}%
+\contentsline {section}{\numberline {3.2}The diffusion equation with Dirichlet BCs}{37}{}%
+\contentsline {section}{\numberline {3.3}Unbounded domains and Fourier transforms}{41}{}%
+\contentsline {paragraph}{}{46}{}%
+\contentsline {chapter}{\numberline {4}Reaction-diffusion phenomena}{49}{}%
+\contentsline {section}{\numberline {4.1}Reaction-diffusion in pores and channels: The linear case}{49}{}%
+\contentsline {section}{\numberline {4.2}Propagating fronts}{51}{}%
+\contentsline {paragraph}{}{56}{}%
+\contentsline {section}{\numberline {4.3}Turing structures}{60}{}%
+\contentsline {chapter}{\numberline {5}Appendices}{67}{}%
+\contentsline {section}{\numberline {5.1}The slow Fourier transform (SFT)}{67}{}%
+\contentsline {section}{\numberline {5.2}The FTCS algorithm}{68}{}%
+\contentsline {section}{\numberline {5.3}Existence and uniqueness of the RD-equation}{71}{}%

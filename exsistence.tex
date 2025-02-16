@@ -1,0 +1,92 @@
+\section{Existence and uniqueness of the RD-equation}
+Above we saw that through a simple transformation we can find the solution to the
+linear RD-equation with Dirichlet BCs. We here list the general criteria for a solution to
+exist; again we will not prove it, but discuss examples. 
+
+First, we must define Lipschitz continuity: 
+A function $r: I \rightarrow \R$ is Lipschitz continuous on the real interval $I$
+if there exists a $K \in \R$ such that
+\begin{equation}
+  |r(x)-r(y)| \leq K |x-y| \ , \ x,y \in I \, .
+\end{equation}
+This definition basically states that if the function is Lipschitz continuous, the function 
+cannot have an infinite change anywhere on its domain. Let see a standard example of 
+function, which is \emph{not} Lipschitz continuous.
+
+\begin{example}
+	We consider the function $r(x) = \sqrt{|x|}$ on the domain $I=[-1,1]$. 
+	The function $r$ is not Lipschitz continuous on $I$.
+
+	\begin{proof}
+		We focus on the likely troublesome point $x=0$; we have from the definition
+		\begin{equation}
+		    |r(0)-r(y)| \leq K |0-y| \ \Rightarrow \ |r(y)| \leq K|y|
+		  \end{equation}
+		That is, for $y \neq 0$ we get 
+		\begin{equation}
+		    K =\frac{\sqrt{|y|}}{|y|} = \frac{1}{\sqrt{|y|}} \, . \ \ \ \ \ \ (y \neq 0) 
+		\end{equation}
+		This fraction diverges as $y \rightarrow 0$, hence, $K$ does not exist. 
+	\end{proof}
+
+	\noindent Notice that $r$ is continuous in the usual sense and that Lipschitz continuity 
+	is in this sense a "stronger" condition on the function than usual continuity. 
+\end{example}
+
+We are now ready to list the four criteria that guarantee the existence and
+uniqueness of a solution to the RD-equation 
+\begin{equation}
+  \frac{\partial c}{\partial t} = r(c) + D \frac{\partial^2 c}{\partial x^2}
+ \ ,  
+\end{equation}
+with IC $c(x,0)=f(x)$ and Dirichlet BCs
+\begin{equation}
+   c(0,t)=c(0,L)=0 \, ,
+\end{equation}
+or Neumann BCs
+\begin{equation}
+    \left.\frac{\partial c}{\partial x}\right|_{x=0} = 
+  \left.\frac{\partial c}{\partial x}\right|_{x=L} = 0 \ , 
+\end{equation}
+where  $x \in [0;L]$ and $t \geq 0$. These are (from Allen
+\textit{An Introduction to Mathematical Biology}),
+\begin{enumerate}
+\item{$f(x)$ is continuous on the interior open domain $]0;L[$,}
+\item{$f(x)$ has a lower and upper bound, i.e.,
+    $\exists \, a,b \, \in \R \, : a\leq f(x) \leq b$ where
+    $x \in ]0;L[$,}
+\item{the reaction function fulfills $r(a) \geq 0$ and $r(b) \leq 0$, and }
+\item{$r$ is Lipschitz continuous on $[0;L]$}
+\end{enumerate}
+Let us at least see an example.
+
+\begin{example}
+  Let us examine the existence and uniqueness for Example
+  \ref{example:linearonemode} using $k>0$. (i) $f(x)$
+  is continuous for all $x \in ]0;L[$. (ii) Since $0\leq f(x) \leq 1$, $f$
+  has a lower and an upper bound. (iii) $r(0) = 0$, but since $r(1) \not\leq
+  0$ we are not guarantied a solution. This is consistent with the discussion in
+  the example.
+\end{example}
+
+\begin{question}
+	Are we guarantied a solution for Example \ref{example:linearonemode} if $k<0$?
+\end{question}
+
+\begin{exerciseregion}
+  \begin{exercise}
+    Are we guaranteed a solution to the Fisher-Kolmogorov equation
+    \begin{equation}
+      \frac{\partial c}{\partial t} = kc(1-c) + D \frac{\partial^2c}{\partial x^2}  
+    \end{equation}
+	  with zero Neumann BCs if the IC fulfills 
+	  $0\leq f(x) \leq 1$ and is continuous on $]0; 1[$? (This RD-equation is also referred to 
+	  as \emph{logistic growth with diffusion}.)
+  \end{exercise}
+\end{exerciseregion}
+
+
+
+
+
+
