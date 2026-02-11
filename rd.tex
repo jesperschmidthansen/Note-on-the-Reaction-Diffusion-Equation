@@ -1,6 +1,6 @@
 
 We have, separately, treated the steady-state case and the non-steady pure diffusive case. 
-This will help us in this section, where we put it together. As usual, we start with the 
+This will help us in this section, where we put it together. We start with the 
 tractable linear case and then move on to some examples of non-linear systems and phenomena.
 
 \section{Reaction-diffusion in pores and channels: The linear case}
@@ -14,8 +14,8 @@ with IC and BCs
 \begin{equation}
   c(x,0) = f(x) \ \text{and} \ c(0,t)=c(L,t)=0 \, .
 \end{equation}
-The trick here is to transform the function we seek, namely, $c$ into another 
-function, say $y$, via an exponential factor
+The trick here is to transform the function we seek, $c$, into another 
+function, say $y$, via an exponential transformation
 \begin{equation}
   y(x,t) = c(x,t)e^{-k t} \, .
 \end{equation}
@@ -30,11 +30,19 @@ diffusion equation, but now with respect to $y$
 \begin{equation}
   \frac{\partial y}{\partial t} = D\frac{\partial^2 y}{\partial x^2} \, .
 \end{equation}
-From the definition of the transformation the IC and BCs for $y$ read
+From the transformation we see that the IC for $y$ reads
 \begin{equation}
-  y(x,0) = f(x) \ \text{and} \ y(0,t)=y(L, t)=0 \, .
+	y(x,0) = c(x,0) = f(x)
 \end{equation}
-(Be sure you understand this.) We know the solution to this problem from last chapter, so we write that 
+The left BC is 
+\begin{eqnarray}
+	y(0,t) = c(0,t)e^{-k t} \ \implies \ y(0,t) = 0 \text{ since } c(0,t)=0.
+\end{eqnarray}
+Likewise the right BC is
+\begin{eqnarray}
+	y(L,t) = c(L,t)e^{-k t} \ \implies \ y(L,t) = 0 \text{ since } c(L,t)=0.
+\end{eqnarray}
+We know the solution to this problem from the previous chapter 
 \begin{equation}
   y(x,t) = \sum_{n=1}^\infty b_n e^{-D\left(n\pi/L\right)^2 \, t} \,
 	\sin\left(\frac{n\pi x}{L} \right) \, ,
@@ -56,8 +64,8 @@ From the exponent we immediately conclude that each term (or Fourier mode)
 \begin{eqnarray}
   \label{eq:linstablcriterion}
   \text{decays exponentially if} \ k &<& D\left(n\pi/L\right)^2 \nonumber \\
-  \text{is constant whenever} \ k &=& D\left(n\pi/L\right)^2 \nonumber \\
-  \text{increases exponentially if} \ k &>& D\left(n\pi/L\right)^2 
+  \text{is constant f} \ k &=& D\left(n\pi/L\right)^2  \\
+  \text{increases exponentially if} \ k &>& D\left(n\pi/L\right)^2 \nonumber
 \end{eqnarray}
 In particular, all modes decay if $k<0$. 
 
@@ -89,43 +97,42 @@ In particular, all modes decay if $k<0$.
 
 %Transformation and existence
 \begin{exerciseregion}
-\begin{exercise}
-	The rate constant $k$ has unit of per time, and the diffusion coefficients
-  	has units of length squared per time. Use these units to transform the
-  	linear RD-equation into a dimensionless equation. You can assume $c$ represents a population size 
-	and is dimensionless.
-\end{exercise}
 
-\begin{exercise}
-  Confirm the relations in Eqs. (\ref{eq:linstablcriterion}) for different ICs
-  using numerical integration of the linear RD-equation.
-\end{exercise}
+	\begin{exercise}
+		The rate constant $k$ has unit of per time, and the diffusion coefficients
+		has units of length squared per time. Use these units to transform the
+		linear RD-equation into a dimensionless equation. You can assume $c$ represents a population size 
+		and is dimensionless.
+	\end{exercise}
+	\begin{exercise}
+		Show the solution to Equation (\ref{eq:simplerdgrowth}) with Neumann BCs 
+		\begin{equation}
+		\left. \frac{\partial c}{\partial x}\right|_{x=0} = \left. \frac{\partial c}{\partial x}\right|_{x=L} = 0  
+		\end{equation}
+		always increases exponentially if $k > 0$ and $c(x,0)>0$. Give a bio-chemical interpretation of this dynamics. 
+		Hint: You can use the result from Exercise \ref{expl:diffneumann}. 
+	\end{exercise}
+	\begin{exercise}
+		(Pre-requisite: Exploration \ref{exercise:numerics})
+		Perform a numerical exploration to confirm the relations in Equation (\ref{eq:linstablcriterion}) for different ICs.
+	\end{exercise}
 
-\begin{exercise}
-	Show the solution to Eq. (\ref{eq:simplerdgrowth}) with Neumann BCs 
-	\begin{equation}
-	\left. \frac{\partial c}{\partial x}\right|_{x=0} = \left. \frac{\partial c}{\partial x}\right|_{x=L} = 0  
-	\end{equation}
-	always increases exponentially if $k > 0$ and $c(x,0)>0$. Give a bio-chemical interpretation of this dynamics. 
-	Hint: You can use the result from Exploration \ref{expl:diffneumann}. 
-	\emph{Optional} Confirm your analytical result through numerical integration.
-\end{exercise}
 \end{exerciseregion}
 
-\section{Propagating fronts}
+\section{Propagating fronts\index{Propagating fronts}}
 Consider two molecular species, say, A and B. These two types of molecules can react giving two A
 molecules. We write the reaction mechanism as
 \begin{equation}
   \text{A} \ + \ \text{B} \ \rightarrow \ 2\text{A} \, . \label{react:FK} 
 \end{equation}
 Since A catalyses its own production this is an example of an \emph{autocatalytic
-reaction}. A real chemical reaction featuring this autocatalytic behavior is the
+reaction}.\index{Autocatalytic reaction} A real chemical reaction featuring autocatalytic behavior is the
 iodate-iodine reaction, see Fig. \ref{fig:iodateiodine}.
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.45]{figs/IodateIodine.png}
 		\caption{\label{fig:iodateiodine}
-		A drop of an iodine solution is placed in the an iodate solution. The reaction is 
+		A drop of an iodine solution is placed in an iodate solution. The reaction is 
 		autocatalytic with respect to iodine, and a clear chemical front is observed where
 		the iodate solution is ahead of the front and the rich iodine solution behind the front.
 		Picture is from Panzarasa, \emph{Reaction Kinetics, Mechanisms and Catalysis}, 135:1349 (2022).
@@ -133,7 +140,7 @@ iodate-iodine reaction, see Fig. \ref{fig:iodateiodine}.
 	\end{center}
 \end{figure}
 
-The reaction rate can be modelled be applying \emph{mass action kinetics} such that
+The reaction rate can be modelled be applying \emph{mass action kinetics} \index{Mass action} such that
 \begin{equation}
 	\label{eq:rkcacb}
   r = k'c_Ac_B \, ,
@@ -152,11 +159,12 @@ Allowing for diffusion and dividing with $c_0$ we have
 \begin{equation}
 \frac{\partial c}{\partial t} = kc(1-c) + D \frac{\partial^2c}{\partial x^2}  \, ,
 \end{equation}
-where $c=c_A/c_0$ and $k=k'c_0$. This is the \emph{Fisher-Kolmogorov equation} or 
+where $c=c_A/c_0$ and $k=k'c_0$. This is the \emph{Fisher-Kolmogorov equation}
+\index{Fisher-Kolmogorov} or 
 \emph{logistic growth with diffusion}. Notice that $c$ is bounded, $0 \leq c \leq 1$.
 
 \begin{question}
-	How did we arrive at Eq. (\ref{eq:dcAdt}) from Eq. (\ref{eq:rkcacb})?
+	Exactly, how did we arrive at Equation (\ref{eq:dcAdt}) from Equation (\ref{eq:rkcacb})?
 \end{question}
 
 
@@ -198,13 +206,11 @@ we define the moving frame coordinate by
 \end{equation}
 The concentration profile can now be written as being depended on $z$; 
 $c(z)= c(z(x,t))=c(x,t)$. See Fig. \ref{fig:fronts} (b). Importantly, we must expect 
-from our basic knowledge of dynamical systems that
 \begin{equation}
   \lim_{z \rightarrow -\infty} c = 1  \ \text{and} \   \lim_{z \rightarrow
     \infty} c = 0 \, .
 \end{equation}
 This means that $c=1$ is an unstable fixed point and that $c=0$ is a stable fixed point. 
-
 In our treatment here, we will require that for a front to exist there must be a $z_0$ such that
 \begin{eqnarray}
 	\left.\frac{\d c}{\d z} \right|_{z=z_0} \neq 0 
@@ -286,7 +292,7 @@ The three possible scenarios are
 The last scenario is problematic when we interpret the function $c$ as being a normalized concentration since we then 
 require $c \geq 0$. Recall,  $c(z)=c(x,t)=c_A/c_0 \geq 0$. If (0,0) is a stable spiral the 
 phase plane trajectories will spiral around the origin (0,0) and $c$ will take negative values. Therefore, the eigenvalues 
-cannot be complex, implying that only scenario 1 and 2 are useful. This in turn defines a minimum allowed speed, because 
+cannot be complex, implying that only scenario 1 and 2 are useful. This in turn defines a minimum allowed speed 
 \begin{equation}
 \left(\frac{s}{D}\right)^2 \geq \frac{4k}{D} \ \Rightarrow s \geq 2\sqrt{kD} = s_\text{min}
 \, .
@@ -310,10 +316,11 @@ To investigate the system further we will rely on numerical analysis, see Explor
 \end{figure}
 
 We can do a bit more. Again, we will assume that the front exists and that it propagates with constant speed. 
-Now, Eq. (\ref{eq:fkmvframe}) is a non-linear problem, which we cannot solve in general. However, we can find an 
+Now, Equation (\ref{eq:fkmvframe}) is a non-linear problem, which we cannot solve in general. However, we can find an 
 approximate solution using a perturbation method. To this end, we identify a small perturbation parameter 
 $\epsilon = 1/s^2$, that is, we focus our analysis on the limit of large front speeds. 
-The choice of perturbation parameter is clear when we perform a second coordinate transformation  
+The choice of perturbation parameter is clear when we perform a second coordinate transformation.
+Let  
 \begin{equation} 
 \xi = k z \sqrt{\epsilon} \, .
 \end{equation}
@@ -322,7 +329,7 @@ From the chain rule we have the following identities
 	\frac{\d c}{\d z} = k\sqrt{\epsilon} \frac{\d c}{\d \xi} \ \ \text{and} \ \  
 	\frac{\d^2 c}{\d z^2} = k^2 \epsilon \frac{\d c^2}{\d \xi^2} \, .
 \end{eqnarray}
-Substituting into Eq. (\ref{eq:fkmvframe}), we get
+Substituting into Equation (\ref{eq:fkmvframe}), we get
 \begin{equation}
 	\label{eq:fkinz}
 \epsilon k D\frac{\d^2c}{\d \xi^2} + \frac{\d c}{\d \xi} + c(1-c) = 0 \, .
@@ -336,7 +343,7 @@ We substitute the Poincar\'{e} expansion
 \begin{eqnarray}
 	c(\xi) \sim \sum_{n=0}^N \epsilon^n c_n(\xi)
 \end{eqnarray}
-into Eq. (\ref{eq:fkinz}) and collect term wise. To zero'th order we obtain
+into Equation (\ref{eq:fkinz}) and collect term wise. To zero'th order we obtain
 \begin{equation}
 \frac{\d c_0}{\d \xi} + c_0(1-c_0)=0 \, .
 \end{equation}
@@ -347,22 +354,24 @@ implicitly included. Separation of variables gives
 \begin{equation}
 \frac{\d c_0}{c_0(1-c_0)} = \d \xi \, .
 \end{equation}
-\begin{wrapfigure}{R}{0.35\textwidth}
-	\centering
-	\includegraphics[width=0.3\textwidth]{figs/fku0.eps}
-%	\caption{\label{fig:bacteriaindish} A figure.}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\includegraphics[width=0.35\textwidth]{figs/fku0.eps}
 \end{wrapfigure}
-\paragraph{}
-\vspace*{-\parskip}
+
 The fraction on the left-hand side can be written as
 \begin{eqnarray}
 	\frac{1}{c_0(1-c_0)} = \frac{1}{c_0} + \frac{1}{1-c_0} \, ,
 \end{eqnarray}
-and integration along some re-arrangement gives
-\begin{equation}
-	c_0 = \frac{1}{1+Ke^{\xi}} \, .
-\end{equation}
-We choose the IC $c_0(0)=1/2$ giving $K=1$ and therefore
+and integration gives
+\begin{eqnarray}
+	\ln \frac{c_0}{1-c_0} = \xi + A \ , 
+\end{eqnarray}
+where $A$ is an integration constant. Re-arranging
+\begin{eqnarray}
+	\frac{c_0}{1-c_0} = e^A e^\xi \ \implies c_0 = \frac{1}{1+Ke^{\xi}} \, .
+\end{eqnarray}
+Here we have $K=e^{-A}$. We choose the IC $c_0(0)=1/2$ giving $K=1$ and therefore
 \begin{equation}
 c_0 = \frac{1}{1+e^{\xi}} = \frac{1}{1+e^{kz/s}} \, .
 \end{equation}
@@ -421,6 +430,7 @@ predator-prey example.
 		\text{unstable point}: && (c_1,c_2, w)=(1,0,0) \nonumber \\
 		\text{stable point}:  && (c_1,c_2,w)=(b,1-b,0) \nonumber 
 	\end{eqnarray}
+	Since $0 \leq c_1,c_2 \leq 1$ we get the constraint that $0 \leq b \leq 1$.  
 	The first fixed point is simply the trivial case, and is not interesting here. 
 	The two other points are more informative:	As $z \rightarrow - \infty$ we approach the unstable fixed point (1,0,0), 
 	that is, there is only prey ahead of the front. As $z \rightarrow \infty$ we approach the stable fixed 
@@ -451,12 +461,16 @@ predator-prey example.
 		\lambda_1 = -\frac{1}{s} \ \ \lambda_{2,3}=\frac{1}{2} \left(
 		s \pm \sqrt{s^2 + 4a(b-1) }	\right)
 	\end{equation}
-	As we seek real eigenvalues, the minimum allowed speed is given by
-	$s_\text{min} = 2\sqrt{a(b-1)}$.
+	We seek real eigenvalues.  Since $b-1 \leq 0 $ we have that 
+	\begin{eqnarray}
+		s^2 + 4a(b-1) \geq 0 \text{ implying } s^2 - 4|a(b-1)| \geq 0 \, ,
+	\end{eqnarray}
+	and therefore, the minimum allowed speed is given by
+	$s_\text{min} = 2\sqrt{|a(b-1)|}$.
 \end{example}
 
 \begin{question}
-How can we interpret the reaction terms in Eq. (\ref{eq:pp0}) in context of a
+How can we interpret the reaction terms in Equation (\ref{eq:pp0}) in context of a
 predator-prey system? What is the biological interpretation of the parameters
 $a$ and $b$?
 \end{question}
@@ -465,21 +479,23 @@ $a$ and $b$?
 
 	\begin{exercise}
 		Perform a perturbation analysis of the Fisher-Kolmogorov front up to first
-		order in $\epsilon$; you can express $c_1$ in terms of $c_0$. Hint: 
-		(i) First, show that $1-2c_0=-c{''}_0/c{'}_0$. (ii) Then show that equation for the 
-		first order term is
-		\[
-			\frac{\d c_1}{\d \xi} - \frac{c{''}_0}{c'_0}c_1 = -kD \frac{\d^2c_0}{\d \xi^2} \, .
-		\]
-		(iii) Solve this using the general identity from calculus
-		\[
-			\int \frac{f'(x)}{f(x)} \, \d x = \ln|f(x)| \, .
-		\]
-		(iv) Finally, use the intial value $u'_0(0)=1/4$ to find the particular solution.
+		order in $\epsilon$; you can express $c_1$ in terms of $c_0$. Hints:
+		\begin{enumerate}
+			\item  Show that $1-2c_0=-c{''}_0/c{'}_0$. 
+			\item Then show that equation for the 	first order term is
+			\[
+				\frac{\d c_1}{\d \xi} - \frac{c{''}_0}{c'_0}c_1 = -kD \frac{\d^2c_0}{\d \xi^2} \, .
+			\]
+		\item Solve this using the general identity from calculus
+			\[
+				\int \frac{f'(x)}{f(x)} \, \d x = \ln|f(x)| \, .
+			\]
+		\item Finally, use the initial value $u'_0(0)=1/4$ to find the particular solution.
+		\end{enumerate}
 	\end{exercise}
 
 	\begin{exercise} \label{ex:checku0}
-		Compare the zero'th order perturbation result, Eq. (\ref{eq:u0fk}), with
+		Compare the zero'th order perturbation result, Equation (\ref{eq:u0fk}), with
 		numerical results for different front speeds. 
 	\end{exercise}
 
@@ -492,7 +508,7 @@ $a$ and $b$?
 	\end{exercise}
 	
 	\begin{exercise}
-		Through linear analysis of Eq. (\ref{eq:multifrontord}), show that the two-species 
+		Through linear analysis of Equation (\ref{eq:multifrontord}), show that the two-species 
 		predator-prey model can feature (fascinating) oscillatory concentrations in the 
 		front zone for certain choice of parameters.
 	\end{exercise}
@@ -503,19 +519,7 @@ $a$ and $b$?
 		Model the mobility with a simple Fickian law.
 	\end{exercise}
 
-	\begin{exploration}
-		\label{exploration:fisherKol}
-		One main result from our study of the Fisher-Kolmogorov front is that
-		$s > s_\text{min} = 2\sqrt{kD}$. As stated in the text, we do not know
-		\emph{if} such front exists, and if so \emph{what} $s$ actually is. (We only
-		know the minimum speed allowed.) Perform a numerical exploration of the
-		system, and confirm whether the front exists (under different ICs). If so
-		determine the stable front speed. [Note: Carefully explore the convergence of
-		the wave speed.]
-	\end{exploration}
-
-
-	\begin{exploration}
+	\begin{exercise}
 	  The spread of dominant genes is modelled through an extended 
 	  Fisher-Kolmogorov wavefront
 	  \begin{equation}
@@ -541,53 +545,62 @@ $a$ and $b$?
 		(ignoring coefficient units). Clearly state your choice of boundary
 		conditions.
 	  \end{enumerate}
+	\end{exercise}
+
+	\begin{exploration}
+		\label{exploration:fisherKol}
+		One main result from our study of the Fisher-Kolmogorov front is that
+		$s > s_\text{min} = 2\sqrt{kD}$. As stated in the text, we do not know
+		\emph{if} such front exists, and if so \emph{what} $s$ actually is. (We only
+		know the minimum speed allowed.) Perform a numerical exploration of the
+		system, and confirm whether the front exists (under different ICs). If so
+		determine the stable front speed. [Note: Carefully explore the convergence of
+		the wave speed.]
 	\end{exploration}
+
+
 \end{exerciseregion}
 
 
-\section{Turing structures}
-Recall Example \ref{example:turing}; in this section we will explore 
-how these \emph{diffusion driven spatial structures} emerge in reaction-diffusion systems. 
-At first thought, the existence of apparently spontaneously formed
-structures contradict our intuition about diffusion processes which tend to reduce and eventually remove the gradients.  
-However, for multi-variable systems and for certain types of reactions  
-structures emerge and they can even be stable forming static structures with permanent  
-spatial concentration gradients. The structures were first found theoretically by 
-\emph{Alan Turing}\footnote{Whom, by the way, is also famous for inventing the 
-Turing machine and cracking the Enigma code during the second world war.} in the early 1950s, 
+\section{Turing structures\index{Turing structure}}
+Recall Example \ref{example:turing}; in this section we will explore how these \emph{diffusion driven spatial structures} emerge in reaction-diffusion systems. 
+At first thought, the existence of apparently spontaneously formed structures contradicts our intuition about diffusion 
+processes which tend to reduce and eventually remove gradients.  However, for multi-variable systems and for certain types of reactions  
+structures emerge and they can even be stable forming static structures with permanent spatial concentration gradients. The structures were first found theoretically by 
+\emph{Alan Turing}\footnote{Whom, by the way, is also famous for inventing the Turing machine and cracking the Enigma code during the second world war.} in the early 1950s, 
 which is why they also bare his name. 
 
-We will here explore the Turing structures through the \emph{FitzHugh-Nagumo (FHN) model} 
-used to study different excitable systems. For example, 
-it is the standard model for a neuron electrical signal (also called neuron firing) caused 
-by voltage build-up and release. A simple version of the model is 
-in the homogeneous case (where we can ignore diffusion)
+We will here explore the Turing structures through the \emph{FitzHugh-Nagumo (FHN) model}
+\index{FitzHugh-Nagumo model}  
+used to study different excitable systems. For example, it is a standard model for neuron electrical
+signals caused by voltage build-up and release (also called neuron firing). A simple version of the model is in the 
+homogeneous case, where we can ignore diffusion
 \begin{eqnarray}
 	\label{eq:fhn1}
-	\frac{\d c_1}{\d t} &=& c_1 - c_1^3 - c_2 + \alpha = r_1\\
+	\frac{\d c_1}{\d t} &=& c_1 - c_1^3 - c_2 + \alpha = r_1(c_1, c_2)\\
 	\label{eq:fhn2}
-	\frac{\d c_2}{\d t} &=& \beta(c_1 - c_2) = r_2
+	\frac{\d c_2}{\d t} &=& \beta(c_1 - c_2) = r_2(c_1, c_2)
 \end{eqnarray}
-where $c_1$ is the voltage and $c_2$ acts as a coarse grained variable that describes the 
+$c_1$ is the voltage and $c_2$ acts as a variable that describes the 
 coupling between the voltage and other relevant cell mechanisms. Notice, the function definitions 
 of $r_1$ and $r_2$ on the right-hand; they will be used below. 
 The model parameters fulfill $\alpha, \beta > 0$. For now, we will not go into a 
 more detailed bio-physical interpretation of the model, and right away
 start the mathematical analysis. 
 
-t is easy to verify that there exists a single fixed point, namely, 
+It is easy to verify that there exists a single fixed point, namely, 
 \begin{equation}
 	(\alpha^{1/3}, \alpha^{1/3}) = (a, b)\, .
 \end{equation}
-Notice that we will use the symbols $a$ and $b$ for the fixed point coordinates; this is just 
-to ease and clarify the reading a bit. It is worth to recapture some of the details in the standard 
+We will use the symbols $a$ and $b$ for the fixed point coordinates; this is just 
+to ease and clarify the reading a bit. It is worth to go through some of the details we know form standard 
 linear analysis: We first linearise the dynamical equations in a neighbourhood 
 around the fixed point $(a,b)$. For $r_1$ we have
 \begin{eqnarray}
 	r_1 &=& r_1(a,b) + \frac{\partial r_1}{\partial c_1}(c_1-a) + \frac{\partial r_1}{\partial c_2}(c_2-b) + \ldots \\
 				 &=&	(1-3a^2) u - v + \dots
 \end{eqnarray}
-where $u$ and $v$ describe the deviation of $c_1$ and $c_2$ to the fixed point
+where $u$ and $v$ describe the deviation of $c_1$ and $c_2$ to the fixed point, that is, 
 \begin{equation}
 	u = c_1 - a \ \ \text{and} \ \ v = c_2 - b \, .
 \end{equation}
@@ -595,7 +608,8 @@ For $r_2$ we have
 \begin{equation}
 	r_2 = \beta u - \beta v + \ldots
 \end{equation}
-We can now readily write the Jacobian in the fixed point 
+We can now write the Jacobian in the fixed point in terms of the original parameters $\alpha$ and
+$\beta$  
 \begin{equation}
 \matrx{J} = 
 	\begin{bmatrix}
@@ -607,20 +621,22 @@ and the eigenvalues are found from the characteristic polynomial
 \begin{equation}
 	\lambda^2 + (\beta-1+3\alpha^{2/3})\lambda + 3\beta\alpha^{2/3} = 0 \, .
 \end{equation}
-Without loosing the main conclusions we choose $\alpha$ such that $\alpha^{2/3}=1/10$; 
+Without compromising the general points we choose $\alpha$ such that $\alpha^{2/3}=1/10$; 
 in this case the eigenvalues are 
 \begin{equation}
 	\lambda_{1,2} = \frac{1}{2}\left(
 	\frac{7}{10}-\beta \pm \sqrt{\beta^2-13\beta/5+49/100} 
 	\right) \, .
 \end{equation}
-We see that the eigenvalues are complex (and conjugate) 
-whenever $\beta^2-13\beta/5+49/100<0$ implying that in the interval
+We see that the eigenvalues are complex (and conjugate) whenever 
+\begin{equation}
+	\beta^2-13\beta/5+49/100<0
+\end{equation}
+implying that in the interval
 \begin{eqnarray}
 	\frac{1}{10}\left(13 - \sqrt{120}\right) < \beta <  \frac{1}{10}\left(13 + \sqrt{120}\right) 
 \end{eqnarray}
 the system features oscillatory behaviour. 
-
 In this interval the real part of the eigenvalues also
 changes sign indicating that a bifurcation occurs ($\beta$ being the bifurcation parameter). 
 A bit more formally, we expect a bifurcation at $\beta=7/10$, where 
@@ -628,27 +644,35 @@ $\text{Re}(\lambda_{1,2})=0$ and where
 \begin{eqnarray}
 	\frac{\d\text{Re}(\lambda_{1,2})}{\d \beta} = -1/2 \neq 0 \, .
 \end{eqnarray}
-This last property is \emph{the transversal condition} which ensures 
+This last property is \emph{the transversal condition} \index{Transversal condition} which ensures 
 that the eigenvalue real part, in fact, changes sign. Thus, we have 
 \begin{description}
 	\item[$(13 - \sqrt{120})/10 < \beta < 7/10$]{The fixed point is an unstable spiral point}
-	\item[$\beta = 7/10$]{The fixed point is non-hyperbolic (the stability is unknown from the linear analysis)}
+	\item[$\beta = 7/10$]{The fixed point is non-hyperbolic}
 	\item[$7/10 <\beta < (13 + \sqrt{120})/10$]{The fixed point is a stable spiral.}
 \end{description}
-This indicates a \emph{Hopf bifurcation} at $\beta = 7/10$: 
-(i) For $\beta < 7/10$ the solution converges to a stable \emph{limit cycle}, 
+
+\begin{wrapfigure}{L}{0.4\textwidth}
+	\includegraphics[width=0.35\textwidth]{figs/turinghomo.eps}
+\end{wrapfigure}
+
+
+This indicates a \emph{Hopf bifurcation} \index{Hopf bifurcation} at $\beta = 7/10$: 
+(i) For $(13 - \sqrt{120})/10 < beta < 7/10$ the solution converges to a stable \emph{limit
+cycle}\index{Limit cycle}, 
 i.e, the system has sustained oscillations (with respect to time) 
 below the bifurcation parameter value. See Fig. \ref{fig:fhnbif}. 
-(ii) For $\beta > 7/10$ the oscillations are dampened 
+(ii) For $7/10 <\beta < (13 + \sqrt{120})/10$ the oscillations are dampened 
 and the system relaxes to the stable fixed point. 
-Both the condition $\text{Re}(\lambda_{1,2})=0$ and the transversal 
+
+You may recall that both the condition $\text{Re}(\lambda_{1,2})=0$ and the transversal 
 condition are necessary, but not sufficient, conditions for a Hopf bifurcation. 
 \begin{figure}
   \begin{center}
     \includegraphics[scale=.45]{figs/fhnPhasePortrait.eps}
     \caption{
     \label{fig:fhnbif} Phase plane trajectories for the FHN model system. 
-	  Left: $\beta < 7/10$. Right: $\beta>7/10$.
+		(a) $\beta < 7/10$. (b) $\beta>7/10$.
 		Fixed point illustrated by the filled circle. 
 		Trajectories are obtained from numerical solutions.
     }
@@ -659,7 +683,7 @@ condition are necessary, but not sufficient, conditions for a Hopf bifurcation.
 We now include diffusion for both $c_1$ and $c_2$ and show that if the diffusion coefficients 
 are different, $D_1 \neq D_2$, the system can be unstable in the parameter interval 
 $7/10 <\beta < (13 + \sqrt{120})/10$ and $\alpha^{2/3} = 1/10$, 
-that is, in the interval where the homogeneous case is stable.  
+that is, in the interval where the homogeneous case is stable, Fig. \ref{fig:fhnbif}.  
 
 Again we perform a linear stability analysis, but this time for the full RD-equation. 
 First we note that 
@@ -679,20 +703,28 @@ with $D_1$ and $D_2$ being the usual diffusion coefficients. The boundaries we a
 \begin{equation}
 	\left.\frac{\partial u}{\partial x}\right|_{x=0} = \left.\frac{\partial u}{\partial x}\right|_{x=L} = \left.\frac{\partial v}{\partial x}\right|_{x=0} = \left.\frac{\partial v}{\partial x}\right|_{x=L} = 0 \, .
 \end{equation}
-The initial condition is such that the spatial average of $u$ and $v$ are zero, that is, with some $u$ and $v$ are randomly distributed around the
-point $(a,b)$ with sufficiently small amblitude. 
+The initial condition is such that the spatial averages of $u$ and $v$ are zero
+\begin{eqnarray}
+	\frac{1}{L} \int_0^L u(x,0) \d x = 0 \text{ and } \frac{1}{L}\int_0^L v(x,0) \d x = 0 \ ,
+\end{eqnarray}
+but we allow $u$ and $v$ some random distribution around the point $(a,b)$ with sufficiently small amplitude. 
 
 From our earlier experience with the linear RD-equation under Neumann BCs 
 we expect that the solutions for $u$ and $v$ are cosine Fourier series, that is,
 \begin{equation}
 \label{eq:turingguess}
 	u(x,t) = \sum_{n=1}^\infty u_n e^{\lambda_n t}\cos\left(\frac{n\pi}{L} \, x\right) \ \ \text{and} 
-	\ \ v(x,t) = \sum_{n=1}^\infty v_n e^{\lambda_n t}\cos\left(\frac{n\pi}{L} \, x\right) \, . 
+	\ \ v(x,t) = \sum_{n=1}^\infty v_n e^{\lambda_n t}\cos\left(\frac{n\pi}{L} \, x\right) \, ,
 \end{equation}
+where $u_n$ and $v_n$ are Fourier coefficients in the series.
+
+\begin{question}
+	In general, the cosine Fourier series includes a constant term. Why is there no constant term in Equation (\ref{eq:turingguess})?
+\end{question}
+
 We do not know $\lambda_n$, that is, in our proposition the temporal dynamics is still undetermined. 
-Now, the solutions must of course fulfill the two linearized equations. Thus, 
-substituting the guess, Eq. (\ref{eq:turingguess}), into Eq. (\ref{eq:fhnlin1}) and differentiating we get
-for each term, $n$, we have
+Now, the solutions must fulfill the two linearized equations. Substituting the guess, Equation (\ref{eq:turingguess}), 
+into Equation (\ref{eq:fhnlin1}) and differentiating we get for each term, $n$, 
 \begin{eqnarray}
 	\lambda_n u_n e^{\lambda_n t} \cos\left(\frac{n\pi}{L} \, x\right) 
 	&=& \frac{7}{10}u_n e^{\lambda_n t} \cos\left(\frac{n\pi}{L} \, x\right)  \nonumber \\
@@ -700,13 +732,13 @@ for each term, $n$, we have
 	- D_1 u_n \left(\frac{n\pi}{L}\right)^2 e^{\lambda_n t} \cos\left(\frac{n\pi}{L} \, x\right)
 	\nonumber \\
 \end{eqnarray}
-using the value $\alpha^{2/3}=1/10$. The exponential terms cancels, and if we rearrange we obtain
+again using the value $\alpha^{2/3}=1/10$. The exponential terms cancels, and if we rearrange we obtain
 \begin{equation}
 	\left(
 		\lambda_n u_n -\frac{7}{10} u_n + v_n + \left(\frac{n\pi}{L}\right)^2 u_n D_1
 	\right) \cos\left(\frac{n\pi}{L} \, x\right) = 0 \, . 
 \end{equation}
-Repeating this for Eq. (\ref{eq:fhnlin2}) we get the identity 
+Repeating this for Equation (\ref{eq:fhnlin2}) we get the identity 
 \begin{equation}
 	\left( \lambda_n v_n - \beta u_n + \beta v_n + \left(\frac{n\pi}{L}\right)^2 v_n D_2
 	\right) \cos\left(\frac{n\pi}{L} \, x\right) = 0 \, .
@@ -748,12 +780,11 @@ is rank deficient, that is, if there exists one or two $\lambda_n$ such that the
 	\lambda_n + \beta +\left(\frac{n\pi}{L}\right)^2 D_2
 	\right) + \beta = 0  \, . \nonumber \\
 \end{eqnarray}
-Before solving this quadratic problem, we introduce the two auxiliary variables 
+To ease the reading, we introduce the two auxiliary variables 
 \begin{eqnarray}
-	a_n = -\frac{7}{10} + k^2 D_1, \text{and} \  \
-	b_n = \beta + k^2 D_2
+	a_n = -\frac{7}{10} + \left(\frac{n\pi}{L}\right)^2 D_1, \text{ and } b_n = \beta + \left(\frac{n\pi}{L}\right)^2 D_2 \, .
 \end{eqnarray}
-where $k=n\pi/L$ is the wave vector. The solution can now be written as 
+The solution can now be written as 
 \begin{eqnarray}
 	\lambda_{n,1,2} = \frac{1}{2}\left( 
 		-(a_n+b_n) \pm \sqrt{(a_n+b_n)^2 - 4(\beta + a_nb_n)}
@@ -763,11 +794,11 @@ Notice that the eigenvalues are functions of $n, \beta, D_1$, and $D_2$.
 
 We can know investigate the dynamics for each Fourier term (or Fourier mode): 
 If the real part of the eigenvalue is negative for a given mode
-this mode is stable, whereas if the real part is positive the mode is unstable. As always, in case 
+this is stable, whereas if the real part is positive the mode is unstable. As always, in case 
 of zero real part (the non-hyperbolic case) we cannot conclude anything about the stability of 
 the system. Figure \ref{fig:dispersion} shows the real part of the eigenvalues $\lambda_{n}$ 
 as function of wave vector, which is equivalent to a plot of the real part of 
-$\lambda_n$ versus $n$. This is the \emph{dispersion plot}, 
+$\lambda_n$ versus $n$. This is the \emph{dispersion plot},\index{Dispersion plot/relation} 
 and the eigenvalue's dependency on $k$ is called a \emph{dispersion relation}. We have used 
 $D_2 = 10D_1$ and $\beta=1$. 
 \begin{figure}
@@ -780,14 +811,13 @@ $D_2 = 10D_1$ and $\beta=1$.
   \end{center}
 \end{figure}
 Some of the Fourier modes (indicated by the blue interval) are unstable, hence, the  
-solution to the linearized system, Eq. (\ref{eq:turingguess}), grows exponential in time and the 
-system is unstable. 
+solution to the linearized system, Equation (\ref{eq:turingguess}), grows exponential in time 
+and the system is unstable. If just one mode features this instability the system is unstable.  
 
 This is a linear analysis. The non-linear part of the system may eventually 
-suppress this growth as $u$ and $v$ become sufficiently large and thus form a 
-steady state structure. 
-
-We can solve the non-linear RD-equation using the FTCS algorithm. We will do this using 
+suppress the exponential growth as $u$ and $v$ become sufficiently large and thus form a 
+steady state structure. We will not explore such nonlinear features mathematically, however, 
+we can solve the non-linear RD-equation using the FTCS algorithm. We will do this using 
 the same parameter values as in
 Fig. \ref{fig:dispersion}. The voltage $c_1$ is plotted as function of $x$ for four different times 
 in Fig. \ref{fig:turingfhn}. It is seen that the structure emerge from the homogeneous state reaching a 
@@ -807,14 +837,13 @@ final steady state.
 An important observation from the numerical simulations is that the (characteristic) period of the 
 structure is given by
 \begin{eqnarray}
-	p = 2\pi/k_\text{max} \, .
+	2\pi/k_\text{max} \, .
 \end{eqnarray}
 $k_\text{max}$ is also shown in Fig. \ref{fig:dispersion}. This means that the Fourier mode with largest 
 eigenvalue (real part) grows the fastest and dominates the final steady state. 
 Again, this is all based on the linear analysis and not some thing we can conclude in general. 
 
-We end this section by listing three necessary conditions for a system to feature 
-diffusion-driven instabilities (or Turing structures). 
+We end this section by listing three necessary conditions for a system to feature Turing structures. 
 
 \begin{theorem}
 	\label{th:turing}
@@ -836,6 +865,29 @@ diffusion-driven instabilities (or Turing structures).
 	We will not proof this theorem.
 \end{theorem}
 
+
+\begin{example}
+Let $a \in \R_+$ be a parameter then the Jacobian matrix 
+\begin{eqnarray}
+	\mathbf{J} = 
+		\left[	\begin{matrix}
+			-2a & -a \\
+			4  & a 
+		\end{matrix}
+		\right]
+\end{eqnarray}
+fulfills the necessary criterion for Turing patterns, but 
+\begin{eqnarray}
+	\mathbf{J} = 
+		\left[	\begin{matrix}
+			-2a & a \\
+			4  & a 
+		\end{matrix}
+		\right]
+\end{eqnarray}
+does not.
+\end{example}
+
 \begin{exerciseregion}
 	\begin{exercise}
 		For the FitzHugh-Nagumo model use $D_1=1, \alpha=(1/10)^{3/2}, \beta=2$, and $L=200$. 
@@ -856,7 +908,7 @@ diffusion-driven instabilities (or Turing structures).
 		with $\alpha>0$ and $c_1,c_2 \geq 0$. 
 		Does the corresponding RD-equation allow for diffusion-driven instabilities?
 	\end{exercise}
-	\begin{exploration}
+	\begin{exercise}
 		We consider the RD-equation system
 		\begin{eqnarray}
 			\frac{\partial c_1}{\partial t} = \frac{c_1^2}{c_2} - b c_1 + \frac{\partial^2 c_1}{\partial x^2} \\
@@ -868,7 +920,7 @@ diffusion-driven instabilities (or Turing structures).
 		possible unstable Fourier modes on the curve. Based on this analysis, explore numerically 
 		whether Turing structures 
 		exists or not. (Inspired by Murray, \textit{Mathematical Biology}.) 
-	\end{exploration}
+	\end{exercise}
 	
 \end{exerciseregion}
 

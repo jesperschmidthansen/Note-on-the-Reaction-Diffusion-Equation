@@ -1,7 +1,7 @@
 
 
-We dive right in: Consider a thin tube of length $L$ with longitudinal axis parallel
-with the $x$-axis as shown in Fig. \ref{fig:flux}. Inside
+We dive right in: Consider a thin tube with cross section $A$ and length $L$. The longitudinal axis
+is parallel with the $x$-axis as shown in Fig. \ref{fig:flux}. Inside
 the tube there is a bio-chemical substance, $S$, and  the concentration (or density) of $S$ we denote 
 $c$, which is a function of position, $x$, and time, $t$. The fundamental research question 
 throughout this text is
@@ -9,26 +9,27 @@ throughout this text is
 	\emph{how does the function $c=c(x,t)$ evovle in space and time  
 	considering diffusion and reaction processes?}
 \end{center}
-Why this question is interesting in the first place wil hopefully be clear
-as we explore the topic in this and the following chapters. Now, 
-the first step in the exploration is to derive the underlying dynamical equation for $c$.
+Why this question is interesting in the first place will hopefully be clear
+as we explore the topic in this and the following chapters. 
 
-\begin{figure}[b]
+Now, the first step in the exploration is to derive the underlying dynamical equation for $c$.
+We focus on the volume confined between $x_1$ and $x_2$ and define the 
+width $\Delta x = x_2 - x_1$. By the \emph{flux}\index{Flux} at $x_1$, denoted
+$J_1$, we mean the amount of $S$ leaving or entering the volume at $x=x_1$ per
+unit time. Likewise, the flux $J_2$ is the amount of $S$ leaving or entering the
+volume at $x=x_2$. 
+
+
+\begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.5]{figs/fluxIllustration.pdf}
 		\caption{\label{fig:flux}
-		Schematic illustration of the effective one dimensional tube system. See the text for 
-		explanation of the symbols.
+		Schematic illustration of the effective one dimensional tube system. The shaded area are the 
+		tube cross-section area. See the text for explanations of the symbols. 
 		}
 	\end{center}
 \end{figure}
 
-We focus on the system volume confined between $x_1$ and $x_2$ and define the 
-volume width $\Delta x = x_2 - x_1$. By the \emph{flux} at $x_1$, denoted
-$J_1$, we mean the amount of $S$ leaving or entering the volume at $x=x_1$ per
-unit time. Likewise, the flux $J_2$ is the amount of $S$ leaving or entering the
-volume at $x=x_2$. We ignore any radial and angular fluxes; we call this an effective 
-one dimensional system.
 
 There is an important convention here: A flux is positive when the substance flows to the
 right (in the ``positive'' $x$-direction) and it is negative if it flows to the
@@ -38,26 +39,26 @@ $S$ can also be produced or consumed inside the volume, for example, through bio
 The production (or consumption) per unit time we denote $\Delta \sigma$. 
 If $N_S$ is the total amount of $S$ in the volume the rate of change of $S$ in the volume is written as
 \begin{eqnarray}
-	\frac{\d N_S}{\d t} &=& \mathrm{production} + \mathrm{flux \ at} \ x_1 -
+	\frac{\d N_S}{\d t} &=& \mathrm{production rate} + \mathrm{flux \ at} \ x_1 -
 	\mathrm{flux \ at} \ x_2 \nonumber \\
 	&=& \Delta \sigma + J_1 - J_2 \, . \label{eq:balance}
 \end{eqnarray}
-This equation is the \emph{balance equation} for the volume. The amount of $S$ at any time is 
+This equation is the \emph{balance equation} \index{Balance equation} for  $S$ in the volume. The amount of $S$ 
+is related to the concentration $c$ by 
 \begin{equation}
-	N_S(t) = A \Delta x c_s(t) \ \ \mathrm{implying} \ \ \frac{\d N_S}{\d t} = A \Delta
-	x \frac{\d c_s}{\d t} \, ,
+	N_S(t) = A \Delta x c(t) \ \ \mathrm{implying} \ \ \frac{\d N_S}{\d t} = A \Delta
+	x \frac{\d c}{\d t} \, . 
 \end{equation}
-where $c_s$ is the average concentration in the volume, and $A$ is the tube cross section area. 
-Substitution into Eq.~(\ref{eq:balance}) and dividing with the slab volume $A \Delta x$ we get
+Substitution into Equation (\ref{eq:balance}) and dividing with the volume $A \Delta x$ we get
 \begin{equation}
-	\frac{\d c_s}{\d t} = \frac{\Delta \sigma}{A \Delta x} - \frac{1}{A} \frac{J_2
+	\frac{\d c}{\d t} = \frac{\Delta \sigma}{A \Delta x} - \frac{1}{A} \frac{J_2
 	-J_1}{\Delta x} \, .
 \end{equation}
 In the limit $\Delta x \rightarrow 0$ we get, now highlighting the time dependence 
 \begin{equation}
-	\frac{\d}{\d t} c_s(t) = f_s(t) - \frac{\d}{\d x}J_s(t) \, . 
+	\frac{\d}{\d t} c(t) = f(t) - \frac{\d}{\d x}J(t) \, . 
 \end{equation}
-Here $f_s$ is the production rate per unit volume inside the volume, and $J_s$ is
+Here $f$ is the production rate of $c$ per unit volume inside the volume, and $J_s$ is
 the net flux per unit area
 \begin{equation}
 	\frac{\d  J_s}{\d x} = \frac{1}{A}\lim_{\Delta x \rightarrow 0} \frac{J_2-J_1}{\Delta x} \, .
@@ -69,36 +70,36 @@ we can write the balance equation as
 	\frac{\partial}{\partial t} c(x,t)= f(x,t) - \frac{\partial}{\partial x}J(x,t)
 	\,  .
 \end{equation}
-For the balance equation, Eq. (\ref{eq:reacflux}), to be meaningful we assume
-that both $c$ and $J$ have partial derivatives in their domain; unless otherwise
-stated we will make an even more strict assumption that both functions are
-differentiable. We here referre to $f$ as the \emph{production function} and $J$ 
-simply as the \emph{flux}.
+For the balance equation, Equation (\ref{eq:reacflux}), to be meaningful we assume
+that both $c$ and $J$ have partial derivatives in their domain. We here referre to $f$ 
+as the \emph{production function}\index{Production function}\index{Function!production} and $J$ simply as the \emph{flux}.
 
 Equation (\ref{eq:reacflux}) formalizes that the local rate of change of
 the concentration of $S$ is due to (i) a production process and (ii) how much
 substance flows in and out of any point along the tube. As it stands it does not
 form a closed problem, since we do not know $f$ or $J$; these we must model.
 
-We often, but not always, let the production be due to bio-chemical reactions. These reactions depend on the 
-concentration, i.e., we can write the production function as $f(x,t) = r(c(x,t))$. 
+If the production is due to bio-chemical reactions we write the production function 
+in terms of the \emph{reaction function}\index{Reaction function}\index{Function!reaction}, $r(c) = r(c(x,t)) = f(x,t)$. 
 
-In general, the flux $J$ can be decomposed into a term due to \emph{advection} and a
-term due to \emph{diffusion}. Advection is the process that transport a substance
+In general, the flux $J$ can be decomposed into a term due to \emph{advection}\index{Advection} and a
+term due to \emph{diffusion}\index{Diffusion}. Advection is the process that transport a substance
 around the system when there is a bulk flow; we will not consider this process. 
 Diffusion is the process that tends to remove any gradient in the system:
-If you add a drop of dye to a glass of water the colored dye molecules will
+If you add a drop of colored dye to a glass of water the dye molecules will
 eventually distribute uniformly in the system. Therefore, we must intuitively
 expect that the flux due to diffusion is non-zero whenever there exists a
-gradient in the concentration. This is expressed in \emph{Fick's first law}
+gradient in the concentration. This is expressed in \emph{Fick's first law} \index{Fick's law}
 \begin{equation}
 	J = -D\frac{\partial c}{\partial x} \, .
 \end{equation}
-Here $D > 0$ is the diffusion coefficient, which in general is dependent on
-temperature, position, and so forth.
+Here $D > 0$ is the \emph{diffusion coefficient}\index{Diffusion!coefficient}, which in general is dependent on
+temperature, position, and so forth. If $\partial c/\partial x < 0$ then $J>0$ and there
+is a flux from left to right due to diffusion, and vice versa, if $\partial c/\partial x > 0$ then
+$J<0$ and the flux is from right to left.
 
-If we substitute $f(x,t)=r(c)$ and Fick's law into Eq. (\ref{eq:reacflux}) we
-get the \emph{reaction-diffusion equation}
+If we substitute $f(x,t)=r(c)$ and Fick's law into Equation (\ref{eq:reacflux}) we
+get the \emph{reaction-diffusion equation} 
 \begin{equation}
 	\label{eq:reacfdif0}
 	\frac{\partial c}{\partial t}= r(c) + \frac{\partial}{\partial
@@ -111,14 +112,18 @@ diffusion coefficient is constant the RD-equation becomes
 	\frac{\partial c}{\partial t}= r(c) + D\frac{\partial^2 c}{\partial
 	x^2} \, . 
 \end{equation}
-Importantly, Fick's law is a \emph{model} and it is therefore, perhaps, unfortunate that
+Importantly, Fick's law is a model and it is therefore, perhaps, unfortunate that
 the literature refers to this is a ``law'' \footnote{The same can be said about
 Ohm's law, but \emph{not} e.g. Newton's second law}. It proposes that the flux
 is linearly dependent on the substance concentration gradient; it must therefore
 be considered as the linear term in a Taylor expansion with respect to the gradient, 
 and is only usable for sufficiently small gradients (actually, often for surprisingly large
 gradients). By the way, this type of model is more formally referred to as a 
-\emph{linear constitutive relation}.
+\emph{linear constitutive relation}\index{Constitutive relation}.
+
+The RD-equation can be used to model many other systems than bio-chemical systems, and $c$ can
+represent fluid velocity, temperature, the concentration of large animals, and much more. We will
+also encouter examples of this. 
 
 \begin{example}
 	\label{ex:simplegrowth}
@@ -127,7 +132,7 @@ gradients). By the way, this type of model is more formally referred to as a
 	In addition to growth, we also include the effect of diffusion in one direction 
 	(we have the plankton in a small radius tube). If $c$ denotes the 
 	organism concentration and if the diffusion coefficient is constant we have from
-	Eq. (\ref{eq:reacfdif1})
+	Equation (\ref{eq:reacfdif1})
 	\begin{equation}
 		\label{eq:linrd}
 		\frac{\partial c}{\partial t} = kc + D \frac{\partial^2 c}{\partial x^2} \, ,
@@ -136,9 +141,10 @@ gradients). By the way, this type of model is more formally referred to as a
 	dies out $k<0$. This RD-equation is a linear differential equation and
 	we should be optimistic about finding a solution.
 
-	The RD-equation must be solved by specifying both an \emph{initial condition} (IC) and
-	\emph{boundary conditions} (BCs). If the organism at time zero is bundled up at some
-	interior point $x_0$, we may specify the IC as a Gaussian shaped curve 
+	The RD-equation must be solved by specifying both an \emph{initial condition} \index{Initial
+	condition} (IC) and
+	\emph{boundary conditions} \index{Boundary condition} (BCs). If the organism at time zero is bundled up at some
+	interior point $x_0 \in [0;L[$, we may specify the IC as a Gaussian shaped curve 
 	\begin{equation}
 		c(x,0)=c_0 e^{(x-x_0)^2/\sigma^2} \ ,
 	\end{equation}
@@ -147,30 +153,31 @@ gradients). By the way, this type of model is more formally referred to as a
 	ends $x=0$ and $x=L$ such that it is zero at these points, we write the BCs as
 	\begin{equation}
 		\label{eq:bcDiriclecht}
-		c(0, t) = 0 \ \ \text{and} \ \ c(L,t) = 0 \ \ \text{for} \ \ t>0 \, . 
+		c(0, t) = 0 \ \ \text{and} \ \ c(L,t) = 0 \ \ \text{for} \ \ t \geq 0 \, . 
 	\end{equation}
 	These two BCs define a specific function value at the system end-points, and
-	are called \emph{Dirichlet boundaries} or boundaries of first type. In general, the
+	are called \emph{Dirichlet boundaries} \index{Boundary!Dirichlet} or boundaries of first
+	type\index{Boundary!first type}. In general, the
 	boundary value can take any (real) value and not just zero. The boundary at $x=0$ we 
 	will referre to as the \emph{left boundary} and the boundary at $x=L$ 
 	\emph{the right boundary}. 
 
-	Another commonly used BC is the \emph{Neumann boundary}, or boundary of the second
-	type. This specifies the values for the function derivatives at the wall, for
+	Another commonly used BC is the \emph{Neumann boundary}\index{Boundary!Neumann}, or boundary of the second
+	type \index{Boundary!second type}. This specifies the values for the function derivative at the walls, for
 	example, 
 	\begin{equation}
 		\label{eq:bcNeumann}
 		\left.\frac{\partial c}{\partial x}\right|_{x=0} = 0
 		\ \ \text{and} \ \
 		\left.\frac{\partial c}{\partial x}\right|_{x=L} = 0
-		\ \ \text{for} \ \ t>0 \, . 
+		\ \ \text{for} \ \ t\geq 0 \, . 
 	\end{equation}
-	We can also encounter systems with \emph{mixed} BCs, such that at, say, the left boundary we have
+	We can also encounter systems with \emph{mixed} \index{Boundary!mixed} BCs, such that at, say, the left boundary we have
 	a Neumann BC and at the right boundary we have a Dirichlet BC
 	\begin{equation}
 		\left.\frac{\partial c}{\partial x}\right|_{x=0} = 0
 		\ \ \text{and} \ \
-		c(L,t) = C_L  \ \ \text{for} \ \ t>0 \, .
+		c(L,t) = C_L  \ \ \text{for} \ \ t\geq 0 \, .
 	\end{equation}
 	We shall see that the BCs not only determine the solution to a given
 	RD-equation, but also determine whether a solution exists or not.
@@ -179,33 +186,31 @@ gradients). By the way, this type of model is more formally referred to as a
 
 \begin{question}
 	What is the bio-physical interpretation of the Neumann BC given in
-	Eq.~(\ref{eq:bcNeumann})? 
+	Equation (\ref{eq:bcNeumann})? 
 \end{question}
 
-\begin{example}\label{example:flow}
-
-	\begin{wrapfigure}{R}{0.35\textwidth}
-		\centering
-		\includegraphics[width=0.3\textwidth]{figs/poiseuille.eps}
-		\caption*{}
-	\end{wrapfigure}
-	\paragraph{}
-	\vspace*{-\parskip}
-
+\begin{example}
+	\label{example:flow}
 	The mathematical form of the RD-equation is the same as the equation used to describe some 
-	special fluid flows. Let a fluid be confined
+	special fluid flows. 
+	Let a fluid be confined
 	between two parallel walls located at $x=0$ and $x=L$. The flow in the
-	$y$-direction denoted $v$ is given by the Navier-Stokes equation which
-	for sufficiently small flow rate reads
+	$y$-direction, denoted $v$, is given by the Navier-Stokes equation.  
+	For sufficiently small flow rate or, equivalently small $v$, we have
 	\begin{equation}
 		\frac{\partial v}{\partial t} = g + \nu_0 \frac{\partial^2 v}{\partial
 		x^2} \, ,
 	\end{equation}
-	where the production function $g$ is the local applied accelaration (gravity) and $\nu_0$ 
+	where the production function, $g$ is the local applied accelaration (gravity) and $\nu_0$ 
 	the kinematic viscosity.
-
+	
+	\begin{wrapfigure}{r}{0.4\textwidth}
+		%\centering
+		\includegraphics[width=0.35\textwidth]{figs/poiseuille.eps}
+	\end{wrapfigure}
+	
 	In a Couette flow we ignore the applied acceleration $g=0$, and we move one wall with a
-	speed $V_0$ while keeping the other fixed. This gives Dirichlet BCs, for example,  
+	speed $V_0$ while keeping the other fixed. This gives Dirichlet BCs  
 	\begin{equation}
 		v(0,t)=0 \ \ \text{and} \ \ v(L,t)=V_L \, .
 	\end{equation}
@@ -216,19 +221,21 @@ gradients). By the way, this type of model is more formally referred to as a
 	\end{equation}
 \end{example}
 
+\clearpage
+
 \begin{example}
-	\label{example:turing}
-	In bio-chemical reactive systems there will be more than just one animal species,
+	\label{example:turing} \index{Turing structure}
+	In bio-chemical systems there will be more than just one animal species,
 	organism, or chemical compound that multiply, die, or react. In general, there will
 	be very many "substances", $S_1, S_2, \ldots$, and the corresponding 
 	concentrations, $c_1, c_2, \ldots$,  will be coupled (or co-depended).
-	For example, if we wish to model the population of a predator we
+	For example, if we wish to model a predator population we
 	usually also need to include the food resources (prey) unless it is abundant and can be considered 
 	constant. The prey dynamics itself depends on the predator population as prey is eaten/consumed 
 	by preditors, hence, the two are coupled.
 
-	If we have two coupled concentrations, and assume that diffusion of $c_1$ depends on the gradient 
-	of $c_1$ only (and the same for $c_2$) we can write a system of RD-equations 
+	If we have two coupled concentrations and assume that diffusion of $c_1$ only depends on the gradient 
+	of $c_1$ and that the diffusion of $c_2$ only depedends on $c_2$ we can write a system of RD-equations 
 	\begin{eqnarray}
 		\frac{\partial c_1}{\partial t} &=& r_1(c_1,c_2) + D_1 \frac{\partial^2
 		c_1}{\partial x^2} \\
@@ -257,14 +264,15 @@ gradients). By the way, this type of model is more formally referred to as a
 		\begin{center}
 			\includegraphics[scale=0.6]{figs/turingIllustration.pdf}
 			\caption{\label{fig:turing} Turing structure. From random initial
-			concentration (a), a concentration gradient emerges (b), reaching a
-			static structure (c).  The Turing structure can model the 
-			biological morphology observed in the embryo of the fruit fly (d).  }
+			concentration, (a), a concentration gradient emerges spontanously, (b), 
+			and reaches a static situation of varying gradient (structure) (c).  
+			The Turing structure can model the biological morphology observed in the 
+			embryo of the fruit fly (d).  }
 		\end{center}
 	\end{figure}
 
 	Alan Turing was the first to apply this type of model to account for
-	\emph{biological morphology}, that is, what appears to be spontaneously emerging
+	\emph{biological morphology}\index{Morphology}, that is, what appears to be spontaneously emerging
 	structures in biological systems. If the system is initialized in a random 
 	(macroscopically uniform) fashion, see Fig. \ref{fig:turing}, then
 	concentration gradients emerge spontaneously giving raise to a static (time independent) 
@@ -273,16 +281,15 @@ gradients). By the way, this type of model is more formally referred to as a
 
 \begin{example}
 	\label{ex:bacteria-in-dish}
-	In the laboratory bacteria can be grown by seeding a small amount of bacteria onto 
+	In the laboratory, bacteria can be grown by seeding a small amount of bacteria onto 
 	a surface with nutrients and agar (an algae); often this is done in a Petri dish. As the 
 	bacteria multiply the colony grows radially from the seeding point.   
-	\begin{wrapfigure}{L}{0.35\textwidth}
+	
+	\begin{wrapfigure}{l}{0.4\textwidth}
 		\centering
-		\includegraphics[width=0.3\textwidth]{figs/petri-dish-bacteria-growth.jpg}
-		\caption*{}
+		\includegraphics[width=0.35\textwidth]{figs/petri-dish-bacteria-growth.jpg}
 	\end{wrapfigure}
-	\paragraph{}
-	\vspace*{-\parskip}
+
 	The growth happens in two spatial dimensions which we can highlight by
 	writing  
 	\begin{eqnarray}
@@ -335,45 +342,45 @@ gradients). By the way, this type of model is more formally referred to as a
 		\left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
 		\right)
 	\end{equation}
-	is called the \emph{Laplace operator}
+	is called the \emph{Laplace operator}\index{Laplace!operator}
 	\footnote{and is often (especially among mathematicians) given the symbol $\Delta$}. 
 
 	We return to the bacteria colony. The colony grows radially from a point and
-	the Cartesian coordinates above are rather inconvenient to describe this. Rather
+	the Cartesian coordinates above are rather inconvenient to describe this. Therefore 
 	we choose polar coordinates such that
 	\begin{eqnarray}
-		 c = c(r, \theta, t) \, ,
+		 c = c(\rho, \theta, t) \, ,
 	\end{eqnarray}
-	where $r$ is the radial distance to the seeding point and $\theta$ the polar
-	angle. Recall that the relation between Cartesian and polar coordinates are
+	where $\rho$ is the radial distance to the seeding point 
+	and $\theta$ the polar angle. Recall that the relation between 
+	Cartesian and polar coordinates are
 	\begin{eqnarray}
-		x = r \cos(\theta) \ \text{and} \   y = r \sin(\theta) \, .
+		x = \rho \cos(\theta) \ \text{and} \   y = \rho \sin(\theta) \, .
 	\end{eqnarray}
 	By heavy usage of the chain rule we can use these relations to derive the 
 	Laplace operator in polar coordinates
 	\begin{eqnarray}
-		\vecs{\nabla}^2 = \left(\frac{1}{r}\frac{\partial}{\partial r}
-		r\frac{\partial }{\partial r}  +
-		\frac{1}{r^2}\frac{\partial^2}{\partial \theta^2}\right) \, .
+		\vecs{\nabla}^2 = \left(\frac{1}{\rho}\frac{\partial}{\partial \rho}
+		\rho \frac{\partial }{\partial \rho}  +
+		\frac{1}{\rho^2}\frac{\partial^2}{\partial \theta^2}\right) \, .
 	\end{eqnarray}
 	An interesting case to us is when the concentration is angle
-	independent, $c= c(r,t)$, then the RD-equation reads 
+	independent, $c= c(\rho,t)$, then the RD-equation reads 
 	\begin{equation}
 		\label{eq:rdpol}
 		\frac{\partial c}{\partial t} = r(c) +
-		\frac{D}{r}\frac{\partial}{\partial r}
-		\left(  r\frac{\partial c}{\partial r} \right) 
+		\frac{D}{\rho}\frac{\partial}{\partial \rho}
+		\left(  \rho\frac{\partial c}{\partial \rho} \right) 
 	\end{equation}
-	if $D$ is constant and if the production function is $r(c)$. In the reminder of the text we will 
-	use one dimensional Cartesian coordinate unless otherwise stated. Only a few
-	exercises deal with Eq. (\ref{eq:rdpol}).
+	if $D$ is constant and if the production function is $r(c)$. Only a few
+	exercises deal with Equation (\ref{eq:rdpol}).
 \end{example}	
 
 \begin{question}
 	What would be appropriate BCs for the bacteria growth in a Petri dish?
 \end{question}
 
-\noindent The \emph{steady state} is the state where the system is independent
+\noindent The \emph{steady state} \index{Steady state} is the state where the system is independent
 of time, i.e., the situation where 
 \begin{equation}
 	\frac{\partial c}{\partial t} = 0 \, .
@@ -385,18 +392,17 @@ $c = c(x)$, and results in an ordinary second order differential equation on the
 	D\frac{\d^2 c}{\d x^2} + r(c) = 0 \, ,
 \end{equation}
 if the diffusion coefficient is constant. The solution is dependent on the specific BCs, 
-and Eq. (\ref{eq:bcIntro}) together with the BCs define a 
-\emph{boundary value problem}. In the next chapter we will explore these problems; both in the linear case and 
+and Equation (\ref{eq:bcIntro}) together with the BCs define a 
+\emph{boundary value problem} \index{Boundary value problem}. 
+In the next chapter we will explore these problems; both in the linear case and 
 non-linear case using perturbation methods. 
 
-The diffusion equation represents the case where the reaction (or more generally the 
-production function, $f$) is 
+The diffusion equation represents the case where the production function $f$ is 
 absent. The dynamics of $c=c(x,t)$ is then
 \begin{equation}
 	\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} 
 \end{equation}
-for constant diffusion coefficient. This is a 
-\emph{parabolic partial differential equation}, and to solve this we need both ICs 
+for constant diffusion coefficient. To solve this we need both ICs 
 and BCs. In our analysis of this equation it is very 
 useful to apply our knowledge of Fourier series and, in particular,  
 the Euler-Fourier equations, which we will revisit.

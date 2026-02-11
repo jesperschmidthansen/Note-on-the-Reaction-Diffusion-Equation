@@ -1,57 +1,55 @@
 
-An important class of problems deal with the steady-state, i.e., where the
-system after a transient time no longer evolves. The steady-state we formally
-define as  
+An important class of problems deal with systems in the steady-state \index{Steady state}, where the
+systems after a time transient no longer change with respect to time. The steady-state we formally define as  
 \begin{equation}
-  \frac{\partial c}{\partial t}=0 
+  \frac{\partial c}{\partial t}=0 \ ,
 \end{equation}
-implying that $c=c(x)$. In this case and for constant diffusion coefficient,
+and we highlight the time independence by writing $c=c(x)$. In the steady-state  
 the RD-equation reduces to an ordinary differential equation
 \begin{equation}
-  D\frac{\d^2c}{\d x^2} + r(c)=0  
+	\frac{\d}{\d x} \left[ D \frac{\d c}{\d x}\right] + r(c)=0 \, .  
 \end{equation}
-This equation together with some appropriate BCs 
-define a boundary value problem and is what we will study in the next few
-sections. In the last optional section we explore \emph{chemotaxis} which is a phenomenon where 
-cells migrate due to a signaling compound. While this is not a 
-reaction-diffusion phenomenon, we can easily apply what we 
-learn in the first sections and thus further extent the applications.
+This equation together with some appropriate BCs define a boundary value 
+problem and is what we will study in this chapter. In the last optional section we 
+also explore \emph{chemotaxis}\index{Chemotaxis} which is a phenomenon where cells migrate due to a 
+signaling compound. While this is not a reaction-diffusion phenomenon, we can 
+easily apply what we learn in the first sections and thus further extent the applications.
 
-The boundary value problems we encounter here when $r$ is a linear function 
-are examples of the \emph{Sturm-Liouville} problem. The theoretical 
-framework of this general problem is very elegant and quite useful, however, we shall 
+The boundary value problems we encounter here when $r$ is a linear function of $c$ 
+are examples of the \emph{Sturm-Liouville} problem \index{Sturm-Liouville}. The theoretical 
+framework of this general problem is elegant and quite useful, however, we shall 
 not embark on an indepth treatment here, but simply make a few references. 
 
 
-\section{Linear reaction functions \label{stst:sectBVP}}
-In Example \ref{ex:simplegrowth} we 
-introduced an RD-equation with a simple linear reaction function, $r=kc$.  
-Let us explore this example in the case where $k>0$, that is, the population
-self-multiply,  
+\section{Constant coefficients and linear reaction functions \label{sect:stst:BVP}}
+In Example \ref{ex:simplegrowth} we introduced an RD-equation with a simple 
+linear reaction function, $r=kc$. Let us explore this example, specifically for the case 
+where $k>0$ and $D>0$ are constants  
 \begin{equation}
   \label{eq:simplegrowthss}
-	D\frac{\d^2c}{\d x^2} + kc=0 \, \ \ \ (k>0).
+	D\frac{\d^2c}{\d x^2} + kc=0 \, .
 \end{equation}
 Since we have no time in the problem we do not have an IC, and in this first
 example we apply simple Dirichlet BCs
 \begin{equation}
   c(0)=c(L)=0 \, .
 \end{equation}
-The general solution to this homogeneous second order linear equation with
-constant coefficients depends on the eigenvalues' multiplicity 
-\footnote{If you need to refresh this, I recommend the book 
-by Boyce \& DiPrima, \emph{Elementary Differential Equations}, 
-published by Wiley.}. To find this, we can write the characteristic polynomial for
-Eq. (\ref{eq:simplegrowthss}) 
+Equation (\ref{eq:simplegrowthss}) is a homogeneous second order linear equation with 
+constant coefficients. The \emph{eigenvalues} \index{Eigenvalue} for this equation are found from the characteristic
+equation \footnote{If you need to refresh this, I recommend that you go the exercises for this section.}
 \begin{equation}
-	\lambda^2 + \frac{k}{D} = 0 \ \Rightarrow \ \lambda_{1,2} = \pm i \sqrt{\frac{k}{D}}   \, ,
-	 \label{eq:eigInfinite}
+	\lambda^2 + \frac{k}{D} = 0
+	\label{eq:eigInfinite}
 \end{equation}
-where $\lambda$ is the \emph{eigenvalue}. Since the multiplicity is one 
-(for both eigenvalues, of course) the general solution is 
-a linear combination of two exponential functions. Applying Euler's identity we get
+implying eigenvalues $\lambda_1$ and $\lambda_2$ 
+\begin{equation}
+ \lambda_{1,2} = \pm i \sqrt{\frac{k}{D}}   \, ,
+\end{equation}
+because both coefficients are positive. Since we have distinct eigenvalues 
+the general solution is a linear combination of two exponential functions . Therefore 
+by application of Euler's identity we get
 \begin{eqnarray}
-  c(x) &=& A e^{i \sqrt{k/D} x} + B e^{-i \sqrt{k/D} x}
+	c(x) &=& Ae^{\lambda_1 x} + Be^{\lambda_2 x} = A e^{i \sqrt{k/D} \, x} + B e^{-i \sqrt{k/D} \, x}
            \nonumber \\
        &=& (A+B)\cos\left(\sqrt{k/D}\,x\right) +
            i(A-B)\sin\left(\sqrt{k/D}\,x\right) \, ,
@@ -63,28 +61,29 @@ From the left BC (at $x=0$) we get
 \begin{equation}
   c(0) = A + B = 0 \ \Rightarrow \ A = -B   \, ,
 \end{equation}
-and using this result together with the right BC (at $x=L$)
+and using this result together with the right BC (at $x=L$) we have
 \begin{equation}
   c(L) = i2A\sin\left(\sqrt{k/D}\,L\right) = 0 \, .
 \end{equation}
 This relation is of course fulfilled for $A=0$ and this leads to the 
-\emph{trivial solution} $c(x)=0$. Perhaps more interestingly, the equation is also 
-fulfilled for $A\neq 0$ and $\sin(\sqrt{k/D}\,L ) = 0$, that is, for
+\emph{trivial solution} \index{Trivial solution} $c=0$ for all $x \in [0;L]$. Perhaps more interestingly, the equation is also 
+fulfilled when $A\neq 0$ and $\sin(\sqrt{k/D}\,L ) = 0$, that is, for
 \begin{equation}
   \label{eq:constraintL}
 	\sqrt{\frac{k}{D}} \, L = n\pi \, , \ \text{where} \ n \in \mathbb{N}_+ \, .
 \end{equation}
-Since $k, D$ and $L$ are all larger than zero, the right-hand side must be positive 
-implying that $n$ is a positive integer as we indicate by $\mathbb{N}_+$. 
+Note that since $k, D$ and $L$ are all postive reel numbers, the right-hand side must be positive 
+implying that $n$ is a positive integer as we indicate by $\mathbb{N}_+$. Also, notice that for a
+given set $k, D$ and $L$ we may have $\sqrt{k/D} L \neq n \pi$, hence, only the trivial solution
+exists. 
 
-Rearranging Eq.(\ref{eq:constraintL}) 
-and substituting into the general solution, Eq. (\ref{eq:stsgeneral2order}), we have
-that   
+Assume that Equation(\ref{eq:constraintL}) is fulfilled, then we can substitute the relation into the 
+general solution, Equation (\ref{eq:stsgeneral2order}), obtaining    
 \begin{equation}
 \label{eq:gensolfirst}
-c(x) = i2A \sin\left(\frac{n \pi}{L} \, x \right) \, \ \text{for any} \ n \in \mathbb{N}_+ \, .
+c(x) = i2A \sin\left(\frac{n \pi}{L} \, x \right)  \, .
 \end{equation}
-In our treatment here, $c$ is a real valued function and therefore $A$ must be imaginary. Also, if 
+In our treatment here $c$ is a real valued function and therefore $A$ must be imaginary. Moreover, if 
 we demand $c \geq 0$ ($c$ representing concentration) only $n=1$  will work, defining the length    
 \begin{equation}
   \label{eq:L0}
@@ -92,55 +91,74 @@ we demand $c \geq 0$ ($c$ representing concentration) only $n=1$  will work, def
 \end{equation}
 constraining the $x$-coordinate to $0 \leq x \leq L_0$. 
 
-Even if we have two BCs we cannot determine the constant $A$ (and get a unique solution for 
-the special case $n=1$). What we got from the BCs is the relation between the constants $A$ and $B$, 
-and the non-trivial solution constraint given in Eq. (\ref{eq:constraintL}). 
+We see that even if we have two BCs we cannot determine the constant $A$ (and get a unique solution). 
+What we got from the BCs is the relation between the constants $A$ and $B$, 
+and the non-trivial solution constraint given in Equation (\ref{eq:constraintL}). 
 We must conclude that there exists infinitely many solutions. 
 
-The result here, namely, that there does not exists a unique solution may be 
+The result here, namely, that there does not exist a unique solution may be 
 surprising if we consider the corresponding
-experimental bio-chemical system we seek to model. The substance (here a plankton population)
+experimental bio-chemical system we seek to model. The substance, say, a plankton population
 features a self-multiplying process, and due to the concentration gradient,
 the produced plankton is transported via diffusion to the tube-ends where it is
-removed (how, will not concern us here). Now, if the diffusion transport 
+removed (how, will not concern us here). Now, if the diffusive transport 
 is sufficiently fast compared to the production, the population vanishes with time 
 (as the plankton is removed at the tube ends), and we simply end in the trivial solution $c=0$. 
 On the other hand, if diffusion cannot transport the produced plankton to the tube ends fast enough, the concentration
 will keep raising leading to $c$ diverging at all interior points; and now we must of course evaluate whether our
 model fulfill its purpose. Finally, there is also a state where there exists a 
-(fragile) balance between the diffusive transport out of the system 
-and the production allowing for a non-trivial solution. \label{page:nouniquness} In Chapter \ref{ch:rd} we revisit these points in more detail. 
+(strict) balance between the diffusive transport out of the system and the production, given by $\sqrt{k/D} = \pi/L_0$, 
+and this allows for a non-trivial solution. \label{page:nouniquness} In Chapter \ref{ch:rd} we revisit these points in more detail. 
 
-Let us briefly return to the solutions in Eq. (\ref{eq:gensolfirst}). The \emph{super-position principle for linear systems} 
-states that if Eq. (\ref{eq:gensolfirst}) are solutions to the problem, then a
-linear combination of these solutions is also a solution. Therefore, we also
-have, in general, the series solution
+Let us briefly return to the solutions in Equation (\ref{eq:gensolfirst}). The \emph{super-position
+principle for linear systems}  \index{Super-Position principle} 
+states that if Equation (\ref{eq:gensolfirst}) are solutions to the problem, then a
+linear combination of these solutions is also a solution. Therefore, we have, in general, the series solution
 \begin{equation}
 	\label{eq:2ndorderseries}
 	c(x) = \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi}{L} \, x \right) \, ,
 \end{equation}
-where $b_n \in \R$ a constants. We shall use this important result later.
+where $b_n \in \R$ are constants. This general solution can be understood in a more abstract manner. To this
+end, first note (or recall) that the sine function is a vector. For example, the distributive law holds for 
+the standard addition operator 
+\begin{eqnarray}
+	\label{eq:sinevector}
+	(a + b) \sin\left(\frac{n \pi}{L} \, x\right) = a\sin\left(\frac{n\pi}{L} \, x\right) + b \sin\left(\frac{n\pi}{L} \, x\right) 
+\end{eqnarray}
+where $a$ and $b$ are scalars; the other axioms are just as easily verified. Secondly, the functions
+$\sin(\pi/L \, x), \sin(2\pi/L \, x), \sin(3\pi/L \, x), \ldots$ are \emph{linearly independent}
+\index{Linear independence} 
+because for $n,m \in \mathbb{N}_+$
+\begin{eqnarray}
+	a \sin\left(\frac{n \pi}{L} \, x\right) + b\sin\left(\frac{m \pi}{L} \, x\right) = 0 \, , \ x \in
+	[0; L] \, ,
+\end{eqnarray}
+implies that $a=b=0$.  Thus, $\sin(\pi/L \, x), \sin(2\pi/L \, x),
+\sin(3\pi/L \, x), \ldots$ span an infinite dimensional vector space, and the solution $c$ is simply a
+vector itself and represented in this basis by the coefficients $b_n$. 
 
 \begin{question}
-	Can you prove the statement in Eq. (\ref{eq:2ndorderseries})? (That is, show
-	Eq. (\ref{eq:2ndorderseries}) is solution to Eq. (\ref{eq:simplegrowthss})
+	Can you verify the statement in Equation (\ref{eq:2ndorderseries})? (Hint: Show
+	Equation (\ref{eq:2ndorderseries}) is solution to Equation (\ref{eq:simplegrowthss})
 	with the BCs $c(0)=c(L)=0$.)
 \end{question}
 
-Some terminology: We can rewrite the relation in Eq. (\ref{eq:constraintL}) slightly 
+Finally, some terminology: We can rewrite the relation in Equation (\ref{eq:constraintL}) slightly 
 \begin{eqnarray}
 	\sqrt{\frac{k}{D}} = \frac{n\pi}{L} \, .
 \end{eqnarray}
-Comparing this with Eq. (\ref{eq:eigInfinite}) this motivates 
-us to name $n\pi/L$ an eigenvalue, and we therefore assign it the symbol
-$\lambda_n$, where $n$ refers to the natural number in the nominator. 
-Note, for this problem we have infinitely many eigenvalues where $\lambda_n < \lambda_m$ 
-if $n<m$. \footnote{This result can be proven formally.} The solution for a given 
-eigenvalue is called an \emph{eigenfunction}. The trivial solution, $c=0$, is not an eigenfunction. 
+Comparing this with Equation (\ref{eq:eigInfinite}) this motivates us to name $n\pi/L$ an eigenvalue, and
+we some times assign it the symbol
+$\lambda_n$, where $n$ refers to the natural number in the nominator. Note, for this problem we have 
+infinitely many eigenvalues where $\lambda_n < \lambda_m$  if $n<m$. The solution for a given 
+eigenvalue is called an \emph{eigenfunction} \index{Eigenfunction}\index{Function!eigen-}; here the sine functions are eigenfunctions. 
+The trivial solution, $c=0$, is not an eigenfunction. 
 
-Let us see two more examples.
+\bigskip
 
-\begin{example}
+\noindent Let us see two more examples.
+
+\begin{example} \label{ex:stst:polsol}
 	In case the production function is a constant we have an inhomogeneous
 	equation on the form
 	\begin{equation}
@@ -151,17 +169,14 @@ Let us see two more examples.
 		c(0)=0 \ \ \text{and} \ \ \left.\frac{\d c}{\d x}\right|_{x=L}=1 \, .
 	\end{equation}
 
-	\begin{wrapfigure}[15]{L}{0.4\textwidth}
-		\centering
+	\begin{wrapfigure}{l}{0.4\textwidth}
 		\includegraphics[width=0.35\textwidth]{figs/solutionEx4.eps}
-		\caption*{}
 	\end{wrapfigure}
-	\paragraph{}
-	\vspace*{-\parskip}
+	
 	The experimental realisation of these BCs is of no importance to us here. 
 
 	Clearly, the exponential function cannot be a solution to this problem. 
-	Let $y=\d c/\d x$, then	$\d y/\d x = K$, implying that $y = Kx + A$ and therefore
+	Now, let $y=\d c/\d x$, then	$\d y/\d x = K$, implying that $y = Kx + A$ and therefore
 	\begin{equation}
 		c(x) = \frac{K}{2}x^2 + Ax + B \, .
 	\end{equation}
@@ -174,8 +189,8 @@ Let us see two more examples.
 	\label{eq:solutionEx4}
 	 c(x) = \frac{K}{2}x^2 + (1-KL)x 
 	\end{equation}
-	This was less painful; 
-	in summary, the solution exists and is unqiue.   
+	This was less painful; in summary, the solution exists and is unqiue. Again, we can think 
+	of $c$ as a vector; this time the vector space is spanned by polynomials.  
 %	\marginpar{\includegraphics[scale=0.255555]{figs/solutionEx4.eps}}i
 \end{example}
 
@@ -188,21 +203,20 @@ Let us see two more examples.
   \begin{equation}
     c(0) = 1 \ , \ c(L_0) = 1 \, .
   \end{equation}
-  $L_0$ is given in Eq. (\ref{eq:L0}).  Now, the general solution is the same
-	as above, Eq. (\ref{eq:stsgeneral2order}), 
+  $L_0$ is given in Equation (\ref{eq:L0}).  Now, the general solution is the same
+	as above, Equation (\ref{eq:stsgeneral2order}), 
 	and from the first BC we obtain the relation $B=1-A$. From the second BC we have 
   \begin{equation}
     c(L_0)=\cos(\pi) + i(2A-1)\sin(\pi) = -1 \, .
   \end{equation}
-	This conflicts with the right BC and is and example of an \emph{ill posed problem}. 
-	Both BCs cannot be satisfied and no solution exists.
+	This conflicts with the right BC and is and example of an \emph{ill posed problem} \index{Ill
+	posed problem}. Both BCs cannot be satisfied and no solution exists.
 \end{example}
 
-The examples show that we need to be careful when dealing with boundary
-value problems. Even if the differential equation looks harmless and the general
-solution exists it may be an ill posed problem or have infinitely many solutions. 
-We cannot transfer the results from initial value problems to boundary value
-problems. In summary, we have the following possible outcomes:
+The examples show that we need to be careful when dealing with boundary value problems. Even if the differential 
+equation looks harmless and the general solution exists it may be an ill posed problem or 
+have infinitely many solutions. We cannot transfer the existence and uniqueness theorems from initial value 
+problems to boundary value problems. In summary, we have the following possible outcomes:
 \begin{itemize}
 \item There does not exist a solution.
 \item There exists one unique solution. 
@@ -210,52 +224,73 @@ problems. In summary, we have the following possible outcomes:
 \end{itemize}
 We will return to existence and uniqueness in the next section.
 
-In this section, we have only dealt with the case where both the
-rate constant $k$ and the diffusion coefficient $D$ are true constants and
+In this section, we have only dealt with the case where both $k$ and $D$ are constants and
 independent of position. Clearly, this need not to be the case, e.g., 
-if the substance is distributed in an inhomogeneous medium. These types of
-problems calls for a different approach, which we will see an example of later
-in the text.  
+the substance can be distributed in an inhomogeneous medium. These types of
+problems calls for a different approach, which we will treat in Section \ref{sec:inhomogenousstst}.
 
 \begin{exerciseregion}
-  
-\begin{exercise}
-  Solve the boundary value problems:
-  \begin{enumerate}
-  \item  
-    $\frac{d^2c}{dx^2} = K \ \text{with} \  c(0) =0\, , \ c(L)=0$
 
-   \item 
-    $\frac{d^2c}{dx^2} = 0 \ \text{with} \ c(0)=0\, , \ c(L)=C_L $
-  \item 
-    $\frac{d^2c}{dx^2} = -c \ \text{with} \  \left.\frac{\d c}{\d x}\right|_{x=0} =1\, , \ c(L)=0$
-  \end{enumerate}
-  Relate 1 and 2 to the flow cases in Example \ref{example:flow}.
-\end{exercise}
+	\begin{exercise}
+		Consider the general form for a homogeneous second order differential equation with constant
+		coefficients
+		\begin{eqnarray}
+			\frac{\d^2c}{\d x^2} + \alpha \frac{\d c}{\d x} + \beta c = 0 \ \ \ \alpha, \beta \in \mathbb{R}.
+		\end{eqnarray}
+		\begin{enumerate}	
+			\item Assume $c=c(x)$ has the solution $c(x)=c_0 e^{\lambda x}$. Show that the
+				characteristic equation is
+				\begin{eqnarray}
+					\lambda^2 + \alpha \lambda  + \beta = 0 \, .
+				\end{eqnarray}
+			\item Identify when the characteristic equation has one and two solutions.
+			\item Assume the characteristic equation has two solutions $\lambda_1$ and $\lambda_2$. Then both
+				$Ae^{\lambda_1x}$ and $Be^{\lambda_2x}$, $A,B \in \mathbb{R}$, are solutions. Verify that the
+				linear combination 
+				\begin{eqnarray}
+					Ae^{\lambda_1x} + Be^{\lambda_2x} 
+				\end{eqnarray}
+				is also a solution.
+		\end{enumerate}
+	\end{exercise}
 
-\begin{exercise}
-	\label{exercise:ststneumann}
-	(Mandatory) Consider the Neumann boundary value problem
-	\begin{eqnarray}
-		\frac{\d^2c}{\d x^2} + \alpha c = 0 \ \text{with} \  \left.\frac{\d c}{\d x}\right|_{x=0} = \left.\frac{\d c}{\d x}\right|_{x=L} =0
-	\end{eqnarray}
-	Show that   
-	\begin{itemize}
-		\item this problem has no solutions when $\alpha < 0$, 
-		\item this problem has infinite many solutions when $\alpha > 0$, and
-		\item that the general solution is on the form
-		\begin{equation}
-			\label{eq:2ndorderseriescosine}	c(x) = \sum_{n=0}^\infty c_n \cos\left(\frac{n\pi}{L} \, x \right) \, ,
-		\end{equation}
-		where $c_n \in \R$ is a constant.
-	\end{itemize}
-	 We shall use these important results later. 
-\end{exercise}
-\begin{exercise}
-  Show that when $k<0$ the trivial solution, $c=0$, is a solution to the steady-state
-  problem, Eq.(\ref{eq:simplegrowthss}). How do you bio-physically argue that
-	this is the only solution?
-\end{exercise}
+	\begin{exercise}
+	  Solve the boundary value problems:
+	  \begin{enumerate}
+	  \item  
+		$\frac{d^2c}{dx^2} = K \ \text{with} \  c(0) =0\, , \ c(L)=0$
+
+	   \item 
+		$\frac{d^2c}{dx^2} = 0 \ \text{with} \ c(0)=0\, , \ c(L)=C_L $
+	  \item 
+		$\frac{d^2c}{dx^2} = -c \ \text{with} \  \left.\frac{\d c}{\d x}\right|_{x=0} =1\, , \ c(L)=0$
+	  \end{enumerate}
+	  Relate 1 and 2 to the flow cases in Example \ref{example:flow}.
+	\end{exercise}
+
+	\begin{exercise}
+		\label{exercise:ststneumann}
+		(Mandatory) Consider the Neumann boundary value problem
+		\begin{eqnarray}
+			\frac{\d^2c}{\d x^2} + \alpha c = 0 \ \text{with} \  \left.\frac{\d c}{\d x}\right|_{x=0} = \left.\frac{\d c}{\d x}\right|_{x=L} =0
+		\end{eqnarray}
+		Show that   
+		\begin{enumerate}
+			\item this problem has the trivial solution as only solution when $\alpha < 0$, 
+			\item this problem has infinite many solutions when $\alpha > 0$, and
+			\item that the general solution is on the form
+			\begin{equation}
+				\label{eq:2ndorderseriescosine}	c(x) = \sum_{n=0}^\infty a_n \cos\left(\frac{n\pi}{L} \, x \right) \, ,
+			\end{equation}
+			where $a_n \in \R$ is a constant.
+		\end{enumerate}
+		 We shall use these important results later. 
+	\end{exercise}
+	\begin{exercise}
+	  Show that when $k<0$ the trivial solution, $c=0$, is a solution to the steady-state
+	  problem, Equation(\ref{eq:simplegrowthss}). How do you bio-physically argue that
+		this is the only solution?
+	\end{exercise}
 
 \end{exerciseregion}
 
@@ -263,9 +298,8 @@ in the text.
 \section{Existence and uniqueness of solutions} \label{sect:uniq}
 As illustrated in the previous section, we are not guaranteed a unique or even a single solution 
 to a given boundary value problem. In some cases we can give a formal proof if a solution exists to 
-a given problem and whether it is unique. 
-
-To give an example, consider the famous one dimensional \emph{Laplace equation} 
+and whether it is unique. For example, consider the famous one dimensional \emph{Laplace equation}
+\index{Laplace!equation}
 \begin{equation}
   \label{eq:laplace}
   \frac{\d^2 c}{\d x^2} =  0 \, . 
@@ -289,23 +323,24 @@ and only $a=0$ then satisfies $c(L) = 0$, that is, $c=0$.
 \end{question}
 
 \begin{proof}
-	Assume two solutions exists, namely, $\varphi_1$ and $\varphi_2$. We then 
-	define a third function, $\varphi$, 
-	as the difference $\varphi = \varphi_1 - \varphi_2$, thus, if we can show $\varphi = 0$ we have shown 
-	that only one solution exists. Notice that $\varphi$ fulfills the Laplace equation with same 
-	Dirichlet BCs as the original problem since
+	Assume two solutions exists, namely, $\varphi_1$ and $\varphi_2$. We 
+	define a third function, $\varphi$,  as the difference between these two solutions 
+	$\varphi = \varphi_1 - \varphi_2$. We will quickly see $\varphi$ is a solution and that $\varphi = 0$  
+	the only solution. 
+
+	First, $\varphi$ fulfills the Laplace equation with same Dirichlet BCs as the original problem since
 	\begin{equation}
 		\label{eq:laplacevarphi}
-		 \frac{\d^2 \varphi}{\d x^2} =  \frac{\d^2 \varphi_1}{\d x^2} -  \frac{\d^2 \varphi_2}{\d x^2} = 0   
+		 \frac{\d^2 \varphi}{\d x^2} =  \frac{\d^2 \varphi_1}{\d x^2} -  \frac{\d^2 \varphi_2}{\d
+		 x^2} = 0  \, ,
 	\end{equation}
-	and $\varphi(0) = \varphi(L)=0$. 
-
-	From the product rule we have the following identity
+	as well as $\varphi(0) = \varphi_1(0) - \varphi_2(0)=0$ and $\varphi(L)=\varphi_1(L) -
+	\varphi_2(L)=0$. From the product rule we have the following identity
 	\begin{equation}
     	\frac{\d}{\d x}\left(\varphi \frac{\d \varphi}{\d x} \right) = \left( \frac{\d \varphi}{\d
         	x}\right)^2 + \varphi \frac{\d^2 \varphi}{\d x^2} = \left( \frac{\d \varphi}{\d x}\right)^2 \, ,
   \end{equation}
-  where the last relation is due to Eq. (\ref{eq:laplacevarphi}). We integrate
+  where the last relation is due to Equation (\ref{eq:laplacevarphi}). We integrate
 	both sides; from the fundamental theorem of calculus the left-hand side
 	becomes 
   \begin{equation}
@@ -343,9 +378,8 @@ and only $a=0$ then satisfies $c(L) = 0$, that is, $c=0$.
 	(Come to class if you are stuck!)
 \end{proof}
 
-Except from the exercises below, we shall not pursue proving these 
-existence and uniqueness theorems further in this text; again the 
-interested reader can consult the literature on this. 
+Except from the exercises below, we will not pursue proving these 
+existence and uniqueness theorems further; again the interested reader can consult the literature on this. 
 
 \begin{exerciseregion}
 \begin{exercise}
@@ -357,7 +391,7 @@ interested reader can consult the literature on this.
 \end{exercise}
 
 \begin{exercise}
-	Prove that the \emph{Poisson equation} with Dirichlet BCs
+	Prove that the \emph{Poisson equation} \index{Poisson equation} with Dirichlet BCs
 	\begin{equation}
 	  \frac{\d^2c}{\d x^2} = f(x) \ , \ c(0)=c(L)=0 \, ,
 	\end{equation}
@@ -367,46 +401,423 @@ interested reader can consult the literature on this.
 \end{exerciseregion}
  
 
+\section{Varying coefficients: Series solutions \label{sec:inhomogenousstst}\index{Series!solutions}}
+In Section \ref{sect:stst:BVP} we studied the case where $D$ and $k$ are constants. In general, this 
+is not the case. For example, in a high column of water the biological growth rate coefficient can vary with the depth 
+as the amount of sunlight varies, and temperature variations in the system will affect the
+diffusion coefficient. The position dependency we highlight by writing $D=D(x)$ and $k=k(x)$. For
+varying coeffcients the steady-state RD-equation is on the form   
+\begin{eqnarray}
+	\label{eq:stst:nonconstcoeff}
+	D(x) \frac{\d^2c}{\d x^2} + D'(x) \frac{\d c}{\d x} + k(x) c = 0 \, ,
+\end{eqnarray}
+using the product rule and where $D'(x) = \d D(x)/\d x$. From our definition of a diffusion process
+we have $D(x) > 0$ for $x \in [0; L]$ and Equation (\ref{eq:stst:nonconstcoeff}) is often rewritten on
+the form
+\begin{equation}
+	\frac{\d^2 c}{\d x^2} + p(x)\frac{\d c}{\d x} + q(x) c = 0
+\end{equation}
+with $p(x)=D'(x)/D(x)$ and $q(x)=k(x)/D(x)$. 
+
+The solutions for $c$ for these problems are usually not given by low order polynomials or 
+linear combinations of trigonometric and exponential functions, and, in fact, the solution can be an unknown function. 
+The strategy is to find the solution in terms of its power series representation 
+\begin{equation}
+	\label{eq:stst:ssol}
+	c(x) = \sum_{n=0}^\infty c_n (x-x_0)^n \ , 
+\end{equation}
+where $x_0$ is some point (typically in the interval $[0;L]$), and $c_n$ are coefficients we need to
+determine.  \index{Series!power} For this to be meaningful in the first place we must have that the limit of the 
+\emph{the partial sum} \index{Partial sum}
+\begin{eqnarray}
+	s_m(x) = \sum_{n=0}^m c_n (x-x_0)^n 
+\end{eqnarray}
+exists at $x$ as $m \rightarrow \infty$. If this is so, we say the series \emph{converges pointwise}
+\index{Convergence!pointwise}
+at the point $x$ and that $c(x) = \lim_{m\rightarrow \infty} s_m(x)$. A formal definition of
+pointwise convergence is based on an $\epsilon-N$ definition: Let $c: S \rightarrow \mathbb{R}$; 
+then the series converges pointwise 	
+to $c$ on $S$ if for all $\epsilon > 0$ there exists an $N(x, \epsilon) \in \mathbb{N}$ 
+such that $|s_m(x) - c(x)| < \epsilon$ for all $x \in S$ and $m \geq N$. Later we define a 
+"stronger" type of convergence using an $\epsilon-N$ definition, but we shall not go into any 
+details.   
+
+
+We first list a very powerful result which we will not prove. In our treatment here $D$ and $k$ are polynomials
+and since $D \neq 0$ in any point in the interval $[0; L]$, the points are \emph{ordinary
+points}\index{Ordinary point}.  
+If a point is not an ordinary point it is a \emph{singular point}\index{Singular point}, and this occurs for points where
+$D=0$. The functions $p$ and $q$ are not defined in singular points. 
+Now, if $x_0$ is an ordinary point we are guarantied a general solution on the form of a 
+power series, Equation (\ref{eq:stst:ssol}), in some neighbourhood around the point $x_0$. 
+The idea is simple: if $D$ and $k$ are "well behaved" we should expect that the general solution 
+to the differential equation exists and, furthermore, that the solution can be represented by a power series.
+Of course, we may still have an ill posed boundary value problem prohibiting a particular solution.  
+
+\bigskip 
+
+\noindent To illustrate the method, we revisit the special case where diffusion and growth rate are 
+constants, i.e., they are zero'th order polynomials. Recall, this case we first 
+treated in Section \ref{sect:stst:BVP}. We have 
+\begin{eqnarray}
+	\label{eq:stst:constantcoefrev}
+	D\frac{\d^2 c}{\d x^2} + k c = 0 \ \implies \frac{\d^2c}{\d x^2} =  -\lambda c = 0 \ ,
+\end{eqnarray}
+where $\lambda = k/D > 0$ since both rate and diffision coefficents are constants. 
+
+First, we notice that $p=0$ and $q=\lambda$ so any point is an ordinary point and we are guarantied a
+general solution around $x_0 \in \R$. We will (usually) choose the left boudary $x_0=0$, hence, we look 
+for a series solution on the form
+\begin{eqnarray}
+	\label{eq:stst:seriesx00}
+	c(x) = \sum_{n=0}^\infty c_n x^n \, .
+\end{eqnarray}
+We may now substitute Equation ($\ref{eq:stst:seriesx00})$ into Equation (\ref{eq:stst:constantcoefrev})
+and compare terms in order to extract the coefficients $c_n$. Since this is an ordinary
+problem and we can differentiate term wise, thus, differentiating once  
+\begin{eqnarray}
+	\label{eq:stst:dseries}
+	\frac{\d c}{\d x} = c_1 + 2c_2x + 3c_3x^2 + 4c_4 x^3 + \ldots = \sum_{n=1}^\infty n c_n x^{n-1}
+\end{eqnarray}
+and twice 
+\begin{eqnarray}
+	\label{eq:stst:d2series}
+	\frac{\d^2c}{\d x^2} = 2c_2 + 6c_3x + 12c_4x^2 + \ldots = \sum_{n=2}^\infty n(n-1) c_n
+	x^{n-2} \, .
+\end{eqnarray}
+Before the substitution it is often practical if the starting indices are the same; we can
+achieve this by defining a shifting index, here denoted $m$. For the 1st order derivative 
+we let  $m=n-1$ and therefore $n=m+1$, and Equation (\ref{eq:stst:dseries}) is written as
+\begin{eqnarray}
+	\label{eq:stst:dindexshift}
+	\frac{\d c}{\d x} = \sum_{n=1}^\infty n c_n x^{n-1}=\sum_{m=0}^\infty (m+1) c_{m+1}x^m \, .
+\end{eqnarray}
+For the 2nd order derivative we let $m=n-2$. Then $n=m+2$ and 
+\begin{eqnarray}
+	\label{eq:stst:d2indexshift}
+	\frac{\d^2c}{\d x^2}= \sum_{n=2}^\infty n(n-1) c_n x^{n-2} = \sum_{m=0}^\infty (m+2)(m+1)
+	c_{m+2} x^m \, .
+\end{eqnarray}
+The index symbol is, of course, changeable so we can simply rename $m$ to $n$. Substitution we have
+\begin{eqnarray}
+	\sum_{n=0}^\infty (n+2)(n+1)c_{n+2}x^n = -\lambda \sum_{n=0}^\infty c_n x^n \, . 
+\end{eqnarray}
+This relation is true if each term in the two series are equal, that is, if
+\begin{eqnarray}
+	(n+2)(n+1)c_{n+2} = -\lambda c_n \ \implies  \ c_{n+2} = -\frac{\lambda c_n}{(n+2)(n+1)} \, .
+\end{eqnarray}
+This is the \emph{recurrence relation}\index{Recurrence relation}. From the recurrence relation we can determine all
+coefficients if we know $c_0$ and $c_1$
+\begin{eqnarray}
+	c_2 = -\frac{\lambda c_0}{1\cdot 2} \ , \ c_3 = -\frac{\lambda c_1}{2\cdot 3} \ , \ 
+	c_4 = -\frac{\lambda c_2}{3\cdot4} = \frac{\lambda^2c_0}{1\cdot2\cdot3\cdot4} \  , \ 
+	c_5 = -\frac{\lambda c_3}{4\cdot5} = \frac{\lambda^2c_1}{2\cdot3\cdot4\cdot5}  \nonumber 
+\end{eqnarray}
+and so on. Notice that $c_0$ appears in the terms where $n$ is even, and $c_1$ in the terms where $n$ is
+odd. We can then write the general solution on the form of an even series and an odd series 
+\begin{eqnarray}
+	c(x) &=& c_0\left(1 - \frac{\lambda}{2!}x^2 + \frac{\lambda^2}{4!}x^4 - \ldots\right) 
+			+ c_1 \left(x- \frac{\lambda}{3!}x^3 + \frac{\lambda^2}{5!}x^5 - \ldots\right) 
+			\nonumber \\
+			&=& c_0 \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} + c_1 \sum_{n=0}^\infty 
+			\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} \, .
+\end{eqnarray}
+This is just a linear combination of the Taylor series for cosine and sine
+\begin{eqnarray}
+	\frac{\cos(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&  \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} 
+	\nonumber	\\
+	\frac{\sin(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&   \sum_{n=0}^\infty 
+			\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} 
+\end{eqnarray}
+so we have the final from
+\begin{eqnarray}
+	c(x) = \frac{c_0}{\sqrt{\lambda}} \cos(\sqrt{\lambda} x) 
+	+ \frac{c_1}{\sqrt{\lambda}} \sin(\sqrt{\lambda} x)
+\end{eqnarray}
+and we have same result as we obtained in Equation (\ref{eq:stsgeneral2order}), which we
+should also expect, of course. The coefficients can, some times, be determined by BCs.    
+
+The fact that the solution's power series is the Taylor series is a general results. So, even if the
+solution is an unknown function we can derive the function's Taylor series (and give it a name 
+if we wish). 
+
+\begin{example} \label{ex:stst:ss_1}
+	We consider the case where the diffusion coefficient is constant, $D(x)=D$ 
+	and	where the growth rate coefficient is linear with respect to space $k(x)= k_0 x$. Then, 
+	\begin{equation}
+		\label{eq:stst:exampless}
+		D\frac{\d^2 c}{\d x^2} + k_0 x c = 0 \ \implies \ \frac{\d^2 c}{\d x^2} = -\lambda x c  
+	\end{equation}
+	where $ \lambda = k_0/D$. We use the BCs 
+	\begin{eqnarray}
+		c(0)=0 \text{ and } c(1)=1 \, .
+	\end{eqnarray}
+	We have that $p=0$ and $q=\lambda x$, so any point $x_0$ is an ordinary point and  
+	we are guarantied a solution in a neighborhood around $x_0$. 
+	Let us choose the left boundary $x_0=0$; we seek the coefficients for the series 
+	\begin{eqnarray}
+		\label{eq:stst:ssol_x00}
+		c(x) = \sum_{n=0}^\infty c_n x^n \, .
+	\end{eqnarray}
+	Now, we substitute the series Equation. (\ref{eq:stst:ssol_x00}) and (\ref{eq:stst:d2indexshift}) 
+	- with index symbol $n$ - into	Equation(\ref{eq:stst:exampless}) we arrive at
+	\begin{eqnarray}
+		 \sum_{n=0}^\infty (n+2)(n+1)c_{n+2} x^n + \lambda x \sum_{n=0}^\infty c_n x^n = 0  
+	\end{eqnarray}
+	or by distributing $x$ in the last term
+	\begin{eqnarray}
+		\sum_{n=0}^\infty (n+2)(n+1)c_{n+2} x^n + \lambda \sum_{n=0}^\infty c_n x^{n+1} = 0 \, . 
+	\end{eqnarray}
+	It is a bit harder to derive the recurrence relation for this case. It may be deduced by writing
+	out a few terms; we obtain
+	\begin{eqnarray}
+		x^0 &:& 2c_2 = 0 \ \implies \ c_2 = 0 \nonumber \\
+		x^1 &:& 3\cdot2 c_3 + \lambda c_0 = 0 \ \implies \ c_3 = -\lambda c_0/(3 \cdot 2) \nonumber \\
+		x^2 &:& 4\cdot3 c_4 + \lambda c_1 = 0 \ \implies \ c_4 = -\lambda c_1/(4 \cdot 3) \nonumber \\
+		x^3 &:& 5\cdot4 c_5 + \lambda c_2 = 0 \ \implies \ c_5 = 0 \nonumber \\
+		x^4 &:& 6\cdot5 c_6 + \lambda c_3 = 0 \ \implies \ c_6 = -\lambda c_3/(6\cdot5) \nonumber \\
+		x^6 &:& 7\cdot6 c_7 + \lambda c_4 = 0 \ \implies \ c_7 = -\lambda c_4/(7\cdot6) \nonumber \\
+		&\vdots& \nonumber
+	\end{eqnarray}
+	Clearly, there is a structure 
+	\begin{eqnarray}
+		c_2 = 0 \text{ and } c_n = -\frac{\lambda c_{n-3}}{n(n-1)} \text{ for } n \geq 3 \, .
+	\end{eqnarray}
+	Notice that since $c_2=0$ we have that $c_5=c_8=c_{11}=\ldots=0$. Moreover, from the recurrence
+	relation we get
+	\begin{eqnarray}
+		c_6 &=& -\frac{\lambda c_3}{6\cdot5} =  \frac{\lambda^2c_0}{6\cdot5\cdot3\cdot2} \nonumber \\  
+		c_7 &=& -\frac{\lambda c_4}{7\cdot6} = \frac{\lambda^2c_1}{7\cdot6\cdot4\cdot3} \nonumber 
+	\end{eqnarray}
+	and 
+	\begin{eqnarray}
+		c_9 &=& -\frac{\lambda c_6}{6\cdot5} = -\frac{\lambda^3c_0}{9\cdot8\cdot6\cdot5\cdot3\cdot2}
+		\nonumber \\
+		c_{10} &=& -\frac{\lambda c_7}{7\cdot6} = -\frac{\lambda^3c_1}{10\cdot9\cdot7\cdot6\cdot4\cdot3} 
+		\nonumber
+	\end{eqnarray}
+	and so forth. 
+	Again, this leaves only two unknowns, namely, $c_0$ and $c_1$, and we again write
+	the general solution as a linear combiniation of two series 
+	\begin{eqnarray}
+		c(x) &=& c_0 \left(1 - \frac{\lambda}{3\cdot2}x^3 + \frac{\lambda^2}{6\cdot5\cdot3\cdot2}x^6 -
+		\frac{\lambda^3}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right) \nonumber \\
+		&+& c_1 \left(
+			x - \frac{\lambda}{4\cdot3}x^4 + \frac{\lambda^2}{7\cdot6\cdot4\cdot3}x^7 -
+			\frac{\lambda^3}{10\cdot9\cdot7\cdot6\cdot4\cdot3}x^{10} + \ldots \right)
+		\label{eq:stst:ssolEx1}
+	\end{eqnarray}
+	In practice we cannot not add up infinite terms, and some times we may not even 
+	be able to find a general recursion relation. We therefore often use the partial sum
+	\begin{eqnarray}
+		s_m(x) = \sum_{n=0}^{m} c_n x^n \, .
+	\end{eqnarray}
+	Applying the left boundary condition, $c(0)=0$, we get $c_0=0$ no matter the choice of 
+	truncation and then up to, say 10th order, we have 
+	\begin{equation}
+		c(x) \approx c_1 s_{10}(x) = c_1 \left(
+			x - \frac{\lambda}{4\cdot3}x^4 + \frac{\lambda^2}{7\cdot6\cdot4\cdot3}x^7 - 
+			\frac{\lambda^3}{10\cdot9\cdot7\cdot6\cdot4\cdot3}x^{10} \right)
+	\end{equation}
+	Here we determine $c_1$ from the partial sum: since $c(1)\approx c_1 s_{10}(1)=1$ we
+	get $c_1 = 1/s_{10}(1)$. Different partial sums are plotted for the case $\lambda = 10$. Notice that already after
+	three terms, or 7th order in $x$, we see a good approximation.
+\end{example}
+	
+% Poor solution
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\includegraphics[width=0.35\textwidth]{figs/series_conv.eps}
+\end{wrapfigure}
+
+
+\noindent Recall, we are only guarantied a series solution in some neighbourhood around the ordinary
+point $x_0$. Formally, we quantify this neighbourhood by the series' \emph{pointwise convergence
+radius}\index{Convergence!radius}, $R$,  
+that is, the solution is guarantied for points that fulfill $0 < |x - x_0| < R$. The convergence radius 
+can, some times,  be found from the famous \emph{ratio test}\index{Ratio test}. For the power series the ratio test states 
+that the series    
+\begin{eqnarray}
+	\label{eq:stst:ratiotest}
+	& &	\text{convergences if } |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right| < 1 
+	 \nonumber \\ & & \\
+	& &\text{divergence if } |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right|
+	> 1 \nonumber \\ & & 
+\end{eqnarray}
+for $c_n \neq 0$. The test is inconclusive for $|x-x_0| \lim_{n \rightarrow \infty} \left|
+c_{n+1}/c_n \right| = 1$. Strictly, the ratio test tests for absolute convergence: 
+if a function series converges absolutely it also converges pointwise. 
+
+\begin{example}\label{ex:stst:convseries}
+	The power series 
+	\begin{eqnarray}
+		c(x) = \sum_{n=0}^\infty 2^n x^n 
+	\end{eqnarray}
+	converges for $|x| < 1/2$. To see this note that $x_0=0$ and the ratio test gives
+	\begin{eqnarray}
+		|x| \lim_{n \rightarrow \infty} \left| \frac{2^{n+1}}{2^n} \right| = 
+		|x| \lim_{n \rightarrow \infty} 2  = 2 |x| \, . 
+	\end{eqnarray}
+	Thus, for $|x| < 1/2$, or $-1/2 < x < 1/2$, this limit fulfills the relation in Equation
+	(\ref{eq:stst:ratiotest}). The radius of convergence is 1/2.  
+\end{example}
+
+\bigskip
+
+\begin{question}
+	Will the series in Ex. \ref{ex:stst:convseries} converge for $x=1/2$?
+\end{question}
+
+\bigskip
+
+\noindent 	Proposition: The power series solution in Equation (\ref{eq:stst:ssolEx1}) converges for all $x \in \R$. 
+
+\bigskip
+
+\noindent To show this, we write the terms in Equation (\ref{eq:stst:ssolEx1}) as 
+\begin{eqnarray}
+%	\frac{(-1)^m x^{3m+1}}{(3m+1)\cdot(3m)\cdot(3m)\cdot(3(m-1))\ldots 4\cdot3} 
+	\frac{(-1)^n x^{3n+1}}{(3n+1)\cdot(3n)\ldots 4\cdot3} \ \  n=1,2,\ldots 
+\end{eqnarray}
+Recall $c_0=0$. It is understood that for $n=1$ we include one multiplication in the denominator, $n=2$
+two multiplications, etc. For index $n$ we have the coefficient 
+\begin{eqnarray}
+	c_n = \frac{(-1)^n}{(3n+1)\cdot(3n)\ldots 4\cdot3} 
+\end{eqnarray}
+and for index $n+1$
+\begin{eqnarray}
+	c_{n+1} = \frac{(-1)^n}{(3(n+1)+1)\cdot(3(n+1))\cdot(3n+1)\cdot(3n))\ldots 4\cdot3} \, . 
+\end{eqnarray}
+This implies that
+\begin{eqnarray}
+	|x| \lim_{m \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right| = |x| \lim_{n\rightarrow
+	\infty }   \left| \frac{1}{(3(n+1)+1)\cdot(3(n+1))} \right| =  0 \, .
+\end{eqnarray}
+This limit is independent of $x$ and the series solution converges on $\R$. This implies that the power series solution 
+found in Equation (\ref{eq:stst:ssolEx1}) is the solution for all $x$. 
+
+
+
+\begin{exerciseregion}
+	\begin{exercise}
+		Determine the convergence radius for the following function series using the ratio test
+		\[
+		\begin{array}{ll}
+			\text{a) } \sum_{n=0}^\infty x^n \text{ (Geometric series) \index{Series!geometric} }&  \text{b) } \sum_{n=0}^\infty \frac{x^n}{n!}
+			\\
+			&
+			\\
+			\text{c) } \sum_{n=0}^\infty (n!) x^n  & \text{d) } \sum_{n=1}^\infty \frac{(-1)^n}{n} (x-1)^n
+			\\
+			&
+			\\
+			\text{e) } \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1} &\text{f) } \sum_{n=0}^\infty
+			\frac{(x-x_0)^n}{a^n(n+1)}  \text{ where } a > 1 
+		\end{array}
+	\]
+	\end{exercise}
+
+	\begin{exercise}
+		For the following cases (i) identify the functions $p$ and $q$ and show that $x_0=0$ is an
+		ordinary point, (ii) derive the recurrence relation (if possible), and (iii) find the general
+		series solution to the steady-state RD-equation (you may write this in terms up to 10th
+		order with respect to $x$).
+		\begin{enumerate}
+			\item $D(x)=D_0(1 - x)$ and $k$ constant
+			\item $D(x)=D_0(1-x)$ and $k(x) = k_0 x$
+			\item $D(x)=D_0(1-x^2)$ and $k$ constant
+		\end{enumerate}
+	\end{exercise}
+
+	\begin{exercise}
+		Find the particular solution for Exercise 1 above using BCs
+		\begin{enumerate}
+			\item $c(0)=0$ and $c(1)=1$
+			\item $\left.\frac{\d c}{\d x}\right|_{x=0}=0$ and $\left.\frac{\d c}{\d x}\right|_{x=1}=0$
+			\item $\left.\frac{\d c}{\d x}\right|_{x=0}=1$ and $\left.\frac{\d c}{\d x}\right|_{x=1}=-1$
+		\end{enumerate}
+		Plot the solutions (where relevant) using partial sums with $m=1, 5, 10$. Find (where
+		relevant) the radius of convergence.
+	\end{exercise}
+
+	\begin{exercise}
+		Find the series solution for the problem in Example \ref{ex:stst:ss_1} using $x_0=1$.
+		(Hints: You may want to use the relation $x = 1 + x - 1$ and the variable transformation
+		$z=x-1$.)
+	\end{exercise}
+
+
+	\begin{exercise}
+		Series solutions may be applied to first order differential equations, initial value
+		problems, non-linear problems, etc. Use a series solution around $x_0=0$ to solve the 
+		following boundary value problem where the coefficient is constant
+		\begin{equation}
+			\frac{\d^2c}{\d x^2} + K = 0 ,  \ K \in \R
+		\end{equation}
+		with 
+		\begin{eqnarray}
+			c(0) = 0  \text{ and } \left. \frac{\d c}{\d x}\right|_{x=L}=1 \, .
+		\end{eqnarray}
+		Compare your result with Example \ref{ex:stst:polsol}.
+	\end{exercise}
+
+	\begin{exercise}
+		Our first example was a special case of Airy's equation
+		\begin{eqnarray}
+			\frac{\d^2c}{\d x^2} - x c = 0 \ \ \text{ where } \ \ \infty < x < -\infty
+		\end{eqnarray}
+		Let $x_0=0$ and find the solution for $c(-2)=0$ and $c(0)=1$. Plot the partial sum for $m=1,
+		10, 100, 1000$ in the interval $-10 < x < 2$.  
+	\end{exercise}
+
+	\iffalse	
+	\begin{exploration}
+		Gree algea
+		Influence of Water Depth on Microalgal Production, 
+		Biomass Harvest, and Energy Consumption in High Rate Algal Pond Using Municipal Wastewater
+		 February 2018Journal of Microbiology and Biotechnology 28(4)
+	\end{exploration}
+	\fi
+\end{exerciseregion}
+
+
 \section{Non-linear reaction functions}
-Bio-chemical reactions are often non-linear. The 
-first way to approach such situation is, almost always, to study the
-corresponding local linearized system in hope this gives some qualitative
+Bio-chemical reactions are often non-linear. The first way to approach such situation is, almost always, to study the
+system in some special cases or to do a linear analysis in hope this gives some qualitative
 understanding of the system. Some times, however, we wish to extend our analysis, e.g., 
 if we want a better quantitative output from the model. 
 
-Consider the steady state problem
+Consider the boundary value problem
 \begin{equation}
   D\frac{\d^2c}{\d x^2} + k c^2 = 0 \ \ \text{with} \ \ 
   c(0) = 0 \ \ \text{and} \ \ c(1)=1 \, .
 \end{equation}
-Notice the reaction term is non-linear and we cannot use the standard
-techniques discussed so far to solve this. We can re-arrange this and introduce a 
+Notice that the reaction term is non-linear and we cannot use the standard
+techniques discussed so far to solve this. We can re-arrange this a bit by dividing with $D$, and introduce a 
 new parameter $\epsilon = k/D$, $D \neq 0$, 
 such that the dynamical equation becomes
 \begin{equation}
   \label{eq:second}
   \frac{\d^2c}{\d x^2} + \epsilon c^2 = 0 \, . 
 \end{equation}
-In cases where diffusion dominates, $D \gg k$, we have that $\epsilon$ is small. 
-Indeed, we will expect that the solution in this case 
+In the case where the diffusion coefficient is large compared to the rate coefficient, $D \gg k$, 
+we have that $\epsilon$ is small. Indeed, we will expect that the solution in this case 
 is ``close'' to the solution for $\d^2c/\d x^2 = 0$,  
 where there is no reaction process. We can think of $\epsilon$ as a parameter that controls 
 a (small) perturbation of the system away from the pure diffusion case. 
-For this reason $\epsilon$ is called the \emph{perturbation parameter} and Eq. (\ref{eq:second}) 
-forms a \emph{regular perturbation problem}. A non-regular problem is illustrated later.
+For this reason $\epsilon$ is called the \emph{perturbation parameter}\index{Perturbation!parameter} and Equation (\ref{eq:second}) 
+forms a \emph{regular perturbation problem}\index{Perturbation!regular problem}. A non-regular problem is illustrated later.
 
 Once we have defined a small system parameter and have a regular perturbation problem, 
 we can attempt to do an analysis based on the \emph{regular perturbation method}. 
-This method is based on the fundamental assumption (ansatz) that the function
+This method is based on the fundamental assumption (called an ansatz) that the function
 $c$ can be represented by power series with respect to the perturbation parameter. 
 At first this does not appear to be very helpful since we are interested in $c$ as a
 function of the spatial coordinate $x$ and not the parameter $\epsilon$,
 however, the power series will result in a, some times, tractable structure. The
 regular perturbation method involves the following five steps:
 
-
 \begin{enumerate}
-\item{Assume that a solution $c=c(x)$ exists. Furthermore assume that $c$ can
+\item{Assume that a solution $c=c(x)$ exists. Furthermore, assume that $c$ can
     be written in terms of a power series with respect to $\epsilon$
     \begin{equation}
       \label{eq:pertass1}
@@ -415,12 +826,11 @@ regular perturbation method involves the following five steps:
     where $c_0$, $c_1$, \ldots are functions of $x$ and independent of
     $\epsilon$. We now hope that $c$ is "well-approximated" with only a 
     few terms, that is, we hope that the function series converges to
-    the actual function quickly. Below we specify what well-approximated 
-	means.
-  }
+    the actual function quickly.
+		}
 \item{ 
-    Insert the power law series for $c$ into the dynamical equation for $c$,
-    Eq. (\ref{eq:second}),
+    Insert the power series for $c$ into the dynamical equation for $c$,
+    Equation (\ref{eq:second}),
     \begin{eqnarray}
       \frac{\d^2}{\d x^2} (c_0 + \epsilon c_1 + \epsilon^2 c_2 + \dots) +
       \epsilon(c_0 + \epsilon c_1 + \epsilon^2 c_2 + \dots)^2 = 0  \, .
@@ -429,7 +839,7 @@ regular perturbation method involves the following five steps:
 \item{
     Collect term-wise with respect to powers of $\epsilon$. To fulfill the
 	equation we equate all terms with zero, and letting $\epsilon \neq 0$ we
-		obtain	
+	obtain	
     \begin{eqnarray}
       &\epsilon^0:& \ \frac{\d^2 c_0}{\d x^2} = 0 \label{eq:p1}\\
       &\epsilon^1:& \ \frac{\d^2 c_1}{\d x^2} + c_0^2 = 0  \label{eq:p2}
@@ -437,56 +847,62 @@ regular perturbation method involves the following five steps:
       &\epsilon^2:& \ \frac{\d^2 c_2}{\d x^2} + 2c_0c_1 = 0 \\
       &\vdots& \nonumber
     \end{eqnarray}
-		We see this results in a set of tractable problems (albeit in general quite tedious).
-	    From Eq. (\ref{eq:p1}) we obtain $c_0$
-   		(once the appropriate boundary conditions are specified). This
-    result is substituted into Eq. (\ref{eq:p2}) and $c_1$ can be found
-    (once the appropriate boundary conditions are specified), and so
+	We see this results in a set of tractable problems (albeit in general quite tedious).
+    From Equation (\ref{eq:p1}) we obtain $c_0$
+   		(once the appropriate BCss are specified). This
+    result is substituted into Equation (\ref{eq:p2}) and $c_1$ can be found
+    (once the appropriate BCs are specified), and so
     forth. Notice that in this case each problem is linear.
   }
 \item{
-    Solve for $c_0, c_1, \ldots$
+	Solve for $c_0, c_1, \ldots$
     
-    Here we first need to define the boundary conditions. We can let the unperturbed
-    problem, $\epsilon=0$, fulfill $c(0)=0$ and $c(1)=1$, that is, we must have
+    Here we first need to define the BCs. We can let the unperturbed
+    zero order problem, that is, for $\epsilon=0$, fulfill the original BCs is, we must have
     $c_0(0)=0$ and $c_0(1)=1$. This implies that $c_n(0)=0$ and $c_n(1)=0$,
-    $n=1,2$,\ldots.
-
+    $n=1,2$,\ldots, because
+		\begin{eqnarray}
+			c(0) = c_0(0) + \epsilon c_1(0) + \epsilon^2 c_2(0) + \ldots = 0
+		\end{eqnarray}
+		and
+		\begin{eqnarray}
+			c(1) = c_0(1) + \epsilon c_1(1) + \epsilon^2 c_2(1) + \ldots = c_0(1)=1 
+		\end{eqnarray}
     Then solving
     \begin{eqnarray}
       &\epsilon^0:& \ \frac{\d^2 c_0}{\d x^2} = 0, \
                     c_0(0)=0, c_0(1)=1 \ \Rightarrow c_0(x) = x
                     \label{eq:p11}\\
-      &\epsilon^1:& \ \frac{\d^2 c_1}{\d x^2} + x^2 = 0 \
+      &\epsilon^1:& \ \frac{\d^2 c_1}{\d x^2} + x^2 = 0, \
                     c_1(0)=0, c_1(1)=0 \ \Rightarrow c_1(x) = \frac{x-x^4}{12}
                     \nonumber \\ \label{eq:p12}\\
       &\vdots& \nonumber
     \end{eqnarray}
   }
 \item{
-    Collect the terms in accordance with Eq. (\ref{eq:pertass1}), here
+	Collect the terms in accordance with Equation (\ref{eq:pertass1}), here
     to first order in $\epsilon$
     \begin{equation}
       c(x) = x + \frac{\epsilon}{12}(x-x^4) + \dots
       \end{equation}
     }
+	This is the solution from the regular perturbation method; we here stop at first order already, but 
+	one can continue (see the exercises). 
 \end{enumerate}    
-\begin{wrapfigure}[14] {R}{0.4\textwidth}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
 	\includegraphics[width=0.35\textwidth]{figs/perturb_one.eps}
-	%\caption{\label{fig:img2} Perturbation}
 \end{wrapfigure}
-\paragraph{}
-\vspace*{-\parskip}
-This is the solution from the regular perturbation method; we here stop at first order already, but 
-one can continue (see the exercises). 
+
 
 In this example, the first order term, a measure of the effects from the reaction,
 has a pre-factor of $\epsilon/12$. Therefore, the reaction process has only a small effect 
 on the concentration profile even if $\epsilon$ is much larger than zero (and we move away from 
 the regime $D \gg k$). 
 
-The truncated power series above is formally known as the \emph{Poincar\'{e} expansion}, and the 
-approximation is written as
+The truncated power series above is formally known as the \emph{Poincar\'{e} expansion}
+\index{Poincar\'{e} expansion} and
+generally as an \emph{asymptotic expansion} \index{Asymptodic expansion}, and the approximation is written as
 \begin{eqnarray}
 	c(x) \sim \sum_{n=0}^N \epsilon^n c_n(x)  \, .
 \end{eqnarray}
@@ -504,12 +920,13 @@ all $M\leq N$ and $x \in [0; L]$ we have
 	\text{for any fixed $x \in [0;L]$} \ .
 	\label{eq:asymappr}
 \end{eqnarray}
-The asymptodic approximation is, likely, 
+In words: We want the remainder to go to zero as $\epsilon$ goes to zero and faster than the last
+term in the expansion. The asymptotic approximation is, likely, 
 best illustrated with an example where the solution is known. 
 \begin{example}
     The perturbation method is applicable for different types of non-linear
 	problems, not only differential equations. Consider the quadratic problem 
-	(example from Hince, \textit{Perturbation Methods})
+	(example from Hince \textit{Perturbation Methods})
 	\begin{equation}
  	 \label{eq:quadratic}
 	  c^2 - \epsilon c -1 = 0 \, .
@@ -518,14 +935,14 @@ best illustrated with an example where the solution is known.
 	\begin{eqnarray}
 		c \sim c_0 + \epsilon c_1 + \epsilon^2c_2 
 	\end{eqnarray}
-	is an asymptodic approximation to the quadratic problem, Eq. (\ref{eq:quadratic}).
+	is an asymptotic approximation to the quadratic problem, Equation (\ref{eq:quadratic}).
 
 	First, the solution is found from the quadratic formula
 	\begin{eqnarray}
 		\label{eq:solquadratic}
 		c = \frac{1}{2} \left(\epsilon \pm \sqrt{\epsilon^2+4}\right) \, .
 	\end{eqnarray}
-	Notice that for $\epsilon = 0$	we have $x=\pm 1$. 
+	Notice that for $\epsilon = 0$	we have $c=\pm 1$. 
 	Substituting the expansion and collecting the terms we have up to
 	second order 
 	\begin{eqnarray}
@@ -550,7 +967,7 @@ hence, the roots to second order in perturbation parameter are
 	\begin{equation}
 	  \pm 1 + \frac{\epsilon}{2} \pm \frac{\epsilon^2}{8} \, . 
 	\end{equation}
-	We have to show the limits in Eq. (\ref{eq:asymappr}) (noting that $x$ is 
+	We have to show the limits in Equation (\ref{eq:asymappr}) (noting that $x$ is 
 	not in the current problem). 
 
 	For $M=0$ we have $c_0= \pm 1$ and 
@@ -576,7 +993,7 @@ hence, the roots to second order in perturbation parameter are
 		= 0 \, ,
 	\end{eqnarray}
 	applying L'Hoptial's rule twice. Thus, the Poincar\'{e} expansion with $N=2$ is an 
-	asymptotic approximation to the quadratic equation, Eq. (\ref{eq:quadratic}). 
+	asymptotic approximation to the quadratic equation, Equation (\ref{eq:quadratic}). 
 \end{example}
 
 \noindent Be aware, the perturbation method may not always
@@ -589,11 +1006,12 @@ slightly different quadratic equation from above
 there is only one solution, but for $\epsilon \neq 0$ there are two. 
 A problem where the solution
 shows such qualitative change setting $\epsilon=0$ is called a
-\emph{singular perturbation problem}. Equation (\ref{eq:quadratic}) above 
+\emph{singular perturbation problem}\index{Perturbation!singular}. Equation (\ref{eq:quadratic}) above 
 is a regular perturbation problem since the number of
 solutions did not change by varying $\epsilon$ around zero.
 Performing the same steps as we did for regular problems,  
-some times called \emph{the outer solution} when we deal with singular problems, we end up with the expansion
+some times called \emph{the outer solution} \index{Perturbation!outer solution} 
+when we deal with singular problems, we end up with the expansion
 \begin{equation}
   c = 1 -\epsilon + 2\epsilon^2 + \ldots
 \end{equation}
@@ -613,22 +1031,22 @@ Here we can introduce the perturbation parameter $\epsilon = D/k$ and we can wri
   \epsilon \frac{\d^2c}{\d x^2} + c^2 = 0 \, . 
 \end{equation}
 As $\epsilon \rightarrow 0$ the diffusion term vanishes and the problem is algebraic only 
-allowing $c=0$ at $0 < x < L$, that is, the system qualitative behavior changes dramatically as we 
-approach the limit $\epsilon \rightarrow 0$i; this is singular perturbation problem. 
-We will later encounter such problem, however, the naive outer solution will in
-fact be very helpful here.  
+allowing $c=0$ for $0 < x < L$; the system qualitative behavior changes dramatically as we 
+approach the limit $\epsilon \rightarrow 0$. This is singular perturbation problem. 
+We will later encounter such problem, and the naive outer solution will, in
+fact, be very helpful here.  
 
 \begin{exerciseregion}
 
 \begin{exercise}
   Find the second order perturbation term for the boundary value problem
-  Eq. (\ref{eq:second}). Plot $c_0$, $c_1$, $c_2$ as functions of $x$ with some
+  Equation (\ref{eq:second}). Plot $c_0$, $c_1$, $c_2$ as functions of $x$ with some
   chosen values of $\epsilon$.
 \end{exercise}
 
 \begin{exercise}
 	Taylor expand to second order 
-	the exact solution to the quadratic problem, Eq. (\ref{eq:solquadratic}), 
+	the exact solution to the quadratic problem, Equation (\ref{eq:solquadratic}), 
 	in terms of $\epsilon$ around $\epsilon=0$. Compare with the perturbation solution. 
 \end{exercise}
 
@@ -639,7 +1057,7 @@ fact be very helpful here.
   \end{equation}
   	Find the analytical solution. Then use regular perturbation method
   up to second order in $\epsilon$ to approximate the solution. Is the 
-  Poincar\'{e} expansion with $N=1$ an asymptodic approximation?		
+  Poincar\'{e} expansion with $N=1$ an asymptotic approximation?		
 \end{exercise}
 
 \begin{exercise}
@@ -677,61 +1095,57 @@ fact be very helpful here.
   \end{equation}
   
   \begin{enumerate}
-  \item Show that the condition $C_0 > C_1$ cannot be met if the
+  \item Show that the condition $C_1 > C_0$ cannot be met if the
     reaction term in Equation (\ref{eq:rdss}) is omitted. 
-  \item Show that if $r(c)=-k_1c$ the concentration profile is given by
+  \item Show that if $r(c)=-k_1 c$ the concentration profile is given by
     \begin{equation}
       c(x) = C_0\left[
         e^{-\alpha L}\frac{\sinh(\alpha x)}{\cosh(\alpha L)} + e^{-\alpha x}
       \right] \, ,
     \end{equation}
     where $\alpha = \sqrt{k_1/D}$
-  \item Now let $r(c)=-k_2c^2$. Find the solution up to first order in
-    the perturbation parameter $\varepsilon = k_2/D$. Explain the
+  \item Now let $r(c)=-k_1c^2$. Find the solution up to first order in
+    the perturbation parameter $\varepsilon = k_1/D$. Explain the
     fundamental physical unit that determines the validity of this
     approximate solution.
   \end{enumerate}
   \end{exploration}
 \end{exerciseregion}
 
-\section{Chemotaxis}
-Experimentally it has been observed that some cells, e.g., E-coli, can
-register (or sense) 
-a chemical concentration gradient and move either down or up this gradient. 
-The chemical compound can be a hormone and cell motion 
-is realised by, for example, flagella propulsion. 
-This phenomenon is denoted \emph{chemotaxis}. To model chemotaxis we need to
+\section{Chemotaxis \index{Chemotaxis}}
+Experimentally it has been observed that some cells, e.g., E-coli, can register 
+a chemical concentration gradient and move either down or up along this gradient. 
+The chemical compound can be a hormone and cell motion is realised by, for example, flagella propulsion. 
+This phenomenon is denoted \emph{chemotaxis}\index{Chemotaxis}. To model chemotaxis we need to
 change the fluxes in the system. If diffusion and chemotaxis are independent processes we
 can write the flux with two terms: (i) a term describing the usual diffusive flux 
 and (ii) a term describing the flux due to chemotaxis. 
 
 Consider a cell population with concentration $c_1=c_1(x,t)$ mixed with a
 a chemical compound having concentration $c_2=c_2(x,t)$. The \emph{Keller-Segel
-model} for the flux of the cells reads
+model} \index{Chemotaxis!Keller-Segel model} for the flux of the cells reads
 \begin{eqnarray}
-	J_1 = \chi c_1 \frac{\partial c_2}{\partial x} - D_1 \frac{\partial c_1}{\partial x} \, ,
+	J_1 = \chi c_1 \frac{\partial c_2}{\partial x} - D \frac{\partial c_1}{\partial x} \, ,
 \end{eqnarray}
-where $\chi$ is the \emph{chemotactic strength} and $D_1$ the usual diffusion 
+where $\chi$ is the \emph{chemotactic strength} \index{Chemotaxis!strength} and $D$ the usual diffusion 
 coefficient for the cells. What the two terms describe should be clear. If the chemotactic strength 
 or the gradient of the chemical is zero, then, of course, no flux occurs due to chemotaxis. 
 The product in the chemotaxis term between $c_1$ and $\partial c_2/\partial x$ give raise to a 
 (potential) non-linearity, and ensures that there is no flux of cells at point when there are no
-cells even if the gradient of the chemical is non-zero. Substitution into the 
-balance equation for $c_1$ gives 	
+cells even if the gradient of the chemical is non-zero. 
+
+Substitution into the balance equation for $c_1$ gives 	
 \begin{eqnarray}
 	\frac{\partial c_1}{\partial t} = r(c_1) - \chi \frac{\partial}{\partial x} \left( c_1 \frac{\partial c_2}{\partial x} \right)
-	+ D_1 \frac{\partial^2c_1}{\partial x^2} 
+	+ D \frac{\partial^2c_1}{\partial x^2} 
 \end{eqnarray}
-if $\chi$ and $D_1$ are independent of spatial coordinate $x$. In the
-steady-state this is simply
+if $\chi$ and $D$ are independent of spatial coordinate $x$. In the steady-state this is simply
 \begin{eqnarray}
-	r(c_1) -\chi \frac{\d}{\d x} \left( c_1 \frac{\d c_2}{\d x}\right) + D_1
-	\frac{\d ^2 c_1}{\d x^2} = 0 \, . 
+	r(c_1) -\chi \frac{\d}{\d x} \left( c_1 \frac{\d c_2}{\d x}\right) + D\frac{\d ^2 c_1}{\d x^2} = 0 \, . 
 \end{eqnarray}
 
 \begin{question}
-	Will the cells move up or down the chemical gradient if $\chi > 0$? What if $\chi <
-	0$?
+	Will the cells move up or down the chemical gradient if $\chi > 0$? What if $\chi <	0$?
 \end{question}
 
 \begin{example}
@@ -746,28 +1160,24 @@ steady-state this is simply
 	BCs $c_1(0) = C_0$ and $c_1(L) = 2C_0$, where $C_0 \neq 0$.  
 	The equation (for the steady-state) is 	obtained using the product rule
 	\begin{eqnarray}
-		k c_1 -\chi \frac{\d}{\d x} \left( c_1 \frac{\d c_2}{\d x}\right) + D_1 \frac{\d ^2 c_1}{\d x^2} = 
+		k c_1 -\chi \frac{\d}{\d x} \left( c_1 \frac{\d c_2}{\d x}\right) + D \frac{\d ^2 c_1}{\d x^2} = 
 		0 \ \Rightarrow \ 
-		\frac{k}{D_1} c_1 - \frac{\chi K}{D_1 L} \frac{\d c_1}{\d x} +
+		\frac{k}{D} c_1 - \frac{\chi K}{D L} \frac{\d c_1}{\d x} +
 		\frac{\d^2c_1}{\d x^2} =  0 \, . 
 	\end{eqnarray}
-	\begin{wrapfigure}[15]{R}{0.4\textwidth}
-		\centering
-		\includegraphics[width=0.35\textwidth]{figs/chemotaxis.eps}
-		\caption*{}
-	\end{wrapfigure}
-	\paragraph{}
-	\vspace*{-\parskip}
-	Define the parameter $\alpha = \chi K/(D_1 L)$ then the characteristic polynomial is 
+	Define the parameter $\alpha = \chi K/(D L)$ then the characteristic polynomial is 
 	\begin{eqnarray}
-		\lambda^2 - \alpha \lambda + \frac{k}{D_1} = 0 \ ,
+		\lambda^2 - \alpha \lambda + \frac{k}{D} = 0 \ ,
 	\end{eqnarray}
+	\begin{wrapfigure}{l}{0.4\textwidth}
+		\includegraphics[width=0.35\textwidth]{figs/chemotaxis.eps}
+	\end{wrapfigure}
 	implying that 
 	\begin{eqnarray}
 		\lambda_{1,2} = \frac{1}{2}\left(
-		\alpha \pm \sqrt{\alpha^2 - 4k/D_1}  \right) \, .
+		\alpha \pm \sqrt{\alpha^2 - 4k/D}  \right) \, .
 	\end{eqnarray}
-	For real eigenvalues, $\alpha^2 > 4k/D_1$, we then have the general solution
+	For real eigenvalues, $\alpha^2 > 4k/D$, we then have the general solution
 	\begin{eqnarray}
 		c_1(x) = A e^{\lambda_1 x} + B e^{\lambda_2 x} \, .
 	\end{eqnarray}
@@ -800,13 +1210,11 @@ We will not pursue the general case here.
 		situation where the reaction function is zero everywhere, $r=0$.
 	\end{exercise}
 	\begin{exercise}
-		Consider a mixture of cells and a chemical compound. The system features
-		chemotaxis, and we can measure the steady-state concentration of the cells to 
+		Let $c_2 = kx^2$. Show that the steady-state chemotaxis model can be written on the form
 		\begin{eqnarray}
-			c_1 = \frac{C_0}{L^2} x (x-L) \, ,
+			D\frac{\d^2 c_1}{\d x^2} + \alpha x \frac{\d c_1}{\d x} + f(c_1) = 0 \, .	
 		\end{eqnarray}
-		where $C_0$ is a reference concentration. Derive an expression for the
-		steady concentration of the chemical assuming that no reactions occur.
+		Let $f(c_1) = kc_1$ and find the general solution.
 	\end{exercise}
 \end{exerciseregion}
 
@@ -829,4 +1237,78 @@ We will not pursue the general case here.
 
 
 
+\iffalse
+\bigskip
 
+\begin{example}
+	In this example we seek the general solution to Equation (\ref{eq:stst:nonconstcoeff}) were $D$ varies and $k$ is constant. 
+	Let 
+	\begin{eqnarray}
+		D(x) = D_0(1+x) \text{ and } r=kc  \ ,
+	\end{eqnarray}
+	where $x$ is a normalized spatial variable $0 \leq x \leq 1$. Substitution gives 
+	\begin{eqnarray}
+		D_0(1+x) \frac{\d^2 c}{\d x^2} + D_0 \frac{\d c}{\d x} + k c = 0
+	\end{eqnarray}
+	or dividing with $D_0$
+	\begin{eqnarray}
+		\label{eq:stst:exss2}
+		(1+x) \frac{\d^2 c}{\d x^2} + \frac{\d c}{\d x} + \lambda c = 0 \ ,
+	\end{eqnarray}
+	such that $\lambda = k/D_0$. Here we have that $p = 1/(1 + x)$ and $q=\lambda/(1+x)$. The point
+	$x_0=-1$ is a singular point, and we can again choose to expand about the ordinary point $x_0=0$. 
+	Substituting Equation. (\ref{eq:stst:ssol_x00}), \ref{eq:stst:dindexshift}), and (\ref{eq:stst:d2indexshift}) 
+	into Equation (\ref{eq:stst:exss2}) 
+	\begin{eqnarray}
+		(1+x)\sum_{n=0}^\infty (n+1)(n+2)c_{n+2}x^n + \sum_{n=0}^\infty (n+1)c_{n+1}x^n + 
+		\lambda \sum_{n=0}^\infty c_n x^n = 0 \, .
+	\end{eqnarray}
+	We distribute the parenthesis 
+	\begin{eqnarray}
+		\sum_{n=0}^\infty (n+1)(n+2)c_{n+2}x^{n+1} &+& \sum_{n=0}^\infty (n+1)(n+2)c_{n+2}x^{n} 
+		\nonumber \\
+		&+& \sum_{n=0}^\infty (n+1)c_{n+1}x^n + \lambda \sum_{n=0}^\infty c_n x^n = 0 \, .
+	\end{eqnarray}
+	We can now collect terms with respect to powers of $x$
+	\begin{eqnarray}
+		x^0 &:& 2c_2 + c_1 + \lambda c_0 = 0 \ \implies \ c_2 = -\frac{c_1 + \lambda c_0}{2} \nonumber \\
+		x^1 &:& 6c_3 + 4c_2 + \lambda c_1 = 0 \ \implies \ c_3 = -\frac{4c_2 + \lambda c_1}{6} \nonumber \\
+		x^2 &:& 12c_4 + 9c_3 + \lambda c_2 = 0 \ \implies \ c_4 = -\frac{9c_3 + \lambda c_2}{12} \nonumber \\
+		&\vdots& \nonumber
+	\end{eqnarray}
+	By inspection we obtain the recurrence relation
+	\begin{eqnarray}
+		c_n = - \frac{(n-1)^2c_{n-1} + \lambda c_{n-2}}{(n-1)n} \ \ n=2,3, \ldots
+	\end{eqnarray}
+	This gives the series solution
+	\begin{eqnarray}
+		c(x) &=& c_0 \left(1 - \frac{\lambda}{2} x^2 + \frac{\lambda}{3}x^3 + \left(
+		\frac{\lambda^2}{24} - \frac{\lambda}{4} \right)x^4 + \ldots \right) \nonumber \\
+		&+& c_1 \left(
+			x - \frac{1}{2}x^2 + \left(\frac{1}{3}-\frac{\lambda}{6}\right)x^3 + \left( 
+			\frac{\lambda}{6} - \frac{1}{4} \right)x^4 + \ldots
+		\right)
+	\end{eqnarray}
+	
+
+	We continue with a special case where we ignore the reaction, that is, we let $k=0$ or equivalently $\lambda = 0$, 
+	and we get the general solution
+	\begin{eqnarray}
+		c(x) = c_0+ c_1 
+		\left(
+			x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \ldots\right)
+		 = c_0 + c_1 \sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n} \, .
+			\end{eqnarray}
+	This is an alternating series. The ratio test gives
+	\begin{eqnarray}
+		|x| \lim_{n \rightarrow \infty} \left| \frac{(-1)^{n+2}}{(-1)^{n+1}} \frac{n}{n+1}	\right|
+		= 	|x| \lim_{n \rightarrow \infty} \left| \frac{n}{n+1}\right| = |x|
+	\end{eqnarray}
+	and the radius of convergence is 1. 
+\end{example}
+
+\bigskip
+
+\noindent It is no a coincident that  
+
+\fi

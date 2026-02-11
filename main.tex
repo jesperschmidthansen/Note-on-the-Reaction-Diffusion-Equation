@@ -14,6 +14,7 @@
 \usepackage[titletoc]{appendix}
 \usepackage{wrapfig}
 \usepackage{enumitem}
+\usepackage{makeidx}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -23,7 +24,7 @@
 \newcommand{\matrx}{\mathbf}
 \newcommand{\vecs}{\boldsymbol}
 \newcommand{\fourier}{\widetilde}
-
+\newcommand{\saw}{\text{saw}}
 \renewcommand{\d}{\mathrm{d}}
 
 
@@ -63,10 +64,10 @@
    \noindent \textbf{Exercise~\theexercise #1} \rmfamily}{\medskip}
 
 
-\title{A note on the Reaction-Diffusion Equation}
+\title{Modelling with the Reaction-Diffusion Equation}
 \author{Jesper S. Hansen}
 \date{Fall 2024}
-
+\makeindex
 \begin{document}
 \maketitle
 
@@ -110,5 +111,5 @@
 
 \input{existence.tex}
 %\end{appendices}
-
+\printindex
 \end{document}
