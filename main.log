@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.26)  19 AUG 2026 10:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  20 AUG 2026 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,37 +745,38 @@ Package pdftex.def Info: figs/fluxIllustration.pdf  used on input line 27.
 [6]
 
 [7]
-
-[8]
 Package epstopdf Info: Source file: <figs/poiseuille.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 11937 bytes
 (epstopdf)             Output file: <figs/poiseuille-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 8314 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/poiseuille-eps-conver
 ted-to.pdf figs/poiseuille.eps>
-(epstopdf)             \includegraphics on input line 228.
+(epstopdf)             \includegraphics on input line 223.
 Package epstopdf Info: Output file is already uptodate.
-<figs/poiseuille-eps-converted-to.pdf, id=64, 428.60126pt x 563.10374pt>
+<figs/poiseuille-eps-converted-to.pdf, id=61, 428.60126pt x 563.10374pt>
 File: figs/poiseuille-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/poiseuille-eps-converted-to.pdf>
 Package pdftex.def Info: figs/poiseuille-eps-converted-to.pdf  used on input li
-ne 228.
+ne 223.
 (pdftex.def)             Requested size: 125.47884pt x 164.8511pt.
 
 
-[9 <./figs/poiseuille-eps-converted-to.pdf>]
-<figs/turingIllustration.pdf, id=77, 541.1243pt x 154.93993pt>
+[8]
+<figs/turingIllustration.pdf, id=65, 541.1243pt x 154.93993pt>
 File: figs/turingIllustration.pdf Graphic file (type pdf)
 <use figs/turingIllustration.pdf>
-Package pdftex.def Info: figs/turingIllustration.pdf  used on input line 290.
+Package pdftex.def Info: figs/turingIllustration.pdf  used on input line 285.
 (pdftex.def)             Requested size: 324.67708pt x 92.96466pt.
-<figs/twodimflux.pdf, id=78, 197.73875pt x 82.3075pt>
+
+
+[9 <./figs/poiseuille-eps-converted-to.pdf>]
+<figs/twodimflux.pdf, id=78, 210.7875pt x 105.39375pt>
 File: figs/twodimflux.pdf Graphic file (type pdf)
 <use figs/twodimflux.pdf>
-Package pdftex.def Info: figs/twodimflux.pdf  used on input line 320.
-(pdftex.def)             Requested size: 143.39969pt x 59.6896pt.
+Package pdftex.def Info: figs/twodimflux.pdf  used on input line 315.
+(pdftex.def)             Requested size: 143.39969pt x 71.70056pt.
 
 
 [10 <./figs/turingIllustration.pdf> <./figs/twodimflux.pdf
@@ -784,34 +785,30 @@ pdfTeX warning: pdflatex (file ./figs/twodimflux.pdf): PDF inclusion: multiple
 pdfs with page group included in a single page
 >]
 
-[11]
+[11])
 
-[12])
-
-[13]
-
-[14
-
-]
+[12]
 Chapter 2.
 (./stst.tex
 
+[13
+
+]
+
+[14]
+
 [15]
-
-[16]
-
-[17]
 Package epstopdf Info: Source file: <figs/solutionEx4.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 16773 bytes
 (epstopdf)             Output file: <figs/solutionEx4-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 8845 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/solutionEx4-eps-conve
 rted-to.pdf figs/solutionEx4.eps>
 (epstopdf)             \includegraphics on input line 173.
 Package epstopdf Info: Output file is already uptodate.
-<figs/solutionEx4-eps-converted-to.pdf, id=134, 397.485pt x 520.94624pt>
+<figs/solutionEx4-eps-converted-to.pdf, id=128, 397.485pt x 520.94624pt>
 File: figs/solutionEx4-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/solutionEx4-eps-converted-to.pdf>
 Package pdftex.def Info: figs/solutionEx4-eps-converted-to.pdf  used on input l
@@ -819,20 +816,29 @@ ine 173.
 (pdftex.def)             Requested size: 125.47884pt x 164.44868pt.
 
 
-[18 <./figs/solutionEx4-eps-converted-to.pdf>]
+[16 <./figs/solutionEx4-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
 
+[17]
+
+[18]
+
 [19]
+Underfull \hbox (badness 10000) in paragraph at lines 384--386
+
+ []
+
+
 
 [20]
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 384--386
-
+Overfull \hbox (7.8152pt too wide) in alignment at lines 511--515
+ [][][] []
  []
 
 
@@ -840,28 +846,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 384--386
 [22]
 
 [23]
-Overfull \hbox (7.8152pt too wide) in alignment at lines 511--515
- [][][] []
- []
-
-
 
 [24]
-
-[25]
-
-[26]
 Package epstopdf Info: Source file: <figs/series_conv.eps>
-(epstopdf)                    date: 2026-08-14 13:40:39
+(epstopdf)                    date: 2026-02-11 17:13:49
 (epstopdf)                    size: 14751 bytes
 (epstopdf)             Output file: <figs/series_conv-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-08-15 17:21:47
-(epstopdf)                    size: 9990 bytes
+(epstopdf)                    date: 2026-08-20 13:04:39
+(epstopdf)                    size: 9989 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/series_conv-eps-conve
 rted-to.pdf figs/series_conv.eps>
 (epstopdf)             \includegraphics on input line 629.
 Package epstopdf Info: Output file is already uptodate.
-<figs/series_conv-eps-converted-to.pdf, id=173, 387.4475pt x 562.1pt>
+<figs/series_conv-eps-converted-to.pdf, id=166, 387.4475pt x 562.1pt>
 File: figs/series_conv-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/series_conv-eps-converted-to.pdf>
 Package pdftex.def Info: figs/series_conv-eps-converted-to.pdf  used on input l
@@ -869,29 +866,29 @@ ine 629.
 (pdftex.def)             Requested size: 125.47884pt x 182.03706pt.
 
 
-[27 <./figs/series_conv-eps-converted-to.pdf>]
+[25 <./figs/series_conv-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 700--702
 
  []
 
 
 
+[26]
+
+[27]
+
 [28]
-
-[29]
-
-[30]
 Package epstopdf Info: Source file: <figs/perturb_one.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 14203 bytes
 (epstopdf)             Output file: <figs/perturb_one-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 9162 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/perturb_one-eps-conve
 rted-to.pdf figs/perturb_one.eps>
 (epstopdf)             \includegraphics on input line 894.
 Package epstopdf Info: Output file is already uptodate.
-<figs/perturb_one-eps-converted-to.pdf, id=204, 410.53375pt x 511.9125pt>
+<figs/perturb_one-eps-converted-to.pdf, id=198, 410.53375pt x 511.9125pt>
 File: figs/perturb_one-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/perturb_one-eps-converted-to.pdf>
 Package pdftex.def Info: figs/perturb_one-eps-converted-to.pdf  used on input l
@@ -899,36 +896,36 @@ ine 894.
 (pdftex.def)             Requested size: 125.47884pt x 156.46506pt.
 
 
+[29]
+
+[30 <./figs/perturb_one-eps-converted-to.pdf>]
+
 [31]
-
-[32 <./figs/perturb_one-eps-converted-to.pdf>]
-
-[33]
 Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
 
  []
 
-<figs/biopore.pdf, id=228, 450.64708pt x 370.15163pt>
+<figs/biopore.pdf, id=222, 450.64708pt x 370.15163pt>
 File: figs/biopore.pdf Graphic file (type pdf)
 <use figs/biopore.pdf>
 Package pdftex.def Info: figs/biopore.pdf  used on input line 1081.
 (pdftex.def)             Requested size: 180.25563pt x 148.05801pt.
 
 
-[34]
+[32]
 
-[35 <./figs/biopore.pdf>]
+[33 <./figs/biopore.pdf>]
 Package epstopdf Info: Source file: <figs/chemotaxis.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:05
 (epstopdf)                    size: 17674 bytes
 (epstopdf)             Output file: <figs/chemotaxis-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:05
 (epstopdf)                    size: 9844 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/chemotaxis-eps-conver
 ted-to.pdf figs/chemotaxis.eps>
 (epstopdf)             \includegraphics on input line 1173.
 Package epstopdf Info: Output file is already uptodate.
-<figs/chemotaxis-eps-converted-to.pdf, id=252, 420.57124pt x 497.86pt>
+<figs/chemotaxis-eps-converted-to.pdf, id=246, 420.57124pt x 497.86pt>
 File: figs/chemotaxis-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/chemotaxis-eps-converted-to.pdf>
 Package pdftex.def Info: figs/chemotaxis-eps-converted-to.pdf  used on input li
@@ -936,7 +933,7 @@ ne 1173.
 (pdftex.def)             Requested size: 125.47884pt x 148.5387pt.
 
 
-[36]
+[34]
 Overfull \hbox (20.93309pt too wide) in alignment at lines 1185--1190
  [][][] []
  []
@@ -948,24 +945,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 1207--1209
 
 )
 
-[37 <./figs/chemotaxis-eps-converted-to.pdf>]
+[35 <./figs/chemotaxis-eps-converted-to.pdf>]
 
-[38
+[36
 
 ]
 Chapter 3.
 (./diff.tex
 Package epstopdf Info: Source file: <figs/sawtooth.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 14898 bytes
 (epstopdf)             Output file: <figs/sawtooth-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 9651 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/sawtooth-eps-converte
 d-to.pdf figs/sawtooth.eps>
 (epstopdf)             \includegraphics on input line 18.
 Package epstopdf Info: Output file is already uptodate.
-<figs/sawtooth-eps-converted-to.pdf, id=276, 417.56pt x 521.95pt>
+<figs/sawtooth-eps-converted-to.pdf, id=269, 417.56pt x 521.95pt>
 File: figs/sawtooth-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/sawtooth-eps-converted-to.pdf>
 Package pdftex.def Info: figs/sawtooth-eps-converted-to.pdf  used on input line
@@ -973,51 +970,51 @@ Package pdftex.def Info: figs/sawtooth-eps-converted-to.pdf  used on input line
 (pdftex.def)             Requested size: 125.47884pt x 156.84901pt.
 
 
-[39 <./figs/sawtooth-eps-converted-to.pdf>]
+[37 <./figs/sawtooth-eps-converted-to.pdf>]
 
-[40]
+[38]
 
-[41]
+[39]
 Overfull \hbox (37.66974pt too wide) in alignment at lines 200--204
  [][][] []
  []
 
 
 
+[40]
+
+[41]
+
 [42]
-
-[43]
-
-[44]
 Package epstopdf Info: Source file: <figs/fouriersawtooth.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 55864 bytes
 (epstopdf)             Output file: <figs/fouriersawtooth-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 26269 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fouriersawtooth-eps-c
 onverted-to.pdf figs/fouriersawtooth.eps>
 (epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
-<figs/fouriersawtooth-eps-converted-to.pdf, id=305, 410.53375pt x 578.16pt>
+<figs/fouriersawtooth-eps-converted-to.pdf, id=298, 410.53375pt x 578.16pt>
 File: figs/fouriersawtooth-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/fouriersawtooth-eps-converted-to.pdf>
 Package pdftex.def Info: figs/fouriersawtooth-eps-converted-to.pdf  used on inp
 ut line 340.
 (pdftex.def)             Requested size: 125.47884pt x 176.71347pt.
 Package epstopdf Info: Source file: <figs/remainderFourier.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 27759 bytes
 (epstopdf)             Output file: <figs/remainderFourier-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 13671 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/remainderFourier-eps-
 converted-to.pdf figs/remainderFourier.eps>
 (epstopdf)             \includegraphics on input line 356.
 Package epstopdf Info: Output file is already uptodate.
-<figs/remainderFourier-eps-converted-to.pdf, id=306, 697.60625pt x 316.18124pt>
+<figs/remainderFourier-eps-converted-to.pdf, id=299, 697.60625pt x 316.18124pt>
 
 File: figs/remainderFourier-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/remainderFourier-eps-converted-to.pdf>
@@ -1035,31 +1032,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--373
 
 
 
-[45 <./figs/fouriersawtooth-eps-converted-to.pdf>]
+[43 <./figs/fouriersawtooth-eps-converted-to.pdf>]
 
-[46 <./figs/remainderFourier-eps-converted-to.pdf>]
+[44 <./figs/remainderFourier-eps-converted-to.pdf>]
+
+[45]
+
+LaTeX Warning: Reference `stst:sectBVP' on page 46 undefined on input line 499.
+
+
+
+
+[46]
 
 [47]
-
-LaTeX Warning: Reference `stst:sectBVP' on page 48 undefined on input line 499.
-
-
-
-
-[48]
-
-[49]
 Package epstopdf Info: Source file: <figs/diffDBC.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 22358 bytes
 (epstopdf)             Output file: <figs/diffDBC-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-08-14 13:40:39
+(epstopdf)                    date: 2026-02-11 17:13:49
 (epstopdf)                    size: 11054 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffDBC-eps-converted
 -to.pdf figs/diffDBC.eps>
 (epstopdf)             \includegraphics on input line 571.
 Package epstopdf Info: Output file is already uptodate.
-<figs/diffDBC-eps-converted-to.pdf, id=342, 431.6125pt x 574.145pt>
+<figs/diffDBC-eps-converted-to.pdf, id=335, 431.6125pt x 574.145pt>
 File: figs/diffDBC-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diffDBC-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diffDBC-eps-converted-to.pdf  used on input line 
@@ -1067,33 +1064,33 @@ Package pdftex.def Info: figs/diffDBC-eps-converted-to.pdf  used on input line
 (pdftex.def)             Requested size: 125.47884pt x 166.90953pt.
 
 
-[50 <./figs/diffDBC-eps-converted-to.pdf>]
+[48 <./figs/diffDBC-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
  []
 
 
 
+[49]
+
+[50]
+
 [51]
 
 [52]
 
 [53]
-
-[54]
-
-[55]
 Package epstopdf Info: Source file: <figs/diffunbounded.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 74472 bytes
 (epstopdf)             Output file: <figs/diffunbounded-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 17908 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffunbounded-eps-con
 verted-to.pdf figs/diffunbounded.eps>
 (epstopdf)             \includegraphics on input line 939.
 Package epstopdf Info: Output file is already uptodate.
-<figs/diffunbounded-eps-converted-to.pdf, id=374, 418.56375pt x 511.9125pt>
+<figs/diffunbounded-eps-converted-to.pdf, id=367, 418.56375pt x 511.9125pt>
 File: figs/diffunbounded-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diffunbounded-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diffunbounded-eps-converted-to.pdf  used on input
@@ -1101,30 +1098,30 @@ Package pdftex.def Info: figs/diffunbounded-eps-converted-to.pdf  used on input
 (pdftex.def)             Requested size: 125.47884pt x 153.45776pt.
 
 
-[56]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 962--963
 
  []
 
 )
 
-[57 <./figs/diffunbounded-eps-converted-to.pdf>]
+[55 <./figs/diffunbounded-eps-converted-to.pdf>]
 
-[58
+[56
 
 ]
 Chapter 4.
 (./rd.tex
 
-[59]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 
 
-[60]
-<figs/IodateIodine.png, id=400, 634.37pt x 284.06125pt>
+[58]
+<figs/IodateIodine.png, id=394, 634.37pt x 284.06125pt>
 File: figs/IodateIodine.png Graphic file (type png)
 <use figs/IodateIodine.png>
 Package pdftex.def Info: figs/IodateIodine.png  used on input line 133.
@@ -1135,18 +1132,18 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[61]
+[59]
 Package epstopdf Info: Source file: <figs/FK-wavefront.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:05
 (epstopdf)                    size: 42210 bytes
 (epstopdf)             Output file: <figs/FK-wavefront-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:05
 (epstopdf)                    size: 11280 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/FK-wavefront-eps-conv
 erted-to.pdf figs/FK-wavefront.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
-<figs/FK-wavefront-eps-converted-to.pdf, id=406, 718.685pt x 318.18875pt>
+<figs/FK-wavefront-eps-converted-to.pdf, id=399, 718.685pt x 318.18875pt>
 File: figs/FK-wavefront-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/FK-wavefront-eps-converted-to.pdf>
 Package pdftex.def Info: figs/FK-wavefront-eps-converted-to.pdf  used on input 
@@ -1154,22 +1151,22 @@ line 187.
 (pdftex.def)             Requested size: 287.4689pt x 127.27324pt.
 
 
-[62 <./figs/IodateIodine.png>]
+[60 <./figs/IodateIodine.png>]
 
-[63 <./figs/FK-wavefront-eps-converted-to.pdf>]
+[61 <./figs/FK-wavefront-eps-converted-to.pdf>]
 
-[64]
+[62]
 Package epstopdf Info: Source file: <figs/minspeed.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 28893 bytes
 (epstopdf)             Output file: <figs/minspeed-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 11785 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/minspeed-eps-converte
 d-to.pdf figs/minspeed.eps>
 (epstopdf)             \includegraphics on input line 310.
 Package epstopdf Info: Output file is already uptodate.
-<figs/minspeed-eps-converted-to.pdf, id=421, 427.5975pt x 348.30125pt>
+<figs/minspeed-eps-converted-to.pdf, id=415, 427.5975pt x 348.30125pt>
 File: figs/minspeed-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/minspeed-eps-converted-to.pdf>
 Package pdftex.def Info: figs/minspeed-eps-converted-to.pdf  used on input line
@@ -1177,18 +1174,18 @@ Package pdftex.def Info: figs/minspeed-eps-converted-to.pdf  used on input line
 (pdftex.def)             Requested size: 171.03596pt x 139.31802pt.
 
 
-[65 <./figs/minspeed-eps-converted-to.pdf>]
+[63 <./figs/minspeed-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/fku0.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 11802 bytes
 (epstopdf)             Output file: <figs/fku0-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 7586 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fku0-eps-converted-to
 .pdf figs/fku0.eps>
 (epstopdf)             \includegraphics on input line 359.
 Package epstopdf Info: Output file is already uptodate.
-<figs/fku0-eps-converted-to.pdf, id=435, 430.60875pt x 536.0025pt>
+<figs/fku0-eps-converted-to.pdf, id=429, 430.60875pt x 536.0025pt>
 File: figs/fku0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/fku0-eps-converted-to.pdf>
 Package pdftex.def Info: figs/fku0-eps-converted-to.pdf  used on input line 359
@@ -1202,18 +1199,18 @@ Underfull \hbox (badness 1275) in paragraph at lines 369--371
 
 
 
-[66 <./figs/fku0-eps-converted-to.pdf>]
+[64 <./figs/fku0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/twospecies.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:08
 (epstopdf)                    size: 14681 bytes
 (epstopdf)             Output file: <figs/twospecies-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:08
 (epstopdf)                    size: 6953 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/twospecies-eps-conver
 ted-to.pdf figs/twospecies.eps>
 (epstopdf)             \includegraphics on input line 441.
 Package epstopdf Info: Output file is already uptodate.
-<figs/twospecies-eps-converted-to.pdf, id=452, 657.45625pt x 491.8375pt>
+<figs/twospecies-eps-converted-to.pdf, id=446, 657.45625pt x 491.8375pt>
 File: figs/twospecies-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/twospecies-eps-converted-to.pdf>
 Package pdftex.def Info: figs/twospecies-eps-converted-to.pdf  used on input li
@@ -1221,16 +1218,16 @@ ne 441.
 (pdftex.def)             Requested size: 197.23839pt x 147.55238pt.
 
 
-[67]
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 478--479
 
  []
 
 
 
-[68 <./figs/twospecies-eps-converted-to.pdf>]
+[66 <./figs/twospecies-eps-converted-to.pdf>]
 
-[69]
+[67]
 Overfull \hbox (1.68378pt too wide) in paragraph at lines 573--578
 []\OT1/cmr/m/n/10 We will here ex-plore the Tur-ing struc-tures through the \OT
 1/cmr/m/it/10 FitzHugh-Nagumo (FHN)
@@ -1238,37 +1235,37 @@ Overfull \hbox (1.68378pt too wide) in paragraph at lines 573--578
 
 
 
-[70]
+[68]
 
-[71]
+[69]
 Package epstopdf Info: Source file: <figs/turinghomo.eps>
-(epstopdf)                    date: 2026-08-14 13:40:39
+(epstopdf)                    date: 2026-02-11 17:13:49
 (epstopdf)                    size: 34780 bytes
 (epstopdf)             Output file: <figs/turinghomo-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-08-15 17:21:47
+(epstopdf)                    date: 2026-08-20 13:04:40
 (epstopdf)                    size: 16882 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/turinghomo-eps-conver
 ted-to.pdf figs/turinghomo.eps>
 (epstopdf)             \includegraphics on input line 656.
 Package epstopdf Info: Output file is already uptodate.
-<figs/turinghomo-eps-converted-to.pdf, id=473, 410.53375pt x 524.96124pt>
+<figs/turinghomo-eps-converted-to.pdf, id=467, 410.53375pt x 524.96124pt>
 File: figs/turinghomo-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/turinghomo-eps-converted-to.pdf>
 Package pdftex.def Info: figs/turinghomo-eps-converted-to.pdf  used on input li
 ne 656.
 (pdftex.def)             Requested size: 125.47884pt x 160.45337pt.
 Package epstopdf Info: Source file: <figs/fhnPhasePortrait.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 334030 bytes
 (epstopdf)             Output file: <figs/fhnPhasePortrait-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 93872 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fhnPhasePortrait-eps-
 converted-to.pdf figs/fhnPhasePortrait.eps>
 (epstopdf)             \includegraphics on input line 672.
 Package epstopdf Info: Output file is already uptodate.
-<figs/fhnPhasePortrait-eps-converted-to.pdf, id=474, 664.4825pt x 327.2225pt>
+<figs/fhnPhasePortrait-eps-converted-to.pdf, id=468, 664.4825pt x 327.2225pt>
 File: figs/fhnPhasePortrait-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/fhnPhasePortrait-eps-converted-to.pdf>
 Package pdftex.def Info: figs/fhnPhasePortrait-eps-converted-to.pdf  used on in
@@ -1276,41 +1273,41 @@ put line 672.
 (pdftex.def)             Requested size: 299.01436pt x 147.24876pt.
 
 
-[72 <./figs/fhnPhasePortrait-eps-converted-to.pdf> <./figs/turinghomo-eps-conve
+[70 <./figs/fhnPhasePortrait-eps-converted-to.pdf> <./figs/turinghomo-eps-conve
 rted-to.pdf>]
 
-[73]
+[71]
 Overfull \hbox (1.04657pt too wide) in alignment at lines 771--782
  [][][] []
  []
 
 Package epstopdf Info: Source file: <figs/dispersion.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 15385 bytes
 (epstopdf)             Output file: <figs/dispersion-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:06
 (epstopdf)                    size: 10374 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/dispersion-eps-conver
 ted-to.pdf figs/dispersion.eps>
 (epstopdf)             \includegraphics on input line 806.
 Package epstopdf Info: Output file is already uptodate.
-<figs/dispersion-eps-converted-to.pdf, id=508, 699.61375pt x 558.085pt>
+<figs/dispersion-eps-converted-to.pdf, id=501, 699.61375pt x 558.085pt>
 File: figs/dispersion-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/dispersion-eps-converted-to.pdf>
 Package pdftex.def Info: figs/dispersion-eps-converted-to.pdf  used on input li
 ne 806.
 (pdftex.def)             Requested size: 209.88574pt x 167.42679pt.
 Package epstopdf Info: Source file: <figs/turingfhn.eps>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:08
 (epstopdf)                    size: 16698 bytes
 (epstopdf)             Output file: <figs/turingfhn-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-02-16 16:05:20
+(epstopdf)                    date: 2026-02-11 17:09:08
 (epstopdf)                    size: 7557 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/turingfhn-eps-convert
 ed-to.pdf figs/turingfhn.eps>
 (epstopdf)             \includegraphics on input line 827.
 Package epstopdf Info: Output file is already uptodate.
-<figs/turingfhn-eps-converted-to.pdf, id=509, 628.3475pt x 478.78876pt>
+<figs/turingfhn-eps-converted-to.pdf, id=502, 628.3475pt x 478.78876pt>
 File: figs/turingfhn-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/turingfhn-eps-converted-to.pdf>
 Package pdftex.def Info: figs/turingfhn-eps-converted-to.pdf  used on input lin
@@ -1318,25 +1315,25 @@ e 827.
 (pdftex.def)             Requested size: 188.50569pt x 143.63773pt.
 
 
-[74]
+[72]
 
-[75 <./figs/dispersion-eps-converted-to.pdf>]
+[73 <./figs/dispersion-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 891--893
 
  []
 
 
 
-[76 <./figs/turingfhn-eps-converted-to.pdf>])
+[74 <./figs/turingfhn-eps-converted-to.pdf>])
 
-[77]
+[75]
 
-[78
+[76
 
 ]
 Chapter 5.
 (./fourier.tex
-<figs/trapz.pdf, id=538, 284.98903pt x 156.65958pt>
+<figs/trapz.pdf, id=531, 284.98903pt x 156.65958pt>
 File: figs/trapz.pdf Graphic file (type pdf)
 <use figs/trapz.pdf>
 Package pdftex.def Info: figs/trapz.pdf  used on input line 46.
@@ -1352,29 +1349,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--62
 
 
 
-[79]) (./ftcs.tex
+[77]) (./ftcs.tex
 
-[80 <./figs/trapz.pdf>]
+[78 <./figs/trapz.pdf>]
 
-[81]
+[79]
 Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
 
 
-[82]) (./existence.tex
+[80]) (./existence.tex
 
-[83]
+[81]
 Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-)
-No file main.ind.
+) (./main.ind
+
+[82]
 
 
-[84] (./main.aux)
+
+[83
+
+]
+
+
+
+[84
+
+]) (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1385,10 +1392,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17971 strings out of 473910
- 348683 string characters out of 5736660
- 740836 words of memory out of 5000000
- 40704 multiletter control sequences out of 15000+600000
+ 17976 strings out of 473910
+ 348774 string characters out of 5736661
+ 740802 words of memory out of 5000000
+ 40706 multiletter control sequences out of 15000+600000
  573355 words of font info for 91 fonts, out of 8000000 for 9000
  833 hyphenation exceptions out of 8191
  81i,14n,117p,487b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1414,7 +1421,7 @@ s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (84 pages, 1238881 bytes).
+Output written on main.pdf (84 pages, 1242812 bytes).
 PDF statistics:
  683 PDF objects out of 1000 (max. 8388607)
  422 compressed objects within 5 object streams
