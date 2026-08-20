@@ -1,78 +1,82 @@
 
 
 We dive right in: Consider a thin tube with cross section $A$ and length $L$. The longitudinal axis
-is parallel with the $x$-axis as shown in Fig. \ref{fig:flux}. Inside
-the tube there is a bio-chemical substance, $S$, and  the concentration (or density) of $S$ we denote 
-$c$, which is a function of position, $x$, and time, $t$. The fundamental research question 
+is parallel to the $x$-axis as shown in Fig. \ref{fig:flux}. Inside
+the tube there is a bio-chemical substance, $S$, and we denote the concentration (or density) of $S$
+by $c$. $c$ is a function of position, $x$, and time, $t$, and the fundamental research question 
 throughout this text is
 \begin{center}
-	\emph{how does the function $c=c(x,t)$ evovle in space and time  
+	\emph{how does the function $c=c(x,t)$ evolve in space and time  
 	considering diffusion and reaction processes?}
 \end{center}
 Why this question is interesting in the first place will hopefully be clear
 as we explore the topic in this and the following chapters. 
 
-Now, the first step in the exploration is to derive the underlying dynamical equation for $c$.
-We focus on the volume confined between $x_1$ and $x_2$ and define the 
-width $\Delta x = x_2 - x_1$. By the \emph{flux}\index{Flux} at $x_1$, denoted
-$J_1$, we mean the amount of $S$ leaving or entering the volume at $x=x_1$ per
-unit time. Likewise, the flux $J_2$ is the amount of $S$ leaving or entering the
-volume at $x=x_2$. 
+Now, the first step is to derive the underlying dynamical equation for $c$; we do 
+this using a rather intuitive approach. Consider a slice of the tube that is 
+confined between $x_1$ and $x_2$ and define the width of the slice 
+$\Delta x = x_2 - x_1$. The slice volume is then  $\Delta V = A \Delta x$.
+By the \emph{flow rate}\index{Flow rate} at $x_1$, denoted
+$Q$, we mean the amount of $S$ leaving or entering the slice at $x=x_1$ per
+unit time. Likewise, the flow rate at $x_2$ is the amount of $S$ leaving or entering the
+slice at $x=x_2$ per unit time. 
 
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.5]{figs/fluxIllustration.pdf}
 		\caption{\label{fig:flux}
-		Schematic illustration of the effective one dimensional tube system. The shaded area are the 
-		tube cross-section area. See the text for explanations of the symbols. 
+		Schematic illustration of the effective one-dimensional tube system. 
+		The shaded areas are the cross-sectional areas of the tube.
+		See the text for explanations of the symbols. 
 		}
 	\end{center}
 \end{figure}
 
 
-There is an important convention here: A flux is positive when the substance flows to the
+There is an important convention here: The flow rate is positive when the substance flows to the
 right (in the ``positive'' $x$-direction) and it is negative if it flows to the
 left (``negative'' $x$-direction). 
 
-$S$ can also be produced or consumed inside the volume, for example, through bio-chemical processes. 
-The production (or consumption) per unit time we denote $\Delta \sigma$. 
-If $N_S$ is the total amount of $S$ in the volume the rate of change of $S$ in the volume is written as
+$S$ can also be produced or consumed inside the slice, for example, through bio-chemical processes. 
+The production (or consumption) per unit time in the slice we denote $\sigma_S$. 
+If $N_S$ is the total amount of $S$ in the slice the rate of change of $S$ is written as
 \begin{eqnarray}
-	\frac{\d N_S}{\d t} &=& \mathrm{production rate} + \mathrm{flux \ at} \ x_1 -
-	\mathrm{flux \ at} \ x_2 \nonumber \\
-	&=& \Delta \sigma + J_1 - J_2 \, . \label{eq:balance}
+	\frac{\d N_S}{\d t} &=& \text{production rate} + \text{flow rate at} \ x_1 -
+	\text{flow rate at} \ x_2 \nonumber \\
+	&=& \sigma_S(t) + Q(x_1, t) - Q(x_2,t) \, . \label{eq:balance}
 \end{eqnarray}
-This equation is the \emph{balance equation} \index{Balance equation} for  $S$ in the volume. The amount of $S$ 
-is related to the concentration $c$ by 
+This equation is the \emph{balance equation} \index{Balance equation} for  $S$. The amount of $S$ 
+is related to the slice concentration $c_S$ by 
 \begin{equation}
-	N_S(t) = A \Delta x c(t) \ \ \mathrm{implying} \ \ \frac{\d N_S}{\d t} = A \Delta
-	x \frac{\d c}{\d t} \, . 
+	N_S = \Delta V c_S \ \ \mathrm{implying} \ \ \frac{\d N_S}{\d t} = \Delta
+	V \frac{\d c_S}{\d t} \, . 
 \end{equation}
-Substitution into Equation (\ref{eq:balance}) and dividing with the volume $A \Delta x$ we get
+Substitution into Equation (\ref{eq:balance}) and dividing by the volume we get
 \begin{equation}
-	\frac{\d c}{\d t} = \frac{\Delta \sigma}{A \Delta x} - \frac{1}{A} \frac{J_2
-	-J_1}{\Delta x} \, .
+	\label{eq:intro:dcdtwide}
+	\frac{\d c_S}{\d t} = \frac{\sigma_S(t)}{\Delta V} - \frac{1}{A} \frac{Q(x_2,t)-Q(x_1,t)}{\Delta x} \, .
 \end{equation}
-In the limit $\Delta x \rightarrow 0$ we get, now highlighting the time dependence 
+Now, $x_2 = x_1 + \Delta x$ and we can find the rate of change at the point $x_1$ by letting $\Delta x
+\rightarrow 0$. In this limit the first term on the right-hand side of Equation
+\ref{eq:intro:dcdtwide} is denoted the \emph{production function}\index{Production function}\index{Function!production}. 
+\begin{align}
+	f(t) = \frac{1}{A}\lim_{\Delta x \rightarrow 0} \frac{\sigma_S(t)}{\Delta x} \, .
+\end{align}
+The second term is a partial derivative 
 \begin{equation}
-	\frac{\d}{\d t} c(t) = f(t) - \frac{\d}{\d x}J(t) \, . 
+	\left. \frac{\partial  J(x,t)}{\partial x}\right|_{x=x_1} = \frac{1}{A}\lim_{\Delta x \rightarrow 0} \frac{Q(x_1 + \Delta
+	x, t)-Q(x_1,t)}{\Delta x} \, .
 \end{equation}
-Here $f$ is the production rate of $c$ per unit volume inside the volume, and $J_s$ is
-the net flux per unit area
-\begin{equation}
-	\frac{\d  J_s}{\d x} = \frac{1}{A}\lim_{\Delta x \rightarrow 0} \frac{J_2-J_1}{\Delta x} \, .
-\end{equation}
-This must be true for any infinite small volume we consider, thus, for any interior point $x \in ]0; L[$
-we can write the balance equation as
+$J$ is the \emph{flux}\index{Flux} and is the flow rate per unit area. We can do this for any
+interior point in the tube. We should expect that the production function can depend on $x$, thus, 
+for any $x \in ]0;L[$ we have 
 \begin{equation}
 	\label{eq:reacflux}
-	\frac{\partial}{\partial t} c(x,t)= f(x,t) - \frac{\partial}{\partial x}J(x,t)
-	\,  .
+	\frac{\partial}{\partial t} c(x,t)= f(x,t) - \frac{\partial}{\partial x}J(x,t) \, ,
 \end{equation}
-For the balance equation, Equation (\ref{eq:reacflux}), to be meaningful we assume
-that both $c$ and $J$ have partial derivatives in their domain. We here referre to $f$ 
-as the \emph{production function}\index{Production function}\index{Function!production} and $J$ simply as the \emph{flux}.
+$c$ is here the concentration at any point. Equation (\ref{eq:reacflux}) is only meaningful 
+if both $c$ and $J$ have partial derivatives in their domain.
 
 Equation (\ref{eq:reacflux}) formalizes that the local rate of change of
 the concentration of $S$ is due to (i) a production process and (ii) how much
@@ -83,10 +87,11 @@ If the production is due to bio-chemical reactions we write the production funct
 in terms of the \emph{reaction function}\index{Reaction function}\index{Function!reaction}, $r(c) = r(c(x,t)) = f(x,t)$. 
 
 In general, the flux $J$ can be decomposed into a term due to \emph{advection}\index{Advection} and a
-term due to \emph{diffusion}\index{Diffusion}. Advection is the process that transport a substance
+term due to \emph{diffusion}\index{Diffusion}. Advection is the process that transports a substance
 around the system when there is a bulk flow; we will not consider this process. 
+
 Diffusion is the process that tends to remove any gradient in the system:
-If you add a drop of colored dye to a glass of water the dye molecules will
+If you add a drop of coloured dye to a glass of water the dye molecules will
 eventually distribute uniformly in the system. Therefore, we must intuitively
 expect that the flux due to diffusion is non-zero whenever there exists a
 gradient in the concentration. This is expressed in \emph{Fick's first law} \index{Fick's law}
@@ -113,7 +118,7 @@ diffusion coefficient is constant the RD-equation becomes
 	x^2} \, . 
 \end{equation}
 Importantly, Fick's law is a model and it is therefore, perhaps, unfortunate that
-the literature refers to this is a ``law'' \footnote{The same can be said about
+the literature refers to this as a ``law'' \footnote{The same can be said about
 Ohm's law, but \emph{not} e.g. Newton's second law}. It proposes that the flux
 is linearly dependent on the substance concentration gradient; it must therefore
 be considered as the linear term in a Taylor expansion with respect to the gradient, 
@@ -121,7 +126,7 @@ and is only usable for sufficiently small gradients (actually, often for surpris
 gradients). By the way, this type of model is more formally referred to as a 
 \emph{linear constitutive relation}\index{Constitutive relation}.
 
-The RD-equation can be used to model many other systems than bio-chemical systems, and $c$ can
+The RD-equation can be used to model many systems other than bio-chemical systems, and $c$ can
 represent fluid velocity, temperature, the concentration of large animals, and much more. We will
 also encouter examples of this. 
 
@@ -137,16 +142,16 @@ also encouter examples of this.
 		\label{eq:linrd}
 		\frac{\partial c}{\partial t} = kc + D \frac{\partial^2 c}{\partial x^2} \, ,
 	\end{equation}
-	where $k$ is the growth rate coefficient. If the plankton multiply $k>0$; if it
-	dies out $k<0$. This RD-equation is a linear differential equation and
+	where $k$ is the growth rate coefficient. If the population grows $k>0$; if it
+	declines $k<0$. This RD-equation is a linear differential equation and
 	we should be optimistic about finding a solution.
 
 	The RD-equation must be solved by specifying both an \emph{initial condition} \index{Initial
 	condition} (IC) and
 	\emph{boundary conditions} \index{Boundary condition} (BCs). If the organism at time zero is bundled up at some
-	interior point $x_0 \in [0;L[$, we may specify the IC as a Gaussian shaped curve 
+	interior point $x_0 \in [0;L[$, we may specify the IC as a Gaussian-shaped curve 
 	\begin{equation}
-		c(x,0)=c_0 e^{(x-x_0)^2/\sigma^2} \ ,
+		c(x,0)=c_0 e^{-(x-x_0)^2/\sigma^2} \ ,
 	\end{equation}
 	where $c_0$ is the maximum concentration and $\sigma$ determines the width of
 	the Gaussian curve. If we somehow can control the concentrations at the tube
@@ -155,14 +160,15 @@ also encouter examples of this.
 		\label{eq:bcDiriclecht}
 		c(0, t) = 0 \ \ \text{and} \ \ c(L,t) = 0 \ \ \text{for} \ \ t \geq 0 \, . 
 	\end{equation}
-	These two BCs define a specific function value at the system end-points, and
-	are called \emph{Dirichlet boundaries} \index{Boundary!Dirichlet} or boundaries of first
+	These two BCs define a specific function value at the system endpoints, and
+	are called \emph{Dirichlet boundaries} \index{Boundary!Dirichlet} or boundary conditions of the first
 	type\index{Boundary!first type}. In general, the
 	boundary value can take any (real) value and not just zero. The boundary at $x=0$ we 
-	will referre to as the \emph{left boundary} and the boundary at $x=L$ 
+	will refer to as the \emph{left boundary} and the boundary at $x=L$ 
 	\emph{the right boundary}. 
 
-	Another commonly used BC is the \emph{Neumann boundary}\index{Boundary!Neumann}, or boundary of the second
+	Another commonly used BC is the \emph{Neumann boundary}\index{Boundary!Neumann}, or boundary
+	condition of the second
 	type \index{Boundary!second type}. This specifies the values for the function derivative at the walls, for
 	example, 
 	\begin{equation}
@@ -191,51 +197,70 @@ also encouter examples of this.
 
 \begin{example}
 	\label{example:flow}
-	The mathematical form of the RD-equation is the same as the equation used to describe some 
-	special fluid flows. 
-	Let a fluid be confined
-	between two parallel walls located at $x=0$ and $x=L$. The flow in the
+	The RD-equation is the same equation used to describe fluid flows in some special -- yet
+	important -- cases. Let a fluid be confined
+	between two parallel walls located at $x=0$ and $x=L$. The fluid velocity in the
 	$y$-direction, denoted $v$, is given by the Navier-Stokes equation.  
-	For sufficiently small flow rate or, equivalently small $v$, we have
+	For sufficiently small velocities we have that 
 	\begin{equation}
-		\frac{\partial v}{\partial t} = g + \nu_0 \frac{\partial^2 v}{\partial
+		\rho\frac{\partial v}{\partial t} = \rho g + \eta_0 \frac{\partial^2 v}{\partial
 		x^2} \, ,
 	\end{equation}
-	where the production function, $g$ is the local applied accelaration (gravity) and $\nu_0$ 
-	the kinematic viscosity.
+	where the production function, $\rho g$ is the local applied force generating the flow and $\eta_0$ 
+	is the viscosity. The viscosity can be interpreted as the diffusion coefficient for fluid
+	momentum. 
+
+	If the applied force is constant the fluid flow will reach a 	\emph{steady-state}\index{Steady-state}
+	after some time 
+	\begin{equation}
+		\frac{\partial v}{\partial t} = 0 \ .
+	\end{equation}
+	We write this as $v(x,t) = v(x)$. In the steady-state we then have
+	\begin{align}
+		\label{eq:intro:floweq}
+		\frac{\d^2 v}{\d x^2} = -\frac{\rho g}{\eta_0} \, .
+	\end{align}
+	This problem does not depend on the initial conditions and defines a \emph{boundary value
+	problem}\index{Boundary value problem} which is a class of very important problems. 
 	
 	\begin{wrapfigure}{r}{0.4\textwidth}
 		%\centering
 		\includegraphics[width=0.35\textwidth]{figs/poiseuille.eps}
 	\end{wrapfigure}
-	
-	In a Couette flow we ignore the applied acceleration $g=0$, and we move one wall with a
-	speed $V_0$ while keeping the other fixed. This gives Dirichlet BCs  
+
+	Consider the case where we do not apply a force, $g=0$, and we move one wall with a
+	speed $V_0$ while keeping the other fixed. If we apply zero Dirichlet boundaries we obtain 
+	the boundary value problem   
 	\begin{equation}
-		v(0,t)=0 \ \ \text{and} \ \ v(L,t)=V_L \, .
+		\frac{\d^2 v}{\d x^2} = 0 
 	\end{equation}
-	In a Poiseuille flow we apply an acceleration $g > 0$, but keep the walls
-	fixed given raise to the BCs
+	with 
+	\begin{align}
+		v(0)=0 \ \ \text{and} \ \ v(L)=V_L \, .
+	\end{align}
+	This is known as a Couette flow.
+
+	In a Poiseuille flow we apply an acceleration $g \neq 0$, but keep the walls
+	fixed. Then we need Equation (\ref{eq:intro:floweq}) with BCs  
 	\begin{equation}
-		v(0,t)=0 \ \ \text{and} \ \ v(L,t)=0 \, .
+		v(0)=0 \ \ \text{and} \ \ v(L)=0 \, .
 	\end{equation}
 \end{example}
 
-\clearpage
 
 \begin{example}
 	\label{example:turing} \index{Turing structure}
 	In bio-chemical systems there will be more than just one animal species,
 	organism, or chemical compound that multiply, die, or react. In general, there will
 	be very many "substances", $S_1, S_2, \ldots$, and the corresponding 
-	concentrations, $c_1, c_2, \ldots$,  will be coupled (or co-depended).
+	concentrations, $c_1, c_2, \ldots$,  will be coupled (co-depended).
 	For example, if we wish to model a predator population we
 	usually also need to include the food resources (prey) unless it is abundant and can be considered 
 	constant. The prey dynamics itself depends on the predator population as prey is eaten/consumed 
 	by preditors, hence, the two are coupled.
 
 	If we have two coupled concentrations and assume that diffusion of $c_1$ only depends on the gradient 
-	of $c_1$ and that the diffusion of $c_2$ only depedends on $c_2$ we can write a system of RD-equations 
+	of $c_1$ and that the diffusion of $c_2$ only depends on $c_2$ we can write a system of RD-equations 
 	\begin{eqnarray}
 		\frac{\partial c_1}{\partial t} &=& r_1(c_1,c_2) + D_1 \frac{\partial^2
 		c_1}{\partial x^2} \\
@@ -245,7 +270,7 @@ also encouter examples of this.
 	In short-hand vector notation we write this as 
 	\begin{equation}
 		\frac{\partial \mathbf{c}}{\partial t} = \mathbf{R}(\mathbf{c}) + \mathbf{D}
-		\cdot \frac{\partial^2 \mathbf{c}}{\partial x^2} \ ,
+		\frac{\partial^2 \mathbf{c}}{\partial x^2} \ ,
 	\end{equation}
 	where $\mathbf{c}=(c_1, c_2)$, $\mathbf{R}$ is a vector-valued reaction function 
 	$\mathbf{R} = (r_1, r_2)$ and $\mathbf{D}$ is the so-called diffusion
@@ -285,46 +310,73 @@ also encouter examples of this.
 	a surface with nutrients and agar (an algae); often this is done in a Petri dish. As the 
 	bacteria multiply the colony grows radially from the seeding point.   
 	
+	%\begin{wrapfigure}{l}{0.4\textwidth}
+	%	\centering
+	%	\includegraphics[width=0.35\textwidth]{figs/petri-dish-bacteria-growth.jpg}
+	%\end{wrapfigure}
+	
 	\begin{wrapfigure}{l}{0.4\textwidth}
 		\centering
-		\includegraphics[width=0.35\textwidth]{figs/petri-dish-bacteria-growth.jpg}
+		\includegraphics[width=0.4\textwidth]{figs/twodimflux.pdf}
 	\end{wrapfigure}
+
 
 	The growth happens in two spatial dimensions which we can highlight by
 	writing  
 	\begin{eqnarray}
 		c = c(x,y,t) \, .
 	\end{eqnarray}
-	We must extend the balance equation to describe this situation. 
-	In order not to get side tracked, we shall not
-	do a formal generalization of the balance equation, but simply give an
-	intuitive explanation. In two dimensions the flux occurs in two directions
-	and the flux is therefore in general a vector quantity, $\vec{J}=(J_x, J_y)$. 
-	Now, as it was the case for one dimension the rate of change of $c$ at a 
-	given point depends on the flux in and out of the point, that is,
-	it depends on the spatial derivatives of $\vec{J}$. If there is a positive 
-	flux in the $x$-direction, but a corresponding negative flux in the
-	$y$-direction we must expect the net flux to be zero. This sum (a scalar) 
-	is the	\emph{divergence} of $\vec{J}$
+	We must extend the balance equation to describe this two dimensional situation, and we will do
+	this by applying the same intutive approach we did for one dimension. Again, let $N_s$ be the
+	total amount of the substance $S$ in some volume given by $\Delta V = \Delta x \Delta y \Delta z$. 
+	We now have fluxes in both the $x$- and $y$-directions and we assume that we can ignore the flux in
+	the $z$-direction. The balance equation now states 
+	\begin{align}
+		\frac{\d N_S}{\d t} = \text{production rate} + \text{flux at }x_1 - \text{flux at }x_2 +
+		\text{flux at }y_1 - \text{flux at }y_2  
+	\end{align}
+	We use the same convention for the fluxes as in one dimensions: The flux is positive if $S$ flows
+	in positive direction and negative if $S$ flows in the negative direction. 
+
+	Now, the concentration is simply $N_s(t) = \Delta V c(t)$, that is, the balance equation becomes
+	\begin{align}
+		\frac{\d c}{\d t} = \frac{\Delta \sigma}{\Delta V} - \frac{1}{A_x} \frac{J_{x_2} -
+		J_{x_1}}{\Delta x} - \frac{1}{A_y}\frac{J_{y_2}-J_{y_1}}{\Delta y}
+	\end{align}
+	Here $A_x$ is the area of the surface normal to the $x$-axis and $A_y$ the area of the surface
+	normal to the $y$-axis.	We now have the limits 
+	\begin{align}
+		\frac{\partial J_x}{\partial x} = \frac{1}{A_x} \lim_{\Delta x \rightarrow 0} \frac{J_{x_2} -
+		J_{x_1}}{\Delta x} \ \ \text{and} \ \ 
+		\frac{\partial J_y}{\partial y} = \frac{1}{A_y} \lim_{\Delta y \rightarrow 0} \frac{J_{y_2} -
+         J_{y_1}}{\Delta y}
+	\end{align}
+	hence we get at any point $(x,y)$
+	\begin{align}
+		\frac{\partial c}{\partial t} = f(x,y,t) - \frac{\partial J_x}{\partial x} - \frac{\partial
+		J_y}{\partial y} 
+		= f(x,y,t) - \vecs{\nabla} \cdot \vec{J}
+	\end{align}
+	Here $\vecs{\nabla}$ is the del-operator $\vecs{\nabla} = \left( \partial/\partial x,
+	\partial/\partial y \right)$ and $\vec{J} = (J_x, J_y)$ is the vector flux. In particular, we have that 
+	the scalar product is called the \emph{divergence} of $\vec{J}$ and is simply
 	\begin{equation}
 		\vecs{\nabla} \cdot \vec{J} = 
 		\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right)
 		\cdot (J_x, J_y) = 
 		\frac{\partial J_x}{\partial x} + \frac{\partial J_y}{\partial y} \, .
 	\end{equation}
-	$\vecs{\nabla}$ is denoted the \emph{del operator}. If the divergence is
-	positive there exists a net flux out of the point and, vice-versa, if it is 
-	negative there is a net flux to the point.  The balance then becomes
-	\begin{equation}
-		\frac{\partial c}{\partial t} = f(x,y,t) - \vecs{\nabla} \cdot \vec{J} \, . 
-	\end{equation}
-	Fick's law is in this case is the \emph{gradient} of $c$
+	It is seen that if the divergence is positive there exists a net flux out of the point and, vice-versa, if it is 
+	negative there is a net flux to the point. The balance equation for three dimensions
+	can be found from the same arguments. 
+
+	Again, we need to apply Fick's law in order to close the problem. In this case we have to apply
+	the gradient of $c$
 	\begin{equation}
 		\vec{J} = -D \left(\frac{\partial c}{\partial x}, \frac{\partial
 		c}{\partial y}\right) = -D \vecs{\nabla} c \, .
 	\end{equation}
-	Notice that the gradient $\vecs{\nabla} c$ is a vector. Inserting Fick's
-	law into the balance equation we obtain
+	In the case where the diffusion coefficient is constant we obtain
 	\begin{eqnarray}
 		\frac{\partial c}{\partial t} &=& f(x,y,t) + \vecs{\nabla} \cdot D
 		\vecs{\nabla} c \nonumber \\
@@ -336,7 +388,7 @@ also encouter examples of this.
 		+ \frac{\partial}{\partial y}\frac{\partial c}{\partial y} \right) \nonumber \\
 		&=& f(x,y,t) + D \vecs{\nabla}^2 c
 	\end{eqnarray}
-	if the diffusion coefficient is constant. The second order differential operator 
+	The second order differential operator 
 	\begin{equation}
 		\vecs{\nabla}^2 =  
 		\left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
@@ -361,7 +413,7 @@ also encouter examples of this.
 	Laplace operator in polar coordinates
 	\begin{eqnarray}
 		\vecs{\nabla}^2 = \left(\frac{1}{\rho}\frac{\partial}{\partial \rho}
-		\rho \frac{\partial }{\partial \rho}  +
+		\left( \rho \frac{\partial }{\partial \rho}\right)  +
 		\frac{1}{\rho^2}\frac{\partial^2}{\partial \theta^2}\right) \, .
 	\end{eqnarray}
 	An interesting case to us is when the concentration is angle
@@ -372,21 +424,19 @@ also encouter examples of this.
 		\frac{D}{\rho}\frac{\partial}{\partial \rho}
 		\left(  \rho\frac{\partial c}{\partial \rho} \right) 
 	\end{equation}
-	if $D$ is constant and if the production function is $r(c)$. Only a few
-	exercises deal with Equation (\ref{eq:rdpol}).
+	if $D$ is constant and if the production function is $r(c)$. 
 \end{example}	
 
 \begin{question}
 	What would be appropriate BCs for the bacteria growth in a Petri dish?
 \end{question}
 
-\noindent The \emph{steady state} \index{Steady state} is the state where the system is independent
+\noindent Recall, that the \emph{steady state} \index{Steady state} is the state where the system is independent
 of time, i.e., the situation where 
 \begin{equation}
 	\frac{\partial c}{\partial t} = 0 \, .
 \end{equation}
-This means we can think of $c$ as a function of only the spatial coordinate, 
-$c = c(x)$, and results in an ordinary second order differential equation on the form
+This situation results in an ordinary second order differential equation on the form
 \begin{equation}
 	\label{eq:bcIntro}
 	D\frac{\d^2 c}{\d x^2} + r(c) = 0 \, ,
@@ -394,8 +444,8 @@ $c = c(x)$, and results in an ordinary second order differential equation on the
 if the diffusion coefficient is constant. The solution is dependent on the specific BCs, 
 and Equation (\ref{eq:bcIntro}) together with the BCs define a 
 \emph{boundary value problem} \index{Boundary value problem}. 
-In the next chapter we will explore these problems; both in the linear case and 
-non-linear case using perturbation methods. 
+In the next chapter we will explore these problems; both in the case where $r$ is linear and where
+it is non-linear. 
 
 The diffusion equation represents the case where the production function $f$ is 
 absent. The dynamics of $c=c(x,t)$ is then
