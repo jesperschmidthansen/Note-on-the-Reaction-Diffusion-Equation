@@ -47,7 +47,7 @@ If $N_S$ is the total amount of $S$ in the slice the rate of change of $S$ is wr
 	&=& \sigma_S(t) + Q(x_1, t) - Q(x_2,t) \, . \label{eq:balance}
 \end{eqnarray}
 This equation is the \emph{balance equation} \index{Balance equation} for  $S$ in the slice. 
-The amount of $S$ is related to the slice concentration $c_S$ by 
+The amount of $S$ is related to the average concentration in the slice $c_S$ by 
 \begin{equation}
 	N_S = \Delta V c_S \ \ \mathrm{implying} \ \ \frac{\d N_S}{\d t} = \Delta
 	V \frac{\d c_S}{\d t} \, . 
@@ -65,7 +65,7 @@ Now, $x_2 = x_1 + \Delta x$ and we can find the rate of change at the point $x_1
 	\left. \frac{\partial  J(x,t)}{\partial x}\right|_{x=x_1} = \frac{1}{A}\lim_{\Delta x \rightarrow 0} \frac{Q(x_1 + \Delta
 	x, t)-Q(x_1,t)}{\Delta x} \, .
 \end{equation}
-$J$ is the \emph{flux}\index{Flux} and is the flow rate per unit area. We can do this for any
+$J$ is the \emph{flux}\index{Flux} and is the flow rate per unit area, $J=Q/A$. We can do this for any
 interior point in the tube, that is, for any $x \in ]0;L[$ we have that
 \begin{equation}
 	\label{eq:reacflux}
@@ -74,11 +74,11 @@ interior point in the tube, that is, for any $x \in ]0;L[$ we have that
 Equation (\ref{eq:reacflux}) is only meaningfull if both $c$ and $J$ have partial derivatives in their domain.
 
 Equation (\ref{eq:reacflux}) formalizes that the local rate of change of
-the concentration of $S$ is due to (i) a production process and (ii) how much
-substance flows in and out of any point along the tube. As it stands it does not
-form a closed problem, since we do not know $f$ or $J$; these we must model.
+the concentration of $S$ at any point along the tube changes due to (i) 
+local production or consumption and (ii) the spatial variation of the flux. 
+As it stands it does not form a closed problem, since we do not know $f$ or $J$; these we must model.
 
-If the production is due to bio-chemical reactions we write the production function 
+If the production is due to bio-chemical reactions we can write the production function 
 in terms of the \emph{reaction function}\index{Reaction function}\index{Function!reaction}, $r(c) = r(c(x,t)) = f(x,t)$. 
 
 In general, the flux $J$ can be decomposed into a term due to \emph{advection}\index{Advection} and a
@@ -87,7 +87,7 @@ around the system when there is a bulk flow; we will not consider this process.
 
 Diffusion is the process that tends to remove any gradient in the system:
 If you add a drop of coloured dye to a glass of water the dye molecules will
-eventually distribute uniformly in the system. Therefore, we must intuitively
+eventually distribute uniformly in the system. Therefore, we intuitively
 expect that the flux due to diffusion is non-zero whenever there exists a
 gradient in the concentration. This is expressed in \emph{Fick's first law} \index{Fick's law}
 \begin{equation}
@@ -115,10 +115,9 @@ diffusion coefficient is constant the RD-equation becomes
 Importantly, Fick's law is a model and it is therefore, perhaps, unfortunate that
 the literature refers to this as a ``law'' \footnote{The same can be said about
 Ohm's law, but \emph{not} e.g. Newton's second law}. It proposes that the flux
-is linearly dependent on the substance concentration gradient; it must therefore
-be considered as the linear term in a Taylor expansion with respect to the gradient, 
-and is only usable for sufficiently small gradients (actually, often for surprisingly large
-gradients). By the way, this type of model is more formally referred to as a 
+is linearly dependent on the substance concentration gradient, that is, 
+it is the first-order term in the Taylor expansion about zero concentration gradient.
+This type of model is more formally referred to as a 
 \emph{linear constitutive relation}\index{Constitutive relation}.
 
 The RD-equation can be used to model many systems other than bio-chemical systems, and $c$ can
@@ -180,8 +179,8 @@ also encouter examples of this.
 		\ \ \text{and} \ \
 		c(L,t) = C_L  \ \ \text{for} \ \ t\geq 0 \, .
 	\end{equation}
-	We shall see that the BCs not only determine the solution to a given
-	RD-equation, but also determine whether a solution exists or not.
+	We shall see that the BCs play a crucial role in determining both the form of the solution and, in
+	some cases, whether a solution exists.
 \end{example}
 
 
@@ -194,14 +193,15 @@ also encouter examples of this.
 	\label{example:flow}
 	The RD-equation is the same equation used to describe fluid flows in some special -- yet
 	important -- cases. Let a fluid be confined
-	between two parallel walls located at $x=0$ and $x=L$. The fluid velocity in the
-	$y$-direction, denoted $v$, is given by the Navier-Stokes equation.  
-	For sufficiently small velocities we have that 
+	between two parallel walls located at $x=0$ and $x=L$. 
+	For sufficiently small Reynolds number (for example, for sufficiently small velocities), the inertial 
+	term may be neglected, and we obtain 
 	\begin{equation}
 		\rho\frac{\partial v}{\partial t} = \rho g + \eta_0 \frac{\partial^2 v}{\partial
 		x^2} \, ,
 	\end{equation}
-	where the production function, $\rho g$ is the local applied force generating the flow and $\eta_0$ 
+	where $v$ is the flow in the $y$-direction, the production function, $\rho g$, is the local
+	applied force generating the flow, and $\eta_0$ 
 	is the viscosity. The viscosity can be interpreted as the diffusion coefficient for fluid
 	momentum. 
 
@@ -224,14 +224,14 @@ also encouter examples of this.
 	\end{wrapfigure}
 
 	Consider the case where we do not apply a force, $g=0$, and we move one wall with a
-	speed $V_0$ while keeping the other fixed. If we apply zero Dirichlet boundaries we obtain 
+	speed $V_0$ while keeping the other fixed. If we apply Dirichlet boundaries we obtain 
 	the boundary value problem   
 	\begin{equation}
 		\frac{\d^2 v}{\d x^2} = 0 
 	\end{equation}
 	with 
 	\begin{align}
-		v(0)=0 \ \ \text{and} \ \ v(L)=V_L \, .
+		v(0)=0 \ \ \text{and} \ \ v(L)=V_0 \, .
 	\end{align}
 	This is known as a Couette flow.
 
@@ -283,11 +283,12 @@ also encouter examples of this.
 	\begin{figure}[t]
 		\begin{center}
 			\includegraphics[scale=0.6]{figs/turingIllustration.pdf}
-			\caption{\label{fig:turing} Turing structure. From random initial
-			concentration, (a), a concentration gradient emerges spontanously, (b), 
-			and reaches a static situation of varying gradient (structure) (c).  
-			The Turing structure can model the biological morphology observed in the 
-			embryo of the fruit fly (d).  }
+			\caption{\label{fig:turing} 
+			Turing structure. 
+			From an initially almost homogeneous state with small random perturbations (a), a
+			spatial structure with a characteristic wavelength emerges and grows in amplitude (b),
+			eventually approaching a stationary structure (c).
+			}
 		\end{center}
 	\end{figure}
 
@@ -301,7 +302,7 @@ also encouter examples of this.
 
 \begin{example}
 	\label{ex:bacteria-in-dish}
-	In the laboratory, bacteria can be grown by seeding a small amount of bacteria onto 
+	In the laboratory bacteria can be grown by seeding a small amount of bacteria onto 
 	a surface with nutrients and agar; often this is done in a Petri dish. As the 
 	bacteria multiply the colony grows radially from the seeding point.   
 	
@@ -322,44 +323,45 @@ also encouter examples of this.
 		c = c(x,y,t) \, .
 	\end{eqnarray}
 	We must extend the balance equation to describe this two dimensional situation, and we will do
-	this by applying the same intutive approach we did for one dimension. Again, let $N_s$ be the
+	this by applying the same intutive approach we did for one dimension. Let $N_s$ be the
 	total amount of the substance $S$ in some volume given by $\Delta V = \Delta x \Delta y L_z$.
-	Here $L_z$ is small compared to the lengths in the $x$- and $y$-directions. 
-	We have fluxes in both the $x$- and $y$-directions and we assume that we can ignore the flux in
-	the $z$-direction. The balance equation now states 
+	We ignore flow of $S$ in the $z$-direction, however, we do have flows in both 
+	the $x$- and $y$-directions. $A_x=\Delta y L_z$ is the area of the surface normal to the $x$-axis 
+	and $A_y=\Delta x L_z$ the area  of the surface normal to the $y$-axis. The \emph{total rate} through
+ 	surface area $A_x$ at $x=x_1$ is written as $Q_x(x_1, t)$ and at $x=x_2$ we write $Q_x(x_2,t)$. 
+	Equilvalently, total flow rate through the surface areas $A_y$ at $y=y_1$ and $y = y_2$ are
+	$Q_y(y_1, t)$ and $Q_y(y_2,t)$, respectively. The balance equation states 
 	\begin{align}
-		\frac{\d N_S}{\d t} = \text{production rate} \ + \ & \text{flow rate at }x_1 - \text{flow rate at
-		}x_2  \nonumber \\ 
-		 \ + \ &	\text{flow rate at }y_1 - \text{flow rate at }y_2  
+		\frac{\d N_S}{\d t} = \sigma_S(t)  + Q_x(x_1, t) - Q_x(x_2, t) + Q_y(y_1, t) - Q_y(y_2,t)
 	\end{align}
 	We use the same convention for the flow rates as in one dimensions: The flow is positive if $S$ flows
-	in positive direction and negative if $S$ flows in the negative direction. Notice that the flow
-	rate depends on both $x$ and $y$ so $Q=Q(x,y)$.
+	in positive direction and negative if $S$ flows in the negative direction. 
 
 	Now, the concentration is simply $N_s(t) = \Delta V c(t)$, that is, the balance equation becomes
 	\begin{align}
-		\frac{\d c}{\d t} = \frac{\Delta \sigma}{\Delta V} - \frac{1}{A_x} \frac{Q(x_2,y) -Q(x_1,
-		y)}{\Delta x} - \frac{1}{A_y}\frac{Q(x, y_2)-Q(x, y_1)}{\Delta y}
+		\frac{\d c}{\d t} = \frac{\sigma_S(t)}{\Delta V} - \frac{1}{A_x} \frac{Q_x(x_2,t)
+		-Q_x(x_1,t)}{\Delta x} 
+		- \frac{1}{A_y}\frac{Q_y(y_2,t)-Q_y(y_1,t)}{\Delta y}
 	\end{align}
-	Here $A_x$ is the area of the surface normal to the $x$-axis and $A_y$ the area of the surface
-	normal to the $y$-axis.	We now have the limits, that is, the fluxes 
+	Again we write $x_2 = x_1 + \Delta x$ and $y_2 = y_1 + \Delta y$, and 
+	the fluxes $J_x$ and $J_y$ are now defined from the limits 
 	\begin{align}
 		\frac{\partial J_x}{\partial x} =& \frac{1}{A_x} \lim_{\Delta x \rightarrow 0} 
-				\frac{Q(x_2,y) -Q(x_1,y)}{\Delta x} 
+				\frac{Q_x(x_1 + \Delta x,t) -Q_x(x_1,t)}{\Delta x} 
 		\\
 		\frac{\partial J_y}{\partial y} =& \frac{1}{A_y} \lim_{\Delta y \rightarrow 0}
-		\frac{Q(x, y_2)-Q(x, y_1)}{\Delta y}
+		\frac{Q_y(y_1 + \Delta y,t)-Q_y(y_1,t)}{\Delta y}
 	\end{align}
 	At any point $(x,y)$ we get
 	\begin{align}
-		\frac{\partial c}{\partial t} = f(x,y,t) - \frac{\partial J_x}{\partial x} - \frac{\partial
-		J_y}{\partial y} 
-		= f(x,y,t) - \vecs{\nabla} \cdot \vec{J} \, .
+		\frac{\partial c}{\partial t} &= f(x,y,t) - \frac{\partial J_x}{\partial x} - \frac{\partial
+		J_y}{\partial y} \nonumber \\  
+		&= f(x,y,t) - \vecs{\nabla} \cdot \vec{J} \, .
 	\end{align}
 	Here $\vecs{\nabla}$ is the del-operator, $\vecs{\nabla} = \left( \partial/\partial x,
 	\partial/\partial y \right)$, and $\vec{J} = (J_x, J_y)$ is the vector flux.  
 	The scalar product $\vecs{\nabla} \cdot \vec{J}$ is called the \emph{divergence} of $\vec{J}$
-	and is given by
+	and is 
 	\begin{equation}
 		\vecs{\nabla} \cdot \vec{J} = 
 		\left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right)
@@ -367,16 +369,14 @@ also encouter examples of this.
 		\frac{\partial J_x}{\partial x} + \frac{\partial J_y}{\partial y} \, .
 	\end{equation}
 	It is seen that if the divergence is positive there exists a net flux out of the point and, vice-versa, if it is 
-	negative there is a net flux to the point. The balance equation for three dimensions
-	can be found from the same arguments. 
+	negative there is a net flux to the point.
 
-	Again, we need to apply Fick's law in order to close the problem. In this case we have to apply
-	the gradient of $c$
+	Again, we need to apply Fick's law in order to close the problem. In this case we have $c$
 	\begin{equation}
 		\vec{J} = -D \left(\frac{\partial c}{\partial x}, \frac{\partial
 		c}{\partial y}\right) = -D \vecs{\nabla} c \, .
 	\end{equation}
-	In the case where the diffusion coefficient is constant we obtain
+	Note, $\vecs{\nabla} c$ is the gradient of $c$. In the case where the diffusion coefficient is constant we obtain
 	\begin{eqnarray}
 		\frac{\partial c}{\partial t} &=& f(x,y,t) + \vecs{\nabla} \cdot D
 		\vecs{\nabla} c \nonumber \\
