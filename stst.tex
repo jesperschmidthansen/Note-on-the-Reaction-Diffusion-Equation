@@ -1,24 +1,24 @@
 
 An important class of problems deal with systems in the steady-state \index{Steady state}, where the
-systems after a time transient no longer change with respect to time. The steady-state we formally define as  
+systems after a time transient no longer change with respect to time. The steady-state we define as  
 \begin{equation}
   \frac{\partial c}{\partial t}=0 \ ,
 \end{equation}
-and we highlight the time independence by writing $c=c(x)$. In the steady-state  
+and we sometimes highlight the time independence by writing $c=c(x)$. In the steady-state  
 the RD-equation reduces to an ordinary differential equation
 \begin{equation}
-	\frac{\d}{\d x} \left[ D \frac{\d c}{\d x}\right] + r(c)=0 \, .  
+	\frac{\d}{\d x} \left[ D \frac{\d c}{\d x}\right] + r(c)=0 \, ,  
 \end{equation}
-This equation together with some appropriate BCs define a boundary value 
+This equation and the BCs define a boundary value 
 problem and is what we will study in this chapter. In the last optional section we 
 also explore \emph{chemotaxis}\index{Chemotaxis} which is a phenomenon where cells migrate due to a 
 signaling compound. While this is not a reaction-diffusion phenomenon, we can 
-easily apply what we learn in the first sections and thus further extent the applications.
+easily apply what we learn in the first sections and thus further extend the applications.
 
 The boundary value problems we encounter here when $r$ is a linear function of $c$ 
-are examples of the \emph{Sturm-Liouville} problem \index{Sturm-Liouville}. The theoretical 
+are examples of the \emph{Sturm-Liouville} \index{Sturm-Liouville} problem. The theoretical 
 framework of this general problem is elegant and quite useful, however, we shall 
-not embark on an indepth treatment here, but simply make a few references. 
+not embark on an in-depth treatment here, but simply make a few references. 
 
 
 \section{Constant coefficients and linear reaction functions \label{sect:stst:BVP}}
@@ -29,24 +29,24 @@ where $k>0$ and $D>0$ are constants
   \label{eq:simplegrowthss}
 	D\frac{\d^2c}{\d x^2} + kc=0 \, .
 \end{equation}
-Since we have no time in the problem we do not have an IC, and in this first
-example we apply simple Dirichlet BCs
+In this first example we apply simple Dirichlet BCs
 \begin{equation}
   c(0)=c(L)=0 \, .
 \end{equation}
 Equation (\ref{eq:simplegrowthss}) is a homogeneous second order linear equation with 
-constant coefficients. The \emph{eigenvalues} \index{Eigenvalue} for this equation are found from the characteristic
-equation \footnote{If you need to refresh this, I recommend that you go the exercises for this section.}
+constant coefficients. The \emph{eigenvalues} \index{Eigenvalue} for this equation are found from
+the characteristic equation
 \begin{equation}
-	\lambda^2 + \frac{k}{D} = 0
+	\lambda^2 + \frac{k}{D} = 0 \, .
 	\label{eq:eigInfinite}
 \end{equation}
-implying eigenvalues $\lambda_1$ and $\lambda_2$ 
+If you need to refresh this, I recommend that you go the exercises for this section.
+The  eigenvalues $\lambda_1$ and $\lambda_2$ are then
 \begin{equation}
  \lambda_{1,2} = \pm i \sqrt{\frac{k}{D}}   \, ,
 \end{equation}
 because both coefficients are positive. Since we have distinct eigenvalues 
-the general solution is a linear combination of two exponential functions . Therefore 
+the general solution is a linear combination of two exponential functions. Therefore 
 by application of Euler's identity we get
 \begin{eqnarray}
 	c(x) &=& Ae^{\lambda_1 x} + Be^{\lambda_2 x} = A e^{i \sqrt{k/D} \, x} + B e^{-i \sqrt{k/D} \, x}
@@ -70,33 +70,35 @@ This relation is of course fulfilled for $A=0$ and this leads to the
 fulfilled when $A\neq 0$ and $\sin(\sqrt{k/D}\,L ) = 0$, that is, for
 \begin{equation}
   \label{eq:constraintL}
-	\sqrt{\frac{k}{D}} \, L = n\pi \, , \ \text{where} \ n \in \mathbb{N}_+ \, .
+	\sqrt{\frac{k}{D}} \, L = n\pi \text{ where } \ n \in \mathbb{N}_+ \, .
 \end{equation}
-Note that since $k, D$ and $L$ are all postive reel numbers, the right-hand side must be positive 
+Note that since $k, D$ and $L$ are all postive real numbers, the right-hand side must be positive 
 implying that $n$ is a positive integer as we indicate by $\mathbb{N}_+$. Also, notice that for a
-given set $k, D$ and $L$ we may have $\sqrt{k/D} L \neq n \pi$, hence, only the trivial solution
-exists. 
+given set $k, D$ and $L$ we may have $\sqrt{k/D} L \neq n \pi$ for any $n \in \mathbb{N}_+$, 
+hence, in this case only the trivial solution exists. 
 
-Assume that Equation(\ref{eq:constraintL}) is fulfilled, then we can substitute the relation into the 
-general solution, Equation (\ref{eq:stsgeneral2order}), obtaining    
+Assume that Equation(\ref{eq:constraintL}) is fulfilled, then we can substitute the 
+relation into the general solution, Equation (\ref{eq:stsgeneral2order}), obtaining    
 \begin{equation}
 \label{eq:gensolfirst}
 c(x) = i2A \sin\left(\frac{n \pi}{L} \, x \right)  \, .
 \end{equation}
-In our treatment here $c$ is a real valued function and therefore $A$ must be imaginary. Moreover, if 
-we demand $c \geq 0$ ($c$ representing concentration) only $n=1$  will work, defining the length    
+In our treatment here $c$ is a real valued function and therefore $A$ must be imaginary. 
+Moreover, if we demand $c \geq 0$ ($c$ representing concentration) only $n=1$  will work 
+defining the length    
 \begin{equation}
   \label{eq:L0}
-  L_0 = \pi  \sqrt{\frac{D}{k}} \, ,
+  L_0 = \pi  \sqrt{\frac{D}{k}} 
 \end{equation}
 constraining the $x$-coordinate to $0 \leq x \leq L_0$. 
 
-We see that even if we have two BCs we cannot determine the constant $A$ (and get a unique solution). 
+We see that even if we have two BCs we cannot determine the constant $A$ 
+(and get a unique solution). 
 What we got from the BCs is the relation between the constants $A$ and $B$, 
 and the non-trivial solution constraint given in Equation (\ref{eq:constraintL}). 
-We must conclude that there exists infinitely many solutions. 
+We must conclude that there exists infinitely many solutions -- if $c$ can take any real value. 
 
-The result here, namely, that there does not exist a unique solution may be 
+The result here, namely, that there does not exist a unique solution may seem  
 surprising if we consider the corresponding
 experimental bio-chemical system we seek to model. The substance, say, a plankton population
 features a self-multiplying process, and due to the concentration gradient,
@@ -104,22 +106,24 @@ the produced plankton is transported via diffusion to the tube-ends where it is
 removed (how, will not concern us here). Now, if the diffusive transport 
 is sufficiently fast compared to the production, the population vanishes with time 
 (as the plankton is removed at the tube ends), and we simply end in the trivial solution $c=0$. 
-On the other hand, if diffusion cannot transport the produced plankton to the tube ends fast enough, the concentration
-will keep raising leading to $c$ diverging at all interior points; and now we must of course evaluate whether our
-model fulfill its purpose. Finally, there is also a state where there exists a 
-(strict) balance between the diffusive transport out of the system and the production, given by $\sqrt{k/D} = \pi/L_0$, 
+On the other hand, if diffusion cannot transport the produced plankton 
+to the tube ends fast enough, the concentration will keep increasing leading to $c$ 
+diverging at all interior points; now we must of course evaluate whether our
+model fulfills its purpose. Finally, there is also a state where there exists a 
+(strict) balance between the diffusive transport out of the system and 
+the production, given by $\sqrt{k/D} = \pi/L_0$, 
 and this allows for a non-trivial solution. \label{page:nouniquness} In Chapter \ref{ch:rd} we revisit these points in more detail. 
 
-Let us briefly return to the solutions in Equation (\ref{eq:gensolfirst}). The \emph{super-position
-principle for linear systems}  \index{Super-Position principle} 
+Let us return to the solutions in Equation (\ref{eq:gensolfirst}). The \emph{superposition
+principle for linear systems}  \index{Superposition principle} 
 states that if Equation (\ref{eq:gensolfirst}) are solutions to the problem, then a
 linear combination of these solutions is also a solution. Therefore, we have, in general, the series solution
 \begin{equation}
 	\label{eq:2ndorderseries}
 	c(x) = \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi}{L} \, x \right) \, ,
 \end{equation}
-where $b_n \in \R$ are constants. This general solution can be understood in a more abstract manner. To this
-end, first note (or recall) that the sine function is a vector. For example, the distributive law holds for 
+where $b_n \in \R$ are constants. This general solution can be understood in a more abstract manner. To this end, first note (or recall) that the sine function can be regarded as a vector. 
+For example, the distributive law holds for 
 the standard addition operator 
 \begin{eqnarray}
 	\label{eq:sinevector}
@@ -128,14 +132,18 @@ the standard addition operator
 where $a$ and $b$ are scalars; the other axioms are just as easily verified. Secondly, the functions
 $\sin(\pi/L \, x), \sin(2\pi/L \, x), \sin(3\pi/L \, x), \ldots$ are \emph{linearly independent}
 \index{Linear independence} 
-because for $n,m \in \mathbb{N}_+$
+because for any pair $n,m \in \mathbb{N}_+$
 \begin{eqnarray}
 	a \sin\left(\frac{n \pi}{L} \, x\right) + b\sin\left(\frac{m \pi}{L} \, x\right) = 0 \, , \ x \in
 	[0; L] \, ,
 \end{eqnarray}
 implies that $a=b=0$.  Thus, $\sin(\pi/L \, x), \sin(2\pi/L \, x),
-\sin(3\pi/L \, x), \ldots$ span an infinite dimensional vector space, and the solution $c$ is simply a
-vector itself and represented in this basis by the coefficients $b_n$. 
+\sin(3\pi/L \, x), \ldots$ span an infinite dimensional vector space, 
+and the solution $c$ is simply a vector itself and represented by the coefficients $b_n$ in the
+basis spanned by the set 
+\begin{align}
+	\mathcal{V} = \left\{ \sin\left(\frac{n\pi}{L} x\right) : n \in \mathbb{N}_+ \right\} \, .
+\end{align}
 
 \begin{question}
 	Can you verify the statement in Equation (\ref{eq:2ndorderseries})? (Hint: Show
@@ -148,12 +156,12 @@ Finally, some terminology: We can rewrite the relation in Equation (\ref{eq:cons
 	\sqrt{\frac{k}{D}} = \frac{n\pi}{L} \, .
 \end{eqnarray}
 Comparing this with Equation (\ref{eq:eigInfinite}) this motivates us to name $n\pi/L$ an eigenvalue, and
-we some times assign it the symbol
-$\lambda_n$, where $n$ refers to the natural number in the nominator. Note, for this problem we have 
-infinitely many eigenvalues where $\lambda_n < \lambda_m$  if $n<m$. The solution for a given 
-eigenvalue is called an \emph{eigenfunction} \index{Eigenfunction}\index{Function!eigen-}; here the sine functions are eigenfunctions. 
-The trivial solution, $c=0$, is not an eigenfunction. 
-
+we sometimes assign it the symbol
+$\lambda_n$, where $n$ refers to the natural number in the numinator. Note, for this problem we have 
+infinitely many eigenvalues where $0<\lambda_n < \lambda_m$  if $n<m$. The solution for a given 
+eigenvalue is called an \emph{eigenfunction}; \index{Eigenfunction}\index{Function!eigen-} 
+here the sine functions are eigenfunctions. The trivial solution, $c=0$, is not an eigenfunction. 
+Eigenvalues can, however, be zero! 
 \bigskip
 
 \noindent Let us see two more examples.
@@ -172,8 +180,6 @@ The trivial solution, $c=0$, is not an eigenfunction.
 	\begin{wrapfigure}{l}{0.4\textwidth}
 		\includegraphics[width=0.35\textwidth]{figs/solutionEx4.eps}
 	\end{wrapfigure}
-	
-	The experimental realisation of these BCs is of no importance to us here. 
 
 	Clearly, the exponential function cannot be a solution to this problem. 
 	Now, let $y=\d c/\d x$, then	$\d y/\d x = K$, implying that $y = Kx + A$ and therefore
@@ -187,15 +193,14 @@ The trivial solution, $c=0$, is not an eigenfunction.
 	the solution is 
 	\begin{equation}
 	\label{eq:solutionEx4}
-	 c(x) = \frac{K}{2}x^2 + (1-KL)x 
+	 c(x) = \frac{K}{2}x^2 + (1-KL)x \, . 
 	\end{equation}
-	This was less painful; in summary, the solution exists and is unqiue. Again, we can think 
-	of $c$ as a vector; this time the vector space is spanned by polynomials.  
+	This was less painful; in summary, the solution exists and is unique. 
 %	\marginpar{\includegraphics[scale=0.255555]{figs/solutionEx4.eps}}i
 \end{example}
 
 \begin{example}
-  We again consider the simple linear growth problem 
+  We return to the simple linear growth problem 
   \begin{equation}
     D\frac{\d^2c}{\d x^2} + kc=0 \, , 
   \end{equation}
@@ -203,20 +208,24 @@ The trivial solution, $c=0$, is not an eigenfunction.
   \begin{equation}
     c(0) = 1 \ , \ c(L_0) = 1 \, .
   \end{equation}
-  $L_0$ is given in Equation (\ref{eq:L0}).  Now, the general solution is the same
-	as above, Equation (\ref{eq:stsgeneral2order}), 
-	and from the first BC we obtain the relation $B=1-A$. From the second BC we have 
+  $L_0$ is given in Equation (\ref{eq:L0}).  Now, the general solution is again 
+	Equation (\ref{eq:stsgeneral2order}). 
+	From the first BC we obtain the relation $B=1-A$. From the second BC we have 
   \begin{equation}
     c(L_0)=\cos(\pi) + i(2A-1)\sin(\pi) = -1 \, .
   \end{equation}
-	This conflicts with the right BC and is and example of an \emph{ill posed problem} \index{Ill
+	This conflicts with the right BC which states $c(L_0)=1$ 
+	and is an example of an \emph{ill posed problem} \index{Ill
 	posed problem}. Both BCs cannot be satisfied and no solution exists.
 \end{example}
 
-The examples show that we need to be careful when dealing with boundary value problems. Even if the differential 
+The examples show that we need to be careful when dealing with boundary value problems. 
+Even if the differential 
 equation looks harmless and the general solution exists it may be an ill posed problem or 
-have infinitely many solutions. We cannot transfer the existence and uniqueness theorems from initial value 
-problems to boundary value problems. In summary, we have the following possible outcomes:
+have infinitely many solutions. We cannot transfer the existence and uniqueness 
+theorems from initial value problems to boundary value problems. 
+
+In summary, we have the following possible outcomes:
 \begin{itemize}
 \item There does not exist a solution.
 \item There exists one unique solution. 
@@ -227,7 +236,7 @@ We will return to existence and uniqueness in the next section.
 In this section, we have only dealt with the case where both $k$ and $D$ are constants and
 independent of position. Clearly, this need not to be the case, e.g., 
 the substance can be distributed in an inhomogeneous medium. These types of
-problems calls for a different approach, which we will treat in Section \ref{sec:inhomogenousstst}.
+problems call for a different approach, which we will treat in Section \ref{sec:inhomogenousstst}.
 
 \begin{exerciseregion}
 
@@ -243,10 +252,12 @@ problems calls for a different approach, which we will treat in Section \ref{sec
 				\begin{eqnarray}
 					\lambda^2 + \alpha \lambda  + \beta = 0 \, .
 				\end{eqnarray}
-			\item Identify when the characteristic equation has one and two solutions.
-			\item Assume the characteristic equation has two solutions $\lambda_1$ and $\lambda_2$. Then both
-				$Ae^{\lambda_1x}$ and $Be^{\lambda_2x}$, $A,B \in \mathbb{R}$, are solutions. Verify that the
-				linear combination 
+			\item Identify when the characteristic equation has one (repeated) 
+				and two distinct solutions.
+			\item Assume the characteristic equation has two distinct 
+				solutions $\lambda_1$ and $\lambda_2$. Then both
+				$Ae^{\lambda_1x}$ and $Be^{\lambda_2x}$, $A,B \in \mathbb{R}$, 
+				are solutions. Verify that the linear combination 
 				\begin{eqnarray}
 					Ae^{\lambda_1x} + Be^{\lambda_2x} 
 				\end{eqnarray}
@@ -277,17 +288,18 @@ problems calls for a different approach, which we will treat in Section \ref{sec
 		Show that   
 		\begin{enumerate}
 			\item this problem has the trivial solution as only solution when $\alpha < 0$, 
-			\item this problem has infinite many solutions when $\alpha > 0$, and
-			\item that the general solution is on the form
+			\item this problem has infinite many solutions when $\alpha \geq 0$, and
+			\item that the general solution for $\alpha \geq 0$ is on the form
 			\begin{equation}
-				\label{eq:2ndorderseriescosine}	c(x) = \sum_{n=0}^\infty a_n \cos\left(\frac{n\pi}{L} \, x \right) \, ,
+				\label{eq:2ndorderseriescosine}	
+				c(x) = \sum_{n=0}^\infty a_n \cos\left(\frac{n\pi}{L} \, x \right) \, ,
 			\end{equation}
 			where $a_n \in \R$ is a constant.
 		\end{enumerate}
 		 We shall use these important results later. 
 	\end{exercise}
 	\begin{exercise}
-	  Show that when $k<0$ the trivial solution, $c=0$, is a solution to the steady-state
+	  Show that when $k<0$ and $D>0$ the trivial solution, $c=0$, is a solution to the steady-state
 	  problem, Equation(\ref{eq:simplegrowthss}). How do you bio-physically argue that
 		this is the only solution?
 	\end{exercise}
