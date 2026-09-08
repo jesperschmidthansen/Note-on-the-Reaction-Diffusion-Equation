@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  7 SEP 2026 16:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  8 SEP 2026 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -846,7 +846,7 @@ ALUE PROBLEMS
 [18]
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 399--401
 
  []
 
@@ -861,7 +861,7 @@ ALUE PROBLEMS
 [20]
 
 [21]
-Overfull \hbox (7.8152pt too wide) in alignment at lines 523--527
+Overfull \hbox (7.8152pt too wide) in alignment at lines 526--530
  [][][] []
  []
 
@@ -892,18 +892,18 @@ Package epstopdf Info: Source file: <figs/series_conv.eps>
 (epstopdf)                    size: 9989 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/series_conv-eps-conve
 rted-to.pdf figs/series_conv.eps>
-(epstopdf)             \includegraphics on input line 641.
+(epstopdf)             \includegraphics on input line 644.
 Package epstopdf Info: Output file is already uptodate.
 <figs/series_conv-eps-converted-to.pdf, id=178, 387.4475pt x 562.1pt>
 File: figs/series_conv-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/series_conv-eps-converted-to.pdf>
 Package pdftex.def Info: figs/series_conv-eps-converted-to.pdf  used on input l
-ine 641.
+ine 644.
 (pdftex.def)             Requested size: 125.47884pt x 182.03706pt.
 
 
 [25 <./figs/series_conv-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 712--714
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
 
  []
 
@@ -934,13 +934,13 @@ Package epstopdf Info: Source file: <figs/perturb_one.eps>
 (epstopdf)                    size: 9162 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/perturb_one-eps-conve
 rted-to.pdf figs/perturb_one.eps>
-(epstopdf)             \includegraphics on input line 906.
+(epstopdf)             \includegraphics on input line 909.
 Package epstopdf Info: Output file is already uptodate.
 <figs/perturb_one-eps-converted-to.pdf, id=210, 410.53375pt x 511.9125pt>
 File: figs/perturb_one-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/perturb_one-eps-converted-to.pdf>
 Package pdftex.def Info: figs/perturb_one-eps-converted-to.pdf  used on input l
-ine 906.
+ine 909.
 (pdftex.def)             Requested size: 125.47884pt x 156.46506pt.
 
 
@@ -955,14 +955,14 @@ ALUE PROBLEMS
 [30 <./figs/perturb_one-eps-converted-to.pdf>]
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
 
  []
 
 <figs/biopore.pdf, id=234, 450.64708pt x 370.15163pt>
 File: figs/biopore.pdf Graphic file (type pdf)
 <use figs/biopore.pdf>
-Package pdftex.def Info: figs/biopore.pdf  used on input line 1093.
+Package pdftex.def Info: figs/biopore.pdf  used on input line 1096.
 (pdftex.def)             Requested size: 180.25563pt x 148.05801pt.
 
 
@@ -983,13 +983,13 @@ Package epstopdf Info: Source file: <figs/chemotaxis.eps>
 (epstopdf)                    size: 9844 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/chemotaxis-eps-conver
 ted-to.pdf figs/chemotaxis.eps>
-(epstopdf)             \includegraphics on input line 1185.
+(epstopdf)             \includegraphics on input line 1188.
 Package epstopdf Info: Output file is already uptodate.
 <figs/chemotaxis-eps-converted-to.pdf, id=258, 420.57124pt x 497.86pt>
 File: figs/chemotaxis-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/chemotaxis-eps-converted-to.pdf>
 Package pdftex.def Info: figs/chemotaxis-eps-converted-to.pdf  used on input li
-ne 1185.
+ne 1188.
 (pdftex.def)             Requested size: 125.47884pt x 148.5387pt.
 
 
@@ -1000,12 +1000,12 @@ ALUE PROBLEMS
  []
 
 [34]
-Overfull \hbox (20.93309pt too wide) in alignment at lines 1197--1202
+Overfull \hbox (20.93309pt too wide) in alignment at lines 1200--1205
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1221
+Underfull \hbox (badness 10000) in paragraph at lines 1222--1224
 
  []
 
@@ -1493,7 +1493,7 @@ s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (84 pages, 1240240 bytes).
+Output written on main.pdf (84 pages, 1240064 bytes).
 PDF statistics:
  695 PDF objects out of 1000 (max. 8388607)
  430 compressed objects within 5 object streams

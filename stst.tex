@@ -309,8 +309,8 @@ problems call for a different approach, which we will treat in Section \ref{sec:
 
 \section{Existence and uniqueness of solutions} \label{sect:uniq}
 As illustrated in the previous section, we are not guaranteed a unique or even a single solution 
-to a given boundary value problem. In some cases we can give a formal proof if a solution exists to 
-and whether it is unique. For example, consider the famous one dimensional \emph{Laplace equation}
+to a given boundary value problem. In some cases we can formally prove whether a solution exists and
+whether it is unique. For example, consider the famous one dimensional \emph{Laplace equation}
 \index{Laplace!equation}
 \begin{equation}
   \label{eq:laplace}
@@ -318,48 +318,50 @@ and whether it is unique. For example, consider the famous one dimensional \emph
 \end{equation}
  
 \begin{theorem}
-  The only solution to the Laplace equation with Dirichlet BCs
-  \begin{equation}
-    c(0) = c(L)=0
+  The only solution to the Laplace equation with Dirichlet BCs, 
+  \begin{equation} 
+    c(0) = c(L)=0 \, ,
   \end{equation}
   is the trivial solution $c=0$.
 \end{theorem}
 Before going through the formal proof we can quite easily understand why
 this is likely true. A good guess for the general solution to the Laplace equation is a
-simple linear function on the form $c = ax + b$, where $a$ and $b$
+simple linear function of the form $c = ax + b$, where $a$ and $b$
 are the coefficients we must find from the BCs. The condition $c(0) = 0$ implies that $b=0$,
 and only $a=0$ then satisfies $c(L) = 0$, that is, $c=0$.
 
 \begin{question}
-	Why should we not consider this reasoning as a satisfactory proof for existence and uniqueness?
+Why should we not consider this reasoning as a satisfactory proof for uniqueness?
 \end{question}
 
-\begin{proof}
-	Assume two solutions exists, namely, $\varphi_1$ and $\varphi_2$. We 
-	define a third function, $\varphi$,  as the difference between these two solutions 
-	$\varphi = \varphi_1 - \varphi_2$. We will quickly see $\varphi$ is a solution and that $\varphi = 0$  
-	the only solution. 
 
-	First, $\varphi$ fulfills the Laplace equation with same Dirichlet BCs as the original problem since
+\begin{proof}
+	Assume two solutions exist, namely, $\varphi_1$ and $\varphi_2$. We 
+	define a third function, $\varphi$,  as the difference between these two solutions 
+	$\varphi = \varphi_1 - \varphi_2$. Importantly, $\varphi$ fulfills the Laplace 
+	equation with the same Dirichlet BCs as the original problem since
 	\begin{equation}
 		\label{eq:laplacevarphi}
 		 \frac{\d^2 \varphi}{\d x^2} =  \frac{\d^2 \varphi_1}{\d x^2} -  \frac{\d^2 \varphi_2}{\d
 		 x^2} = 0  \, ,
 	\end{equation}
-	as well as $\varphi(0) = \varphi_1(0) - \varphi_2(0)=0$ and $\varphi(L)=\varphi_1(L) -
-	\varphi_2(L)=0$. From the product rule we have the following identity
+	and $\varphi(0) = \varphi_1(0) - \varphi_2(0)=0$ and $\varphi(L)=\varphi_1(L) -
+	\varphi_2(L)=0$. Therefore, if $\varphi = 0$ then $\varphi_1 = \varphi_2$ and the
+	zero solution exists and is unique. 
+
+	From the product rule we have the following identity
 	\begin{equation}
     	\frac{\d}{\d x}\left(\varphi \frac{\d \varphi}{\d x} \right) = \left( \frac{\d \varphi}{\d
         	x}\right)^2 + \varphi \frac{\d^2 \varphi}{\d x^2} = \left( \frac{\d \varphi}{\d x}\right)^2 \, ,
   \end{equation}
   where the last relation is due to Equation (\ref{eq:laplacevarphi}). We integrate
-	both sides; from the fundamental theorem of calculus the left-hand side
+	both sides from 0 to $L$; then from the fundamental theorem of calculus the left-hand side
 	becomes 
   \begin{equation}
     \int_0^L \frac{\d}{\d x}\left(\varphi \frac{\d \varphi}{\d x} \right) \, \d x  =
     \left.  \varphi \frac{\d  \varphi}{\d x} \right|_{x=0}^{x=L} = 0 
   \end{equation}
-  from the BCs. This implies that the right-hand is also zero, i.e.,
+  from the BCs. This implies that the right-hand side is also zero, i.e.,
   \begin{equation}
 	  \int_0^L \left( \frac{\d  \varphi} {\d x}\right)^2 \, \d x = 0  \, .
   \end{equation}
@@ -371,8 +373,8 @@ and only $a=0$ then satisfies $c(L) = 0$, that is, $c=0$.
      \varphi  = \varphi(0)= \varphi(L)=0 \ \text{for}  \ 0 \leq x \leq L \, . 
   \end{equation}
 	This means that $\varphi_1=\varphi_2$ (only one solution exists), 
-	and since $\varphi$ is given by the original Laplace equation we have $\phi=c$ and only the 
-	trivial solution is the solution.
+	and since $\varphi$ is given by the original Laplace equation only 
+	the trivial solution is the solution.
 \end{proof}
 
 \noindent Things change dramatically if we change the BCs. 
@@ -390,8 +392,9 @@ and only $a=0$ then satisfies $c(L) = 0$, that is, $c=0$.
 	(Come to class if you are stuck!)
 \end{proof}
 
-Except from the exercises below, we will not pursue proving these 
-existence and uniqueness theorems further; again the interested reader can consult the literature on this. 
+Appart from the exercises below, we will not pursue proving these 
+existence and uniqueness theorems further; again, the interested reader 
+can consult the literature for further details. 
 
 \begin{exerciseregion}
 \begin{exercise}
@@ -407,7 +410,7 @@ existence and uniqueness theorems further; again the interested reader can consu
 	\begin{equation}
 	  \frac{\d^2c}{\d x^2} = f(x) \ , \ c(0)=c(L)=0 \, ,
 	\end{equation}
-	has a unique solution. $f$ being some real valued production function.
+	has a unique solution for any continous function $f: [0;L] \rightarrow \mathbb{R}$.
 \end{exercise}
 
 \end{exerciseregion}
