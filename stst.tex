@@ -392,7 +392,7 @@ Why should we not consider this reasoning as a satisfactory proof for uniqueness
 	(Come to class if you are stuck!)
 \end{proof}
 
-Appart from the exercises below, we will not pursue proving these 
+Apart from the exercises below, we will not pursue proving these 
 existence and uniqueness theorems further; again, the interested reader 
 can consult the literature for further details. 
 
@@ -419,157 +419,205 @@ can consult the literature for further details.
 \section{Varying coefficients: Series solutions \label{sec:inhomogenousstst}\index{Series!solutions}}
 In Section \ref{sect:stst:BVP} we studied the case where $D$ and $k$ are constants. In general, this 
 is not the case. For example, in a high column of water the biological growth rate coefficient can vary with the depth 
-as the amount of sunlight varies, and temperature variations in the system will affect the
-diffusion coefficient. The position dependency we highlight by writing $D=D(x)$ and $k=k(x)$. For
-varying coeffcients the steady-state RD-equation is on the form   
+as the amount of sunlight varies and temperature variations in the system will affect the
+diffusion coefficient. We sometimes highlight the position dependency by writing $D=D(x)$ and $k=k(x)$. For
+varying coefficients the steady-state RD-equation is on the form   
 \begin{eqnarray}
 	\label{eq:stst:nonconstcoeff}
 	D(x) \frac{\d^2c}{\d x^2} + D'(x) \frac{\d c}{\d x} + k(x) c = 0 \, ,
 \end{eqnarray}
-using the product rule and where $D'(x) = \d D(x)/\d x$. From our definition of a diffusion process
-we have $D(x) > 0$ for $x \in [0; L]$ and Equation (\ref{eq:stst:nonconstcoeff}) is often rewritten on
-the form
+by application of the product rule and where $D'(x) = \d D(x)/\d x$. Notice that from our definition 
+of a diffusion process we have $D(x) > 0$. Equation (\ref{eq:stst:nonconstcoeff}) is often rewritten on the form
 \begin{equation}
 	\frac{\d^2 c}{\d x^2} + p(x)\frac{\d c}{\d x} + q(x) c = 0
 \end{equation}
 with $p(x)=D'(x)/D(x)$ and $q(x)=k(x)/D(x)$. 
 
-The solutions for $c$ for these problems are usually not given by low order polynomials or 
-linear combinations of trigonometric and exponential functions, and, in fact, the solution can be an unknown function. 
-The strategy is to find the solution in terms of its power series representation 
+In this more general case, the solution for $c$ is not always given by some low order polynomial or a
+combination of trigonometric functions, and, in fact, the solution may not be expressible in 
+terms of elementary functions. The strategy behind a series solution is to express 
+the solution in terms of its power series representation 
 \begin{equation}
 	\label{eq:stst:ssol}
 	c(x) = \sum_{n=0}^\infty c_n (x-x_0)^n \ , 
 \end{equation}
-where $x_0$ is some point (typically in the interval $[0;L]$), and $c_n$ are coefficients we need to
-determine.  \index{Series!power} For this to be meaningful in the first place we must have that the limit of the 
-\emph{the partial sum} \index{Partial sum}
+where $x_0$ is a point typically in the interval $[0;L]$, and $c_n$ are coefficients we need to
+determine.  \index{Series!power} For this to be meaningful in the first place we must have 
+that the limit of the \emph{the partial sum} \index{Partial sum}
 \begin{eqnarray}
 	s_m(x) = \sum_{n=0}^m c_n (x-x_0)^n 
 \end{eqnarray}
 exists at $x$ as $m \rightarrow \infty$. If this is so, we say the series \emph{converges pointwise}
-\index{Convergence!pointwise}
-at the point $x$ and that $c(x) = \lim_{m\rightarrow \infty} s_m(x)$. A formal definition of
-pointwise convergence is based on an $\epsilon-N$ definition: Let $c: S \rightarrow \mathbb{R}$; 
-then the series converges pointwise 	
-to $c$ on $S$ if for all $\epsilon > 0$ there exists an $N(x, \epsilon) \in \mathbb{N}$ 
-such that $|s_m(x) - c(x)| < \epsilon$ for all $x \in S$ and $m \geq N$. Later we define a 
-"stronger" type of convergence using an $\epsilon-N$ definition, but we shall not go into any 
-details.   
+\index{Convergence!pointwise} at the point $x$. A formal definition of pointwise convergence of
+a function series to a function is based on an $\epsilon-N$ definition:  
+\begin{definition}
+Let $c: [0; L] \rightarrow \mathbb{R}$, then the series, Equation (\ref{eq:stst:ssol}), 
+converges pointwise to $c$ at point $x \in [0; L]$ if for all $\epsilon > 0$ 
+	there exists an $N(x, \epsilon) \in \mathbb{N}$ such that $|s_m(x) - c(x)| < \epsilon$ for $m
+	\geq N$. 
+\end{definition}
+\noindent A function series can converge pointwise in an interval around $x_0$ -- 
+we say that the series as a non-zero convergence radius. There are different ways to determine 
+the convergence radius; we will here only be using the \emph{ratio test}\index{Ratio test} for power
+series that states      
+\begin{align}
+	\label{eq:stst:ratiotest}
+	\text{converges if }& |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right| < 1 
+	 \nonumber \\ 
+	\text{diverges if }& |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right|
+	> 1 \nonumber 
+\end{align}
+for $c_n \neq 0$. The ratio test is inconclusive when $|x-x_0| \lim_{n \rightarrow \infty} \left|
+c_{n+1}/c_n \right| = 1$. Strictly, the ratio test tests for absolute convergence: 
+if a function series converges absolutely it also converges pointwise. 
+
+\begin{example}\label{ex:stst:convseries}
+	The power series 
+	\begin{eqnarray}
+		c(x) = \sum_{n=0}^\infty 2^n x^n 
+	\end{eqnarray}
+	converges for $|x| < 1/2$. Notice that $x_0=0$ and $c_n = 2^n$. The ratio test gives
+	\begin{eqnarray}
+		|x| \lim_{n \rightarrow \infty} \left| \frac{2^{n+1}}{2^n} \right| = 
+		|x| \lim_{n \rightarrow \infty} 2  = 2 |x| \, . 
+	\end{eqnarray}
+	Thus, for $|x| < 1/2$, or $-1/2 < x < 1/2$, the limit fulfills the condition for convergence. 
+	The radius of convergence is 1/2.  
+\end{example}
+
+\bigskip
+
+\begin{question}
+	Will the series in Example \ref{ex:stst:convseries} converge for $x=1/2$?
+\end{question}
+
+\bigskip
 
 
-We first list a very powerful result which we will not prove. In our treatment here $D$ and $k$ are polynomials
-and since $D \neq 0$ in any point in the interval $[0; L]$, the points are \emph{ordinary
-points}\index{Ordinary point}.  
-If a point is not an ordinary point it is a \emph{singular point}\index{Singular point}, and this occurs for points where
+\noindent We are now ready for a very powerful result which we will not prove. In our treatment here 
+$D \neq 0$ in any point in the interval $[0; L]$ and all the points in the interval  
+are so-called \emph{ordinary points}\index{Ordinary point}.  If a point is not an ordinary point it is a 
+\emph{singular point}\index{Singular point}, and this occurs for points where
 $D=0$. The functions $p$ and $q$ are not defined in singular points. 
-Now, if $x_0$ is an ordinary point we are guarantied a general solution on the form of a 
-power series, Equation (\ref{eq:stst:ssol}), in some neighbourhood around the point $x_0$. 
-The idea is simple: if $D$ and $k$ are "well behaved" we should expect that the general solution 
-to the differential equation exists and, furthermore, that the solution can be represented by a power series.
-Of course, we may still have an ill posed boundary value problem prohibiting a particular solution.  
+Now, if $x$ is an ordinary point we are guaranteed a general solution on the form
+of Equation (\ref{eq:stst:ssol}) in some neighbourhood around the point $x$. That is, the function $c$ 
+can be written as power series with a convergence radius larger than zero. Moreover, if a function
+is given by a power series in some interval around $x$, the derivative of the function in $x$ 
+is given by the sum of the term wise derivatives of the series.  
+
+The idea is simple: if $p$ and $q$ are sufficiently smooth we should expect that the general solution 
+to the differential equation exists and, furthermore, that the solution can, locally, be represented by a power series.
+Of course, we may still have an ill posed boundary value problem prohibiting a particular solution.
 
 \bigskip 
 
-\noindent To illustrate the method, we revisit the special case where diffusion and growth rate are 
-constants, i.e., they are zero'th order polynomials. Recall, this case we first 
-treated in Section \ref{sect:stst:BVP}. We have 
-\begin{eqnarray}
-	\label{eq:stst:constantcoefrev}
-	D\frac{\d^2 c}{\d x^2} + k c = 0 \ \implies \frac{\d^2c}{\d x^2} =  -\lambda c = 0 \ ,
-\end{eqnarray}
-where $\lambda = k/D > 0$ since both rate and diffision coefficents are constants. 
+\begin{example}
+	To illustrate the method, we revisit a simple problem we already know, namely, the special case 
+	where diffusion and growth rate are constants, see Section \ref{sect:stst:BVP}. 
+	Later we let $D$ and $k$ be functions of $x$. Recall, the steady-state RD-equation reads
+	\begin{eqnarray}
+		\label{eq:stst:constantcoefrev}
+		D\frac{\d^2 c}{\d x^2} + k c = 0  \, ,
+	\end{eqnarray}
+	or equivalently 
+	\begin{equation}
+		\label{eq:stst:lambdaform}
+		\frac{\d^2c}{\d x^2}  + \lambda c = 0 \, ,
+	\end{equation}
+	where $\lambda = k/D > 0$ since both rate and diffusion coefficients are positive. 
+	First, we notice that in the general form we get $p=0$ and $q=\lambda$ so any point 
+	is an ordinary point. We will choose $x_0=0$, hence, we look for a series solution on the form
+	\begin{eqnarray}
+		\label{eq:stst:seriesx00}
+		c(x) = \sum_{n=0}^\infty c_n x^n \, .
+	\end{eqnarray}
+	We may now substitute Equation ($\ref{eq:stst:seriesx00})$ into Equation (\ref{eq:stst:constantcoefrev})
+	and compare terms in order to extract the coefficients $c_n$. However, 
+	the problem involves a second order derivative which we must deal with; this is an ordinary problem and 
+	we can simply differentiate term wise. Differentiating once  
+	\begin{eqnarray}
+		\label{eq:stst:dseries}
+		\frac{\d c}{\d x} = c_1 + 2c_2x + 3c_3x^2 + 4c_4 x^3 + \ldots = \sum_{n=1}^\infty n c_n x^{n-1}
+	\end{eqnarray}
+	and twice 
+	\begin{eqnarray}
+		\label{eq:stst:d2series}
+		\frac{\d^2c}{\d x^2} = 2c_2 + 6c_3x + 12c_4x^2 + \ldots = \sum_{n=2}^\infty n(n-1) c_n
+		x^{n-2} \, .
+	\end{eqnarray}
+	Before substitution it is often a practical convenience if the starting indices are the same; we can
+	achieve this by defining a shifting index, here denoted $m$. For the 1st order derivative 
+	we let  $m=n-1$ and therefore $n=m+1$, and Equation (\ref{eq:stst:dseries}) is written as
+	\begin{eqnarray}
+		\label{eq:stst:dindexshift}
+		\frac{\d c}{\d x} = \sum_{n=1}^\infty n c_n x^{n-1}=\sum_{m=0}^\infty (m+1) c_{m+1}x^m \, .
+	\end{eqnarray}
+	For the 2nd order derivative we let $m=n-2$. Then $n=m+2$ and 
+	\begin{eqnarray}
+		\label{eq:stst:d2indexshift}
+		\frac{\d^2c}{\d x^2}= \sum_{n=2}^\infty n(n-1) c_n x^{n-2} = \sum_{m=0}^\infty (m+2)(m+1)
+		c_{m+2} x^m \, .
+	\end{eqnarray}
+	The index symbol is, of course, changeable so we can simply rename $m$ back to $n$. 
+	Substitution of Equations (\ref{eq:stst:seriesx00}) and (\ref{eq:stst:d2indexshift}) into
+	Equation (\ref{eq:stst:lambdaform}) we obtain
+	\begin{eqnarray}
+		\sum_{n=0}^\infty (n+2)(n+1)c_{n+2}x^n = -\lambda \sum_{n=0}^\infty c_n x^n \, . 
+	\end{eqnarray}
+	This relation is true if each power term in the two series are equal, that is, if
+	\begin{eqnarray}
+		(n+2)(n+1)c_{n+2} = -\lambda c_n \ \implies  \ c_{n+2} = -\frac{\lambda c_n}{(n+2)(n+1)} \, .
+	\end{eqnarray}
+	This is the \emph{recurrence relation}\index{Recurrence relation}. From the recurrence relation we can determine all
+	coefficients if we know $c_0$ and $c_1$
+	\begin{eqnarray}
+		c_2 = -\frac{\lambda c_0}{1\cdot 2} \ , \ c_3 = -\frac{\lambda c_1}{2\cdot 3} \ , \ 
+		c_4 = -\frac{\lambda c_2}{3\cdot4} = \frac{\lambda^2c_0}{1\cdot2\cdot3\cdot4} \  , \ 
+		c_5 = -\frac{\lambda c_3}{4\cdot5} = \frac{\lambda^2c_1}{2\cdot3\cdot4\cdot5}  \nonumber 
+	\end{eqnarray}
+	and so on. Notice that $c_0$ appears in the terms where $n$ is even, and $c_1$ in the terms where $n$ is
+	odd. We can then write the general solution on the form of an even series and an odd series 
+	\begin{eqnarray}
+		c(x) &=& c_0\left(1 - \frac{\lambda}{2!}x^2 + \frac{\lambda^2}{4!}x^4 - \ldots\right) 
+				+ c_1 \left(x- \frac{\lambda}{3!}x^3 + \frac{\lambda^2}{5!}x^5 - \ldots\right) 
+				\nonumber \\
+				&=& c_0 \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} + c_1 \sum_{n=0}^\infty 
+				\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} \, .
+	\end{eqnarray}
+	This is just a linear combination of the Taylor series for cosine and sine
+	\begin{eqnarray}
+		\frac{\cos(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&  \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} 
+		\nonumber	\\
+		\frac{\sin(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&   \sum_{n=0}^\infty 
+				\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} 
+	\end{eqnarray}
+	so we arrive at the final from
+	\begin{eqnarray}
+		c(x) = \frac{c_0}{\sqrt{\lambda}} \cos(\sqrt{\lambda} x) 
+		+ \frac{c_1}{\sqrt{\lambda}} \sin(\sqrt{\lambda} x) \, .
+	\end{eqnarray}
+	This is the same result we obtained in Equation (\ref{eq:stsgeneral2order}); which we
+	should also expect, of course. The coefficients can, be determined by BCs unless the problem is
+	ill-posed.    
+\end{example}
 
-First, we notice that $p=0$ and $q=\lambda$ so any point is an ordinary point and we are guarantied a
-general solution around $x_0 \in \R$. We will (usually) choose the left boudary $x_0=0$, hence, we look 
-for a series solution on the form
-\begin{eqnarray}
-	\label{eq:stst:seriesx00}
-	c(x) = \sum_{n=0}^\infty c_n x^n \, .
-\end{eqnarray}
-We may now substitute Equation ($\ref{eq:stst:seriesx00})$ into Equation (\ref{eq:stst:constantcoefrev})
-and compare terms in order to extract the coefficients $c_n$. Since this is an ordinary
-problem and we can differentiate term wise, thus, differentiating once  
-\begin{eqnarray}
-	\label{eq:stst:dseries}
-	\frac{\d c}{\d x} = c_1 + 2c_2x + 3c_3x^2 + 4c_4 x^3 + \ldots = \sum_{n=1}^\infty n c_n x^{n-1}
-\end{eqnarray}
-and twice 
-\begin{eqnarray}
-	\label{eq:stst:d2series}
-	\frac{\d^2c}{\d x^2} = 2c_2 + 6c_3x + 12c_4x^2 + \ldots = \sum_{n=2}^\infty n(n-1) c_n
-	x^{n-2} \, .
-\end{eqnarray}
-Before the substitution it is often practical if the starting indices are the same; we can
-achieve this by defining a shifting index, here denoted $m$. For the 1st order derivative 
-we let  $m=n-1$ and therefore $n=m+1$, and Equation (\ref{eq:stst:dseries}) is written as
-\begin{eqnarray}
-	\label{eq:stst:dindexshift}
-	\frac{\d c}{\d x} = \sum_{n=1}^\infty n c_n x^{n-1}=\sum_{m=0}^\infty (m+1) c_{m+1}x^m \, .
-\end{eqnarray}
-For the 2nd order derivative we let $m=n-2$. Then $n=m+2$ and 
-\begin{eqnarray}
-	\label{eq:stst:d2indexshift}
-	\frac{\d^2c}{\d x^2}= \sum_{n=2}^\infty n(n-1) c_n x^{n-2} = \sum_{m=0}^\infty (m+2)(m+1)
-	c_{m+2} x^m \, .
-\end{eqnarray}
-The index symbol is, of course, changeable so we can simply rename $m$ to $n$. Substitution we have
-\begin{eqnarray}
-	\sum_{n=0}^\infty (n+2)(n+1)c_{n+2}x^n = -\lambda \sum_{n=0}^\infty c_n x^n \, . 
-\end{eqnarray}
-This relation is true if each term in the two series are equal, that is, if
-\begin{eqnarray}
-	(n+2)(n+1)c_{n+2} = -\lambda c_n \ \implies  \ c_{n+2} = -\frac{\lambda c_n}{(n+2)(n+1)} \, .
-\end{eqnarray}
-This is the \emph{recurrence relation}\index{Recurrence relation}. From the recurrence relation we can determine all
-coefficients if we know $c_0$ and $c_1$
-\begin{eqnarray}
-	c_2 = -\frac{\lambda c_0}{1\cdot 2} \ , \ c_3 = -\frac{\lambda c_1}{2\cdot 3} \ , \ 
-	c_4 = -\frac{\lambda c_2}{3\cdot4} = \frac{\lambda^2c_0}{1\cdot2\cdot3\cdot4} \  , \ 
-	c_5 = -\frac{\lambda c_3}{4\cdot5} = \frac{\lambda^2c_1}{2\cdot3\cdot4\cdot5}  \nonumber 
-\end{eqnarray}
-and so on. Notice that $c_0$ appears in the terms where $n$ is even, and $c_1$ in the terms where $n$ is
-odd. We can then write the general solution on the form of an even series and an odd series 
-\begin{eqnarray}
-	c(x) &=& c_0\left(1 - \frac{\lambda}{2!}x^2 + \frac{\lambda^2}{4!}x^4 - \ldots\right) 
-			+ c_1 \left(x- \frac{\lambda}{3!}x^3 + \frac{\lambda^2}{5!}x^5 - \ldots\right) 
-			\nonumber \\
-			&=& c_0 \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} + c_1 \sum_{n=0}^\infty 
-			\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} \, .
-\end{eqnarray}
-This is just a linear combination of the Taylor series for cosine and sine
-\begin{eqnarray}
-	\frac{\cos(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&  \sum_{n=0}^\infty \frac{(-1)^n \lambda^n}{2n!}x^{2n} 
-	\nonumber	\\
-	\frac{\sin(\sqrt{\lambda}x)}{\sqrt{\lambda}} &=&   \sum_{n=0}^\infty 
-			\frac{(-1)^n \lambda^n}{(2n+1)!}x^{2n+1} 
-\end{eqnarray}
-so we have the final from
-\begin{eqnarray}
-	c(x) = \frac{c_0}{\sqrt{\lambda}} \cos(\sqrt{\lambda} x) 
-	+ \frac{c_1}{\sqrt{\lambda}} \sin(\sqrt{\lambda} x)
-\end{eqnarray}
-and we have same result as we obtained in Equation (\ref{eq:stsgeneral2order}), which we
-should also expect, of course. The coefficients can, some times, be determined by BCs.    
-
-The fact that the solution's power series is the Taylor series is a general results. So, even if the
+\noindent The fact that the solution power series is the Taylor series is a general result. So, even if the
 solution is an unknown function we can derive the function's Taylor series (and give it a name 
 if we wish). 
 
 \begin{example} \label{ex:stst:ss_1}
 	We consider the case where the diffusion coefficient is constant, $D(x)=D$ 
-	and	where the growth rate coefficient is linear with respect to space $k(x)= k_0 x$. Then, 
+	and	where the growth rate coefficient is linear with respect to space $k(x)= k_0 x$. We have
 	\begin{equation}
 		\label{eq:stst:exampless}
 		D\frac{\d^2 c}{\d x^2} + k_0 x c = 0 \ \implies \ \frac{\d^2 c}{\d x^2} = -\lambda x c  
 	\end{equation}
-	where $ \lambda = k_0/D$. We use the BCs 
+	where $ \lambda = k_0/D$. In this example, we consider the BCs 
 	\begin{eqnarray}
 		c(0)=0 \text{ and } c(1)=1 \, .
 	\end{eqnarray}
-	We have that $p=0$ and $q=\lambda x$, so any point $x_0$ is an ordinary point and  
-	we are guarantied a solution in a neighborhood around $x_0$. 
-	Let us choose the left boundary $x_0=0$; we seek the coefficients for the series 
+	We have that $p=0$ and $q=\lambda x$, so any point is an ordinary point.
+	Again, let $x_0=0$ such that  
 	\begin{eqnarray}
 		\label{eq:stst:ssol_x00}
 		c(x) = \sum_{n=0}^\infty c_n x^n \, .
@@ -584,17 +632,17 @@ if we wish).
 		\sum_{n=0}^\infty (n+2)(n+1)c_{n+2} x^n + \lambda \sum_{n=0}^\infty c_n x^{n+1} = 0 \, . 
 	\end{eqnarray}
 	It is a bit harder to derive the recurrence relation for this case. It may be deduced by writing
-	out a few terms; we obtain
+	out a few terms
 	\begin{eqnarray}
 		x^0 &:& 2c_2 = 0 \ \implies \ c_2 = 0 \nonumber \\
 		x^1 &:& 3\cdot2 c_3 + \lambda c_0 = 0 \ \implies \ c_3 = -\lambda c_0/(3 \cdot 2) \nonumber \\
 		x^2 &:& 4\cdot3 c_4 + \lambda c_1 = 0 \ \implies \ c_4 = -\lambda c_1/(4 \cdot 3) \nonumber \\
 		x^3 &:& 5\cdot4 c_5 + \lambda c_2 = 0 \ \implies \ c_5 = 0 \nonumber \\
 		x^4 &:& 6\cdot5 c_6 + \lambda c_3 = 0 \ \implies \ c_6 = -\lambda c_3/(6\cdot5) \nonumber \\
-		x^6 &:& 7\cdot6 c_7 + \lambda c_4 = 0 \ \implies \ c_7 = -\lambda c_4/(7\cdot6) \nonumber \\
+		x^5 &:& 7\cdot6 c_7 + \lambda c_4 = 0 \ \implies \ c_7 = -\lambda c_4/(7\cdot6) \nonumber \\
 		&\vdots& \nonumber
 	\end{eqnarray}
-	Clearly, there is a structure 
+	Clearly, there is a structure here 
 	\begin{eqnarray}
 		c_2 = 0 \text{ and } c_n = -\frac{\lambda c_{n-3}}{n(n-1)} \text{ for } n \geq 3 \, .
 	\end{eqnarray}
@@ -606,14 +654,13 @@ if we wish).
 	\end{eqnarray}
 	and 
 	\begin{eqnarray}
-		c_9 &=& -\frac{\lambda c_6}{6\cdot5} = -\frac{\lambda^3c_0}{9\cdot8\cdot6\cdot5\cdot3\cdot2}
+		c_9 &=& -\frac{\lambda c_6}{9\cdot8} = -\frac{\lambda^3c_0}{9\cdot8\cdot6\cdot5\cdot3\cdot2}
 		\nonumber \\
-		c_{10} &=& -\frac{\lambda c_7}{7\cdot6} = -\frac{\lambda^3c_1}{10\cdot9\cdot7\cdot6\cdot4\cdot3} 
+		c_{10} &=& -\frac{\lambda c_7}{10\cdot9} = -\frac{\lambda^3c_1}{10\cdot9\cdot7\cdot6\cdot4\cdot3} 
 		\nonumber
 	\end{eqnarray}
-	and so forth. 
-	Again, this leaves only two unknowns, namely, $c_0$ and $c_1$, and we again write
-	the general solution as a linear combiniation of two series 
+	and so forth. This leaves only two unknowns, namely, $c_0$ and $c_1$, and we again write
+	the general solution as a linear combination of two series 
 	\begin{eqnarray}
 		c(x) &=& c_0 \left(1 - \frac{\lambda}{3\cdot2}x^3 + \frac{\lambda^2}{6\cdot5\cdot3\cdot2}x^6 -
 		\frac{\lambda^3}{9\cdot8\cdot6\cdot5\cdot3\cdot2}x^9 + \ldots \right) \nonumber \\
@@ -622,7 +669,7 @@ if we wish).
 			\frac{\lambda^3}{10\cdot9\cdot7\cdot6\cdot4\cdot3}x^{10} + \ldots \right)
 		\label{eq:stst:ssolEx1}
 	\end{eqnarray}
-	In practice we cannot not add up infinite terms, and some times we may not even 
+	In practice we cannot add up infinite terms, and some times we may not even 
 	be able to find a general recursion relation. We therefore often use the partial sum
 	\begin{eqnarray}
 		s_m(x) = \sum_{n=0}^{m} c_n x^n \, .
@@ -643,46 +690,6 @@ if we wish).
 \begin{wrapfigure}{r}{0.4\textwidth}
 	\includegraphics[width=0.35\textwidth]{figs/series_conv.eps}
 \end{wrapfigure}
-
-
-\noindent Recall, we are only guarantied a series solution in some neighbourhood around the ordinary
-point $x_0$. Formally, we quantify this neighbourhood by the series' \emph{pointwise convergence
-radius}\index{Convergence!radius}, $R$,  
-that is, the solution is guarantied for points that fulfill $0 < |x - x_0| < R$. The convergence radius 
-can, some times,  be found from the famous \emph{ratio test}\index{Ratio test}. For the power series the ratio test states 
-that the series    
-\begin{eqnarray}
-	\label{eq:stst:ratiotest}
-	& &	\text{convergences if } |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right| < 1 
-	 \nonumber \\ & & \\
-	& &\text{divergence if } |x-x_0| \lim_{n \rightarrow \infty} \left| \frac{c_{n+1}}{c_n} \right|
-	> 1 \nonumber \\ & & 
-\end{eqnarray}
-for $c_n \neq 0$. The test is inconclusive for $|x-x_0| \lim_{n \rightarrow \infty} \left|
-c_{n+1}/c_n \right| = 1$. Strictly, the ratio test tests for absolute convergence: 
-if a function series converges absolutely it also converges pointwise. 
-
-\begin{example}\label{ex:stst:convseries}
-	The power series 
-	\begin{eqnarray}
-		c(x) = \sum_{n=0}^\infty 2^n x^n 
-	\end{eqnarray}
-	converges for $|x| < 1/2$. To see this note that $x_0=0$ and the ratio test gives
-	\begin{eqnarray}
-		|x| \lim_{n \rightarrow \infty} \left| \frac{2^{n+1}}{2^n} \right| = 
-		|x| \lim_{n \rightarrow \infty} 2  = 2 |x| \, . 
-	\end{eqnarray}
-	Thus, for $|x| < 1/2$, or $-1/2 < x < 1/2$, this limit fulfills the relation in Equation
-	(\ref{eq:stst:ratiotest}). The radius of convergence is 1/2.  
-\end{example}
-
-\bigskip
-
-\begin{question}
-	Will the series in Ex. \ref{ex:stst:convseries} converge for $x=1/2$?
-\end{question}
-
-\bigskip
 
 \noindent 	Proposition: The power series solution in Equation (\ref{eq:stst:ssolEx1}) converges for all $x \in \R$. 
 
@@ -732,10 +739,10 @@ found in Equation (\ref{eq:stst:ssolEx1}) is the solution for all $x$.
 	\end{exercise}
 
 	\begin{exercise}
-		For the following cases (i) identify the functions $p$ and $q$ and show that $x_0=0$ is an
-		ordinary point, (ii) derive the recurrence relation (if possible), and (iii) find the general
-		series solution to the steady-state RD-equation (you may write this in terms up to 10th
-		order with respect to $x$).
+		For the following three cases below: 
+		(i) identify the functions $p$ and $q$ and show that $x_0=0$ is an ordinary point, 
+		(ii) derive the recurrence relation (if possible), and (iii)
+		find the general power series solution (you may write this in terms up to 10th order with respect to $x$).
 		\begin{enumerate}
 			\item $D(x)=D_0(1 - x)$ and $k$ constant
 			\item $D(x)=D_0(1-x)$ and $k(x) = k_0 x$
@@ -744,7 +751,7 @@ found in Equation (\ref{eq:stst:ssolEx1}) is the solution for all $x$.
 	\end{exercise}
 
 	\begin{exercise}
-		Find the particular solution for Exercise 1 above using BCs
+		Find the particular solution for the exercise above using BCs
 		\begin{enumerate}
 			\item $c(0)=0$ and $c(1)=1$
 			\item $\left.\frac{\d c}{\d x}\right|_{x=0}=0$ and $\left.\frac{\d c}{\d x}\right|_{x=1}=0$
@@ -776,9 +783,9 @@ found in Equation (\ref{eq:stst:ssolEx1}) is the solution for all $x$.
 	\end{exercise}
 
 	\begin{exercise}
-		Our first example was a special case of Airy's equation
+		Airy's equation is used in modelling waves, optics, and more. It reads 
 		\begin{eqnarray}
-			\frac{\d^2c}{\d x^2} - x c = 0 \ \ \text{ where } \ \ \infty < x < -\infty
+			\frac{\d^2c}{\d x^2} - x c = 0 \ \ \text{ where } \ \ -\infty < x < \infty
 		\end{eqnarray}
 		Let $x_0=0$ and find the solution for $c(-2)=0$ and $c(0)=1$. Plot the partial sum for $m=1,
 		10, 100, 1000$ in the interval $-10 < x < 2$.  

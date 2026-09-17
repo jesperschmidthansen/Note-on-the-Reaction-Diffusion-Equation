@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  8 SEP 2026 16:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  14 SEP 2026 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -605,20 +605,20 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -679,19 +679,19 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 72
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 77
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -861,11 +861,6 @@ ALUE PROBLEMS
 [20]
 
 [21]
-Overfull \hbox (7.8152pt too wide) in alignment at lines 526--530
- [][][] []
- []
-
-
 
 
 Overfull \hbox (1.11998pt too wide) has occurred while \output is active
@@ -874,6 +869,11 @@ ALUE PROBLEMS
  []
 
 [22]
+Overfull \hbox (7.8152pt too wide) in alignment at lines 573--577
+ [][][] []
+ []
+
+
 
 [23]
 
@@ -884,6 +884,8 @@ ALUE PROBLEMS
  []
 
 [24]
+
+[25]
 Package epstopdf Info: Source file: <figs/series_conv.eps>
 (epstopdf)                    date: 2026-02-11 17:13:49
 (epstopdf)                    size: 14751 bytes
@@ -892,18 +894,21 @@ Package epstopdf Info: Source file: <figs/series_conv.eps>
 (epstopdf)                    size: 9989 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/series_conv-eps-conve
 rted-to.pdf figs/series_conv.eps>
-(epstopdf)             \includegraphics on input line 644.
+(epstopdf)             \includegraphics on input line 691.
 Package epstopdf Info: Output file is already uptodate.
-<figs/series_conv-eps-converted-to.pdf, id=178, 387.4475pt x 562.1pt>
+<figs/series_conv-eps-converted-to.pdf, id=182, 387.4475pt x 562.1pt>
 File: figs/series_conv-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/series_conv-eps-converted-to.pdf>
 Package pdftex.def Info: figs/series_conv-eps-converted-to.pdf  used on input l
-ine 644.
+ine 691.
 (pdftex.def)             Requested size: 125.47884pt x 182.03706pt.
 
+Overfull \hbox (72.31068pt too wide) in alignment at lines 709--711
+ [][][] []
+ []
 
-[25 <./figs/series_conv-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 715--717
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--724
 
  []
 
@@ -915,7 +920,7 @@ Overfull \hbox (1.11998pt too wide) has occurred while \output is active
 ALUE PROBLEMS
  []
 
-[26]
+[26 <./figs/series_conv-eps-converted-to.pdf>]
 
 [27]
 
@@ -934,13 +939,13 @@ Package epstopdf Info: Source file: <figs/perturb_one.eps>
 (epstopdf)                    size: 9162 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/perturb_one-eps-conve
 rted-to.pdf figs/perturb_one.eps>
-(epstopdf)             \includegraphics on input line 909.
+(epstopdf)             \includegraphics on input line 916.
 Package epstopdf Info: Output file is already uptodate.
 <figs/perturb_one-eps-converted-to.pdf, id=210, 410.53375pt x 511.9125pt>
 File: figs/perturb_one-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/perturb_one-eps-converted-to.pdf>
 Package pdftex.def Info: figs/perturb_one-eps-converted-to.pdf  used on input l
-ine 909.
+ine 916.
 (pdftex.def)             Requested size: 125.47884pt x 156.46506pt.
 
 
@@ -955,14 +960,14 @@ ALUE PROBLEMS
 [30 <./figs/perturb_one-eps-converted-to.pdf>]
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
 
  []
 
 <figs/biopore.pdf, id=234, 450.64708pt x 370.15163pt>
 File: figs/biopore.pdf Graphic file (type pdf)
 <use figs/biopore.pdf>
-Package pdftex.def Info: figs/biopore.pdf  used on input line 1096.
+Package pdftex.def Info: figs/biopore.pdf  used on input line 1103.
 (pdftex.def)             Requested size: 180.25563pt x 148.05801pt.
 
 
@@ -983,13 +988,13 @@ Package epstopdf Info: Source file: <figs/chemotaxis.eps>
 (epstopdf)                    size: 9844 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/chemotaxis-eps-conver
 ted-to.pdf figs/chemotaxis.eps>
-(epstopdf)             \includegraphics on input line 1188.
+(epstopdf)             \includegraphics on input line 1195.
 Package epstopdf Info: Output file is already uptodate.
 <figs/chemotaxis-eps-converted-to.pdf, id=258, 420.57124pt x 497.86pt>
 File: figs/chemotaxis-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/chemotaxis-eps-converted-to.pdf>
 Package pdftex.def Info: figs/chemotaxis-eps-converted-to.pdf  used on input li
-ne 1188.
+ne 1195.
 (pdftex.def)             Requested size: 125.47884pt x 148.5387pt.
 
 
@@ -1000,12 +1005,12 @@ ALUE PROBLEMS
  []
 
 [34]
-Overfull \hbox (20.93309pt too wide) in alignment at lines 1200--1205
+Overfull \hbox (20.93309pt too wide) in alignment at lines 1207--1212
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1222--1224
+Underfull \hbox (badness 10000) in paragraph at lines 1229--1231
 
  []
 
@@ -1464,10 +1469,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17976 strings out of 473910
- 348774 string characters out of 5736661
- 741802 words of memory out of 5000000
- 40706 multiletter control sequences out of 15000+600000
+ 17981 strings out of 473910
+ 348873 string characters out of 5736661
+ 741836 words of memory out of 5000000
+ 40711 multiletter control sequences out of 15000+600000
  573355 words of font info for 91 fonts, out of 8000000 for 9000
  833 hyphenation exceptions out of 8191
  81i,14n,117p,487b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1493,7 +1498,7 @@ s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (84 pages, 1240064 bytes).
+Output written on main.pdf (84 pages, 1240033 bytes).
 PDF statistics:
  695 PDF objects out of 1000 (max. 8388607)
  430 compressed objects within 5 object streams
