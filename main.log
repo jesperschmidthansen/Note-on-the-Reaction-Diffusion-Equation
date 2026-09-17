@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.7.3)  14 SEP 2026 15:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.26)  17 SEP 2026 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -746,10 +746,10 @@ Package pdftex.def Info: figs/fluxIllustration.pdf  used on input line 27.
 
 [7]
 Package epstopdf Info: Source file: <figs/poiseuille.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 11937 bytes
 (epstopdf)             Output file: <figs/poiseuille-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 8314 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/poiseuille-eps-conver
 ted-to.pdf figs/poiseuille.eps>
@@ -805,10 +805,10 @@ ALUE PROBLEMS
 
 [15]
 Package epstopdf Info: Source file: <figs/solutionEx4.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 16773 bytes
 (epstopdf)             Output file: <figs/solutionEx4-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 8845 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/solutionEx4-eps-conve
 rted-to.pdf figs/solutionEx4.eps>
@@ -887,10 +887,10 @@ ALUE PROBLEMS
 
 [25]
 Package epstopdf Info: Source file: <figs/series_conv.eps>
-(epstopdf)                    date: 2026-02-11 17:13:49
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 14751 bytes
 (epstopdf)             Output file: <figs/series_conv-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-08-20 13:04:39
+(epstopdf)                    date: 2026-09-17 20:03:22
 (epstopdf)                    size: 9989 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/series_conv-eps-conve
 rted-to.pdf figs/series_conv.eps>
@@ -932,20 +932,20 @@ ALUE PROBLEMS
 
 [28]
 Package epstopdf Info: Source file: <figs/perturb_one.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 14203 bytes
 (epstopdf)             Output file: <figs/perturb_one-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 9162 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/perturb_one-eps-conve
 rted-to.pdf figs/perturb_one.eps>
-(epstopdf)             \includegraphics on input line 916.
+(epstopdf)             \includegraphics on input line 919.
 Package epstopdf Info: Output file is already uptodate.
 <figs/perturb_one-eps-converted-to.pdf, id=210, 410.53375pt x 511.9125pt>
 File: figs/perturb_one-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/perturb_one-eps-converted-to.pdf>
 Package pdftex.def Info: figs/perturb_one-eps-converted-to.pdf  used on input l
-ine 916.
+ine 919.
 (pdftex.def)             Requested size: 125.47884pt x 156.46506pt.
 
 
@@ -960,15 +960,18 @@ ALUE PROBLEMS
 [30 <./figs/perturb_one-eps-converted-to.pdf>]
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
 
  []
 
 <figs/biopore.pdf, id=234, 450.64708pt x 370.15163pt>
 File: figs/biopore.pdf Graphic file (type pdf)
 <use figs/biopore.pdf>
-Package pdftex.def Info: figs/biopore.pdf  used on input line 1103.
+Package pdftex.def Info: figs/biopore.pdf  used on input line 1105.
 (pdftex.def)             Requested size: 180.25563pt x 148.05801pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 
 
@@ -981,20 +984,20 @@ ALUE PROBLEMS
 
 [33 <./figs/biopore.pdf>]
 Package epstopdf Info: Source file: <figs/chemotaxis.eps>
-(epstopdf)                    date: 2026-02-11 17:09:05
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 17674 bytes
 (epstopdf)             Output file: <figs/chemotaxis-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:05
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 9844 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/chemotaxis-eps-conver
 ted-to.pdf figs/chemotaxis.eps>
-(epstopdf)             \includegraphics on input line 1195.
+(epstopdf)             \includegraphics on input line 1197.
 Package epstopdf Info: Output file is already uptodate.
 <figs/chemotaxis-eps-converted-to.pdf, id=258, 420.57124pt x 497.86pt>
 File: figs/chemotaxis-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/chemotaxis-eps-converted-to.pdf>
 Package pdftex.def Info: figs/chemotaxis-eps-converted-to.pdf  used on input li
-ne 1195.
+ne 1197.
 (pdftex.def)             Requested size: 125.47884pt x 148.5387pt.
 
 
@@ -1005,12 +1008,12 @@ ALUE PROBLEMS
  []
 
 [34]
-Overfull \hbox (20.93309pt too wide) in alignment at lines 1207--1212
+Overfull \hbox (20.93309pt too wide) in alignment at lines 1209--1214
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1229--1231
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1233
 
  []
 
@@ -1030,10 +1033,10 @@ ALUE PROBLEMS
 Chapter 3.
 (./diff.tex
 Package epstopdf Info: Source file: <figs/sawtooth.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 14898 bytes
 (epstopdf)             Output file: <figs/sawtooth-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 9651 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/sawtooth-eps-converte
 d-to.pdf figs/sawtooth.eps>
@@ -1064,11 +1067,11 @@ Overfull \hbox (37.66974pt too wide) in alignment at lines 200--204
 
 [42]
 Package epstopdf Info: Source file: <figs/fouriersawtooth.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 55864 bytes
 (epstopdf)             Output file: <figs/fouriersawtooth-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 26269 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fouriersawtooth-eps-c
 onverted-to.pdf figs/fouriersawtooth.eps>
@@ -1081,11 +1084,11 @@ Package pdftex.def Info: figs/fouriersawtooth-eps-converted-to.pdf  used on inp
 ut line 340.
 (pdftex.def)             Requested size: 125.47884pt x 176.71347pt.
 Package epstopdf Info: Source file: <figs/remainderFourier.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 27759 bytes
 (epstopdf)             Output file: <figs/remainderFourier-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 13671 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/remainderFourier-eps-
 converted-to.pdf figs/remainderFourier.eps>
@@ -1124,10 +1127,10 @@ LaTeX Warning: Reference `stst:sectBVP' on page 46 undefined on input line 499.
 
 [47]
 Package epstopdf Info: Source file: <figs/diffDBC.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 22358 bytes
 (epstopdf)             Output file: <figs/diffDBC-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:13:49
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 11054 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffDBC-eps-converted
 -to.pdf figs/diffDBC.eps>
@@ -1158,10 +1161,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
 [53]
 Package epstopdf Info: Source file: <figs/diffunbounded.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 74472 bytes
 (epstopdf)             Output file: <figs/diffunbounded-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 17908 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffunbounded-eps-con
 verted-to.pdf figs/diffunbounded.eps>
@@ -1211,10 +1214,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [59]
 Package epstopdf Info: Source file: <figs/FK-wavefront.eps>
-(epstopdf)                    date: 2026-02-11 17:09:05
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 42210 bytes
 (epstopdf)             Output file: <figs/FK-wavefront-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:05
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 11280 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/FK-wavefront-eps-conv
 erted-to.pdf figs/FK-wavefront.eps>
@@ -1234,10 +1237,10 @@ line 187.
 
 [62]
 Package epstopdf Info: Source file: <figs/minspeed.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 28893 bytes
 (epstopdf)             Output file: <figs/minspeed-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 11785 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/minspeed-eps-converte
 d-to.pdf figs/minspeed.eps>
@@ -1253,10 +1256,10 @@ Package pdftex.def Info: figs/minspeed-eps-converted-to.pdf  used on input line
 
 [63 <./figs/minspeed-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/fku0.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 11802 bytes
 (epstopdf)             Output file: <figs/fku0-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 7586 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fku0-eps-converted-to
 .pdf figs/fku0.eps>
@@ -1278,10 +1281,10 @@ Underfull \hbox (badness 1275) in paragraph at lines 369--371
 
 [64 <./figs/fku0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/twospecies.eps>
-(epstopdf)                    date: 2026-02-11 17:09:08
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 14681 bytes
 (epstopdf)             Output file: <figs/twospecies-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:08
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 6953 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/twospecies-eps-conver
 ted-to.pdf figs/twospecies.eps>
@@ -1316,11 +1319,11 @@ Overfull \hbox (1.68378pt too wide) in paragraph at lines 573--578
 
 [69]
 Package epstopdf Info: Source file: <figs/turinghomo.eps>
-(epstopdf)                    date: 2026-02-11 17:13:49
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 34780 bytes
 (epstopdf)             Output file: <figs/turinghomo-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-08-20 13:04:40
-(epstopdf)                    size: 16882 bytes
+(epstopdf)                    date: 2026-09-17 20:03:22
+(epstopdf)                    size: 16881 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/turinghomo-eps-conver
 ted-to.pdf figs/turinghomo.eps>
 (epstopdf)             \includegraphics on input line 656.
@@ -1332,11 +1335,11 @@ Package pdftex.def Info: figs/turinghomo-eps-converted-to.pdf  used on input li
 ne 656.
 (pdftex.def)             Requested size: 125.47884pt x 160.45337pt.
 Package epstopdf Info: Source file: <figs/fhnPhasePortrait.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 334030 bytes
 (epstopdf)             Output file: <figs/fhnPhasePortrait-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 93872 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fhnPhasePortrait-eps-
 converted-to.pdf figs/fhnPhasePortrait.eps>
@@ -1359,10 +1362,10 @@ Overfull \hbox (1.04657pt too wide) in alignment at lines 771--782
  []
 
 Package epstopdf Info: Source file: <figs/dispersion.eps>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 15385 bytes
 (epstopdf)             Output file: <figs/dispersion-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:06
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 10374 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/dispersion-eps-conver
 ted-to.pdf figs/dispersion.eps>
@@ -1375,10 +1378,10 @@ Package pdftex.def Info: figs/dispersion-eps-converted-to.pdf  used on input li
 ne 806.
 (pdftex.def)             Requested size: 209.88574pt x 167.42679pt.
 Package epstopdf Info: Source file: <figs/turingfhn.eps>
-(epstopdf)                    date: 2026-02-11 17:09:08
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 16698 bytes
 (epstopdf)             Output file: <figs/turingfhn-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-02-11 17:09:08
+(epstopdf)                    date: 2026-09-17 19:38:36
 (epstopdf)                    size: 7557 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/turingfhn-eps-convert
 ed-to.pdf figs/turingfhn.eps>
@@ -1444,21 +1447,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-) (./main.ind
-
-[82]
-
+)
+No file main.ind.
 
 
-[83
-
-]
-
-
-
-[84
-
-]) (./main.aux)
+[82] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1469,10 +1462,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17981 strings out of 473910
- 348873 string characters out of 5736661
- 741836 words of memory out of 5000000
- 40711 multiletter control sequences out of 15000+600000
+ 17975 strings out of 473910
+ 348770 string characters out of 5736660
+ 741849 words of memory out of 5000000
+ 40708 multiletter control sequences out of 15000+600000
  573355 words of font info for 91 fonts, out of 8000000 for 9000
  833 hyphenation exceptions out of 8191
  81i,14n,117p,487b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1498,10 +1491,10 @@ s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (84 pages, 1240033 bytes).
+Output written on main.pdf (82 pages, 1238318 bytes).
 PDF statistics:
- 695 PDF objects out of 1000 (max. 8388607)
- 430 compressed objects within 5 object streams
+ 689 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

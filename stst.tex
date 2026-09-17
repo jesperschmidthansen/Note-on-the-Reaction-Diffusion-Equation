@@ -803,9 +803,9 @@ found in Equation (\ref{eq:stst:ssolEx1}) is the solution for all $x$.
 
 
 \section{Non-linear reaction functions}
-Bio-chemical reactions are often non-linear. The first way to approach such situation is, almost always, to study the
-system in some special cases or to do a linear analysis in hope this gives some qualitative
-understanding of the system. Some times, however, we wish to extend our analysis, e.g., 
+Bio-chemical reactions are often non-linear. The first way to approach such a situation is, almost always, to study the
+system in some special cases or to do a linear analysis in the hope that this gives some qualitative
+understanding of the system. Sometimes, however, we wish to extend our analysis, e.g., 
 if we want a better quantitative output from the model. 
 
 Consider the boundary value problem
@@ -827,13 +827,15 @@ is ``close'' to the solution for $\d^2c/\d x^2 = 0$,
 where there is no reaction process. We can think of $\epsilon$ as a parameter that controls 
 a (small) perturbation of the system away from the pure diffusion case. 
 For this reason $\epsilon$ is called the \emph{perturbation parameter}\index{Perturbation!parameter} and Equation (\ref{eq:second}) 
-forms a \emph{regular perturbation problem}\index{Perturbation!regular problem}. A non-regular problem is illustrated later.
+forms a \emph{regular perturbation problem}\index{Perturbation!regular problem}. A problem is called
+regular if setting $\epsilon = 0$  
+does not change the order or basic character of the governing equation. A non-regular problem is illustrated later.
 
 Once we have defined a small system parameter and have a regular perturbation problem, 
 we can attempt to do an analysis based on the \emph{regular perturbation method}. 
 This method is based on the fundamental assumption (called an ansatz) that the function
 $c$ can be represented by power series with respect to the perturbation parameter. 
-At first this does not appear to be very helpful since we are interested in $c$ as a
+At first, this does not appear to be very helpful since we are interested in $c$ as a
 function of the spatial coordinate $x$ and not the parameter $\epsilon$,
 however, the power series will result in a, some times, tractable structure. The
 regular perturbation method involves the following five steps:
@@ -860,8 +862,8 @@ regular perturbation method involves the following five steps:
   }
 \item{
     Collect term-wise with respect to powers of $\epsilon$. To fulfill the
-	equation we equate all terms with zero, and letting $\epsilon \neq 0$ we
-	obtain	
+	equation we equate all terms with zero; thus, collecting terms with equal powers of $\epsilon$ 
+	 we obtain 	
     \begin{eqnarray}
       &\epsilon^0:& \ \frac{\d^2 c_0}{\d x^2} = 0 \label{eq:p1}\\
       &\epsilon^1:& \ \frac{\d^2 c_1}{\d x^2} + c_0^2 = 0  \label{eq:p2}
@@ -869,9 +871,8 @@ regular perturbation method involves the following five steps:
       &\epsilon^2:& \ \frac{\d^2 c_2}{\d x^2} + 2c_0c_1 = 0 \\
       &\vdots& \nonumber
     \end{eqnarray}
-	We see this results in a set of tractable problems (albeit in general quite tedious).
-    From Equation (\ref{eq:p1}) we obtain $c_0$
-   		(once the appropriate BCss are specified). This
+	We see that this results in a set of tractable problems (albeit in general quite tedious).
+    From Equation (\ref{eq:p1}) we obtain $c_0$ (once the appropriate BCs are specified). This
     result is substituted into Equation (\ref{eq:p2}) and $c_1$ can be found
     (once the appropriate BCs are specified), and so
     forth. Notice that in this case each problem is linear.
@@ -879,18 +880,20 @@ regular perturbation method involves the following five steps:
 \item{
 	Solve for $c_0, c_1, \ldots$
     
-    Here we first need to define the BCs. We can let the unperturbed
-    zero order problem, that is, for $\epsilon=0$, fulfill the original BCs is, we must have
-    $c_0(0)=0$ and $c_0(1)=1$. This implies that $c_n(0)=0$ and $c_n(1)=0$,
-    $n=1,2$,\ldots, because
-		\begin{eqnarray}
-			c(0) = c_0(0) + \epsilon c_1(0) + \epsilon^2 c_2(0) + \ldots = 0
-		\end{eqnarray}
-		and
-		\begin{eqnarray}
-			c(1) = c_0(1) + \epsilon c_1(1) + \epsilon^2 c_2(1) + \ldots = c_0(1)=1 
-		\end{eqnarray}
-    Then solving
+    Here we first need to define the BCs. We make a simple choice, namely, 
+	\begin{equation}
+		c_0(0)=0  \ \text{and} \ c_0(1)=1.
+	\end{equation}
+	Now since
+	\begin{eqnarray}
+		c(0) = c_0(0) + \epsilon c_1(0) + \epsilon^2 c_2(0) + \ldots = 0
+	\end{eqnarray}
+	and
+	\begin{eqnarray}
+		c(1) = c_0(1) + \epsilon c_1(1) + \epsilon^2 c_2(1) + \ldots = c_0(1)=1 
+	\end{eqnarray}
+	this implies that the BCs for  $n=1,2,3 \ldots$ are $c_n(0)=0$ and $c_n(1)=0$. Notice, the BCs
+		can be chosen differently. Then, solving
     \begin{eqnarray}
       &\epsilon^0:& \ \frac{\d^2 c_0}{\d x^2} = 0, \
                     c_0(0)=0, c_0(1)=1 \ \Rightarrow c_0(x) = x
@@ -943,8 +946,8 @@ all $M\leq N$ and $x \in [0; L]$ we have
 	\label{eq:asymappr}
 \end{eqnarray}
 In words: We want the remainder to go to zero as $\epsilon$ goes to zero and faster than the last
-term in the expansion. The asymptotic approximation is, likely, 
-best illustrated with an example where the solution is known. 
+term in the expansion. The concept of an asymptotic approximation is perhaps best illustrated  
+with an example where the solution is known. 
 \begin{example}
     The perturbation method is applicable for different types of non-linear
 	problems, not only differential equations. Consider the quadratic problem 
@@ -1008,7 +1011,7 @@ hence, the roots to second order in perturbation parameter are
 		=\lim_{\epsilon \rightarrow 0} \frac{\pm \sqrt{\epsilon^2+4} \mp 2}{\epsilon} 
 		= \lim_{\epsilon \rightarrow 0} \frac{\epsilon}{\sqrt{\epsilon^2+4}} = 0 \, .
     \end{eqnarray}
-	Last limit is found from L'Hopital's rule. Finally, for $M=2$ we have 
+	The last limit is found using L'Hopital's rule. Finally, for $M=2$ we have 
 	\begin{eqnarray}
 		\lim_{\epsilon \rightarrow 0} \frac{R_2(\epsilon)}{\epsilon^2 c_2} 
 		= \lim_{\epsilon \rightarrow 0} \frac{\pm 4\sqrt{\epsilon^2 +4} \mp 8 \mp \epsilon^2}{\epsilon^2} 
@@ -1031,9 +1034,8 @@ shows such qualitative change setting $\epsilon=0$ is called a
 \emph{singular perturbation problem}\index{Perturbation!singular}. Equation (\ref{eq:quadratic}) above 
 is a regular perturbation problem since the number of
 solutions did not change by varying $\epsilon$ around zero.
-Performing the same steps as we did for regular problems,  
-some times called \emph{the outer solution} \index{Perturbation!outer solution} 
-when we deal with singular problems, we end up with the expansion
+Performing the same steps as we did for regular problems when we deal with 
+singular problems, we end up with the expansion
 \begin{equation}
   c = 1 -\epsilon + 2\epsilon^2 + \ldots
 \end{equation}
@@ -1054,7 +1056,7 @@ Here we can introduce the perturbation parameter $\epsilon = D/k$ and we can wri
 \end{equation}
 As $\epsilon \rightarrow 0$ the diffusion term vanishes and the problem is algebraic only 
 allowing $c=0$ for $0 < x < L$; the system qualitative behavior changes dramatically as we 
-approach the limit $\epsilon \rightarrow 0$. This is singular perturbation problem. 
+approach the limit $\epsilon \rightarrow 0$. This is a singular perturbation problem. 
 We will later encounter such problem, and the naive outer solution will, in
 fact, be very helpful here.  
 
