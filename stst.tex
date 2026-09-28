@@ -1064,8 +1064,7 @@ fact, be very helpful here.
 
 \begin{exercise}
   Find the second order perturbation term for the boundary value problem
-  Equation (\ref{eq:second}). Plot $c_0$, $c_1$, $c_2$ as functions of $x$ with some
-  chosen values of $\epsilon$.
+  Equation (\ref{eq:second}). Plot $c_0$, $c_1$, $c_2$ as functions of $x$.
 \end{exercise}
 
 \begin{exercise}
@@ -1081,7 +1080,7 @@ fact, be very helpful here.
   \end{equation}
   	Find the analytical solution. Then use regular perturbation method
   up to second order in $\epsilon$ to approximate the solution. Is the 
-  Poincar\'{e} expansion with $N=1$ an asymptotic approximation?		
+  Poincar\'{e} expansion with $m=1$ an asymptotic approximation?		
 \end{exercise}
 
 \begin{exercise}
@@ -1097,7 +1096,7 @@ fact, be very helpful here.
   Figure \ref{fig:biopore} illustrates a cylindrical pore embedded in a
   membrane. The pore allows for transport of a chemical signaling compound
   C. In the steady-state, C has concentration $C_0$ on the ``outside'' and $C_1$
-  on the ``inside''. Careful measurements have established that $C_1 > C_0$, and
+  on the ``inside''. Careful measurements have established that $C_1 < C_0$, and
   from this we expect that a reaction inside the pore consumes the chemical
   C. 
 	\begin{figure}[h!]
@@ -1119,7 +1118,7 @@ fact, be very helpful here.
   \end{equation}
   
   \begin{enumerate}
-  \item Show that the condition $C_1 > C_0$ cannot be met if the
+  \item Show that the condition $C_1 < C_0$ cannot be met if the
     reaction term in Equation (\ref{eq:rdss}) is omitted. 
   \item Show that if $r(c)=-k_1 c$ the concentration profile is given by
     \begin{equation}
@@ -1128,8 +1127,8 @@ fact, be very helpful here.
       \right] \, ,
     \end{equation}
     where $\alpha = \sqrt{k_1/D}$
-  \item Now let $r(c)=-k_1c^2$. Find the solution up to first order in
-    the perturbation parameter $\varepsilon = k_1/D$. Explain the
+  \item Now let $r(c)=-k_2c^2$. Find the solution up to first order in
+    the perturbation parameter $\varepsilon = k_2/D$. Explain the
     fundamental physical unit that determines the validity of this
     approximate solution.
   \end{enumerate}
@@ -1140,8 +1139,8 @@ fact, be very helpful here.
 Experimentally it has been observed that some cells, e.g., E-coli, can register 
 a chemical concentration gradient and move either down or up along this gradient. 
 The chemical compound can be a hormone and cell motion is realised by, for example, flagella propulsion. 
-This phenomenon is denoted \emph{chemotaxis}\index{Chemotaxis}. To model chemotaxis we need to
-change the fluxes in the system. If diffusion and chemotaxis are independent processes we
+The phenomenon is called \emph{chemotaxis}\index{Chemotaxis}. To model chemotaxis we need to
+change the fluxes in the system, and if diffusion and chemotaxis are independent processes we
 can write the flux with two terms: (i) a term describing the usual diffusive flux 
 and (ii) a term describing the flux due to chemotaxis. 
 
@@ -1174,7 +1173,7 @@ if $\chi$ and $D$ are independent of spatial coordinate $x$. In the steady-state
 
 \begin{example}
 	\label{ex:chemotaxis}
-	Assume that we some how  can control the local concentration of the chemical compound.
+	Assume that we somehow  can control the local concentration of the chemical compound.
 	For example, let
 	\begin{eqnarray}
 		\label{eq:c2}

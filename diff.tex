@@ -5,12 +5,12 @@ coordinates
 \begin{equation}
 	\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} \, .
 \end{equation}
-To solve this problem we need an IC, $f(x)=c(x,0)$, and BCs which can be of the Dirichlet type, Neuman type
-or a mix of the two. 
+To solve this problem we need an IC, $f(x)=c(x,0)$, and BCs which can be of the 
+Dirichlet type, Neuman type or a mix of the two. 
 
 Before we explore the diffusion equation, we must first acquire some knowledge about   
 the famous Fourier series and the Euler-Fourier equations as they play a key role in 
-the exploration of the diffusion equatio. 
+the exploration of the diffusion equation. 
 
 \section{\label{sect:fourier}Periodic functions and the Fourier series}
 
@@ -26,7 +26,7 @@ and which has repeating values such that for $T \neq 0$
 where $x \in S$ and $x + T \in S$. $T$ is called the function period. 
 $T$ is not unique; the least value for $T$ is referred to as 
 the \emph{fundamental period}, e.g., the functions cosine and sine 
-have fundamental period 2$\pi$. 
+have fundamental period $2\pi$. 
 
 Another example is the \emph{sawtooth function} \index{Function!sawtooth} \index{Sawtooth function}
 \begin{equation}
@@ -45,28 +45,30 @@ function $f(x) = x$, where $0 \leq x < 1$. The expansion is given as
 \end{eqnarray}
 with $n \in \mathbb{Z}$.
 
-The sawtooth function is defined on the entire real line and we have $S=\R$. We can define another (and related) 
-periodic function with fundamental period 1 using the periodic expansion of $f(x)=x$, 
-but where $0 < x < 1$ such that $S=\R \backslash \{\mathbb{Z}\}$. 
+The sawtooth function is defined on the entire real line and we have $S=\R$. We can define 
+another (and related) periodic function with fundamental period 1 using the 
+periodic expansion of $f(x)=x$, but where $0 < x < 1$ such that $S=\R \backslash \{\mathbb{Z}\}$. 
 
 A question relevant to us here, is how a periodic function can be "represented" by a function 
 series. What we mean by a representation in this case will hopefully be clear as we go on. 
 The well known Taylor series will not be a good choice since a necessary condition here 
 is that the function must be infinitely differentiable on its domain. The sawtooth function 
 above clearly does not fulfill this when $x$ takes integer values, $\ldots -2,-1,0,1,2, \ldots$. 
-Even if the function has a Taylor series, this series is generally not a very practical choice since the Taylor 
-series converges slowly for periodic functions. Then, we suggest to represent the periodic function
+Even if the function has a Taylor series, this series is generally not a very practical 
+choice since the Taylor series converges slowly for periodic functions. 
+Then, we suggest to represent the periodic function
 $f: \R \supseteq S \rightarrow \R$ as a series of known periodic functions, that is, 
 \begin{equation}
 	\label{eq:Fouriereq}
 	f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi }{L} \, x\right) 
 	+ \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi }{L} \, x\right) \, .
 \end{equation}
-Notice the symbol "$\sim$" is used as a representation symbol. This is the famous \emph{Fourier series}, 
+The symbol "$\sim$" is merely used here to symbolize a representation; we later define what
+we mean. This is the famous \emph{Fourier series}, 
 \index{Fourier series}\index{Series!Fourier} and the 
 coefficients $a_0, a_1, a_2, \ldots$, $b_1, b_2, b_3, \ldots$ are called the 
-\emph{Fourier coefficients}\index{Fourier series!coefficients}, and $n$ the \emph{wave number}
-\index{Fourier series!wave number}. If the Fourier series equals the function it represents we will
+\emph{Fourier coefficients}\index{Fourier series!coefficients}, and $n$ the \emph{mode number}
+\index{Fourier series!mode number}. If the Fourier series equals the function it represents we will
 apply the usual equal sign "$=$". 
 
 \begin{example}
@@ -94,9 +96,8 @@ vector} $k_n=2\pi/T = n\pi/L$, that is,
 \end{equation} 
 One may rightfully ask: "Exactly when can a periodic function be represented 
 (whatever that means) by a Fourier series?". The more insightful answer to this question 
-requires a rather in-depth discussion to series convergence which we will avoid. 
-For our purpose, it suffices to state that a function can be represented by a Fourier series 
-if 
+requires a rather in-depth discussion of series convergence which we will avoid. 
+A sufficient set of conditions for us here is if 
 \begin{enumerate}
 	\item the function domain can be partitioned into a set of open 
 		intervals where the function is continuous, and 
@@ -106,7 +107,7 @@ if
 The sawtooth function is clearly bounded. Moreover, we can partition each of the intervals 
 $\ldots, -1 \leq x < 0, 0 \leq x < 1, \ldots$ into one open continuous interval 
 $\ldots, -1 < x <0$, $0 < x < 1, \ldots$ Therefore, $\saw$ can be represented by a
-Fourier series. Importantly, the fact that the sawtooth function can be represent by a 
+Fourier series. Importantly, the fact that the sawtooth function can be represented by a 
 Fourier series does not mean that the two functions are equal in every point in the domain; we will
 later see that this is the case in the jump discontinuities.  
 
@@ -169,7 +170,7 @@ Before this section's main theorem we need one additional definition
 	$|s_m(x) - f(x)| < \epsilon$ for all $x \in S$ and $m \geq N$. 
 \end{definition}
 \noindent Notice that $N$ is independent of $x$. Uniform convergence entails that
-all points $x \in S$ converges with same upper bound $N$, hence, $N$ only depends on $\epsilon$ not $x$. 
+all points $x \in S$ converge with same upper bound $N$, hence, $N$ only depends on $\epsilon$ not $x$. 
 This is a stronger condition compared to point wise convergence where $N$ in general is a function of
 $x$; if a series converges uniformly to a function it also converges point wise.
 
@@ -234,7 +235,7 @@ We are now ready for the section's main theorem
 			\label{eq:pointii}
 		\end{eqnarray}
 		The first term on the right-hand side is zero. For the second term 	we again interchange 
-		the integration and summation, giving raise to integrals with relations
+		the integration and summation, giving rise to integrals with relations
 		\begin{eqnarray}
 			\int_{-L}^L \cos\left(\frac{m\pi }{L} \, x\right) \cos\left(\frac{\pi n}{L} \, 
 			x\right) \d x = L \delta_{mn} \ ,
@@ -247,7 +248,7 @@ We are now ready for the section's main theorem
 			\int_{-L}^L \cos\left(\frac{m\pi }{L} \, x\right)
 			\sin\left(\frac{n\pi }{L}	\, x\right) \, \d x = 0 
 		\end{eqnarray}
-		since cosine and sine are ortohgonal on $I$. 
+		since cosine and sine are orthogonal on $I$. 
 
 		Therefore, Equation (\ref{eq:pointii}) simplifies to
 		\begin{equation}
@@ -268,7 +269,7 @@ We are now ready for the section's main theorem
 
 \noindent The theorem for the Euler-Fourier coefficients requires uniform convergence which is a
 strong condition\footnote{and makes the theorem so-called  \emph{weak} \index{Theorems:weak}}. One
-can, in fact, prove the theorem for less strict conditions; but we void this, and use the less 
+can, in fact, prove the theorem for less strict conditions; but we avoid this, and use the less 
 satisfactory definition
 \begin{definition}
 The Fourier representation of a function $f$ is the Fourier
@@ -336,7 +337,7 @@ series with coefficients given by the Euler-Fourier equations if they exist.
 			\label{eq:fouriersaw}
 			\saw(x) \sim \frac{1}{2} - \sum_{n=1}^\infty  \frac{1 + (-1)^n}{n \pi} \sin(n\pi x) 
 		\end{equation}
-		Note that when $n$ is odd the nominator in the summation is zero, and we can simply 
+		Note that when $n$ is odd the numinator in the summation is zero, and we can simply 
 		let $n$ run over the even natural numbers.
 \end{example}
 
@@ -360,9 +361,12 @@ infinitely many terms. Rather we plot the partial sum
 \begin{eqnarray}
 	s_m(x) = \frac{1}{2} - \sum_{n=1}^m  \frac{1 + (-1)^n}{n \pi} \sin(n\pi x) \, .
 \end{eqnarray}
-We can define the remainder $R_m(x) = \saw(x) - s_m(x)$. The remainder $R_{50}$ is plotted in Fig. 
-\ref{fig:remainder-fourier} (a) for the sawtooth function. 
-e see a large disagreement in neighbourhoods around 
+We can define the remainder 
+\begin{equation}
+R_m(x) = \saw(x) - s_m(x). 
+\end{equation}
+The remainder $R_{50}$ is plotted in Fig. \ref{fig:remainder-fourier} (a) for the sawtooth function. 
+Notice a large disagreement in neighbourhoods around 
 the points of discontinuities, which is manifested as large amplitude oscillations. This is known 
 as the \emph{Gibbs phenomenon}\index{Gibbs phenomenon}. 
 
@@ -376,10 +380,21 @@ as the \emph{Gibbs phenomenon}\index{Gibbs phenomenon}.
 	\end{center}
 \end{figure}
 
-In Fig. \ref{fig:remainder-fourier} (b) the Fourier coefficients, $b_n$, are plotted as function of $n$ (for 
-$n$ odd $b_n$ is not shown). We see that the coefficients decrease, giving us the hope that the Fourier series 
-actually converges. Needless to say, a convincing argument requires a proof, which we do not pursue here. 
+In Fig. \ref{fig:remainder-fourier} (b) the Fourier coefficients, $b_n$, are plotted as 
+function of $n$ (for $n$ odd $b_n$ is not shown). We see that the coefficients decrease, 
+giving us the hope that the Fourier series actually converges. 
+Needless to say, a convincing argument requires a proof, which we do not pursue here. 
 
+Function representations in terms of Fourier series can be understood more abstractly 
+by viewing the functions as vectors as we did above. In this way, one has an inifinite dimensional  
+vector space spanned by 
+\begin{equation}
+	\mathcal{V} = \left\{ 1, \cos(n\pi x/L), \sin(n\pi x/L) : n \in \mathbb{N}_{+}\right\}
+\end{equation}
+that forms an orthogonal basis with respect to the inner product Eq. (\ref{eq:innerdef}). 
+The Fourier coefficients are therefore the coefficients of the function 
+representation in this basis. More advanced treatments 
+formalize this idea using Hilbert spaces.
 
 
 \vspace{2cm}
@@ -387,9 +402,12 @@ actually converges. Needless to say, a convincing argument requires a proof, whi
 \begin{exerciseregion}
 	\begin{exercise}
 		\begin{enumerate}
-			\item Proof that Equation (\ref{eq:innerdef}) defines an inner product. (You may have 
+			\item Prove that Equation (\ref{eq:innerdef}) defines an inner product. (You may have 
 				to recall the exact definition of an inner product.) 
-			\item Show that $f(x) = x$ and $g(x)=x^2 - 1$ are orthogonal on $I=[-1,1]$, but not on $I=[-1;2]$. 
+			\item Show that $f(x) = x$ and $g(x)=x^2 - 1$ are orthogonal on $I=[-1,1]$, 
+				but not on $I=[-1;2]$. 
+			\item Prove that that if $f\neq0$ and $g\neq0$ are orthogonal, then $f$ and $g$ are
+				linearly independent. (Hint: You can use a contraction for this proof.)
 		\end{enumerate}		
 	\end{exercise}
 
@@ -412,7 +430,7 @@ actually converges. Needless to say, a convincing argument requires a proof, whi
 			\item Sketch a periodic expansion of $f$.  Where do you expect the
 				Gibbs phenomenon to arise?
 			\item Find the Fourier series representation of $f$.
-			\item Plot the partial sums and the remainder for $m=3,9,99$. (Why the odd index?)
+			\item Let $L=1$. Plot the partial sums and the remainder for $m=3,9,99$. (Why the odd index?)
 		\end{enumerate}			
 	\end{exercise}
 
@@ -435,18 +453,18 @@ actually converges. Needless to say, a convincing argument requires a proof, whi
 		\begin{eqnarray}
 			\sum_{n=1}^\infty b_n \sin\left(\frac{n\pi}{L}x\right) \, .
 		\end{eqnarray}
-		Consider the function $f(x) = x^2$, $-2<x<2$, i.e., $L=2$.
+		Consider the function $f(x) = x^2$, $-2<x<2$. 
 		Find the Fourier series representation. Is the result consistent with the exercise preamble?
 	\end{exercise}
 	
 	\begin{exercise}
-		Prove that the product of two odd functions is an even function. Is the product between to 
+		Prove that the product of two odd functions is an even function. Is the product between two 
 		even functions then an odd function?
 		\end{exercise}
 
 	\begin{exploration}
-		In many "real life" situations you may not have a function definition for the periodic function or the 
-		Euler-Fourier integrals are untractable. Then the coefficients 
+		In many "real life" situations you may not have a function definition for the 
+		periodic function or the Euler-Fourier integrals are untractable. Then the coefficients 
 		can be found by numerical methods. Go to Appendix \ref{appendix:fourier}.
 	\end{exploration}
 \end{exerciseregion}

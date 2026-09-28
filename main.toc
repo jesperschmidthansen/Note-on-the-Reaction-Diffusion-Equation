@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.5}Chemotaxis }{33}{}%
 \contentsline {chapter}{\numberline {3}The diffusion equation}{37}{}%
 \contentsline {section}{\numberline {3.1}Periodic functions and the Fourier series}{37}{}%
-\contentsline {section}{\numberline {3.2}The diffusion equation with Dirichlet boundaries}{45}{}%
+\contentsline {section}{\numberline {3.2}The diffusion equation with Dirichlet boundaries}{46}{}%
 \contentsline {section}{\numberline {3.3}Unbounded domains and Fourier transforms}{50}{}%
 \contentsline {chapter}{\numberline {4}Reaction-diffusion phenomena}{57}{}%
 \contentsline {section}{\numberline {4.1}Reaction-diffusion in pores and channels: The linear case}{57}{}%
