@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.26)  17 SEP 2026 20:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.26)  27 SEP 2026 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1055,7 +1055,7 @@ Package pdftex.def Info: figs/sawtooth-eps-converted-to.pdf  used on input line
 [38]
 
 [39]
-Overfull \hbox (37.66974pt too wide) in alignment at lines 200--204
+Overfull \hbox (37.66974pt too wide) in alignment at lines 201--205
  [][][] []
  []
 
@@ -1075,13 +1075,13 @@ Package epstopdf Info: Source file: <figs/fouriersawtooth.eps>
 (epstopdf)                    size: 26269 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/fouriersawtooth-eps-c
 onverted-to.pdf figs/fouriersawtooth.eps>
-(epstopdf)             \includegraphics on input line 340.
+(epstopdf)             \includegraphics on input line 355.
 Package epstopdf Info: Output file is already uptodate.
 <figs/fouriersawtooth-eps-converted-to.pdf, id=310, 410.53375pt x 578.16pt>
 File: figs/fouriersawtooth-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/fouriersawtooth-eps-converted-to.pdf>
 Package pdftex.def Info: figs/fouriersawtooth-eps-converted-to.pdf  used on inp
-ut line 340.
+ut line 355.
 (pdftex.def)             Requested size: 125.47884pt x 176.71347pt.
 Package epstopdf Info: Source file: <figs/remainderFourier.eps>
 (epstopdf)                    date: 2026-09-17 19:38:36
@@ -1092,21 +1092,21 @@ Package epstopdf Info: Source file: <figs/remainderFourier.eps>
 (epstopdf)                    size: 13671 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/remainderFourier-eps-
 converted-to.pdf figs/remainderFourier.eps>
-(epstopdf)             \includegraphics on input line 356.
+(epstopdf)             \includegraphics on input line 371.
 Package epstopdf Info: Output file is already uptodate.
 <figs/remainderFourier-eps-converted-to.pdf, id=311, 697.60625pt x 316.18124pt>
 
 File: figs/remainderFourier-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/remainderFourier-eps-converted-to.pdf>
 Package pdftex.def Info: figs/remainderFourier-eps-converted-to.pdf  used on in
-put line 356.
+put line 371.
 (pdftex.def)             Requested size: 244.16583pt x 110.66508pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--373
+Underfull \hbox (badness 10000) in paragraph at lines 386--388
 
  []
 
@@ -1118,7 +1118,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--373
 
 [45]
 
-LaTeX Warning: Reference `stst:sectBVP' on page 46 undefined on input line 499.
+LaTeX Warning: Reference `stst:sectBVP' on page 46 undefined on input line 514.
 
 
 
@@ -1134,18 +1134,18 @@ Package epstopdf Info: Source file: <figs/diffDBC.eps>
 (epstopdf)                    size: 11054 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffDBC-eps-converted
 -to.pdf figs/diffDBC.eps>
-(epstopdf)             \includegraphics on input line 571.
+(epstopdf)             \includegraphics on input line 586.
 Package epstopdf Info: Output file is already uptodate.
 <figs/diffDBC-eps-converted-to.pdf, id=347, 431.6125pt x 574.145pt>
 File: figs/diffDBC-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diffDBC-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diffDBC-eps-converted-to.pdf  used on input line 
-571.
+586.
 (pdftex.def)             Requested size: 125.47884pt x 166.90953pt.
 
 
 [48 <./figs/diffDBC-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
 
  []
 
@@ -1168,18 +1168,18 @@ Package epstopdf Info: Source file: <figs/diffunbounded.eps>
 (epstopdf)                    size: 17908 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/diffunbounded-eps-con
 verted-to.pdf figs/diffunbounded.eps>
-(epstopdf)             \includegraphics on input line 939.
+(epstopdf)             \includegraphics on input line 954.
 Package epstopdf Info: Output file is already uptodate.
 <figs/diffunbounded-eps-converted-to.pdf, id=379, 418.56375pt x 511.9125pt>
 File: figs/diffunbounded-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/diffunbounded-eps-converted-to.pdf>
 Package pdftex.def Info: figs/diffunbounded-eps-converted-to.pdf  used on input
- line 939.
+ line 954.
 (pdftex.def)             Requested size: 125.47884pt x 153.45776pt.
 
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 962--963
+Underfull \hbox (badness 10000) in paragraph at lines 977--978
 
  []
 
@@ -1462,10 +1462,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17975 strings out of 473910
- 348770 string characters out of 5736660
- 741849 words of memory out of 5000000
- 40708 multiletter control sequences out of 15000+600000
+ 17974 strings out of 473910
+ 348750 string characters out of 5736660
+ 741815 words of memory out of 5000000
+ 40707 multiletter control sequences out of 15000+600000
  573355 words of font info for 91 fonts, out of 8000000 for 9000
  833 hyphenation exceptions out of 8191
  81i,14n,117p,487b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1491,7 +1491,7 @@ s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (82 pages, 1238318 bytes).
+Output written on main.pdf (82 pages, 1240376 bytes).
 PDF statistics:
  689 PDF objects out of 1000 (max. 8388607)
  426 compressed objects within 5 object streams

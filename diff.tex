@@ -1,16 +1,16 @@
 
 If the system is non-reactive, $r=0$, the RD-equation reduces to the diffusion equation. If the 
-diffusion coefficient is constant this is in one dimension (and Cartesian
-coordinates, of course)
+diffusion coefficient is constant this is in one dimension and in Cartesian
+coordinates
 \begin{equation}
 	\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial x^2} \, .
 \end{equation}
-To solve this problem we need an IC, $c(x,0)$, and BCs which can be of the Dirichlet type, Neuman type
+To solve this problem we need an IC, $f(x)=c(x,0)$, and BCs which can be of the Dirichlet type, Neuman type
 or a mix of the two. 
 
-Before we explore the diffusion equation, we must first have some fundamental knowledge about   
+Before we explore the diffusion equation, we must first acquire some knowledge about   
 the famous Fourier series and the Euler-Fourier equations as they play a key role in 
-this exploration. 
+the exploration of the diffusion equatio. 
 
 \section{\label{sect:fourier}Periodic functions and the Fourier series}
 
@@ -18,55 +18,56 @@ this exploration.
 	\includegraphics[width=0.35\textwidth]{figs/sawtooth.eps}
 \end{wrapfigure}
 
-In this text, a periodic function is a function defined on a subset $S$ in $\mathbb{R}$
-and which has repeating values such that for $p \neq 0$ 
+In one dimension, a periodic function is a function defined on a subset $S$ in $\mathbb{R}$
+and which has repeating values such that for $T \neq 0$ 
 \begin{equation}
-	f(x)=f(x+p)  \, 
+	f(x)=f(x+T)  \, 
 \end{equation}
-where $x \in S$ and $x + p \in S$. $p$ is called the function period. 
-$p$ is not unique; the least value for $p$ is referred to as 
+where $x \in S$ and $x + T \in S$. $T$ is called the function period. 
+$T$ is not unique; the least value for $T$ is referred to as 
 the \emph{fundamental period}, e.g., the functions cosine and sine 
-have fundamental period 2$\pi$. Another, and less trivial example, is the \emph{sawtooth
-function} \index{Function!sawtooth} \index{Sawtooth function}
+have fundamental period 2$\pi$. 
+
+Another example is the \emph{sawtooth function} \index{Function!sawtooth} \index{Sawtooth function}
 \begin{equation}
 	\saw(x) = x - \lfloor x \rfloor \, ,
 \end{equation}
 here  $\lfloor x \rfloor$ is the floor function, defined such that $\lfloor -0.5 \rfloor = -1,
 \lfloor 0.5 \rfloor = 0$, $\lfloor 1 \rfloor = 1$, and so forth. 
-The sawtooth function as a fundamental period of 1, and since the left and right function
+The sawtooth function has a fundamental period of 1, and since the left and right function
 limits in points $x=\ldots -2,-1,0,1,2, \ldots$ exist, but are different the function features
 \emph{jump discontinuities} \index{Jump discontinuity} in these points. 
 
 Another way of defining the sawtooth function is to \emph{periodically expand} the 
-function $f(x) = x$, where $0 \leq x < 1$. The expansion is then given as 
+function $f(x) = x$, where $0 \leq x < 1$. The expansion is given as 
 \begin{eqnarray}
-	\saw(x) = f(x + np) \ , 
+	\saw(x) = \saw(x + n) \ , 
 \end{eqnarray}
-with $p=1$ and $n \in \mathbb{Z}$.
+with $n \in \mathbb{Z}$.
 
-The sawtooth function is defined on the entire real line and $S=\R$. We can define another (and related) 
+The sawtooth function is defined on the entire real line and we have $S=\R$. We can define another (and related) 
 periodic function with fundamental period 1 using the periodic expansion of $f(x)=x$, 
-but where $0 < x < 1$. Here $S=\R \backslash \{\mathbb{Z}\}$. 
+but where $0 < x < 1$ such that $S=\R \backslash \{\mathbb{Z}\}$. 
 
-Now, a question relevant to us is how a periodic function can be "represented" by a function 
+A question relevant to us here, is how a periodic function can be "represented" by a function 
 series. What we mean by a representation in this case will hopefully be clear as we go on. 
-The well known Taylor series (or in general any power series) will not be a good choice 
-since a necessary condition here is that the function must be  
-infinitely differentiable on its domain. The sawtooth function above clearly does not fulfill 
-this when $x$ takes integer values, $\ldots -2,-1,0,1,2, \ldots$. 
-Even if the function has a Taylor series, this is not very practical choice since the Taylor 
-series converges slowly for periodic functions as we saw in the previous Chapter. 
-Then, we suggest to represent the function as a series of known periodic functions, that is, 
+The well known Taylor series will not be a good choice since a necessary condition here 
+is that the function must be infinitely differentiable on its domain. The sawtooth function 
+above clearly does not fulfill this when $x$ takes integer values, $\ldots -2,-1,0,1,2, \ldots$. 
+Even if the function has a Taylor series, this series is generally not a very practical choice since the Taylor 
+series converges slowly for periodic functions. Then, we suggest to represent the periodic function
+$f: \R \supseteq S \rightarrow \R$ as a series of known periodic functions, that is, 
 \begin{equation}
 	\label{eq:Fouriereq}
-	F(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi }{L} \, x\right) 
+	f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi }{L} \, x\right) 
 	+ \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi }{L} \, x\right) \, .
-\end{equation} 
-This is the famous \emph{Fourier series}, \index{Fourier series}\index{Series!Fourier} and the 
+\end{equation}
+Notice the symbol "$\sim$" is used as a representation symbol. This is the famous \emph{Fourier series}, 
+\index{Fourier series}\index{Series!Fourier} and the 
 coefficients $a_0, a_1, a_2, \ldots$, $b_1, b_2, b_3, \ldots$ are called the 
 \emph{Fourier coefficients}\index{Fourier series!coefficients}, and $n$ the \emph{wave number}
-\index{Fourier series!wave number}. 
-By the way, an important point here is that a sum of periodic functions is also periodic. 
+\index{Fourier series!wave number}. If the Fourier series equals the function it represents we will
+apply the usual equal sign "$=$". 
 
 \begin{example}
 	The function $f(x) = 2\cos(2\pi x/L) + 3\sin(4\pi x/L)$ has two non-zero 
@@ -79,63 +80,58 @@ By the way, an important point here is that a sum of periodic functions is also 
 
 \noindent $n=1$ is the \emph{fundamental term} or \emph{fundamental mode} and note that 
 $\cos(\pi x/L)$ and $\sin(\pi x/L)$ have one period in the interval $[-L; L]$, 
-that is, the period for the fundamental mode is $p=2L$. 
+that is, the period for the fundamental mode is $T=2L$. 
 For $n=2$ the period is $L$, $n=3$ the period is $2/3L$, and so forth;  
 in general the relation between the mode period and $L$ is 
 \begin{eqnarray}
-	p = \frac{2L}{n} \, .
+	T = \frac{2L}{n} \, .
 \end{eqnarray}
 Often the Fourier series is expressed through the \emph{wave vector} \index{Fourier series!wave
-vector} $k_n=2\pi/p = n\pi/L$, that is,
+vector} $k_n=2\pi/T = n\pi/L$, that is,
 \begin{equation}
-	F(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(k_n \, x\right) 
+	f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(k_n \, x\right) 
 	+ \sum_{n=1}^\infty b_n \sin\left(k_n\, x\right) \, .
 \end{equation} 
-The mathematician will rightfully ask: "Exactly when can a periodic function be represented 
+One may rightfully ask: "Exactly when can a periodic function be represented 
 (whatever that means) by a Fourier series?". The more insightful answer to this question 
 requires a rather in-depth discussion to series convergence which we will avoid. 
 For our purpose, it suffices to state that a function can be represented by a Fourier series 
-if the function is
+if 
 \begin{enumerate}
-	\item piecewise continuous on the interval $x_0 < x < x_0 + L$, 
-		that is,  the function domain can be partitioned into a finite set of open 
+	\item the function domain can be partitioned into a set of open 
 		intervals where the function is continuous, and 
 	\item bounded on the domain, that is, there exists an 
-		$M \in \R$ such that $|f(x)| \leq M$, for all $x$ in the domain $S$.
+		$M > 0$ such that $|f(x)| \leq M$, for all $x \in S$.
 \end{enumerate}
 The sawtooth function is clearly bounded. Moreover, we can partition each of the intervals 
 $\ldots, -1 \leq x < 0, 0 \leq x < 1, \ldots$ into one open continuous interval 
 $\ldots, -1 < x <0$, $0 < x < 1, \ldots$ Therefore, $\saw$ can be represented by a
-Fourier series. That the sawtooth function can be represent by $F$ does not mean that the two
-functions are equal in every point in the domain: $\saw(x) \neq F(x)$ 
-in the jump discontinuities even if the two conditions above are fulfilled. We
-therefore write the representation as
-\begin{equation}
-	\label{eq:sawtoothFourier}
-	\saw(x)  \sim F(x) \, .
-\end{equation}
-Now, it remains to find the Fourier coefficients in the representation. 
-To this end we need to know about \emph{orthogonality} \index{Function!orthogonality} of functions. Let $f$ and $g$ be complex
-values functions, $f,g: I \rightarrow \R$ where $I = [a; b]$, then the \emph{inner product}
+Fourier series. Importantly, the fact that the sawtooth function can be represent by a 
+Fourier series does not mean that the two functions are equal in every point in the domain; we will
+later see that this is the case in the jump discontinuities.  
+
+To find the Fourier representation we must find the Fourier coefficients. To this end we need to know 
+about \emph{orthogonality} \index{Function!orthogonality} of functions. In general, let $f$ and $g$ be complex
+valued functions, $f,g: I \rightarrow \mathbb{C}$ where $I = [a; b] \subset \R$, then the \emph{inner product}
 \index{Inner product} on $I$ is defined as
 \begin{eqnarray}
 	\label{eq:innerdef}
 	\langle f,g\rangle= \int_a^b f(x) \overline{g}(x) \, \d x \, , 
 \end{eqnarray}
 where $\overline{g}$ is the complex conjugate to $g$. If $f$ and $g$ are real values functions we
-simple have $\langle f,g\rangle= \int_a^b f(x) g(x) \, \d x$. We say that $f$ and $g$ are 
+simply have $\langle f,g\rangle= \int_a^b f(x) g(x) \, \d x$. We say that $f$ and $g$ are 
 \emph{orthogonal} on $I$ if $\langle f,g \rangle = 0$. 
 
 \begin{example}
 	Let $f(x)=x$, $g(x)=\cos(x)$, and $h(x) = \sin(x)$. $f$ and $g$ are orthogonal on $I=[-\pi, \pi]$ because
 	$\langle f, g\rangle = \int_{-\pi}^{\pi} x \cos(x) \, \d x = 0$, but $f(x)=x$ and $h(x)$ are not 
-	orthognal on $I$ because $\langle f, h\rangle = \int_{-\pi}^{\pi} x \sin(x) \, \d x = 2\pi \neq
-	0$   
+	orthogonal on $I$ because $\langle f, h\rangle = \int_{-\pi}^{\pi} x \sin(x) \, \d x = 2\pi \neq
+	0$.   
 \end{example}
 
 \bigskip
 
-\noindent We shall benefit from the following properties of the sine and cosine functions on
+\noindent We will use the following properties of the sine and cosine functions on
 $I=[-L;L]$ 
 \begin{enumerate}
 	\item $\cos\left(\frac{n\pi x}{L}\right)$ and  
@@ -161,22 +157,26 @@ These statements can be verified from direct calculations. For example,
 using the product rule $2\cos(a)\sin(b) = \sin(a+b) + \sin(a-b)$. This integral is
 always zero, hence, the functions are orthogonal. 
 
-We need one additional definition: Let $f:S \rightarrow \mathbb{R}$ and let $s_m$ be the partial sum 
-\begin{eqnarray}
-	s_m(x) = \frac{a_0}{2} + \sum_{n=1}^m a_n \cos\left(\frac{n\pi}{L} x\right) + 
-	\sum_{n=1}^m b_n \sin\left(\frac{n\pi}{L} x\right) \, .
-\end{eqnarray}
-We say that the Fourier series \emph{converges uniformly} \index{Convergence!uniform} on $S$ if for all $\epsilon > 0$ 
-there exists an $N(\epsilon) \in \mathbb{N}$ such that $|s_m(x) - f(x)| < \epsilon$ for all 
-$x \in S$ and $m \geq N$. Notice, that $N$ is independent of $x$. Uniform convergence entails that
+Before this section's main theorem we need one additional definition
+\begin{definition}
+	Let $f: \R \supseteq S \rightarrow \mathbb{R}$ and let $s_m$ be the partial sum 
+	\begin{eqnarray}
+		s_m(x) = \frac{a_0}{2} + \sum_{n=1}^m a_n \cos\left(\frac{n\pi}{L} x\right) + 
+		\sum_{n=1}^m b_n \sin\left(\frac{n\pi}{L} x\right) \, .
+	\end{eqnarray}
+	We say that the Fourier series \emph{converges uniformly} \index{Convergence!uniform} on $S$ to $f$ 
+	if for all $\epsilon > 0$ there exists an $N(\epsilon) \in \mathbb{N}$ such that 
+	$|s_m(x) - f(x)| < \epsilon$ for all $x \in S$ and $m \geq N$. 
+\end{definition}
+\noindent Notice that $N$ is independent of $x$. Uniform convergence entails that
 all points $x \in S$ converges with same upper bound $N$, hence, $N$ only depends on $\epsilon$ not $x$. 
-This is a stronger condition compared to pointwise convergence where $N$ in general is a function of
-$x$. 
+This is a stronger condition compared to point wise convergence where $N$ in general is a function of
+$x$; if a series converges uniformly to a function it also converges point wise.
 
 We are now ready for the section's main theorem
 \begin{theorem}
-	If the Fourier series representation, $F$, of $f:\mathbb{R} \rightarrow \mathbb{R}$ 
-	converges uniformly to $f$ on $\mathbb{R}$ and $f=F$ then 
+	If the Fourier series representation of $f:\mathbb{R} \rightarrow \mathbb{R}$ 
+	converges uniformly to $f$ on $\mathbb{R}$ then 
 	\begin{description}[style=unboxed,leftmargin=0.5cm]
 		\item[1] $\langle f(x), 1 \rangle = La_0$
 		\item[2] $\left \langle f(x), \cos\left(\frac{n \pi}{L}x\right)
@@ -190,7 +190,8 @@ We are now ready for the section's main theorem
 
 \begin{proof}
 	\begin{enumerate}
-		\item Since $f(x)=F(x)$  
+		\item Since the Fourier series converges uniformly to $f$ the two function are equal, that
+			is,   
 			\begin{eqnarray}
 				\label{eq:f=F}
 				f(x) =  \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi}{L} \, x\right) 
@@ -202,8 +203,8 @@ We are now ready for the section's main theorem
 				\cos\left(\frac{n\pi }{L} \, x\right) \d x + \int_{-L}^L \sum_{n=1}^\infty b_n \sin\left(\frac{n\pi 
 				}{L} \, x\right) \d x \nonumber \\
 		\end{eqnarray}
-		We can interchange integration and summation in the last two terms; this is due to the fact that 
-		the two function series converges uniformly. Then, for all $n \in \mathbb{N}_+$ we have  
+		Again due to the uniform convergence, we can interchange integration and summation in the
+			last two terms. Then, for all $n \in \mathbb{N}_+$ we have  
 		\begin{equation}
 			\int_{-L}^L  \cos\left(\frac{n\pi }{L} \, x\right) \d x = 0 \ \text{and} \ 
 			\int_{-L}^L  \sin\left(\frac{n\pi }{L} \, x\right) \d x = 0 \ , 
@@ -212,9 +213,12 @@ We are now ready for the section's main theorem
 		\begin{equation}
 			\label{eq:a0}
 			 \int_{-L}^L f(x) \d x = \frac{a_0}{2}   \int_{-L}^L \d x
-			 \Rightarrow a_0 = \frac{1}{L} \int_{-L}^L f(x) \d x \, . 
+			 \Rightarrow L a_0 = \int_{-L}^L f(x) \d x \, . 
 		\end{equation}
-		This is the result we are after.
+		This is the result we are after  by definition of the inner product
+			\begin{equation}
+				\langle f(x), 1 \rangle = \int_{-L}^L f(x) \, \d x 
+			\end{equation}
 		
 	\item  Multiplying Equation (\ref{eq:f=F}) with $\cos(m \pi x/L)$, $m=1,2,3, \ldots$ and integrate from $-L$ to $L$
 		\begin{eqnarray}
@@ -262,18 +266,29 @@ We are now ready for the section's main theorem
 	The last equation is left as an exercise.
 \end{proof}
 
-
-\noindent We now make a very important definition: The Fourier representation of a function $f$ is the Fourier
-series with coefficients given by the Euler-Fourier equations if these exist.   
+\noindent The theorem for the Euler-Fourier coefficients requires uniform convergence which is a
+strong condition\footnote{and makes the theorem so-called  \emph{weak} \index{Theorems:weak}}. One
+can, in fact, prove the theorem for less strict conditions; but we void this, and use the less 
+satisfactory definition
+\begin{definition}
+The Fourier representation of a function $f$ is the Fourier
+series with coefficients given by the Euler-Fourier equations if they exist.   
+\end{definition}
 
 \begin{example}
 	Find the Fourier coefficients of the sawtooth function. Then write-down the Fourier series representation.
 	
 	\bigskip
 	
+	\noindent The sawtooth function has jump discontinuities for every $x \in \Z$ and the Fourier series representation
+	does not converge uniformly to the function. Nevertheless, we can find the Fourier
+	representation.
+
+	\bigskip
+
 	\noindent $a_0$: We use $L=1$, then from Equation (\ref{eq:a0}).
 	\begin{equation}
-		a_0 = \int_{-1}^1 i\saw(x) \, \d x = \int_{-1}^0 x + 1\, \d x + \int_{0}^1 x \, \d x = 1 \ .  
+		a_0 = \int_{-1}^1 \saw(x) \, \d x = \int_{-1}^0 x + 1\, \d x + \int_{0}^1 x \, \d x = 1 \ .  
 	\end{equation}
 	
 
@@ -328,9 +343,9 @@ series with coefficients given by the Euler-Fourier equations if these exist.
 \noindent From Equation (\ref{eq:fouriersaw}) we see that for $x \in \Z$ the Fourier representation yields 
 the value 1/2, but this is not the value of the sawtooth function itself. 
 It is a general feature of the Fourier representation that at point $x_0$ it has value of the average of the right and 
-left limits of the function $f$ it represents (so these must exist). That is, we have
+left limits of the function $f$ it represents (so these must exist). That is, we have values
 \begin{eqnarray}
-	F(x_0) = \frac{ \lim_{x \rightarrow x_0^+}f(x) + \lim_{x \rightarrow
+	\frac{ \lim_{x \rightarrow x_0^+}f(x) + \lim_{x \rightarrow
 	x_0^-}f(x) }{2} \, , \ \  x_0 \in \mathbb{R} \, . \nonumber \\
 \end{eqnarray}
 In points where the function is continuous 
@@ -364,6 +379,7 @@ as the \emph{Gibbs phenomenon}\index{Gibbs phenomenon}.
 In Fig. \ref{fig:remainder-fourier} (b) the Fourier coefficients, $b_n$, are plotted as function of $n$ (for 
 $n$ odd $b_n$ is not shown). We see that the coefficients decrease, giving us the hope that the Fourier series 
 actually converges. Needless to say, a convincing argument requires a proof, which we do not pursue here. 
+
 
 
 \vspace{2cm}
