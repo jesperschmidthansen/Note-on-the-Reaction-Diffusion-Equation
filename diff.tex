@@ -733,7 +733,7 @@ where $b_n$ is found directly from Equation (\ref{eq:bnf})
 %
 
 \section{Unbounded domains and Fourier transforms}
-Up till now we have dealt with Dirichlet, Neumann, or mixed boundary conditions. 
+Up until now we have dealt with Dirichlet, Neumann, or mixed boundary conditions. 
 These boundaries characterise bounded systems (or domains), where we can clearly define some properties at the ends of the tube. 
 In certain cases we have that the tube length is large compared to (i) the initial concentration profile and 
 (ii) the characteristic \emph{diffusion length scale}, $L_D(t) = \sqrt{4 D t}$. 
@@ -757,7 +757,7 @@ We have the following relations
 	\cos(k_n x) &=& \frac{e^{ik_n x} + e^{-ik_nx}}{2}  \nonumber \\
 	\sin(k_n x) &=& \frac{e^{ik_n x} - e^{-ik_nx}}{2i}   
 \end{eqnarray}
-which can shown directly by Euler's identity. Substitution leads to 
+which can be shown directly by Euler's identity. Substitution leads to 
 \begin{eqnarray}
 	F(x) &=&  \frac{a_0}{2}+ \sum_{n=1}^\infty\frac{a_n}{2}(e^{ik_nx}+e^{-ik_nx}) + \sum_{n=1}^\infty \frac{b_n}{2i} ( e^{ik_nx}-e^{-ik_nx}) 
 	\nonumber \\
@@ -805,7 +805,7 @@ usual interval $[-L;L]$.
 	See exercise \label{missingproof}
 \end{proof}
 
-In unbounded domains we cannot general resolve the function in periods of finite $L$. The (complex) Fourier
+In unbounded domains we cannot general in resolve the function in periods of finite $L$. The (complex) Fourier
 coefficients are then defined to be the limiting value of
 \begin{eqnarray}
 	\label{eq:cnunbound}
@@ -814,14 +814,14 @@ coefficients are then defined to be the limiting value of
 \end{eqnarray}
 if the integral exists. This definition is not as innocent as it may first appear since the wave vector is dependent on 
 both the index $n$ and $L$, and the limit is not always easy to evaluate even if the integral can be found. 
-However, Equation (\ref{eq:cnunbound}) leads to another very powerful definition, namely, the
-\emph{Fourier transform} \index{Fourier transform}
+However, Equation (\ref{eq:cnunbound}) motivates another very powerful definition, namely, the
+definition of the \emph{Fourier transform} \index{Fourier transform}
 \begin{eqnarray}
-	\fourier{f}(k_n) = \int_{-\infty}^\infty  f(x) e^{-ik_n x} \, \d x \, .
+	\fourier{f}(k) = \int_{-\infty}^\infty  f(x) e^{-ik x} \, \d x \, .
 \end{eqnarray}
-The Fourier transform is an \emph{integral transform} or \emph{integral operator}, that transforms the function $f$ into 
-another function $\fourier{f}$ that depends on the wave vector $k_n$. This transform is defined for any (real) 
-wave vector, and often the subscript $n$ is omitted. 
+We here consider $k$ to be any positive real number and we omit the subscript $n$. 
+The Fourier transform is an \emph{integral transform} or \emph{integral operator} that transforms the function $f$ into 
+another function $\fourier{f}$ that depends on the wave vector $k$. 
 
 \begin{example}
 	Find the Fourier transform $\fourier{f}$ for 
@@ -851,23 +851,23 @@ The Fourier transform has some very powerful properties which we will exploit.
 \begin{theorem}
 	\begin{description}[style=unboxed,leftmargin=0.4cm]
 		\item[1] {
-			If $f,g:\mathbb{R} \rightarrow \mathbb{R}$ are bounded and piece wise continuous, then 
+			If $f,g:\mathbb{R} \rightarrow \mathbb{R}$ are bounded and piecewise continuous, then 
 			\begin{equation}
 				\mathcal{F}[\alpha f + g] = \alpha \mathcal{F}[f] + \mathcal{F}[g] 
 			\end{equation}
 			for  $\alpha \in \mathbb{R}.$ This is the linearity property. 
 		}
 		\item[2] {
-		If $f: \mathbb{R} \rightarrow \mathbb{R}$ is at least twice differentiable, bounded and 
-		$\lim_{x \rightarrow \pm \infty} f = 0$, then   
+		If $f: \mathbb{R} \rightarrow \mathbb{R}$ is at least twice differentiable, bounded and
+			decays sufficiently quickly to zero as $x \rightarrow \infty$, then   
 			\begin{equation}
 			\mathcal{F}\left[\frac{\d f}{\d x}\right] = ik \mathcal{F}[f] \ \ \text{and} 
 			\ \ \mathcal{F}\left[\frac{\d^2 f}{\d x^2}\right] = -k^2 \mathcal{F}[f]
 			\end{equation}
 		}
 		\item[3]{ 
-		Let $f=f(x,t)$ be defined for all positive $t$ and $x\in \R$. Assume $f$ has partial derivative with respect 
-			to $t$, that $f$ is continous with respect to $x$ and $t$, is uniform convergent, and bounded. Then  
+		Let $f=f(x,t)$ be defined for all positive $t$ and $x\in \R$. Assume that $f \in C^1$ and 
+		the Leibniz integral rule applies, then  
 		\begin{equation}
 			\label{eq:ftransprop3}
 			\mathcal{F}\left[\frac{\partial f}{\partial t}\right] = \frac{\partial}{\partial t} \mathcal{F}[f].
@@ -877,25 +877,29 @@ The Fourier transform has some very powerful properties which we will exploit.
 \end{theorem}
 
 \begin{proof}
-	The linearity follows directly from the linearity for integrals. The second property can be shown by integration by parts 
+	
+	\bigskip
+
+	\noindent 1: The linearity follows directly from the linearity for integrals. 
+
+	\bigskip
+
+	\noindent 2: The second property can be shown by integration by parts 
 	\begin{eqnarray}
 		\mathcal{F}\left[\frac{\d f}{\d x}\right] &=& \int_{-\infty}^\infty f'(x) e^{-ikx} \, \d x  \nonumber \\
 		&=& \left[f(x) e^{-ikx}\right]_{-\infty}^\infty + ik \int_{-\infty}^\infty f(x) e^{ikx}\, \d x = ik \fourier{f}(k)
 	\end{eqnarray}
-	since $\lim_{x\rightarrow \pm \infty} f = 0$. For the second order derivative integration by part is applied twice.
+	since $\lim_{x\rightarrow \pm \infty} f = 0$. For the second order derivative integration by
+	parts is applied twice.
 
-	For the third property we define the function $w(x,t) = f(x,t)e^{-ikx}$ and show that the right-hand side in Equation (\ref{eq:ftransprop3}) 
-	equals the left-hand side. Using the definition of $w$ and the partial derivative
+	\bigskip
+
+	\noindent 3: For the third property we define the function $w(x,t) = f(x,t)e^{-ikx}$. Since the
+	Leibniz integral rule exists we get 
 	\begin{eqnarray}
-		\frac{\partial}{\partial t} \mathcal{F}[f] &=& \frac{\partial}{\partial t} \int_{-\infty}^\infty w(x,t) \, \d x \nonumber  \\ 
-		&=& \lim_{h \rightarrow 0} \frac{1}{h}\left\{ \int_{-\infty}^\infty w(x, t+h) \, \d x - \int_{-\infty}^\infty w(x, t) \, \d x\right\} 
-		\nonumber \\
-		&=&  \lim_{h \rightarrow 0} \int_{-\infty}^\infty \frac{w(x,t+h)-w(x,t)}{h}\, \d x 
-	\end{eqnarray}
-	From the property of $f$ we can interchange the limit and intergral
-	\begin{eqnarray}
-		\int_{-\infty}^\infty \lim_{h \rightarrow 0} \frac{w(x,t+h)-w(x,t)}{h}\, \d x 
-		= \int_{-\infty}^\infty \frac{\partial w}{\partial t} \, \d x = \int_{-\infty}^\infty \frac{\partial f}{\partial t} e^{-ik x} \, \d x 
+		\frac{\partial}{\partial t} \mathcal{F}[f] &=& \frac{\partial}{\partial t}
+		\int_{-\infty}^\infty w(x,t) \, \d x =  
+ \int_{-\infty}^\infty \frac{\partial w}{\partial t} \, \d x = \int_{-\infty}^\infty \frac{\partial f}{\partial t} e^{-ik x} \, \d x 
 	\end{eqnarray}
 	which is the left-hand side of Equation (\ref{eq:ftransprop3}).	
 \end{proof}
@@ -909,13 +913,13 @@ implies that
 \begin{eqnarray}
 	\frac{\partial}{\partial t}  \fourier{c}(k, t) = -D k^2 \fourier{c} \, ,
 \end{eqnarray}
-for all $k$. In this way, the we transform the partial differential equation for $c$ 
+for all $k$. In this way, we transform the partial differential equation for $c$ 
 into a differential equation for $\fourier{c}$, but with respect to a single variable. The general solution we know 
 \begin{eqnarray}
 	\label{eq:fouriersol}
 	\fourier{c}(k, t) = \fourier{c}_0 e^{-Dk^2t} \, .
 \end{eqnarray}
-This is referred to \emph{the solution in Fourier space} \footnote{We have not formally defined this "space", 
+This is referred to as \emph{the solution in Fourier space} \footnote{We have not formally defined this "space", 
 but we will use the term nevertheless.}. 
 
 If we wish a particular solution we of course need to specify the initial condition. For example, if we have an initial concentration 
@@ -924,7 +928,7 @@ which is Gaussian distributed with respect to $x$
 	\label{eq:initRealUnbounded}
 	c(x, 0) = c_0 e^{-(x/\sigma)^2} \ , 
 \end{eqnarray}
-where $\sigma \in \R$ is a measure of the Gaussian width and $c_0$ the concentration at $x=0$, then 
+where $\sigma > 0$ is a measure of the Gaussian width and $c_0$ the concentration at $x=0$, then 
 \begin{eqnarray}
 	\fourier{c}_0 = c_0 \int_{-\infty}^\infty e^{-(x/\sigma)^2 - ikx} \, \d x \, .
 \end{eqnarray}
@@ -947,7 +951,7 @@ Substitution into Equation (\ref{eq:fouriersol}) we get
 	\label{eq:fouriersolc}
 	\fourier{c}(k,t)=c_0 \sqrt{\pi} \sigma  e^{\frac{-k^2\sigma^2}{4}}   e^{-Dk^2t}
 \end{eqnarray}
-Some times the solution in Fourier space can give us the information we seek, however, we often also want 
+Sometimes the solution in Fourier space can give us the information we seek, however, we often also want 
 the solution to $c$ and not only $\fourier{c}$. We now define the \emph{inverse Fourier transform} of $\fourier{f}$ 
 to be 
 \begin{eqnarray}
@@ -956,7 +960,7 @@ to be
 In operator notation we write this as $f(x) = \mathcal{F}^{-1}[\fourier{f}](x)$. 
 Let us see a useful example. 
 \begin{example}
-	Let $f(x) = e^{-a x^2}$, where $a>0$. Rewritting the exponent and using Gaussian's integration formula
+	Let $f(x) = e^{-a x^2}$, where $a>0$. Rewriting the exponent and using Gaussian's integration formula
 	\begin{equation}
 		\label{eq:expx2F}
 		\fourier{f}(k)= \sqrt{\frac{\pi}{a}} e^{-k^2/4 a} \, .
@@ -979,18 +983,19 @@ Let us see a useful example.
 \end{wrapfigure}
 
 The example is not a coincidence, of course, and is generalized in the following statement: 
-If $f: \R \rightarrow \R$ is piecewise continuous and bounded, then
+If $f: \R \rightarrow \R$ is sufficiently well behaved, then
 \begin{eqnarray}
 	\mathcal{F}^{-1}[\mathcal{F}[f]](x) = \mathcal{F}^{-1}[\fourier{f}](x) = f(x) \, .
 \end{eqnarray}
 This is the important \emph{inverse Fourier theorem}\index{Fourier transform!inverse theorem}. 
 
-Equation (\ref{eq:fouriersolc}) is continous and bounded thus the inverse Fourier theorem qaranties that we recover $c$ by 
+Equation (\ref{eq:fouriersolc}) is continuous and bounded thus the inverse Fourier theorem garantees that we recover $c$ by 
 an inverse transform. We can rewrite Equation (\ref{eq:fouriersolc}) to 
 \begin{eqnarray}
 	\fourier{c}(k, t) = c_0 \sqrt{\pi} \sigma e^{-\alpha k^2} ,
 \end{eqnarray}
-with $\alpha = \frac{\sigma^2}{4} + Dt$. This is on the same form as Equation (\ref{eq:expx2F}), and we can simply substitue and get
+with $\alpha = \frac{\sigma^2}{4} + Dt$. This is of the same form as Equation (\ref{eq:expx2F}), and
+we can simply substitute and get
 \begin{eqnarray}
 	\label{eq:solcfinal}
 	c(x,t)=\frac{c_0 \sigma}{\sqrt{\sigma^2 + 4 D t}} \, e^{-x^2/(\sigma^2 + 4Dt)} \, .
