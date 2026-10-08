@@ -385,16 +385,17 @@ function of $n$ (for $n$ odd $b_n$ is not shown). We see that the coefficients d
 giving us the hope that the Fourier series actually converges. 
 Needless to say, a convincing argument requires a proof, which we do not pursue here. 
 
-Function representations in terms of Fourier series can be understood more abstractly 
-by viewing the functions as vectors as we did above. In this way, one has an inifinite dimensional  
-vector space spanned by 
+Function representations in terms of Fourier series can be view in terms of vector spaces. 
+Consider the inifinite dimensional vector space spanned by the set
 \begin{equation}
-	\mathcal{V} = \left\{ 1, \cos(n\pi x/L), \sin(n\pi x/L) : n \in \mathbb{N}_{+}\right\}
+	\mathcal{V} = \left\{ 1, \cos(n\pi x/L), \sin(n\pi x/L) : n \in \mathbb{N}_{+}\right\} \, .
 \end{equation}
-that forms an orthogonal basis with respect to the inner product Eq. (\ref{eq:innerdef}). 
-The Fourier coefficients are therefore the coefficients of the function 
-representation in this basis. More advanced treatments 
-formalize this idea using Hilbert spaces.
+If we equip this vector space with the inner product, Eq. (\ref{eq:innerdef}), $\mathcal{V}$ 
+forms an orthogonal basis. The Fourier representation of a function is then the function 
+represented in $\mathcal{V}$ by the Fourier coefficients. 
+A vector space with inner product is also known as an inner product
+space having norm defined by the inner product $||f|| = \sqrt{\langle f, f\rangle}$. 
+More advanced treatments formalize this idea using Hilbert spaces.
 
 
 \vspace{2cm}
@@ -483,13 +484,14 @@ and Dirichlet BCs
 	\label{eq:bcstart}
 	c(0, t) = c(L,t) = 0 \, .
 \end{eqnarray}
-The starting point is that we assume $c$ can be written as a product of two function, $X$ and $T$, which 
-depends on $x$ and $t$, respectively. That is,
+The starting point is that we assume $c$ can be written as a product of two functions, 
+$X$ and $T$, which depends on $x$ and $t$, respectively. That is,
 \begin{eqnarray}
 	c(x,t) = X(x)T(t) \, .
 \end{eqnarray}
-This is referred to as \emph{separation of variables}\index{Separation of variables}. Of course, factorizing a function in this manner
-is not generally true.
+This is referred to as \emph{separation of variables}\index{Separation of variables}. 
+Clearly, most function cannot be written in this form. The key observation is that 
+sufficiently many solutions of this type exist to construct the general solution through superposition.
 \begin{question}
 Can you give examples of functions that are not separable and some that are separable?
 \end{question}
@@ -516,10 +518,11 @@ That we chose the constant to be $-\alpha$ is a matter of convenience. If
 $\alpha = 0$ we get the trivial time independent solution $X(x) = 0$ due to the
 boundary conditions which we avoid. 
 
-Before we continue, it is worth to highlight what just happened: Assuming that $c$ can be factorized into 
+Before we continue, it is worth to emphasizing what just happened: 
+Assuming that $c$ can be factorized into 
 a product of $X$ and $T$ we have transformed our (linear) 
 partial differential equation into a problem of two (linear) ordinary differential 
-equation for $X$ and $T$; and we can solve these two equations. 
+equations for $X$ and $T$; and we can solve these two equations. 
 
 We start out by solving for $X$. Rearranging once again, we get
 \begin{eqnarray}
@@ -529,7 +532,7 @@ We need the boundary conditions to continue. From Equation (\ref{eq:bcstart})
 \begin{eqnarray}
 	c(0, t) = X(0)T(t) = 0 \ \Rightarrow X(0) = 0\, ,
 \end{eqnarray}
-because $T \neq 0$.  The same is true for $x=L$, and we have Dirichlet BCs $X(0)=X(L)=0$. 
+when $T \neq 0$.  The same is true for $x=L$, and we have Dirichlet BCs $X(0)=X(L)=0$. 
 We solved this exact boundary value problem in Section \ref{stst:sectBVP}, where
 we could safely argue that $\alpha > 0$ since both the rate constant and the
 diffusion coefficient are positive. We cannot use this argument here, but since 
@@ -558,7 +561,7 @@ with the general solution
 \end{eqnarray}
 We will not use the IC just yet. 
 
-From above we see that there are infinite many solutions to $c$, namely, 
+From above we see that there are infinitely many solutions to $c$, namely, 
 \begin{eqnarray}
 	c_n(x,t) = X_n(x)T_n(t) = b_n  e^{-(n\pi/L)^2Dt}  \sin\left(\frac{n\pi}{L} x\right) \, ,
 \end{eqnarray}
@@ -575,12 +578,12 @@ solution given in Equation(\ref{eq:soldifdibc}) we have at $t=0$
 	\label{eq:soldiffDirichelt}
 	c(x, 0) = f(x) = \sum_{n=1}^\infty b_n  \sin\left(\frac{n\pi}{L} x\right) \, .
 \end{eqnarray}
-The IC is given by a Fourier sine series (and is odd). Thus, we can obtain the coefficients $b_n$ from the 
-Euler-Fourier equation
+The IC is given by a Fourier sine series and the extension to $-L\leq x \leq L$ is an odd function. 
+Thus, we can obtain the coefficients $b_n$ from the Euler-Fourier equation
 \begin{eqnarray}
 	\label{eq:bnf}
 	b_n = \frac{1}{L}\left\langle f(x), \sin\left(\frac{n\pi}{L} x\right) \right \rangle= 
-	 \frac{2}{L} \int_{0}^L f(x) \sin\left(\frac{n\pi}{L} x\right) \, \d x \ ,
+	 \frac{2}{L} \int_{0}^L f(x) \sin\left(\frac{n\pi}{L} x\right) \, \d x 
 \end{eqnarray}
 since the product of two odd functions is even, see exercise \ref{ex:fourierevenodd}. 
 
@@ -598,7 +601,8 @@ since the product of two odd functions is even, see exercise \ref{ex:fouriereven
 		b_n &=& \frac{2c_0}{L} \int_0^L \sin\left( \frac{\pi n}{L} x \right) \nonumber \\
 			&=& -\frac{2c_0}{n\pi}( (-1)^n - 1) \, .
 	\end{eqnarray}
-	Notice that $b_n = 0$ for $n$ even and $b_n = 4c_0/n\pi$ for $n$ odd.
+	Notice that $b_n = 0$ for $n$ even and $b_n = 4c_0/n\pi$ for $n$ odd. Moreover, the IC
+	is incompatible with the BCs, however, the solution still exists. 
 \end{example}	
 
 \begin{wrapfigure}{r}{0.4\textwidth}
@@ -626,24 +630,26 @@ where $a = (c_2-c_1)/L$. We now define the function
 \begin{eqnarray}
 	\overline{c} (x,t) = c(x,t) - c_\text{st}(x) \, , 
 \end{eqnarray}
-where we substract the steady-state case from $c$. Note that 
+where we subtract the steady-state case from $c$. The purpose of this transformation is 
+to convert non-homogeneous boundary conditions into homogeneous boundary conditions. 
+Note that 
 \begin{eqnarray}
 	\frac{\partial c}{\partial t} = \frac{\partial \overline{c}}{\partial t} 
 \end{eqnarray}
 and
 \begin{eqnarray}
 	\frac{\partial^2 c}{\partial x^2} = \frac{\partial^2 \overline{c}}{\partial x^2} 
-	- \frac{\d^2  c_{\text{sf}}}{\d x^2} = \frac{\partial^2 \overline{c}}{\partial x^2}
+	- \frac{\d^2  c_{\text{st}}}{\d x^2} = \frac{\partial^2 \overline{c}}{\partial x^2}
 	\, .
 \end{eqnarray}
-This means that $\overline{c}$ also fulfilles the diffusion equation
+This means that $\overline{c}$ also fulfils the diffusion equation
 \begin{eqnarray}
 	\frac{\partial \overline{c}}{\partial t} = D\frac{\partial^2\overline{c}}{\partial{x}^2} \, .
 \end{eqnarray}
 Moreover, the new function $\overline{c}$ has BCs
 \begin{eqnarray}
 	\overline{c} (0,t) &=& c(0,t) - c_\text{st}(0) = 0 \, ,\\
-	\overline{c} (L,t) &=& c(L,t) - c_\text{sf}(L) = 0 \, ,
+	\overline{c} (L,t) &=& c(L,t) - c_\text{st}(L) = 0 \, ,
 \end{eqnarray}
 and IC
 \begin{eqnarray}
@@ -673,7 +679,7 @@ where $b_n$ is found directly from Equation (\ref{eq:bnf})
 	\end{exercise}	
 
 	\begin{exercise}
-		Solve the diffusion equation on the domian $0 \leq x \leq 1$ with Dirichlet BCs
+		Solve the diffusion equation on the domain $0 \leq x \leq 1$ with Dirichlet BCs
 		\begin{eqnarray}
 			c(0,t)=0 \ \text{and} \ c(1,t)=1
 		\end{eqnarray}
@@ -685,7 +691,6 @@ where $b_n$ is found directly from Equation (\ref{eq:bnf})
 		actually is a solution to the diffusion equation
 		with zero Dirichlet BCs. (Hint: Substitute the solution into the
 		diffusion equation and compare the two sides of the equation.)
-		Then give a necessary condition for the existence of the solution. 
 	\end{exercise}
 
 	\begin{exercise} \label{expl:diffneumann}
@@ -697,7 +702,7 @@ where $b_n$ is found directly from Equation (\ref{eq:bnf})
 		\begin{eqnarray}
 			\left.\frac{\partial c}{\partial x}\right|_{x=0}=\left.\frac{\partial c}{\partial x}\right|_{x=L}=0 \, .
 		\end{eqnarray}
-		Use seperation of variable to show the solution to this is	given by
+		Use separation of variable to show the solution to this is	given by
 		\begin{eqnarray}
 			c(x,t)=\frac{a_0}{2} + \sum_{n=1}^\infty a_n e^{-(n\pi/L)^2Dt}  
 			\cos\left(\frac{n\pi}{L} x\right) \, ,
